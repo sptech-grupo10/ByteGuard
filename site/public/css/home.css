@@ -1,0 +1,37 @@
+header {
+  width: 100vw;
+  background-color: #151515;
+}
+
+nav {
+  display: flex !important;
+  height: 104px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  height: 70%;
+}
+
+nav ul {
+  display: flex;
+  color: white;
+  font-size: 24px;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.accountItem {
+  height: 40%;
+}
+
+.accountItem img {
+  height: 100%;
+}
