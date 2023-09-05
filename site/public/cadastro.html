@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <script src="./js/cadastro.js" defer></script>
+    <link rel="stylesheet" href="./css/cadastro.css" />
+  </head>
+  <body>
+    <div class="forms">
+      <div class="form-cadastro">
+        <input placeholder="Usuário" value="kauan" id="iusername" />
+        <input placeholder="E-mail" value="kauan@mail.com" id="iemail" />
+        <input placeholder="Senha" type="password" id="isenha" />
+        <div class="validadoresSenha">
+          <span class="cookie c8char">A senha deve ter 8 ou mais caractéres</span>
+          <span class="cookie maiuscula"
+            >A senha deve conter uma ou mais letras maiúsculas</span
+          >
+          <span class="cookie nums">A senha deve conter um ou mais números</span>
+          <span class="cookie espec"
+            >A senha deve conter um ou mais caractéres especiais (!, @, #,
+            $...)</span
+          >
+        </div>
+        <input
+          placeholder="Confirmar senha"
+          type="password"
+          id="iconfirmsenha"
+        />
+        <span class="senhasIdenticas">As senhas devem ser idênticas</span>
+        <button id="btCadastrar">Cadastrar</button>
+      </div>
+    </div>
+  </body>
+</html>

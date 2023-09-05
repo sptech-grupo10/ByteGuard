@@ -1,0 +1,21 @@
+.forms{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 1rem;
+}
+
+.validadoresSenha{
+    display: flex;
+    flex-direction: column;
+}
+
+.validado{
+    color: green !important;
+}
