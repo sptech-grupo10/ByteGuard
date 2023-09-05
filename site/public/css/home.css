@@ -8,8 +8,11 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-body {
+html, body{
   overflow-x: hidden;
+}
+
+body {
   position: relative;
 }
 
@@ -266,8 +269,8 @@ main {
   .vertical-nav {
     display: flex;
     justify-content: center;
-    position: absolute;
-    width: 80vw;
+    position: fixed;
+    width: 80%;
     height: 250vh;
     background-color: #151515;
     z-index: 5;
@@ -276,7 +279,7 @@ main {
   }
 
   .vertical-nav ul {
-    margin-top: 2rem;
+    margin-top: 7rem;
     font-family: "Neue Haas Grotesk Display Pro";
     display: flex;
     flex-direction: column;
@@ -284,8 +287,7 @@ main {
     font-size: 24px;
     gap: 1rem;
   }
-
-
+  
   .welcome-img {
     position: relative;
   }

@@ -16,13 +16,12 @@ descTitles.forEach(title => {
     })
 })
 
-if (window.innerWidth < 600) {
-    console.log('sim');
+if (window.outerWidth < 600) {
     document.querySelector('.options-icon').addEventListener('click', (e) => {
         verticalNavStyle = document.querySelector('.vertical-nav').style
-        if(verticalNavStyle.left > '0%'){
+        if (verticalNavStyle.left != '0%') {
             verticalNavStyle.left = '-100%'
-        }else{
+        } else {
             verticalNavStyle.left = '0%'
         }
     })
