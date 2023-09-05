@@ -1,5 +1,9 @@
 @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 
+:root{
+  --title-border-top: 0%;
+}
+
 * {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -21,7 +25,8 @@ nav {
   justify-content: space-evenly;
   width: 100%;
 }
-.espacoNav{
+
+.espacoNav {
   height: 0%;
   width: 0%;
 }
@@ -54,6 +59,10 @@ nav ul {
 main {
   position: relative;
   width: 100vw;
+  height: 200vh;
+}
+
+.welcome {
   height: 100vh;
 }
 
@@ -73,7 +82,7 @@ main {
   width: 17rem;
 }
 
-.welcome-text{
+.welcome-text {
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
@@ -82,8 +91,8 @@ main {
   margin: 6.2rem 0 0 6rem;
 }
 
-.welcome-header{
-  margin-left: .2rem;
+.welcome-header {
+  margin-left: 0.2rem;
 }
 
 .welcome-text .header-text {
@@ -91,39 +100,156 @@ main {
   font-weight: 600;
 }
 
-.welcome-body .body-text{
+.welcome-body .body-text {
   font-size: 1.5rem;
   font-weight: 400;
 }
 
-.welcome-img{
+.welcome-img {
   width: 30rem;
   position: absolute;
   right: 5rem;
   top: 0;
 }
-@media only screen and (max-width: 600px){
 
+.title-icon {
+  background-color: #337bff;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.desc-title {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: 3rem;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+.desc-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.desc-main {
+  display: flex;
+  position: relative;
+  width: 60rem;
+  height: 34.3rem;
+}
+
+.desc-main::after {
+  content: "";
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  border-radius: 1.3rem;
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 47%,
+      rgba(0, 212, 255, 0) 100%);
+}
+
+.desc-left {
+  border-radius: 1.3rem;
+  background-color: black;
+  width: 100%;
+}
+
+.desc-left .title-list-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin-top: 3rem;
+}
+
+.title-list-container .title-list-border {
+  position: absolute;
+  left: 1rem;
+  background-color: #4f4a45;
+  z-index: 3;
+  width: 3px;
+  height: 110%;
+  top: -0.5rem;
+  border-radius: 5px;
+}
+
+.title-list-container .title-list-border::after {
+  position: absolute;
+  content: "";
+  background-color: #337bff;
+  transition: all 300ms;
+  z-index: 3;
+  width: 3px;
+  height: 33%;
+  border-radius: 5px;
+  top: var(--title-border-top);
+}
+
+.desc-left .title-list {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title-list-container .title-integridade,
+.title-list-container .title-inovacao,
+.title-list-container .title-equidade {
+  color: #4f4a45;
+  font-size: 2rem;
+  font-family: "Neue Haas Grotesk Display Pro";
+  font-weight: 700;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
+.desc-left .active {
+  color: white;
+}
+
+.desc-right {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  height: 100%;
+  border-radius: 1.3rem;
+  background: url("../assets/imgs/integridade-img.png") no-repeat;
+  background-size: cover;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
   @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 
   * {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
   }
-  
-  body{
+
+  body {
     display: flex;
-    justify-content:center;
-    
-    height:100vh ;
+    justify-content: center;
+
+    height: 100vh;
     width: 100vw;
   }
-  
+
   header {
     width: 25vw;
     height: 100vh;
     background-color: #151515;
-  } 
-  
+  }
+
   nav {
     display: flex !important;
     flex-direction: column;
@@ -132,21 +258,21 @@ main {
     justify-content: space-evenly;
     width: 100%;
   }
-  
-  .espacoNav{
+
+  .espacoNav {
     height: 0%;
     width: 0%;
   }
-  
+
   a {
     color: white;
     text-decoration: none;
   }
-  
+
   .logo {
     height: 7%;
   }
-  
+
   nav ul {
     display: flex;
     flex-direction: column;
@@ -157,15 +283,15 @@ main {
     justify-content: space-evenly;
     align-items: center;
   }
-  
+
   .accountItem {
     height: 6%;
   }
-  
+
   .accountItem img {
     height: 100%;
   }
-  
+
   main {
     position: relative;
     display: flex;
@@ -175,7 +301,7 @@ main {
     width: 75vw;
     height: 100vh;
   }
-  
+
   .logo-blue-blur {
     position: absolute;
     z-index: -1;
@@ -183,20 +309,20 @@ main {
     left: 0;
     width: 100%;
   }
-  
+
   .logo-name {
     display: flex;
     justify-content: center;
     margin-top: unset;
     margin-left: unset;
-width: 100%;
+    width: 100%;
   }
-  
+
   .white-logo-name {
     width: 17%;
   }
-  
-  .welcome-text{
+
+  .welcome-text {
     display: flex;
     flex-direction: column;
     gap: unset;
@@ -204,28 +330,25 @@ width: 100%;
     width: 100%;
     margin: 0%;
   }
-  
-  .welcome-header{
+
+  .welcome-header {
     width: 100%;
   }
-  
+
   .welcome-text .header-text {
     font-size: 80%;
     font-weight: 600;
   }
-  
-  .welcome-body .body-text{
+
+  .welcome-body .body-text {
     font-size: 75%;
     font-weight: 400;
   }
-  
-  .welcome-img{
+
+  .welcome-img {
     width: 95%;
-    position:unset;
+    position: unset;
     right: unset;
     top: unset;
   }
-
-
-
 }
