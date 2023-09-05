@@ -1,6 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 
-:root{
+:root {
   --title-border-top: 0%;
 }
 
@@ -10,12 +10,23 @@
 
 body {
   overflow-x: hidden;
+  position: relative;
+}
+
+.options {
+  display: none;
+}
+
+.vertical-nav {
+  display: none;
 }
 
 header {
   width: 100vw;
   background-color: #151515;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
@@ -24,11 +35,6 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-}
-
-.espacoNav {
-  height: 0%;
-  width: 0%;
 }
 
 a {
@@ -57,6 +63,7 @@ nav ul {
 }
 
 main {
+  margin-top: 5rem;
   position: relative;
   width: 100vw;
   height: 200vh;
@@ -236,119 +243,50 @@ main {
       sans-serif;
   }
 
-  body {
+  .accountItem {
+    position: absolute;
+    right: 1rem;
+  }
+
+  .options {
+    position: absolute;
+    left: 1rem;
     display: flex;
-    justify-content: center;
-
-    height: 100vh;
-    width: 100vw;
+    width: 30px;
   }
 
-  header {
-    width: 25vw;
-    height: 100vh;
-    background-color: #151515;
-  }
-
-  nav {
-    display: flex !important;
-    flex-direction: column;
-    height: 100%;
-    align-items: center;
-    justify-content: space-evenly;
+  .options-icon {
     width: 100%;
-  }
-
-  .espacoNav {
-    height: 0%;
-    width: 0%;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .logo {
-    height: 7%;
   }
 
   nav ul {
+    display: none;
+  }
+
+  .vertical-nav {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 80vw;
+    height: 250vh;
+    background-color: #151515;
+    z-index: 5;
+    transition: all 200ms;
+    left: -100%;
+  }
+
+  .vertical-nav ul {
+    margin-top: 2rem;
+    font-family: "Neue Haas Grotesk Display Pro";
     display: flex;
     flex-direction: column;
     color: white;
-    font-size: 30px;
-    height: 30%;
-    width: 95%;
-    justify-content: space-evenly;
-    align-items: center;
+    font-size: 24px;
+    gap: 1rem;
   }
 
-  .accountItem {
-    height: 6%;
-  }
-
-  .accountItem img {
-    height: 100%;
-  }
-
-  main {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 75vw;
-    height: 100vh;
-  }
-
-  .logo-blue-blur {
-    position: absolute;
-    z-index: -1;
-    top: -10%;
-    left: 0;
-    width: 100%;
-  }
-
-  .logo-name {
-    display: flex;
-    justify-content: center;
-    margin-top: unset;
-    margin-left: unset;
-    width: 100%;
-  }
-
-  .white-logo-name {
-    width: 17%;
-  }
-
-  .welcome-text {
-    display: flex;
-    flex-direction: column;
-    gap: unset;
-    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-    width: 100%;
-    margin: 0%;
-  }
-
-  .welcome-header {
-    width: 100%;
-  }
-
-  .welcome-text .header-text {
-    font-size: 80%;
-    font-weight: 600;
-  }
-
-  .welcome-body .body-text {
-    font-size: 75%;
-    font-weight: 400;
-  }
 
   .welcome-img {
-    width: 95%;
-    position: unset;
-    right: unset;
-    top: unset;
+    position: relative;
   }
 }

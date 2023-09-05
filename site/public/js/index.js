@@ -10,8 +10,20 @@ descTitles.forEach(title => {
                 }
             })
             e.target.classList.add('active')
-            titleListBorder.style.setProperty('--title-border-top', e.target.getAttribute('border')+'%')
+            titleListBorder.style.setProperty('--title-border-top', e.target.getAttribute('border') + '%')
 
         }
     })
 })
+
+if (window.innerWidth < 600) {
+    console.log('sim');
+    document.querySelector('.options-icon').addEventListener('click', (e) => {
+        verticalNavStyle = document.querySelector('.vertical-nav').style
+        if(verticalNavStyle.left > '0%'){
+            verticalNavStyle.left = '-100%'
+        }else{
+            verticalNavStyle.left = '0%'
+        }
+    })
+}
