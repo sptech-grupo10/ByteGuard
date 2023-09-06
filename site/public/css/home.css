@@ -275,7 +275,6 @@ main {
     background-color: #151515;
     z-index: 5;
     transition: all 200ms;
-    left: -100%;
   }
 
   .vertical-nav ul {

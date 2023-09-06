@@ -19,10 +19,11 @@ descTitles.forEach(title => {
 if (window.outerWidth < 600) {
     document.querySelector('.options-icon').addEventListener('click', (e) => {
         verticalNavStyle = document.querySelector('.vertical-nav').style
-        if (verticalNavStyle.left != '0%') {
-            verticalNavStyle.left = '-100%'
-        } else {
+        console.log(verticalNavStyle.left);
+        if(verticalNavStyle.left == '-100%'){
             verticalNavStyle.left = '0%'
+        }else{
+            verticalNavStyle.left = '-100%'
         }
     })
 }
