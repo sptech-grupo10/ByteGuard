@@ -12,7 +12,8 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-html, body{
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -62,14 +63,14 @@ nav ul {
 }
 
 main {
-  margin-top: 5rem;
+  margin-top: 6rem;
   position: relative;
   width: 100vw;
   height: 200vh;
 }
 
 .welcome {
-  height: 100vh;
+  height: 80vh;
 }
 
 .logo-blue-blur {
@@ -115,7 +116,7 @@ main {
   width: 30rem;
   position: absolute;
   right: 5rem;
-  top: 0;
+  top: 4rem;
 }
 
 .title-icon {
@@ -136,7 +137,7 @@ main {
 .desc-container {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   align-items: center;
   justify-content: center;
 }
@@ -160,6 +161,22 @@ main {
       rgba(0, 0, 0, 1) 0%,
       rgba(0, 0, 0, 1) 47%,
       rgba(0, 212, 255, 0) 100%);
+}
+
+.desc-text-container{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.desc-text{
+  z-index: 267;
+  position: relative;
+  color: white;
+  font-size: 1.4rem;
+  font-family: "Neue Haas Grotesk Display Pro";
+  width: 70%;
 }
 
 .desc-left {
@@ -212,7 +229,7 @@ main {
 .title-list-container .title-inovacao,
 .title-list-container .title-equidade {
   color: #4f4a45;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: "Neue Haas Grotesk Display Pro";
   font-weight: 700;
   transition: all 300ms;
@@ -229,7 +246,7 @@ main {
   right: 0;
   height: 100%;
   border-radius: 1.3rem;
-  background: url("../assets/imgs/integridade-img.png") no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   width: 50%;
 }
@@ -285,25 +302,27 @@ main {
     gap: 1rem;
   }
 
-  .logo-name{
-    margin-top: 2rem;
+  .logo-name {
+    margin-top: 1.1rem;
     margin-left: unset;
   }
-  
+
   .welcome-img {
     position: relative;
+    width: 24rem;
     top: 3rem;
     right: unset;
     width: 24rem;
   }
 
-  .welcome{
+  .welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
   }
 
-  .welcome-text{
+  .welcome-text {
     margin: 5rem 0 0 0;
     width: 80%;
   }
