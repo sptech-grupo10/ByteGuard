@@ -4,17 +4,20 @@
   --title-border-top: 0%;
 }
 
-.mobile{
+.desc-container.mobile {
   display: none;
+}
+
+.mobile {
+  display: none;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 * {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-html,
-body {
-  overflow-x: hidden;
 }
 
 body {
@@ -163,14 +166,14 @@ main {
       rgba(0, 212, 255, 0) 100%);
 }
 
-.desc-text-container{
+.desc-text-container {
   width: 50%;
   display: flex;
   justify-content: center;
   margin-top: 3rem;
 }
 
-.desc-text{
+.desc-text {
   z-index: 267;
   position: relative;
   color: white;
@@ -259,7 +262,11 @@ main {
       sans-serif;
   }
 
-  .mobile{
+  body {
+    overflow-x: hidden;
+  }
+
+  .mobile {
     display: flex;
   }
 
@@ -327,23 +334,62 @@ main {
     width: 80%;
   }
 
-  .desc-title{
+  .desc-title {
     margin-top: 22rem;
+    margin-bottom: 3rem;
     margin-left: unset;
     justify-content: center;
   }
 
-  .desc-title > span{
+  .desc-title>span {
     font-size: 1.3rem;
   }
 
-  .desc-container{
+  .desc-container {
     display: none;
   }
 
-  .desc-container.mobile .desc-main{
+  .desc-container.mobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .desc-container.mobile .desc-main-mobile {
+    font-size: 3rem;
+    border-radius: 1rem;
     height: 80vh;
-    width: 80vw;
+    width: 24rem;
     background-color: #151515;
+    overflow-y: scroll;
+    color: white;
+    scroll-snap-type: x mandatory;
+  }
+
+  .title-list-container-mobile {
+    position: relative;
+    display: flex;
+    margin-top: 1rem;
+    width: 300%;
+  }
+
+  .desc-integridade-main-mobile,
+  .desc-Inovação-main-mobile,
+  .desc-Equidade-main-mobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+
+  .desc-integridade-main-mobile span,
+  .desc-Inovação-main-mobile span,
+  .desc-Equidade-main-mobile span{
+    display: flex;
+    width: 60%;
+    border-bottom: 1px solid #337bff;
+    justify-content: center;
+    padding-bottom: 6px;
   }
 }
