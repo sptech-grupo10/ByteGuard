@@ -123,10 +123,15 @@ main {
 }
 
 .title-icon {
+  margin-bottom: 2rem;
   background-color: #337bff;
   width: 13px;
   height: 13px;
   border-radius: 50%;
+}
+
+.desc-title span {
+  margin-bottom: 2rem;
 }
 
 .desc-title {
@@ -139,6 +144,7 @@ main {
 
 .desc-container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 80vh;
   align-items: center;
@@ -392,4 +398,20 @@ main {
     justify-content: center;
     padding-bottom: 6px;
   }
+}
+
+/*Sobre nós*/
+
+.aboutUs-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Neue Haas Grotesk Display Pro";
+}
+
+.aboutUs-container span {
+  width: 50px;
+}
+
+.aboutUs-container p {
+  flex-direction: column;
 }

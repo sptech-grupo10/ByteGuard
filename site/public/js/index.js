@@ -8,13 +8,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
 function mudarSpanDescText() {
     let descTitleActive = document.querySelector('.desc-title.active')
     if (descTitleActive.classList.contains('title-integridade')) {
-        spanDescText.innerText = 'A Integridade está no centro do nosso DNA, e é isso que nos permite liderar o caminho na promoção da integridade e justiça nos e-Sports. Estamos constantemente buscando maneiras de aprimorar e avançar em nossa tecnologia para garantir que ela esteja sempre na vanguarda da indústria de e-Sports.'
+        spanDescText.innerText = 'A integridade é o nosso alicerce. Nosso compromisso com a integridade é evidente em tudo o que fazemos. Desenvolvemos e implementamos soluções de monitoramento de desempenho para garantir que cada partida seja uma demonstração genuína de habilidade e talento.'
         document.querySelector('.desc-right').style.backgroundImage = "url('./assets/imgs/integridade-img.png')"
     }else if(descTitleActive.classList.contains('title-inovacao')){
         spanDescText.innerText = 'A inovação está no centro do nosso DNA, e é isso que nos permite liderar o caminho na promoção da integridade e justiça nos e-Sports. Estamos constantemente buscando maneiras de aprimorar e avançar em nossa tecnologia para garantir que ela esteja sempre na vanguarda da indústria de e-Sports.'
-        document.querySelector('.desc-right').style.backgroundImage = "url('./assets/imgs/welcome-img.png')"
+        document.querySelector('.desc-right').style.backgroundImage = "url('./assets/imgs/inovacao-img.png')"
     }else if(descTitleActive.classList.contains('title-equidade')){
-        spanDescText.innerText = 'A equidade está no centro do nosso DNA, e é isso que nos permite liderar o caminho na promoção da integridade e justiça nos e-Sports. Estamos constantemente buscando maneiras de aprimorar e avançar em nossa tecnologia para garantir que ela esteja sempre na vanguarda da indústria de e-Sports.'
+        spanDescText.innerText = 'Nossa missão é assegurar que todas as partidas sejam disputadas em um campo de jogo nivelado, onde o talento e a habilidade sejam os únicos determinantes do sucesso.'
         document.querySelector('.desc-right').style.backgroundImage = "url('./assets/imgs/equidade-img.png')"
     }
 }
