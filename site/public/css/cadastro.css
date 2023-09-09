@@ -1,21 +1,246 @@
-.forms{
-    display: flex;
-    justify-content: center;
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.mobile {
+    display: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+* {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body {
+    overflow: hidden;
+    position: relative;
+}
+
+header {
+    width: 100vw;
+    background-color: #151515;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex !important;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
 }
 
-.form-cadastro{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    gap: 1rem;
+a {
+    color: white;
+    text-decoration: none;
 }
 
-.validadoresSenha{
-    display: flex;
-    flex-direction: column;
+.logo {
+    height: 70%;
 }
 
-.validado{
-    color: green !important;
+nav ul {
+    display: flex;
+    color: white;
+    font-size: 24px;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.accountItem {
+    height: 40%;
+}
+
+.accountItem img {
+    height: 100%;
+}
+
+main {
+    margin-top: 6rem;
+    height: 100vh;
+}
+
+.cadastro-titulo {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+.cadastro-desc {
+    font-size: 2.5rem;
+}
+
+.cadastro {
+    margin-top: 10rem;
+    margin-left: 6rem;
+    display: flex;
+    gap: 1.3rem;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.forms {
+    display: flex;
+    width: 100%;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-left: 6rem;
+}
+
+.validadores-senha {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+    margin-top: 1.3rem;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    gap: .3rem;
+}
+
+.validadores-senha>span:nth-child(1) {
+    margin-bottom: .6rem;
+}
+
+.validado {
+    background-image: url(../assets/imgs/check-icon.svg) !important;
+}
+
+.validador {
+    display: flex;
+    align-items: center;
+}
+
+.validadores-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(../assets/imgs/alert-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: .3rem;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    position: relative;
+    width: 100%;
+}
+
+.error-cookie {
+    position: absolute;
+    top: 3.6rem;
+    color: red;
+    width: 200%;
+}
+
+.input-row {
+    display: flex;
+    gap: 5rem
+}
+
+.input-span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+.input-container input {
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    transition: all 100ms;
+}
+
+.input-container input:focus {
+    transition: all 100ms;
+    outline: none;
+    border-bottom: 3px solid black;
+    margin-bottom: -2px;
+}
+
+#btCadastrar {
+    color: white;
+    background-color: #337BFF;
+    width: 169px;
+    height: 47px;
+    border-radius: 1rem;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50));
+}
+
+.opcao-login>a{
+    color: #337BFF;
+}
+
+.login-btcadastro{
+    display: flex;
+    align-items: center;
+    gap: 30%;
+}
+
+.main-img{
+    position: absolute;
+    bottom: 6rem;
+    right: 0;
+}
+
+.main-img>img{
+    width: 40rem;
 }
