@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro</title>
-    <script src="./js/cadastro.js" defer></script>
-    <link rel="stylesheet" href="./css/cadastro.css" />
-  </head>
-  <body>
-    <div class="forms">
-      <div class="form-cadastro">
-        <input placeholder="Usuário" value="kauan" id="iusername" />
-        <input placeholder="E-mail" value="kauan@mail.com" id="iemail" />
-        <input placeholder="Senha" type="password" id="isenha" />
-        <div class="validadoresSenha">
-          <span class="cookie c8char">A senha deve ter 8 ou mais caractéres</span>
-          <span class="cookie maiuscula"
-            >A senha deve conter uma ou mais letras maiúsculas</span
-          >
-          <span class="cookie nums">A senha deve conter um ou mais números</span>
-          <span class="cookie espec"
-            >A senha deve conter um ou mais caractéres especiais (!, @, #,
-            $...)</span
-          >
-        </div>
-        <input
-          placeholder="Confirmar senha"
-          type="password"
-          id="iconfirmsenha"
-        />
-        <span class="senhasIdenticas">As senhas devem ser idênticas</span>
-        <button id="btCadastrar">Cadastrar</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <script src="./js/cadastro.js" defer></script>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/cadastro.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="options mobile">
+        <img class="options-icon" src="./assets/imgs/options-icon.svg">
+      </div>
+      <img src="./assets/imgs/bitGuardLogoWhite.png" class="logo" />
+      <ul>
+        <li><a href="">Preços</a></li>
+        <li><a href="">Preços</a></li>
+        <li><a href="">Preços</a></li>
+        <li><a href="">Preços</a></li>
+      </ul>
+      <a href="#" class="accountItem"><img src="./assets/imgs/accountItem.png" /></a>
+    </nav>
+  </header>
+  <div class="main-img">
+    <img src="./assets/imgs/cadastro-img.png">
+  </div>
+  <main>
+    <div class="cadastro">
+      <div class="cadastro-titulo">
+        Cadastre-se
+      </div>
+      <div class="cadastro-desc">
+        Complete o seu cadastro e tenha acesso ao nosso monitoramento.
       </div>
     </div>
-  </body>
+    <div class="validadores-senha">
+      <span>A senha deve: </span>
+      <div class="validador">
+        <div class="validadores-icon c8char"></div>
+        <span class="cookie c8char">Conter 8 ou mais caractéres</span>
+      </div>
+      <div class="validador">
+        <div class="validadores-icon maiuscula"></div>
+        <span class="cookie maiuscula">Conter uma ou mais letras maiúsculas</span>
+      </div>
+      <div class="validador">
+        <div class="validadores-icon nums"></div>
+        <span class="cookie nums">Conter um ou mais números</span>
+      </div>
+      <div class="validador">
+        <div class="validadores-icon espec"></div>
+        <span class="cookie espec">Conter um ou mais caractéres especiais (!, @, #, $...)</span>
+      </div>
+      <div class="validador">
+        <div class="validadores-icon identicas"></div>
+        <span class="senhasIdenticas">As senhas devem ser idênticas</span>
+      </div>
+    </div>
+    <div class="forms">
+      <div class="form-cadastro">
+        <div class="input-row">
+          <div class="input-container">
+            <span class="input-span">Nome</span>
+            <input placeholder="Digite seu nome" id="iusername" />
+            <span class="error-cookie nome"></span>
+          </div>
+          <div class="input-container">
+            <span class="error-cookie email"></span>
+            <span class="input-span">Email</span>
+            <input placeholder="Digite seu email" id="iemail" />
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-container">
+            <span class="error-cookie senha"></span>
+            <span class="input-span">Senha</span>
+            <input placeholder="********" type="password" id="isenha" />
+          </div>
+
+          <div class="input-container">
+            <span class="error-cookie confirmSenha"></span>
+            <span class="input-span">Confirmar senha</span>
+            <input placeholder="********" type="password" id="iconfirmsenha" />
+          </div>
+        </div>
+        <div class="login-btcadastro">
+          <div class="opcao-login">Já possui uma conta? <a href="./login.html">Login</a></div>
+          <button id="btCadastrar">CADASTRAR</button>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+</body>
+
 </html>
