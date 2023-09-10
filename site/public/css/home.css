@@ -70,6 +70,10 @@ main {
   position: relative;
   width: 100vw;
   height: 200vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
 }
 
 .welcome {
@@ -253,6 +257,12 @@ main {
   background-size: cover;
   width: 50%;
 }
+nav a{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 @media only screen and (max-width: 600px) {
   @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
@@ -280,6 +290,7 @@ main {
     left: 1rem;
     width: 30px;
   }
+  
 
   .options-icon {
     width: 100%;
@@ -306,7 +317,8 @@ main {
     flex-direction: column;
     color: white;
     font-size: 24px;
-    gap: 1rem;
+    gap: 5rem;
+
   }
 
   .logo-name {
@@ -392,4 +404,16 @@ main {
     justify-content: center;
     padding-bottom: 6px;
   }
+
+  main {
+    margin-top: 6rem;
+    position: relative;
+    width: 100vw;
+    height: 275vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column; 
+   
+  }
+
 }
