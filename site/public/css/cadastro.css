@@ -81,6 +81,12 @@ a {
     color: white;
     text-decoration: none;
 }
+nav a{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 
 .logo {
     height: 70%;
@@ -118,7 +124,6 @@ main {
 }
 
 .cadastro {
-    margin-top: 10rem;
     margin-left: 6rem;
     display: flex;
     gap: 1.3rem;
