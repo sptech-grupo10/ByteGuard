@@ -1,0 +1,250 @@
+/* @keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+} */
+
+.mobile {
+    display: none;
+}
+
+.screen {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* flex-direction: column; */
+    /* padding: 5rem 0% 0% 0%; */
+    align-items: center;
+    /* justify-content: center; */
+    /* gap: 5%; */
+
+}
+
+.mainImage {
+    display: flex;
+    /* padding: 5% 16% 0% 0%; */
+    height: 90%;
+    margin-top: 5.5rem;
+    margin-right: 10rem;
+}
+
+.flexc {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+html {
+    overflow: hidden;
+}
+
+* {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+body, html{
+    height: 100% !important;
+  }
+
+body {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100% ;
+
+}
+
+header {
+    width: 100vw;
+    background-color: #151515;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex !important;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    height: 70%;
+}
+
+nav ul {
+    display: flex;
+    color: white;
+    font-size: 24px;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.accountItem {
+    height: 40%;
+}
+
+.accountItem img {
+    height: 100%;
+}
+
+.tittle {
+    flex-direction: row-reverse;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.texts span {
+    flex-direction: row-reverse;
+    color: #000;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.inputsBox {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    flex-direction: row-reverse;
+    gap: 10%;
+}
+
+input {
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    transition: all 100ms;
+
+}
+
+.signBox span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+.signBox  {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    padding-right: 4rem;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cadastro {
+    text-decoration: none;
+    color: #337BFF;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.loginButon{
+    color: white;
+    background-color: #337BFF;
+    width: 169px;
+    height: 47px;
+    border-radius: 1rem;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50));
+}
+
+.loginContent{
+    gap: 5rem;
+}
+
+.buttonBox{
+    width: 100%;
+    height: max-content;
+justify-content: space-between;
+
+}
+
+.top{
+    gap: 2rem;
+}
+
+.base{
+    gap: 3rem;
+}
