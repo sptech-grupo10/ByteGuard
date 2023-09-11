@@ -9,12 +9,15 @@
   <link rel="stylesheet" href="./css/reset.css" />
   <link rel="shortcut icon" href="./assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
   <script src="./js/index.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <div class="vertical-nav mobile" style="left: -100%;">
     <ul>
-      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href=".desc-container">Por que usar ByteGuard?</a></li>
       <li><a href="login.html">Login</a></li>
       <li><a href="">Preços</a></li>
       <li><a href="">Preços</a></li>
@@ -27,16 +30,15 @@
       </div>
       <a href="index.html"><img src="./assets/imgs/bitGuardLogoWhite.png" class="logo" /></a>
       <ul>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="">Preços</a></li>
-        <li><a href="">Preços</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#desc">Por que usar ByteGuard?</a></li>
+        <li><a href="#footer">Contato</a></li>
       </ul>
       <a href="./cadastro.html" class="accountItem"><img src="./assets/imgs/accountItem.png" /></a>
     </nav>
   </header>
   <main>
-    <div class="welcome">
+    <div class="welcome" id="home">
       <!-- <img src="./assets/imgs/logo-blue-blur.png" class="logo-blue-blur"/> -->
       <div class="logo-name">
         <img src="./assets/imgs/blue-logo-name.png" class="white-logo-name" />
@@ -59,7 +61,7 @@
       </div>
       <img src="./assets/imgs/welcome-img.png" class="welcome-img" />
     </div>
-    <div class="desc-title">
+    <div class="desc-title" id="desc">
       <div class="title-icon"></div>
       <span>PORQUE USAR BYTE GUARD?</span>
     </div>
@@ -94,39 +96,62 @@
             <span>
               Integridade
             </span>
+            <span class="textinho">A integridade é o nosso alicerce.Nosso compromisso com a integridade é eviudente em tudo que
+              fazemos. Desenvolvemos e implementamos soluções de monitoramento de desempenho para garantir que cada partida seja
+              uma demonstração genuyina de habilidade e talento.
+            </span>
           </div>
           <div class="desc-Inovação-main-mobile">
             <span>
               Inovação
+            </span>
+            <span class="textinho">A inovação esta no centro de nosso DNA, e é isso que nos permite liderar o caminho na promoção de 
+              integridade e justiça nos E-Sports. Estamos constantemente buscando maneiras de aprimorar e avançar em nossa tecnologia 
+              para garantir que ela esteja  sempre na vanguarda da indústria de E-Sports.
             </span>
           </div>
           <div class="desc-Equidade-main-mobile">
             <span>
               Equidade
             </span>
+            <span class="textinho">Nossa missão é assegurar que todas as partidas sejam disputadas em um campo de jogo nivelado, onde o
+              talento e a habilidade sejam os unicos determinantes do nosso sucesso.
+            </span>
           </div>
         </div>
       </div>
   </main>
 
-  <div class="desc-title">
-    <div class="title-icon"></div>
-    <span>SOBRE NÓS</span>
-  </div>
+  <footer id="footer">
+    <div class="left-side">
+      <div class="links">
+        <a href=""><img src="./assets/imgs/github-icon.png"></a>
+      </div>
+      <div class="contato">
+        <span>Telefone: +55 (11) 97041-6675</span>
+        <span>E-mail: contact@byte.guard</span>
+      </div>
+      <div class="contato-texto">
+        Fique à vontade para nos contatar a qualquer momento. Estamos ansiosos para ajudar você.
+      </div>
+    </div>
+    <div class="right-side">
+      <span>Contate-nos</span>
+      <div class="input-row">
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Sobrenome">
+      </div>
+      <input type="text" id="iAssunto" placeholder="Assunto">
 
-  <div class="aboutUs-container">
-    <p>
-      <span>
-        Nossa jornada começou com um objetivo claro: elevar o padrão de integridade e justiça nos e-Sports. Acreditamos que em um ambiente de competição, a igualdade de condições é essencial para garantir que o talento e a habilidade sejam os verdadeiros determinantes do sucesso.
-      </span>
-      <img src="./assets/imgs/graph-icon-img.png" alt="">
-    </p>
-    <p>
-      <span>
-        Fundada por entusiastas dos e-Sports e tecnologia, a ByteGuard se dedica ao desenvolvimento de soluções de monitoramento de desempenho de última geração. Nosso compromisso com a inovação e a qualidade nos impulsiona a buscar constantemente melhorias em nossas soluções.      
-      </span>
-      <img src="./assets/imgs/rocket-icon-img.png" alt="">
-    </p>
+      <button>Enviar</button>
+    </div>
+
+  </footer>
+  <div class="all-rights">
+    <img src="./assets/imgs/white-logo-name.png" class="rights-logo-name">
+    <span>Feito com ❤ pelos cria da SPTech</span>
+    <span>Byte Guard
+      © Byte Guard Inc. 2023 All Rights Reserved</span>
   </div>
 
 </body>
