@@ -17,7 +17,7 @@ html {
 }
 
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif !important;
 }
 
 body {
@@ -29,7 +29,7 @@ header {
   background-color: #151515;
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 600 !important;
 }
 
 nav {
@@ -70,6 +70,9 @@ main {
   position: relative;
   width: 100vw;
   height: 200vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .welcome {
@@ -254,6 +257,104 @@ main {
   width: 50%;
 }
 
+nav a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  height: 390px;
+  background-color: #181818;
+  color: white;
+  display: flex !important;
+  width: 100vw !important;
+  margin-top: 6rem;
+}
+
+footer .left-side {
+  margin-left: 6rem;
+  padding-top: 3rem;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+}
+
+footer .contato {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.contato-texto {
+  width: 20rem;
+}
+
+footer .right-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .right-side>span {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 5rem;
+}
+
+footer .input-row {
+  margin-top: 2rem;
+  gap: 1rem;
+  display: flex;
+}
+
+#iAssunto {
+  margin-top: 2rem;
+  width: 23rem;
+}
+
+footer input {
+  border-radius: 7px;
+  background: linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), #353535;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  width: 10rem;
+  padding: .3rem .9rem;
+}
+
+footer button {
+  width: 137px;
+  height: 54px;
+  border-radius: 26px;
+  background: #337BFF;
+  box-shadow: 0px 0px 25px 0px rgba(51, 123, 255, 0.20);
+  border: none;
+  font-size: 1.3rem;
+  margin-top: 1.2rem;
+}
+
+.all-rights{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  height: 6rem;
+  background-color: black;
+}
+
+.rights-logo-name{
+  width: 10rem;
+}
+
+.all-rights span{
+  color: #4f4a45;
+}
+
 @media only screen and (max-width: 600px) {
   @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 
@@ -281,6 +382,7 @@ main {
     width: 30px;
   }
 
+
   .options-icon {
     width: 100%;
   }
@@ -306,7 +408,8 @@ main {
     flex-direction: column;
     color: white;
     font-size: 24px;
-    gap: 1rem;
+    gap: 5rem;
+
   }
 
   .logo-name {
@@ -385,11 +488,123 @@ main {
 
   .desc-integridade-main-mobile span,
   .desc-Inovação-main-mobile span,
-  .desc-Equidade-main-mobile span{
+  .desc-Equidade-main-mobile span {
     display: flex;
     width: 60%;
     border-bottom: 1px solid #337bff;
     justify-content: center;
     padding-bottom: 6px;
   }
+
+  main {
+    margin-top: 6rem;
+    position: relative;
+    width: 100vw;
+    height: 270vh;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+  }
+  footer {
+    height: 100vh;
+    background-color: #181818;
+    color: white;
+    display: flex !important;
+    width: 100vw !important;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+  }
+  
+  footer .left-side {
+    margin-left: 11%;
+    padding-top: 10%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  footer .contato {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+  }
+  
+  .contato-texto {
+    width: 20rem;
+  }
+  
+  footer .right-side {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer .right-side>span {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 5rem;
+  }
+  
+  footer .input-row {
+    margin-top: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #iAssunto {
+    margin-top: 2rem;
+    width: 90%;
+  }
+  .textinho{
+    margin-top: 10%;
+     font-size: 50%;
+  }
+  
+  footer input {
+    border-radius: 7px;
+    background: linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), #353535;
+    border: none;
+    font-size: 1.6rem;
+    color: white;
+    width: 10rem;
+    padding: .3rem .9rem;
+  }
+  
+  footer button {
+    width: 137px;
+    height: 54px;
+    border-radius: 26px;
+    background: #337BFF;
+    box-shadow: 0px 0px 25px 0px rgba(51, 123, 255, 0.20);
+    border: none;
+    font-size: 1.3rem;
+    margin-top: 1.2rem;
+  }
+  
+  .all-rights{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 6rem;
+    background-color: black;
+  }
+  
+  .rights-logo-name{
+    width: 10rem;
+  }
+  
+  .all-rights span{
+    color: #4f4a45;
+  }
+
 }
