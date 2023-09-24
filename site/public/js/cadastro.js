@@ -20,7 +20,6 @@ document.querySelector("#btCadastrar").addEventListener("click", () => {
 });
 
 const verificarCookies = () => {
-  console.log('verificnaod');
   if (inputSenha.value.length < 8 && cookie8char.classList.contains("validado")) {
     cookie8char.classList.remove("validado");
   } else if (inputSenha.value.length > 7 && !cookie8char.classList.contains("validado")) {
@@ -123,7 +122,29 @@ function validarCadastro(username, email) {
     setTimeout(() => {
       errorCookieConfirmSenha.style.animation = 'none'
     }, 500)
-  } else{
-    alert('Cadastro realizado!')
+  } else {
+    cadastrar(username, email, inputSenha.value)
   }
+}
+
+function cadastrar(nomeFinal, emailFinal, senhaFinal) {
+  fetch(`${window.location.origin}/usuarios/cadastrar`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      nomeServer: nomeFinal,
+      emailServer: emailFinal,
+      senhaServer: senhaFinal
+    })
+  }).then(res => {
+    if (res.ok) {
+      console.log('Cadastro realizado!')
+    } else {
+      console.log('Erro no cadastro')
+    }
+  }).catch(e => {
+    console.log(`Erro: ${e}`)
+  })
 }
