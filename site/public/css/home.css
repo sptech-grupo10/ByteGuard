@@ -148,6 +148,39 @@ main {
   justify-content: center;
 }
 
+.desc-container .services {
+  width: 100%;
+  height: 450px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.desc-container .services .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: #000 1px solid;
+  border-radius: 15px;
+  height: 400px;
+  width: 300px;
+}
+
+.desc-container .services img {
+  height: 200px;
+}
+
+.desc-container .services .desc-item {
+  font-size: 23px;
+  font-weight: 700;
+  color: #000;
+  align-self: center;
+  padding: 15px;
+  text-align: center;
+}
+
 .desc-main {
   display: flex;
   position: relative;
