@@ -85,16 +85,17 @@ html {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-body, html{
+body,
+html {
     height: 100% !important;
-  }
+}
 
 body {
     overflow: hidden;
     position: relative;
     display: flex;
     width: 100%;
-    height: 100% ;
+    height: 100%;
 
 }
 
@@ -199,7 +200,7 @@ input {
     font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
-.signBox  {
+.signBox {
     font-size: 1.2rem;
     font-weight: 700;
     font-family: "Neue Haas Grotesk Display Pro", sans-serif;
@@ -218,7 +219,7 @@ input {
     line-height: normal;
 }
 
-.loginButon{
+.loginButon {
     color: white;
     background-color: #337BFF;
     width: 169px;
@@ -230,21 +231,24 @@ input {
     filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50));
 }
 
-.loginContent{
+.loginContent {
     gap: 5rem;
 }
 
-.buttonBox{
+.buttonBox {
     width: 100%;
     height: max-content;
-justify-content: space-between;
-
+    justify-content: space-between;
 }
 
-.top{
+.top {
     gap: 2rem;
 }
 
-.base{
+.base {
     gap: 3rem;
+}
+
+#cookie {
+    color: red;
 }

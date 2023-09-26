@@ -16,7 +16,16 @@ function cadastrar(nome, email, senha) {
     }
 }
 
+function login(email, senha) {
+    try {
+        return database.exec(`SELECT * FROM Usuario WHERE email = "${email}" AND senha = "${senha}"`)
+    }catch(e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
     retornarUsuarios,
-    cadastrar
+    cadastrar,
+    login
 }

@@ -22,7 +22,23 @@ function cadastrar(req, res) {
     }
 }
 
+function login(req, res) {
+    let email = req.params.email
+    let senha = req.params.senha
+
+    usuarioModel.login(email, senha)
+        .then(result => {
+            result.length > 0
+            ? res.status(200).json(result)
+            : res.status(204).send('Nenhum cadastro encontrado')
+        }).catch(e => {
+            console.log(`Erro no login: ${e.sqlMessage}`)
+            res.status(500).json
+        })
+}
+
 module.exports = {
     exibirUsuarios,
-    cadastrar
+    cadastrar,
+    login
 }
