@@ -1,4 +1,14 @@
-const iCep = document.querySelector('#iCep'), iCidade = document.querySelector('#iCidade'), iUf = document.querySelector('#iUf'), iBairro = document.querySelector('#iBairro'), iLogradouro = document.querySelector('#iLogradouro'), iNumero = document.querySelector('#iNumero'), iNome = document.querySelector('#iNome'), iTelefone = document.querySelector('#iTelefone'), iCpf = document.querySelector('#iCpf')
+const iCep = document.querySelector('#iCep'),
+    iCidade = document.querySelector('#iCidade'),
+    iUf = document.querySelector('#iUf'),
+    iBairro = document.querySelector('#iBairro'),
+    iLogradouro = document.querySelector('#iLogradouro'),
+    iNumero = document.querySelector('#iNumero'),
+    iNome = document.querySelector('#iNome'),
+    iTelefone = document.querySelector('#iTelefone'),
+    iEmail = document.querySelector('#iEmail'),
+    iCpf = document.querySelector('#iCpf'),
+    cookie = document.querySelector('#error-cookie')
 
 iCep.addEventListener('input', () => {
     iCep.value = iCep.value.replace(/\D/g, '')
@@ -17,8 +27,16 @@ document.querySelector('#btcadastrar').addEventListener('click', () => {
 
 document.querySelector('#btBuscarCep').addEventListener('click', buscarCep)
 
-function buscarCep() {
+function resetarCamposCep() {
+    iCidade.value = ''
+    iUf.value = ''
+    iBairro.value = ''
+    iLogradouro.value = ''
     iCep.style.color = 'black';
+}
+
+function buscarCep() {
+    resetarCamposCep()
     fetch(`https://viacep.com.br/ws/${document.querySelector('#iCep').value}/json/`, {
         method: 'GET',
         headers: {
@@ -40,6 +58,15 @@ function buscarCep() {
 }
 
 function cadastrarEndereco() {
+    let erro = validarCampos(iCep.value, iCidade.value, iUf.value,
+        iBairro.value, iLogradouro.value, iNumero.value,
+        iNome.value, iTelefone.value, iEmail.value, iCpf.value)
+
+    if (erro) {
+        cookie.innerText = erro
+        return
+    }
+
     fetch(`${window.location.origin}/enderecos/cadastrar`, {
         method: 'POST',
         headers: {
@@ -75,7 +102,7 @@ function cadastrarRepresentante(fkEndereco) {
         body: JSON.stringify({
             nomeServer: iNome.value,
             telefoneServer: iTelefone.value,
-            emailServer: iTelefone.value,
+            emailServer: iEmail.value,
             cpfServer: iCpf.value,
             fkEnderecoServer: fkEndereco
         })
@@ -88,4 +115,8 @@ function cadastrarRepresentante(fkEndereco) {
     }).catch(e => {
         console.log(`Erro: ${e}`)
     })
+}
+
+function validarCampos(cep, cidade, uf, bairro, logradouro, numero, nome, telefone, email, cpf) {
+
 }
