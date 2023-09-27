@@ -1,5 +1,10 @@
 const iCep = document.querySelector('#iCep'), iCidade = document.querySelector('#iCidade'), iUf = document.querySelector('#iUf'), iBairro = document.querySelector('#iBairro'), iLogradouro = document.querySelector('#iLogradouro'), iNumero = document.querySelector('#iNumero')
 
+iCep.addEventListener('input', () => {
+    iCep.value = iCep.value.replace(/\D/g, '')
+    iCep.value = iCep.value.replace(/(\d{5})(\d)/, '$1-$2')
+})
+
 document.querySelector('#btcadastrar').addEventListener('click', () => {
     cadastrarEndereco()
 })
