@@ -28,9 +28,7 @@ iCpf.addEventListener('input', () => {
     iCpf.value = iCpf.value.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
 })
 
-document.querySelector('#btcadastrar').addEventListener('click', () => {
-    cadastrarEndereco()
-})
+document.querySelector('#btCadastrar').addEventListener('click', cadastrarEndereco)
 
 document.querySelector('#btBuscarCep').addEventListener('click', buscarCep)
 
@@ -116,7 +114,9 @@ function cadastrarRepresentante(fkEndereco) {
         })
     }).then(res => {
         if (res.ok) {
-            console.log(res)
+            res.json().then(json => {
+                sessionStorage.setItem('idRepresentante', json.insertId)
+            })
         } else {
             console.log('Erro no cadastro de representante')
         }

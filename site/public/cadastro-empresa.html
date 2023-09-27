@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de empresa</title>
+    <script src="./js/cadastro-empresa.js"></script>
 </head>
+
 <body>
-    <div class="cadastro-empresa">
-        <input type="text" id="icnpj">
-        <input type="text" id="iNomeFantasia">
-        <input type="text" id="iNomeFantasia">
-        <input type="text" id="irazaoSocial">
+    <div class="cadastro-endereco">
+        cep<input id="iCep" value="08461-640" maxlength="9">
+        <button id="btBuscarCep">Buscar</button>
+        cidade<input id="iCidade" disabled>
+        uf<input id="iUf" maxlength="2" disabled>
+        bairro<input id="iBairro" disabled>
+        logradouro<input id="iLogradouro" disabled>
+        numero<input id="iNumero" value="30">
     </div>
+    <div class="cadastro-empresa">
+        <input id="iCnpj">
+        <input id="iNomeFantasia">
+        <input id="iRazaoSocial">
+    </div>
+    <button id="btCadastrar"></button>
+    <div id="error-cookie"></div>
 </body>
+
 </html>
