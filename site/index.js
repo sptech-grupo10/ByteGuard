@@ -11,7 +11,11 @@ app.use(cors())
 
 app.use('/', require('./src/routes/index'))
 app.use('/usuarios', require('./src/routes/usuarioRoute'))
+app.use('/enderecos', require('./src/routes/enderecoRoute'))
+app.use('/empresas', require('./src/routes/empresaRoute'))
+app.use('/representantes', require('./src/routes/representanteRoute'))
+app.use('/lanhouses', require('./src/routes/lanhouseRoute'))
 
-app.listen('3000', ()=>{
+app.listen('3000', () => {
     console.log('Servidor rodando')
 })

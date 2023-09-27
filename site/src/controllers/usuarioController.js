@@ -7,12 +7,13 @@ function exibirUsuarios(req, res) {
 function cadastrar(req, res) {
     const nome = req.body.nomeServer,
     email = req.body.emailServer,
-    senha = req.body.senhaServer
+    senha = req.body.senhaServer,
+    fkLanHouse = req.body.fkLanHouseServer
 
-    if (!nome || !email || !senha) {
+    if (!nome || !email || !senha || !fkLanHouse) {
         res.status(400).send('Informação não chegaram ao cadastro')
     } else {
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, fkLanHouse)
             .then(result => {
                 res.json(result)
             }).catch(e => {

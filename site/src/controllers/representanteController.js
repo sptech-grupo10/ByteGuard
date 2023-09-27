@@ -6,7 +6,7 @@ function cadastrar(req, res) {
         email = req.body.emailServer,
         fkEndereco = req.body.fkEnderecoServer
 
-    if (nome == '' || telefone == '' || email == '' || fkEndereco == '') {
+    if (!nome || !telefone || !email || !fkEndereco) {
         res.status(400).send('Informação não chegaram ao cadastro')
     } else {
         representanteModel.cadastrar(nome, telefone, email, fkEndereco)

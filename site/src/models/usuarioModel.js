@@ -6,10 +6,10 @@ function retornarUsuarios() {
     })
 }
 
-function cadastrar(nome, email, senha) {
+function cadastrar(nome, email, senha, fkLanHouse) {
     try {
         return database.exec(
-            `INSERT INTO Usuario VALUES (null, '${nome}', '${email}', '${senha}', 1)`
+            `INSERT INTO Usuario VALUES (null, '${nome}', '${email}', '${senha}', ${fkLanHouse})`
         )
     } catch (e) {
         console.log(e)

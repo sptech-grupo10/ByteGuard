@@ -8,7 +8,7 @@ function cadastrar(req, res) {
         cidade = req.body.cidadeServer,
         uf = req.body.ufServer
 
-    if (cep == '' || logradouro == '' || numero == '' || bairro == '' || cidade == '' || uf == '') {
+    if (!cep || !logradouro || !numero || !bairro || !cidade || !uf) {
         res.stats(400).send('Informações não chegaram ao cadastro')
     } else {
         enderecoModel.cadastrar(cep, logradouro, numero, bairro, cidade, uf)
