@@ -1,8 +1,14 @@
-const iCep = document.querySelector('#iCep'), iCidade = document.querySelector('#iCidade'), iUf = document.querySelector('#iUf'), iBairro = document.querySelector('#iBairro'), iLogradouro = document.querySelector('#iLogradouro'), iNumero = document.querySelector('#iNumero')
+const iCep = document.querySelector('#iCep'), iCidade = document.querySelector('#iCidade'), iUf = document.querySelector('#iUf'), iBairro = document.querySelector('#iBairro'), iLogradouro = document.querySelector('#iLogradouro'), iNumero = document.querySelector('#iNumero'), iNome = document.querySelector('#iNome'), iTelefone = document.querySelector('#iTelefone'), iCpf = document.querySelector('#iCpf')
 
 iCep.addEventListener('input', () => {
     iCep.value = iCep.value.replace(/\D/g, '')
     iCep.value = iCep.value.replace(/(\d{5})(\d)/, '$1-$2')
+})
+
+iTelefone.addEventListener('input', () => {
+    iTelefone.value = iTelefone.value.replace(/\D/g, '')
+    iTelefone.value = iTelefone.value.replace(/(\d{2})(\d)/, "($1) $2")
+    iTelefone.value = iTelefone.value.replace(/(\d)(\d{4})$/, "$1-$2")
 })
 
 document.querySelector('#btcadastrar').addEventListener('click', () => {
@@ -49,9 +55,35 @@ function cadastrarEndereco() {
         })
     }).then(res => {
         if (res.ok) {
+            res.json().then(json => {
+                cadastrarRepresentante(json.insertId)
+            })
+        } else {
+            console.log('Erro no cadastro de endereço')
+        }
+    }).catch(e => {
+        console.log(`Erro: ${e}`)
+    })
+}
+
+function cadastrarRepresentante(fkEndereco) {
+    fetch(`${window.location.origin}/representantes/cadastrar`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            nomeServer: iNome.value,
+            telefoneServer: iTelefone.value,
+            emailServer: iTelefone.value,
+            cpfServer: iCpf.value,
+            fkEnderecoServer: fkEndereco
+        })
+    }).then(res => {
+        if (res.ok) {
             console.log(res)
         } else {
-            console.log('Erro no cadastro')
+            console.log('Erro no cadastro de representante')
         }
     }).catch(e => {
         console.log(`Erro: ${e}`)

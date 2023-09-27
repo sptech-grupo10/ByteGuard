@@ -1,3 +1,9 @@
+DROP DATABASE ByteGuard;
+
+CREATE DATABASE ByteGuard;
+
+Use ByteGuard;
+
 create table Endereco(
     idEndereco int primary key auto_increment,
     cep char(9),
@@ -8,15 +14,20 @@ create table Endereco(
     uf char(2)
 );
 
+SELECT * FROM Endereco;
+
 create table Representante(
     idRepresentante int primary key auto_increment,
     nome varchar(45),
-    telefone char(14),
+    telefone char(15),
     email varchar(45),
+    cpf char(14),
     fkEndereco int,
     status tinyint(1) default 1,
     constraint fkRepresentanteEndereco foreign key (fkEndereco) references Endereco(idEndereco)
 );
+
+SELECT * FROM Representante;
 
 create table Empresa(
     idEmpresa int primary key auto_increment,
@@ -33,6 +44,7 @@ create table Empresa(
 create table LanHouse(
     idLanHouse int primary key auto_increment,
     unidade varchar(45),
+    cnpj char(18),
     fkEndereco int,
     fkEmpresa int,
     fkRepresentante int,

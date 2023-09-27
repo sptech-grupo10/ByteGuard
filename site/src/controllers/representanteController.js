@@ -4,12 +4,13 @@ function cadastrar(req, res) {
     const nome = req.body.nomeServer,
         telefone = req.body.telefoneServer,
         email = req.body.emailServer,
+        cpf = req.body.cpfServer,
         fkEndereco = req.body.fkEnderecoServer
 
-    if (!nome || !telefone || !email || !fkEndereco) {
+    if (!nome || !telefone || !email || !cpf || !fkEndereco) {
         res.status(400).send('Informação não chegaram ao cadastro')
     } else {
-        representanteModel.cadastrar(nome, telefone, email, fkEndereco)
+        representanteModel.cadastrar(nome, telefone, email, cpf, fkEndereco)
             .then(result => {
                 res.json(result)
             }).catch(e => {
