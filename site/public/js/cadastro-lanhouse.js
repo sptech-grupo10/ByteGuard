@@ -1,12 +1,42 @@
 document.querySelector('#btCadastrar').addEventListener('click', cadastrarEndereco)
 
-const cadastrarRepresentante = (fkEndereco) => {
-    let validador = validarRepresentante(iNome.value, iTelefone.value, iEmail.value, iCpf.value)
+function cadastrarEndereco() {
+    let validador = validarCampos(iCep.value, iCidade.value, iUf.value,
+        iBairro.value, iLogradouro.value, iNumero.value,
+        iNome.value, iTelefone.value, iEmail.value, iCpf.value)
+
     if (validador != 'Válido') {
-        cookie = validador
+        cookie.innerText = validador
         return
     }
 
+    fetch(`${window.location.origin}/enderecos/cadastrar`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            cepServer: iCep.value,
+            cidadeServer: iCidade.value,
+            ufServer: iUf.value,
+            bairroServer: iBairro.value,
+            logradouroServer: iLogradouro.value,
+            numeroServer: iNumero.value
+        })
+    }).then(res => {
+        if (res.ok) {
+            res.json().then(json => {
+                cadastrarRepresentante(json.insertId)
+            })
+        } else {
+            console.log('Erro no cadastro de endereço')
+        }
+    }).catch(e => {
+        console.log(`Erro: ${e}`)
+    })
+}
+
+function cadastrarRepresentante(fkEndereco) {
     fetch(`${window.location.origin}/representantes/cadastrar`, {
         method: 'POST',
         headers: {
@@ -22,8 +52,8 @@ const cadastrarRepresentante = (fkEndereco) => {
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
-                sessionStorage.setItem('idRepresentanteEmpresa', json.insertId)
-                window.location.href = `${window.location.origin}/cadastro-empresa.html`
+                sessionStorage.setItem('idRepresentanteLanhouse', json.insertId)
+                cadastrarLanhouse(fkEndereco, json.insertId)
             })
         } else {
             console.log('Erro no cadastro de representante')
@@ -33,8 +63,13 @@ const cadastrarRepresentante = (fkEndereco) => {
     })
 }
 
-function validarRepresentante(nome, telefone, email, cpf) {
-    if (!nome || !telefone || !email || !cpf) {
+function cadastrarLanhouse(fkEndereco, fkRepresentante) {
+
+}
+
+function validarCampos(cep, cidade, uf, bairro, logradouro, numero, nome, telefone, email, cpf) {
+    if (!cep || !cidade || !uf || !bairro || !logradouro
+        || !numero || !nome || !telefone || !email || !cpf) {
         return 'Preencha todos os campos'
     }
 

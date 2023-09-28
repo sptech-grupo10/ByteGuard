@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro representante</title>
-    <script src="./js/cadastro-representante.js" defer></script>
+    <script src="./js/masks/endereco-mask.js" defer></script>
+    <script src="./js/masks/representante-mask.js" defer></script>
     <script src="./js/cadastro-endereco.js" defer></script>
+    <script src="./js/cadastro-representante.js" defer></script>
 </head>
+
 <body>
-    Cadastro de representante
+    Cadastro de endereço
     <div class="cadastro-endereco">
         cep<input id="iCep" value="08461-640" maxlength="9">
         <button id="btBuscarCep">Buscar</button>
@@ -18,6 +22,8 @@
         logradouro<input id="iLogradouro" disabled>
         numero<input id="iNumero" value="30">
     </div>
+    <br>
+    Cadastro de representante
     <div class="cadastro-representante">
         nome inteiro<input id="iNome" value="beckend dev">
         telefone<input id="iTelefone" value="(11) 91043-4007" maxlength="15">
@@ -27,4 +33,5 @@
     <button id="btCadastrar">Cadastrar</button>
     <div id="error-cookie"></div>
 </body>
+
 </html>

@@ -41,6 +41,8 @@ create table Empresa(
     constraint fkEmpresaRepresentante foreign key (fkRepresentante) references Representante(idRepresentante)
 );
 
+SELECT * FROM Empresa;
+
 create table LanHouse(
     idLanHouse int primary key auto_increment,
     unidade varchar(45),
