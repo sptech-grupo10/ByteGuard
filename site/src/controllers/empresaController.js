@@ -7,8 +7,6 @@ function cadastrar(req, res) {
         fkRepresentante = req.body.fkRepresentanteServer,
         fkEndereco = req.body.fkEnderecoServer
 
-    console.log(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco)
-
     if (!cnpj || !nomeFantasia || !razaoSocial || !fkRepresentante || !fkEndereco) {
         res.status(400).send('Informações não chegaram ao cadastro')
     } else {

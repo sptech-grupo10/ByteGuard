@@ -7,8 +7,6 @@ iCnpj.addEventListener('input', () => {
 })
 
 const cadastrarEmpresa = () => {
-    sessionStorage.clear()
-
     let validador = validarEmpresa(iCnpj.value, iNomeFantasia.value, iRazaoSocial.value)
     if (validador != 'Válido') {
         cookie.innerText = validador
@@ -31,13 +29,14 @@ const cadastrarEmpresa = () => {
         if (res.ok) {
             res.json().then(json => {
                 sessionStorage.setItem('idEmpresa', json.insertId)
-                //window.location.href = `${window.location.origin}/cadastro-lanhouse.html`
+                window.location.href = `${window.location.origin}/cadastro-lanhouse.html`
             })
         } else {
             console.log('Erro no cadastro de empresa')
         }
     })
 }
+
 function validarEmpresa(cnpj, nomeFantasia, razaoSocial) {
     if (!cnpj || !nomeFantasia || !razaoSocial)
         return 'Preencha todos os campos'
@@ -98,5 +97,7 @@ function validarCNPJ(cnpj) {
 }
 
 document.querySelector('#btCadastrar').addEventListener('click', () => {
-    cadastrarEndereco(cadastrarRepresentante(cadastrarEmpresa))
+    cadastrarEndereco(cadastrarRepresentante()).then(() => {
+        cadastrarEmpresa()
+    })
 })

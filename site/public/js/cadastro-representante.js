@@ -1,4 +1,4 @@
-const cadastrarRepresentante = (callback) => {
+const cadastrarRepresentante = async (callback) => {
     let validador = validarRepresentante(iNome.value, iTelefone.value, iEmail.value, iCpf.value)
     if (validador != 'Válido') {
         cookie.innerText = validador

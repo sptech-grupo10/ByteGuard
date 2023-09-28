@@ -1,4 +1,4 @@
-const cadastrarEndereco = (callback) => {
+const cadastrarEndereco = async (callback) => {
     let validador = validarEndereco(iCep.value, iCidade.value, iUf.value,
         iBairro.value, iLogradouro.value, iNumero.value)
 
