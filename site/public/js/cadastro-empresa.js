@@ -6,12 +6,12 @@ iCnpj.addEventListener('input', () => {
     iCnpj.value = iCnpj.value.replace(/(\d{4})(\d)/, "$1-$2")
 })
 
-document.querySelector('#btCadastrar').addEventListener('click', cadastrarEndereco)
+document.querySelector('#btCadastrar').addEventListener('click', cadastrarRepresentante)
 
-const cadastrarEmpresa = (fkEndereco) => {
+const cadastrarEmpresa = (fkEndereco, fkRepresentante) => {
     let validador = validarEmpresa(iCnpj.value, iNomeFantasia.value, iRazaoSocial.value)
     if (validador != 'Válido') {
-        cookie = validador
+        cookie.innerText = validador
         return
     }
 
@@ -25,7 +25,7 @@ const cadastrarEmpresa = (fkEndereco) => {
             nomeFantasiaServer: iNomeFantasia.value,
             razaoSocialServer: iRazaoSocial.value,
             fkEnderecoServer: fkEndereco,
-            fkRepresentanteServer: sessionStorage.getItem('idRepresentante')
+            fkRepresentanteServer: fkRepresentante
         })
     }).then(res => {
         if (res.ok) {

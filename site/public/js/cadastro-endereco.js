@@ -1,4 +1,4 @@
-const cadastrarEndereco = () => {
+const cadastrarEndereco = (idRepresentante) => {
     let validador = validarEndereco(iCep.value, iCidade.value, iUf.value,
         iBairro.value, iLogradouro.value, iNumero.value)
 
@@ -23,7 +23,7 @@ const cadastrarEndereco = () => {
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
-                cadastrarRepresentante(json.insertId)
+                cadastrarEmpresa(json.insertId, idRepresentante)
             })
         } else {
             console.log('Erro no cadastro de endereço')

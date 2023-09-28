@@ -1,9 +1,9 @@
 const database = require('../database/config')
 
-function cadastrar(nome, telefone, email, cpf, fkEndereco) {
+function cadastrar(nome, telefone, email, cpf) {
     try {
         return database.exec(
-            `INSERT INTO Representante VALUES (null, '${nome}', '${telefone}', '${email}', '${cpf}', ${fkEndereco}, default)`
+            `INSERT INTO Representante VALUES (null, '${nome}', '${telefone}', '${email}', '${cpf}', default)`
         )
     } catch (e) {
         console.log(e)
