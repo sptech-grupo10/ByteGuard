@@ -7,7 +7,7 @@ function cadastrar(req, res) {
         bairro = req.body.bairroServer,
         cidade = req.body.cidadeServer,
         uf = req.body.ufServer
-
+        
     if (!cep || !logradouro || !numero || !bairro || !cidade || !uf) {
         res.stats(400).send('Informações não chegaram ao cadastro')
     } else {

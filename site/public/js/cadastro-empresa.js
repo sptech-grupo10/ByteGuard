@@ -1,17 +1,13 @@
-iCnpj.addEventListener('input', () => {
-    iCnpj.value = iCnpj.value.replace(/\D/g, "")
-    iCnpj.value = iCnpj.value.replace(/^(\d{2})(\d)/, "$1.$2")
-    iCnpj.value = iCnpj.value.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
-    iCnpj.value = iCnpj.value.replace(/\.(\d{3})(\d)/, ".$1/$2")
-    iCnpj.value = iCnpj.value.replace(/(\d{4})(\d)/, "$1-$2")
-})
+sessionStorage.clear()
 
-const cadastrarEmpresa = () => {
+const cadastrarEmpresa = async () => {
     let validador = validarEmpresa(iCnpj.value, iNomeFantasia.value, iRazaoSocial.value)
     if (validador != 'Válido') {
         cookie.innerText = validador
         return
     }
+
+    console.log(sessionStorage);
 
     fetch(`${window.location.origin}/empresas/cadastrar`, {
         method: 'POST',
@@ -34,6 +30,8 @@ const cadastrarEmpresa = () => {
         } else {
             console.log('Erro no cadastro de empresa')
         }
+    }).catch(e => {
+        console.log(e)
     })
 }
 
@@ -98,6 +96,16 @@ function validarCNPJ(cnpj) {
 
 document.querySelector('#btCadastrar').addEventListener('click', () => {
     cadastrarEndereco(cadastrarRepresentante()).then(() => {
-        cadastrarEmpresa()
+        setTimeout(() => {
+            cadastrarEmpresa()
+        }, 1000);
     })
+})
+
+iCnpj.addEventListener('input', () => {
+    iCnpj.value = iCnpj.value.replace(/\D/g, "")
+    iCnpj.value = iCnpj.value.replace(/^(\d{2})(\d)/, "$1.$2")
+    iCnpj.value = iCnpj.value.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+    iCnpj.value = iCnpj.value.replace(/\.(\d{3})(\d)/, ".$1/$2")
+    iCnpj.value = iCnpj.value.replace(/(\d{4})(\d)/, "$1-$2")
 })

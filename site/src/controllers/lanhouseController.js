@@ -2,14 +2,15 @@ const lanhouseModel = require('../models/lanhouseModel')
 
 function cadastrar(req, res) {
     const unidade = req.body.unidadeServer,
+        cnpj = req.body.cnpjServer,
         fkEndereco = req.body.fkEnderecoServer,
         fkEmpresa = req.body.fkEmpresaServer,
         fkRepresentante = req.body.fkRepresentanteServer
 
-    if (!unidade || !fkEndereco || !fkEmpresa || !fkRepresentante) {
+    if (!unidade || !fkEndereco || !cnpj || !fkEmpresa || !fkRepresentante) {
         res.stats(400).send('Informações não chegaram ao cadastro')
     } else {
-        lanhouseModel.cadastrar(unidade, fkEndereco, fkEmpresa, fkRepresentante)
+        lanhouseModel.cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante)
             .then(result => {
                 res.json(result)
             }).catch(e => {
