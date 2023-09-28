@@ -1,4 +1,4 @@
-const cadastrarEndereco = (idRepresentante) => {
+const cadastrarEndereco = (callback) => {
     let validador = validarEndereco(iCep.value, iCidade.value, iUf.value,
         iBairro.value, iLogradouro.value, iNumero.value)
 
@@ -23,7 +23,8 @@ const cadastrarEndereco = (idRepresentante) => {
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
-                cadastrarEmpresa(json.insertId, idRepresentante)
+                sessionStorage.setItem('idEndereco', json.insertId)
+                callback()
             })
         } else {
             console.log('Erro no cadastro de endereço')

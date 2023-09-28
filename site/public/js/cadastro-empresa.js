@@ -6,9 +6,9 @@ iCnpj.addEventListener('input', () => {
     iCnpj.value = iCnpj.value.replace(/(\d{4})(\d)/, "$1-$2")
 })
 
-document.querySelector('#btCadastrar').addEventListener('click', cadastrarRepresentante)
+const cadastrarEmpresa = () => {
+    sessionStorage.clear()
 
-const cadastrarEmpresa = (fkEndereco, fkRepresentante) => {
     let validador = validarEmpresa(iCnpj.value, iNomeFantasia.value, iRazaoSocial.value)
     if (validador != 'Válido') {
         cookie.innerText = validador
@@ -24,21 +24,20 @@ const cadastrarEmpresa = (fkEndereco, fkRepresentante) => {
             cnpjServer: iCnpj.value,
             nomeFantasiaServer: iNomeFantasia.value,
             razaoSocialServer: iRazaoSocial.value,
-            fkEnderecoServer: fkEndereco,
-            fkRepresentanteServer: fkRepresentante
+            fkEnderecoServer: sessionStorage.getItem('idEndereco'),
+            fkRepresentanteServer: sessionStorage.getItem('idRepresentante')
         })
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
                 sessionStorage.setItem('idEmpresa', json.insertId)
-                window.location.href = `${window.location.origin}/cadastro-lanhouse.html`
+                //window.location.href = `${window.location.origin}/cadastro-lanhouse.html`
             })
         } else {
             console.log('Erro no cadastro de empresa')
         }
     })
 }
-
 function validarEmpresa(cnpj, nomeFantasia, razaoSocial) {
     if (!cnpj || !nomeFantasia || !razaoSocial)
         return 'Preencha todos os campos'
@@ -97,3 +96,7 @@ function validarCNPJ(cnpj) {
 
     return true;
 }
+
+document.querySelector('#btCadastrar').addEventListener('click', () => {
+    cadastrarEndereco(cadastrarRepresentante(cadastrarEmpresa))
+})

@@ -1,6 +1,4 @@
-document.querySelector('#btCadastrar').addEventListener('click', cadastrarEndereco)
-
-const cadastrarRepresentante = (fkEndereco) => {
+const cadastrarRepresentante = (callback) => {
     let validador = validarRepresentante(iNome.value, iTelefone.value, iEmail.value, iCpf.value)
     if (validador != 'Válido') {
         cookie.innerText = validador
@@ -16,16 +14,13 @@ const cadastrarRepresentante = (fkEndereco) => {
             nomeServer: iNome.value,
             telefoneServer: iTelefone.value,
             emailServer: iEmail.value,
-            cpfServer: iCpf.value,
-            fkEnderecoServer: fkEndereco
+            cpfServer: iCpf.value
         })
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
-                sessionStorage.setItem('idRepresentanteEmpresa', json.insertId)
-                console.log(json);
-                cadastrarEndereco(json.insertId)
-                window.location.href = `${window.location.origin}/cadastro-lanhouse.html`
+                sessionStorage.setItem('idRepresentante', json.insertId)
+                callback()
             })
         } else {
             console.log('Erro no cadastro de representante')
