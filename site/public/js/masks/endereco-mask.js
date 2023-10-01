@@ -24,7 +24,7 @@ function buscarCep() {
         headers: {
             "Content-Type": "application/json"
         }
-    })
+    }) 
         .then(res => {
             res.json().then(json => {
                 if (!json.erro) {

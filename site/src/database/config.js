@@ -6,8 +6,8 @@ function exec(query) {
         const conexao = mysql.createConnection({
             host: 'localhost',
             database: 'ByteGuard',
-            user: 'aluno',
-            password: 'aluno'
+            user: 'root',
+            password: 'kauan123'
         })
         conexao.connect();
 

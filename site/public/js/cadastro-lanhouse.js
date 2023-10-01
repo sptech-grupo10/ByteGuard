@@ -26,6 +26,9 @@ const cadastrarLanhouse = () => {
 
 document.querySelector('#btCadastrar').addEventListener('click', () => {
     cadastrarEndereco(cadastrarRepresentante()).then(() => {
-        cadastrarLanhouse()
+        setTimeout(() => {
+            cadastrarLanhouse()
+            window.location.href = `${window.location.origin}/dashboard`
+        }, 1000);
     })
 })
