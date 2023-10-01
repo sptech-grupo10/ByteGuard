@@ -15,6 +15,8 @@ const cadastrarLanhouse = () => {
         if (res.ok) {
             res.json().then(json => {
                 sessionStorage.setItem('idLanhouse', json.insertId)
+                sessionStorage.setItem('tipoUsuario', 2)
+                window.location.href = `${window.location.origin}/cadastro-usuario.html`
             })
         } else {
             console.log('Erro no cadastro de empresa')
@@ -28,7 +30,6 @@ document.querySelector('#btCadastrar').addEventListener('click', () => {
     cadastrarEndereco(cadastrarRepresentante()).then(() => {
         setTimeout(() => {
             cadastrarLanhouse()
-            window.location.href = `${window.location.origin}/dashboard`
-        }, 1000);
+        }, 600)
     })
 })

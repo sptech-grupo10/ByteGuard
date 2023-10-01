@@ -67,12 +67,37 @@ SELECT
 FROM
     LanHouse;
 
+create table TipoUsuario (
+    idTipoUsuario int primary key auto_increment,
+    descTipoUsuario varchar(45)
+);
+
+insert into
+    tipoUsuario
+values
+    (null, 'Empresa'),
+    (null, 'Lanhouse');
+
+SELECT
+    *
+FROM
+    TipoUsuario;
+
 create table Usuario(
     idUsuario int primary key auto_increment,
     nome varchar(45),
     email varchar(45),
     senha varchar(20),
-    fkLanhouse int,
     status tinyint(1) default 1,
-    constraint fkUsuarioLanhouse foreign key (fkLanhouse) references Lanhouse(idLanHouse)
+    fkEmpresa int,
+    fkLanhouse int,
+    fkTipoUsuario int,
+    constraint fkUsuarioLanhouse foreign key (fkLanhouse) references Lanhouse(idLanHouse),
+    constraint fkEmpresaUsuario foreign key (fkEmpresa) references Empresa(idEmpresa),
+    constraint fkTipoUsuarioUsuario foreign key (fkTipoUsuario) references TipoUsuario(idTipoUsuario)
 );
+
+select
+    *
+from
+    Usuario;

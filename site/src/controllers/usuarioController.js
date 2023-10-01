@@ -8,12 +8,16 @@ function cadastrar(req, res) {
     const nome = req.body.nomeServer,
     email = req.body.emailServer,
     senha = req.body.senhaServer,
-    fkLanHouse = req.body.fkLanHouseServer
+    fkLanHouse = req.body.fkLanHouseServer,
+    fkEmpresa = req.body.fkEmpresaServer,
+    tipoUsuario = req.body.tipoUsuarioServer
 
-    if (!nome || !email || !senha || !fkLanHouse) {
+    console.log(nome, email, senha, fkLanHouse, fkEmpresa, tipoUsuario);
+
+    if (!nome || !email || !senha || !tipoUsuario) {
         res.status(400).send('Informação não chegaram ao cadastro')
     } else {
-        usuarioModel.cadastrar(nome, email, senha, fkLanHouse)
+        usuarioModel.cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario)
             .then(result => {
                 res.json(result)
             }).catch(e => {
