@@ -20,7 +20,18 @@ function buscarLanHousePorId(idLanHouse) {
     }
 }
 
+function listar() {
+    try {
+        return database.exec(
+            'SELECT * FROM LanHouse JOIN Endereco ON LanHouse.fkEndereco = Endereco.idEndereco JOIN Representante ON LanHouse.fkRepresentante = Representante.idRepresentante'
+        )
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
     cadastrar,
-    buscarLanHousePorId
+    buscarLanHousePorId,
+    listar
 }

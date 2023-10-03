@@ -1,11 +1,30 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard geral</title>
+    <script src="./js/dashboard-geral.js" defer></script>
+    <link rel="stylesheet" href="./css/dashboard-geral.css">
 </head>
+
 <body>
-    
+    <button id="btCadastrarLanhouse">+</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Unidade</th>
+                <th>CNPJ</th>
+                <th>Representante</th>
+                <th>E-mail do representante</th>
+                <th>Endereço</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody class="lista-lanhouses">
+        </tbody>
+    </table>
 </body>
+
 </html>

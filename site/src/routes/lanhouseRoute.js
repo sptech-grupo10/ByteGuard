@@ -10,4 +10,8 @@ router.get('/buscarLanHousePorId/:idLanHouse', (req, res) => {
     lanhouseController.buscarLanHousePorId(req, res)
 })
 
+router.get('/listar', (req, res) => {
+    lanhouseController.listar(req, res)
+})
+
 module.exports = router
