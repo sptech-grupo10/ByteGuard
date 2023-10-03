@@ -603,7 +603,7 @@ footer button {
     border-radius: 15px;
     width: 15rem;
     height: 16rem;
-    box-shadow: 0 0 0 #000;
+    box-shadow: none;
   }
   
   .desc-container .services .style-image {
@@ -617,7 +617,7 @@ footer button {
     width: 8rem;
     position: relative;
     top: -65px;
-    box-shadow: 0 0 0 #000;
+    box-shadow: none;
   }
   
   .desc-container .services img {
