@@ -5,14 +5,19 @@ function exibirUsuarios(req, res) {
 }
 
 function cadastrar(req, res) {
-    let nome = req.body.nomeServer
-    let email = req.body.emailServer
-    let senha = req.body.senhaServer
+    const nome = req.body.nomeServer,
+    email = req.body.emailServer,
+    senha = req.body.senhaServer,
+    fkLanHouse = req.body.fkLanHouseServer,
+    fkEmpresa = req.body.fkEmpresaServer,
+    tipoUsuario = req.body.tipoUsuarioServer
 
-    if (!nome || !email || !senha) {
-        res.status(400).send('Informação não chegou ao cadastro')
+    console.log(nome, email, senha, fkLanHouse, fkEmpresa, tipoUsuario);
+
+    if (!nome || !email || !senha || !tipoUsuario) {
+        res.status(400).send('Informação não chegaram ao cadastro')
     } else {
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario)
             .then(result => {
                 res.json(result)
             }).catch(e => {

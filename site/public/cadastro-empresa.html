@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de empresa</title>
+    <script src="./js/masks/endereco-mask.js" defer></script>
+    <script src="./js/masks/representante-mask.js" defer></script>
+    <script src="./js/cadastro-endereco.js" defer></script>
+    <script src="./js/cadastro-representante.js" defer></script>
+    <script src="./js/cadastro-empresa.js" defer></script>
+</head>
+
+<body>
+    Cadastro de representante da empresa
+    <div class="cadastro-representante">
+        nome inteiro<input id="iNome" value="Kauan Matheus Barros de Oliveira">
+        telefone<input id="iTelefone" value="(11) 91043-4007" maxlength="15">
+        cpf<input value="532.192.310-80" id="iCpf" maxlength="14">
+        email<input id="iEmail" value="kauan@gmail.com">
+    </div>
+    <br>
+    Cadastro de endereço da empresa
+    <div class="cadastro-endereco">
+        cep<input id="iCep" value="01414-001" maxlength="9">
+        <button id="btBuscarCep">Buscar</button>
+        cidade<input id="iCidade" disabled>
+        uf<input id="iUf" maxlength="2" disabled>
+        bairro<input id="iBairro" disabled>
+        logradouro<input id="iLogradouro" disabled>
+        numero<input id="iNumero" value="30">
+    </div>
+    <br>
+    Cadastro de empresa
+    <div class="cadastro-empresa">
+        Cnpj<input id="iCnpj" maxlength="18" value="73.212.152/0001-21">
+        Nome fantasia<input id="iNomeFantasia" value="Empresa serinha">
+        Razão social<input id="iRazaoSocial" value="Empresa séria">
+    </div>
+    <button id="btCadastrar">Cadastrar</button>
+    <div id="error-cookie"></div>
+</body>
+
+</html>
