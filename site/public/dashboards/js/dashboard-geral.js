@@ -1,11 +1,8 @@
 const listaLanhouses = document.querySelector('.lista-lanhouses')
 
-document.querySelector('#btCadastrarLanhouse').addEventListener('click', () => {window.location.href = `${window.location.origin}/cadastro-lanhouse.html`})
-
 fetch(`${window.location.origin}/lanhouses/listar`, { cache: 'no-store' }).then(res => {
     if (res.ok) {
         res.json().then(json => {
-            console.log(json);
             json.forEach(lanhouse => {
                 listaLanhouses.innerHTML += `<tr>
                     <td>${lanhouse.idLanHouse}</td>

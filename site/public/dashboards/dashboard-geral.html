@@ -5,26 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard geral</title>
     <script src="./js/dashboard-geral.js" defer></script>
+    <script src="../js/masks/endereco-mask.js" defer></script>
+    <script src="../js/masks/representante-mask.js" defer></script>
+    <script src="../js/cadastro-endereco.js" defer></script>
+    <script src="../js/cadastro-representante.js" defer></script>
+    <script src="../js/cadastro-lanhouse.js" defer></script>
     <link rel="stylesheet" href="./css/dashboard-geral.css">
+    <link rel="stylesheet" href="../css/reset.css">
+
+
+    <!-- CDN !-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
-    <button id="btCadastrarLanhouse">+</button>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Unidade</th>
-                <th>CNPJ</th>
-                <th>Representante</th>
-                <th>E-mail do representante</th>
-                <th>Endereço</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody class="lista-lanhouses">
-        </tbody>
-    </table>
+    <div class="toast">
+        
+    </div>
+    <div class="container">
+        <button><a href="#modal-cadastro-lanhouse" rel="modal:open">+</a></button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Unidade</th>
+                    <th>CNPJ</th>
+                    <th>Representante</th>
+                    <th>E-mail do representante</th>
+                    <th>Endereço</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class="lista-lanhouses">
+            </tbody>
+        </table>
+    </div>
 </body>
+
+<div class="modal" id="modal-cadastro-lanhouse">
+    <h2>Cadastro de lanhouse</h2>
+    Cadastro de endereço
+    <div class="cadastro-endereco">
+        cep<input id="iCep" value="08461-640" maxlength="9">
+        <button id="btBuscarCep">Buscar</button>
+        cidade<input id="iCidade" disabled>
+        uf<input id="iUf" maxlength="2" disabled>
+        bairro<input id="iBairro" disabled>
+        logradouro<input id="iLogradouro" disabled>
+        numero<input id="iNumero" value="30">
+    </div>
+    <br>
+    Cadastro de primeira lanhouse
+    <div class="cadastro-lanhouse">
+        Nome da unidade<input id="iUnidade" value="Paulista">
+        Cnpj<input id="iCnpj" value="49.150.759/0001-40">
+    </div>
+    <br>
+    Cadastro de representante
+    <div class="cadastro-representante">
+        nome inteiro<input id="iNome" value="Melissa Rodrigues Cavalcante">
+        telefone<input id="iTelefone" value="(11) 91043-4007" maxlength="15">
+        cpf<input value="681.637.370-77" id="iCpf" maxlength="14">
+        email<input id="iEmail" value="melissa@gmail.com">
+    </div>
+    <div id="error-cookie"></div>
+
+    <button id="btCadastrarLanhouse">Cadastrar</button>
+</div>
 
 </html>

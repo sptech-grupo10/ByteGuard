@@ -1,3 +1,24 @@
+body {
+    position: relative;
+    overflow: hidden;
+}
+
+.toast {
+    position: absolute;
+    right: -20%;
+    top: 1rem;
+    width: 14rem;
+    height: 3.5rem;
+    border-radius: 4px;
+    background-color: green;
+    transition: all 300ms;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
 .status-indicador {
     width: 15px;
     height: 15px;
@@ -10,4 +31,8 @@
 
 .status-bloqueado {
     background-color: red;
+}
+
+#modal-cadastro-lanhouse {
+    position: relative;
 }
