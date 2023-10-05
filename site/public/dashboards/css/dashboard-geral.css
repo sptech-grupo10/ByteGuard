@@ -19,6 +19,12 @@ body {
     height: 100vh;
 }
 
+.container-lista-lanhouses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .status-indicador {
     width: 15px;
     height: 15px;
@@ -35,4 +41,19 @@ body {
 
 #modal-cadastro-lanhouse {
     position: relative;
+}
+
+.lista-lanhouses {
+    width: 95%;
+}
+
+.lista-lanhouses td {
+    border: 1px solid black;
+    text-align: -webkit-center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.lista-lanhouses tr:nth-child(2n) {
+    background-color: #ccc;
 }
