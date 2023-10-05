@@ -3,7 +3,7 @@ const database = require('../database/config')
 function cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante) {
     try {
         return database.exec(
-            `INSERT INTO LanHouse VALUES (null, '${unidade}', '${cnpj}', ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`
+            `INSERT INTO LanHouse VALUES (null, '${unidade}', '${cnpj}', default, ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`
         )
     } catch (e) {
         console.log(e)
@@ -30,8 +30,30 @@ function listarLanhousesPorEmpresa(idEmpresa) {
     }
 }
 
+function desativarLanhouse(idLanhouse) {
+    try {
+        return database.exec(`
+            UPDATE LanHouse SET statusLanhouse = 0 WHERE idLanhouse = ${idLanhouse}
+        `)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+function ativarLanhouse(idLanhouse) {
+    try {
+        return database.exec(`
+            UPDATE LanHouse SET statusLanhouse = 1 WHERE idLanhouse = ${idLanhouse}
+        `)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
     cadastrar,
     buscarLanHousePorId,
-    listarLanhousesPorEmpresa
+    listarLanhousesPorEmpresa,
+    desativarLanhouse,
+    ativarLanhouse
 }

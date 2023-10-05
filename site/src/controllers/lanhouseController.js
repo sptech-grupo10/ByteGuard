@@ -33,8 +33,22 @@ function listarLanhousesPorEmpresa(req, res) {
     })
 }
 
+function desativarLanhouse(req, res) {
+    lanhouseModel.desativarLanhouse(req.params.idLanHouse).then(result => {
+        res.json(result)
+    })
+}
+
+function ativarLanhouse(req, res) {
+    lanhouseModel.ativarLanhouse(req.params.idLanHouse).then(result => {
+        res.json(result)
+    })
+}
+
 module.exports = {
     cadastrar,
     buscarLanHousePorId,
-    listarLanhousesPorEmpresa
+    listarLanhousesPorEmpresa,
+    desativarLanhouse,
+    ativarLanhouse
 }

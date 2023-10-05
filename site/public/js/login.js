@@ -14,15 +14,15 @@ const loginDireto = e => {
     window.location.href = `${window.location.origin}/dashboards/dashboard-lanhouse.html`
 }
 
-const fazerLogin = () => {
-    sessionStorage.setItem('idUsuario', json[0].idUsuario)
-    sessionStorage.setItem('nomeUsuario', json[0].nome)
-    json[0].fkTipoUsuario == 1
-        ? sessionStorage.setItem('idEmpresa', json[0].fkEmpresa)
-        : sessionStorage.setItem('idLanhouse', json[0].fkLanhouse)
+const fazerLogin = (login) => {
+    sessionStorage.setItem('idUsuario', login.idUsuario)
+    sessionStorage.setItem('nomeUsuario', login.nome)
+    login.fkTipoUsuario == 1
+        ? sessionStorage.setItem('idEmpresa', login.fkEmpresa)
+        : sessionStorage.setItem('idLanhouse', login.fkLanhouse)
 
     setTimeout(() => {
-        window.location.href = json[0].fkTipoUsuario == 1
+        window.location.href = login.fkTipoUsuario == 1
             ? `${window.location.origin}/dashboards/dashboard-geral.html`
             : `${window.location.origin}/dashboards/dashboard-lanhouse.html`
     }, 500);
@@ -40,7 +40,7 @@ function validarCampos() {
                 if (res.status == 200) {
                     res.json().then(json => {
                         if (json[0].status == 1) {
-                            fazerLogin()
+                            fazerLogin(json[0])
                         } else {
                             cookie.innerText = 'Usuario bloqueado'
                         }

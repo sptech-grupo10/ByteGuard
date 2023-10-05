@@ -54,6 +54,7 @@ create table LanHouse(
     idLanHouse int primary key auto_increment,
     unidade varchar(45),
     cnpj char(18),
+    statusLanhouse tinyint(1) default 1,
     fkEndereco int,
     fkEmpresa int,
     fkRepresentante int,
