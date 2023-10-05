@@ -8,8 +8,7 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
                     <td>${lanhouse.idLanHouse}</td>
                     <td>${lanhouse.unidade}</td>
                     <td>${lanhouse.cnpj}</td>
-                    <td>${lanhouse.nome}</td>
-                    <td>${lanhouse.email}</td>
+                    <td idRepresentante = ${lanhouse.idRepresentante} id="representante-open-modal">${lanhouse.nome}</td>
                     <td idEndereco = ${lanhouse.idEndereco} id="endereco-open-modal">${lanhouse.logradouro}, ${lanhouse.numero}</td>
                     <td><div class='status-indicador ${lanhouse.statusLanhouse == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
                     <td><span idLanhouse='${lanhouse.idLanHouse}' class='login-direto'>Fazer login</span></td>
@@ -29,13 +28,34 @@ setTimeout(() => {
 
     $(document).ready(() => {
         $('#endereco-open-modal').on('click', (e) => {
-            buscarEndereco(e.target.getAttribute('idEndereco'))
+            montarModalEndereco(e.target.getAttribute('idEndereco'))
             $('#modal-endereco-lanhouse').modal('show')
+        })
+
+        $('#representante-open-modal').on('click', (e) => {
+            montarModalRepresentante(e.target.getAttribute('idRepresentante'))
+            $('#modal-representante-lanhouse').modal('show')
         })
     })
 }, 200);
 
-const buscarEndereco = idEndereco => {
+const montarModalRepresentante = idRepresentante => {
+    fetch(`${window.location.origin}/representantes/buscarRepresentantePorId/${idRepresentante}`, { cache: "no-cache" }).then(res => {
+        if (res.ok) {
+            let modalRepresentante = document.querySelector('#modal-representante-lanhouse')
+            res.json().then(representante => {
+                modalRepresentante.querySelector('#nomeModal').innerText = representante[0].nome
+                modalRepresentante.querySelector('#telefoneModal').innerText = representante[0].telefone
+                modalRepresentante.querySelector('#emailModal').innerText = representante[0].email
+                modalRepresentante.querySelector('#cpfModal').innerText = representante[0].cpf
+            })
+        } else {
+            console.log('Erro na busca de representante desta lanhouse')
+        }
+    })
+}
+
+const montarModalEndereco = idEndereco => {
     fetch(`${window.location.origin}/enderecos/buscarEnderecoPorId/${idEndereco}`, { cache: "no-cache" }).then(res => {
         if (res.ok) {
             let modalEndereco = document.querySelector('#modal-endereco-lanhouse')

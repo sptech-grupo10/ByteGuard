@@ -62,3 +62,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+#representante-open-modal, #endereco-open-modal, .ativar-desativar-lanhouse {
+    text-decoration: underline;
+    cursor: pointer;
+}
