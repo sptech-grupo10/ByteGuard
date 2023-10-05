@@ -57,3 +57,8 @@ body {
 .lista-lanhouses tr:nth-child(2n) {
     background-color: #ccc;
 }
+
+.containter-modal-endereco-lanhouse{
+    display: flex;
+    flex-direction: column;
+}
