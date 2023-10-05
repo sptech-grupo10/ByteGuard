@@ -32,11 +32,11 @@ body {
 }
 
 .status-ativo {
-    background-color: green;
+    background-color: #06BA63;
 }
 
 .status-bloqueado {
-    background-color: red;
+    background-color:#D1462F;
 }
 
 #modal-cadastro-lanhouse {

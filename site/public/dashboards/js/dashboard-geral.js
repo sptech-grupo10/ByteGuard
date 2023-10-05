@@ -44,6 +44,7 @@ const montarModalRepresentante = idRepresentante => {
         if (res.ok) {
             let modalRepresentante = document.querySelector('#modal-representante-lanhouse')
             res.json().then(representante => {
+                modalRepresentante.querySelector('#idRepresentanteModal').innerText = representante[0].idRepresentante
                 modalRepresentante.querySelector('#nomeModal').innerText = representante[0].nome
                 modalRepresentante.querySelector('#telefoneModal').innerText = representante[0].telefone
                 modalRepresentante.querySelector('#emailModal').innerText = representante[0].email
