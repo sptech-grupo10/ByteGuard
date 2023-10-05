@@ -63,7 +63,7 @@ body {
     flex-direction: column;
 }
 
-#representante-open-modal, #endereco-open-modal, .ativar-desativar-lanhouse {
+.representante-open-modal, .endereco-open-modal, .ativar-desativar-lanhouse, .login-direto, .criar-usuario {
     text-decoration: underline;
     cursor: pointer;
 }

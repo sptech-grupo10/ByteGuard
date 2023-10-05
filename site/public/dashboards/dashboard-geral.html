@@ -25,7 +25,7 @@
     <div class="toast"></div>
     <div class="container">
         <div class="container-lista-lanhouses">
-            <button><a href="#modal-cadastro-lanhouse" rel="modal:open">+</a></button>
+            <button><a href="#modal-cadastro-lanhouse" rel="modal:open">Cadastrar lanhouse</a></button>
             <table class="lista-lanhouses">
                 <tr>
                     <td>ID</td>
@@ -36,6 +36,7 @@
                     <td>Status</td>
                     <td>Login</td>
                     <td>Ativar/desativar lanhouse</td>
+                    <td>Cadastrar usuário</td>
                 </tr>
             </table>
         </div>
@@ -55,8 +56,20 @@
     </div>
 </div>
 
+<div class="modal" id="modal-cadastrar-usuario-lanhouse">
+    <div class="containter-modal-cadastrar-usuario-lanhouse">
+        Cadastro de usuário
+        <div>Nome: <input id="iUsername"></div>
+        <div>E-mail: <input id="iEmail"></div>
+        <div>Senha: <input type="password" id="iSenha"></div>
+        <div>Confirme a senha: <input type="password" id="iConfirmSenha"></div>
+        <button id="btCadastrarUsuario">Cadastrar usuário</button>
+        <div><span id="error-cookie"></span></div>
+    </div>
+</div>
+
 <div class="modal" id="modal-representante-lanhouse">
-    <div class="containter-modal-endereco-lanhouse">
+    <div class="containter-modal-representante-lanhouse">
         <span>Representante</span>
         <div>Id do representante: <span id="idRepresentanteModal"></span></div>
         <div>Nome: <span id="nomeModal"></span></div>
