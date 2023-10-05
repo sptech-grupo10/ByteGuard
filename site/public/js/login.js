@@ -11,7 +11,7 @@ if (!window.location.href.includes('dashboards')) {
 
 const loginDireto = e => {
     sessionStorage.setItem('idLanhouse', e.target.getAttribute('idLanhouse'))
-    window.location.href = `${window.location.origin}/dashboards/dashboard-lanhouse.html`
+    window.location.href = `${window.location.origin}/dashboards/dashboard-lanhouse`
 }
 
 const fazerLogin = (login) => {
@@ -23,8 +23,8 @@ const fazerLogin = (login) => {
 
     setTimeout(() => {
         window.location.href = login.fkTipoUsuario == 1
-            ? `${window.location.origin}/dashboards/dashboard-geral.html`
-            : `${window.location.origin}/dashboards/dashboard-lanhouse.html`
+            ? `${window.location.origin}/dashboards/dashboard-geral`
+            : `${window.location.origin}/dashboards/dashboard-lanhouse`
     }, 500);
 }
 
