@@ -20,10 +20,10 @@ function buscarLanHousePorId(idLanHouse) {
     }
 }
 
-function listar() {
+function listarLanhousesPorEmpresa(idEmpresa) {
     try {
         return database.exec(
-            'SELECT * FROM LanHouse JOIN Endereco ON LanHouse.fkEndereco = Endereco.idEndereco JOIN Representante ON LanHouse.fkRepresentante = Representante.idRepresentante'
+            `SELECT * FROM LanHouse JOIN Endereco ON LanHouse.fkEndereco = Endereco.idEndereco JOIN Representante ON LanHouse.fkRepresentante = Representante.idRepresentante WHERE LanHouse.fkEmpresa = ${idEmpresa}`
         )
     } catch (e) {
         console.log(e)
@@ -33,5 +33,5 @@ function listar() {
 module.exports = {
     cadastrar,
     buscarLanHousePorId,
-    listar
+    listarLanhousesPorEmpresa
 }

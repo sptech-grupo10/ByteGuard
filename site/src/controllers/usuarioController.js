@@ -12,8 +12,6 @@ function cadastrar(req, res) {
     fkEmpresa = req.body.fkEmpresaServer,
     tipoUsuario = req.body.tipoUsuarioServer
 
-    console.log(nome, email, senha, fkLanHouse, fkEmpresa, tipoUsuario);
-
     if (!nome || !email || !senha || !tipoUsuario) {
         res.status(400).send('Informação não chegaram ao cadastro')
     } else {

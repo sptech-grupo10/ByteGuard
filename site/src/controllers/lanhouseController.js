@@ -27,8 +27,8 @@ function buscarLanHousePorId(req, res) {
         })
 }
 
-function listar(req, res) {
-    lanhouseModel.listar().then(result => {
+function listarLanhousesPorEmpresa(req, res) {
+    lanhouseModel.listarLanhousesPorEmpresa(req.params.idEmpresa).then(result => {
         res.json(result)
     })
 }
@@ -36,5 +36,5 @@ function listar(req, res) {
 module.exports = {
     cadastrar,
     buscarLanHousePorId,
-    listar
+    listarLanhousesPorEmpresa
 }

@@ -1,6 +1,6 @@
 const listaLanhouses = document.querySelector('.lista-lanhouses')
 
-fetch(`${window.location.origin}/lanhouses/listar`, { cache: 'no-store' }).then(res => {
+fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: 'no-store' }).then(res => {
     if (res.ok) {
         res.json().then(json => {
             json.forEach(lanhouse => {
@@ -12,6 +12,7 @@ fetch(`${window.location.origin}/lanhouses/listar`, { cache: 'no-store' }).then(
                     <td>${lanhouse.email}</td>
                     <td>${lanhouse.logradouro}, ${lanhouse.numero}</td>
                     <td><div class='status-indicador ${lanhouse.status == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
+                    <td><span idLanhouse='${lanhouse.idLanHouse}' class='login-direto'>Fazer login</span></td>
                 </tr>`
             })
         })
