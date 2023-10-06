@@ -24,7 +24,7 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
 
 setTimeout(() => {
     document.querySelectorAll('.ativar-desativar-lanhouse').forEach(lanhouse => {
-        lanhouse.addEventListener('click', desativarOuAtivarLanhouse);
+        lanhouse.addEventListener('click', desativarOuAtivarLanhouse)
     })
 
     document.querySelector('#btCadastrarUsuario').addEventListener('click', cadastrarUsuarioLanhouse)

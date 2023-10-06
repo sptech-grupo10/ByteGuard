@@ -1,9 +1,7 @@
 const database = require('../database/config')
 
-function retornarUsuarios() {
-    database.exec('SELECT * FROM Usuario').then(usuarios => {
-        console.log(usuarios)
-    })
+function listarUsuariosPorEmpresa(idEmpresa) {
+    return database.exec(`SELECT * FROM Usuario JOIN LanHouse ON Usuario.fkLanHouse = LanHouse.idLanHouse WHERE LanHouse.fkEmpresa = ${idEmpresa}`)
 }
 
 function cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario) {
@@ -25,7 +23,7 @@ function login(email, senha) {
 }
 
 module.exports = {
-    retornarUsuarios,
+    listarUsuariosPorEmpresa,
     cadastrar,
     login
 }

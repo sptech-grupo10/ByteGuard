@@ -1,0 +1,35 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-lista-usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lista-usuarios {
+    width: 95%;
+}
+
+.lista-usuarios td {
+    border: 1px solid black;
+    text-align: -webkit-center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.lista-usuarios tr:nth-child(2n) {
+    background-color: #ccc;
+}
+
+.containter-modal-endereco-lanhouse{
+    display: flex;
+    flex-direction: column;
+}
+
+.ativar-desativar-usuario {
+    text-decoration: underline;
+    cursor: pointer;
+}

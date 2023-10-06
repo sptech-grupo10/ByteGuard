@@ -1,16 +1,21 @@
 const usuarioModel = require('../models/usuarioModel')
 
-function exibirUsuarios(req, res) {
-    usuarioModel.retornarUsuarios()
+function listarUsuariosPorEmpresa(req, res) {
+    usuarioModel.listarUsuariosPorEmpresa(req.params.idEmpresa).then(result => {
+        res.json(result)
+    }).catch(e => {
+        console.log(e)
+        res.status(500).json
+    })
 }
 
 function cadastrar(req, res) {
     const nome = req.body.nomeServer,
-    email = req.body.emailServer,
-    senha = req.body.senhaServer,
-    fkLanHouse = req.body.fkLanHouseServer,
-    fkEmpresa = req.body.fkEmpresaServer,
-    tipoUsuario = req.body.tipoUsuarioServer
+        email = req.body.emailServer,
+        senha = req.body.senhaServer,
+        fkLanHouse = req.body.fkLanHouseServer,
+        fkEmpresa = req.body.fkEmpresaServer,
+        tipoUsuario = req.body.tipoUsuarioServer
 
     if (!nome || !email || !senha || !tipoUsuario) {
         res.status(400).send('Informação não chegaram ao cadastro')
@@ -26,14 +31,11 @@ function cadastrar(req, res) {
 }
 
 function login(req, res) {
-    let email = req.params.email
-    let senha = req.params.senha
-
-    usuarioModel.login(email, senha)
+    usuarioModel.login(req.params.email, req.params.senha)
         .then(result => {
             result.length > 0
-            ? res.status(200).json(result)
-            : res.status(204).send('Nenhum cadastro encontrado')
+                ? res.status(200).json(result)
+                : res.status(204).send('Nenhum cadastro encontrado')
         }).catch(e => {
             console.log(`Erro no login: ${e.sqlMessage}`)
             res.status(500).json
@@ -41,7 +43,7 @@ function login(req, res) {
 }
 
 module.exports = {
-    exibirUsuarios,
+    listarUsuariosPorEmpresa,
     cadastrar,
     login
 }
