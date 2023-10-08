@@ -42,8 +42,30 @@ function login(req, res) {
         })
 }
 
+function ativarUsuario(req, res) {
+    usuarioModel.ativarUsuario(req.params.idUsuario)
+        .then(result => {
+            res.status(200).json(result)
+        }).catch(e => {
+            console.log(`Erro na ativação: ${e.sqlMessage}`)
+            res.status(500).json
+        })
+
+}
+function desativarUsuario(req, res) {
+    usuarioModel.desativarUsuario(req.params.idUsuario)
+        .then(result => {
+            res.status(200).json(result)
+        }).catch(e => {
+            console.log(`Erro na desativação: ${e.sqlMessage}`)
+            res.status(500).json
+        })
+}
+
 module.exports = {
     listarUsuariosPorEmpresa,
     cadastrar,
-    login
+    login,
+    ativarUsuario,
+    desativarUsuario
 }

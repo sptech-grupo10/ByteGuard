@@ -6,6 +6,13 @@ router.get('/listarUsuariosPorEmpresa/:idEmpresa', (req, res) => {
     usuarioController.listarUsuariosPorEmpresa(req, res)
 })
 
+router.put('/desativar/:idUsuario', (req, res) => {
+    usuarioController.desativarUsuario(req, res)
+})
+router.put('/ativar/:idUsuario', (req, res) => {
+    usuarioController.ativarUsuario(req, res)
+})
+
 router.post('/cadastrar', (req, res) => {
     usuarioController.cadastrar(req, res)
 })

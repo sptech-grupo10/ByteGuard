@@ -9,6 +9,21 @@
     align-items: center;
 }
 
+.status-indicador {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.status-ativo {
+    background-color: #06BA63;
+}
+
+.status-bloqueado {
+    background-color:#D1462F;
+}
+
+
 .lista-usuarios {
     width: 95%;
 }
@@ -29,7 +44,8 @@
     flex-direction: column;
 }
 
-.ativar-desativar-usuario {
+.ativar-desativar-usuario, .visualizar-lanhouse {
     text-decoration: underline;
     cursor: pointer;
 }
+

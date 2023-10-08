@@ -4,7 +4,7 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
     if (res.ok) {
         res.json().then(json => {
             json.forEach(lanhouse => {
-                listaLanhouses.innerHTML += `<tr>
+                listaLanhouses.innerHTML += `<tr class="lanhouse-row lanhouse-${lanhouse.idLanHouse}">
                     <td>${lanhouse.idLanHouse}</td>
                     <td>${lanhouse.unidade}</td>
                     <td>${lanhouse.cnpj}</td>
@@ -28,6 +28,15 @@ setTimeout(() => {
     })
 
     document.querySelector('#btCadastrarUsuario').addEventListener('click', cadastrarUsuarioLanhouse)
+
+    sessionStorage.getItem('destacar-lanhouse')
+        ? destacarLanhouse(sessionStorage.getItem('destacar-lanhouse'))
+        : console.log('sem destaque')
+
+    function destacarLanhouse(idLanhouse) {
+        document.querySelector(`.lanhouse-row.lanhouse-${idLanhouse}`).classList.add('destacar')
+        sessionStorage.removeItem('destacar-lanhouse')
+    }
 
     $(document).ready(() => {
         $('.endereco-open-modal').on('click', (e) => {
@@ -56,7 +65,6 @@ const cadastrarUsuarioLanhouse = e => {
     let senha = modal.querySelector('#iSenha').value
     let confirmSenha = modal.querySelector('#iConfirmSenha').value
     let idLanhouse = e.target.getAttribute('idLanhouse')
-    console.log(idLanhouse);
 
     if (username == '' || email == '' || senha == '' || confirmSenha == '') {
         cookie.innerText = 'Preencha todos os campos'

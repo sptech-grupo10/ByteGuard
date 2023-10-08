@@ -8,9 +8,9 @@ fetch(`${window.location.origin}/usuarios/listarUsuariosPorEmpresa/${sessionStor
                 <td>${usuario.nome}</td>
                 <td>${usuario.email}</td>
                 <td>${usuario.senha}</td>
-                <td>${usuario.status}</td>
-                <td>${usuario.idLanHouse} - ${usuario.unidade}</td>
-                <td class="ativar-desativar-usuario">${usuario.status == 1 ? 'Desativar' : 'Ativar'}</td>
+                <td><div class='status-indicador ${usuario.status == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
+                <td><span class="visualizar-lanhouse" idLanhouse="${usuario.idLanHouse}">${usuario.idLanHouse} - ${usuario.unidade}</span></td>
+                <td><span statusUsuario="${usuario.status}" idUsuario="${usuario.idUsuario}" class="ativar-desativar-usuario">${usuario.status == 1 ? 'Desativar' : 'Ativar'}</span></td>
             </tr>`
         });
     })
@@ -20,8 +20,21 @@ setTimeout(() => {
     document.querySelectorAll('.ativar-desativar-usuario').forEach(ativarDesativar => {
         ativarDesativar.addEventListener('click', desativarOuAtivarUsuario)
     })
+
+    document.querySelectorAll('.visualizar-lanhouse').forEach(visualizarLanhouse => {
+        visualizarLanhouse.addEventListener('click', e => {
+            sessionStorage.setItem('destacar-lanhouse', e.target.getAttribute('idLanhouse'))
+            window.location.href = window.location.origin + '/dashboards/dashboard-geral/lista-lanhouses.html'
+        })
+    })
 }, 200);
 
 const desativarOuAtivarUsuario = e => {
-    
+    fetch(`${window.location.origin}/usuarios/${e.target.getAttribute('statusUsuario') == 1 ? 'desativar' : 'ativar'}/${e.target.getAttribute('idUsuario')}`, { method: 'PUT' }).then(res => {
+        if (res.ok) {
+            window.location.reload()
+        } else {
+            console.log('Erro na desativação/ativação deste usuário')
+        }
+    })
 }

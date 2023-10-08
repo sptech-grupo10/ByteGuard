@@ -17,7 +17,23 @@ function cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario) {
 function login(email, senha) {
     try {
         return database.exec(`SELECT * FROM Usuario WHERE email = "${email}" AND senha = "${senha}"`)
-    }catch(e) {
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+function ativarUsuario(idUsuario) {
+    try {
+        return database.exec(`UPDATE Usuario SET status = 1 WHERE idUsuario = ${idUsuario}`)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+function desativarUsuario(idUsuario) {
+    try {
+        return database.exec(`UPDATE Usuario SET status = 0 WHERE idUsuario = ${idUsuario}`)
+    } catch (e) {
         console.log(e)
     }
 }
@@ -25,5 +41,7 @@ function login(email, senha) {
 module.exports = {
     listarUsuariosPorEmpresa,
     cadastrar,
-    login
+    login,
+    ativarUsuario,
+    desativarUsuario
 }

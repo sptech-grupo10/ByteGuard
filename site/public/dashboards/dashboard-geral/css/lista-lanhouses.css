@@ -52,6 +52,7 @@ body {
     text-align: -webkit-center;
     padding-top: 5px;
     padding-bottom: 5px;
+    transition: all 300ms;
 }
 
 .lista-lanhouses tr:nth-child(2n) {
@@ -66,4 +67,9 @@ body {
 .representante-open-modal, .endereco-open-modal, .ativar-desativar-lanhouse, .login-direto, .criar-usuario {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.destacar {
+    background-color: #B3E9C7;
+    transition: all 300ms;
 }
