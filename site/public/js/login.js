@@ -39,7 +39,7 @@ function validarCampos() {
             if (res.ok) {
                 if (res.status == 200) {
                     res.json().then(json => {
-                        if (json[0].status == 1) {
+                        if (json[0].statusUsuario == 1) {
                             fazerLogin(json[0])
                         } else {
                             cookie.innerText = 'Usuario bloqueado'

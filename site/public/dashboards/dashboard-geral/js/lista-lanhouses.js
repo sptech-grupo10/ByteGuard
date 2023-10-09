@@ -54,7 +54,7 @@ setTimeout(() => {
             $('#modal-cadastrar-usuario-lanhouse').modal('show')
         })
     })
-}, 200);
+}, 500);
 
 const cadastrarUsuarioLanhouse = e => {
     let modal = document.querySelector('#modal-cadastrar-usuario-lanhouse')

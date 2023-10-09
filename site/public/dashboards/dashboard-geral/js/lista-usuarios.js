@@ -8,11 +8,11 @@ fetch(`${window.location.origin}/usuarios/listarUsuariosPorEmpresa/${sessionStor
                 <td>${usuario.nome}</td>
                 <td>${usuario.email}</td>
                 <td>${usuario.senha}</td>
-                <td><div class='status-indicador ${usuario.status == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
+                <td><div class='status-indicador ${usuario.statusUsuario == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
                 <td><span class="visualizar-lanhouse" idLanhouse="${usuario.idLanHouse}">${usuario.idLanHouse} - ${usuario.unidade}</span></td>
-                <td><span statusUsuario="${usuario.status}" idUsuario="${usuario.idUsuario}" class="ativar-desativar-usuario">${usuario.status == 1 ? 'Desativar' : 'Ativar'}</span></td>
+                <td><span statusUsuario="${usuario.statusUsuario}" idUsuario="${usuario.idUsuario}" class="ativar-desativar-usuario">${usuario.statusUsuario == 1 ? 'Desativar' : 'Ativar'}</span></td>
             </tr>`
-        });
+        })
     })
 })
 
@@ -27,7 +27,7 @@ setTimeout(() => {
             window.location.href = window.location.origin + '/dashboards/dashboard-geral/lista-lanhouses.html'
         })
     })
-}, 200);
+}, 500)
 
 const desativarOuAtivarUsuario = e => {
     fetch(`${window.location.origin}/usuarios/${e.target.getAttribute('statusUsuario') == 1 ? 'desativar' : 'ativar'}/${e.target.getAttribute('idUsuario')}`, { method: 'PUT' }).then(res => {

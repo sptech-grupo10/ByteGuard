@@ -24,7 +24,7 @@ function login(email, senha) {
 
 function ativarUsuario(idUsuario) {
     try {
-        return database.exec(`UPDATE Usuario SET status = 1 WHERE idUsuario = ${idUsuario}`)
+        return database.exec(`UPDATE Usuario SET statusUsuario = 1 WHERE idUsuario = ${idUsuario}`)
     } catch (e) {
         console.log(e)
     }
@@ -32,7 +32,7 @@ function ativarUsuario(idUsuario) {
 
 function desativarUsuario(idUsuario) {
     try {
-        return database.exec(`UPDATE Usuario SET status = 0 WHERE idUsuario = ${idUsuario}`)
+        return database.exec(`UPDATE Usuario SET statusUsuario = 0 WHERE idUsuario = ${idUsuario}`)
     } catch (e) {
         console.log(e)
     }
