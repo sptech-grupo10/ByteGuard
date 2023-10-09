@@ -55,6 +55,7 @@ create table LanHouse(
     unidade varchar(45),
     cnpj char(18),
     statusLanhouse tinyint(1) default 1,
+    codigoAcesso varchar(40),
     fkEndereco int,
     fkEmpresa int,
     fkRepresentante int,
@@ -102,3 +103,50 @@ select
     *
 from
     Usuario;
+
+create table Maquina (
+    idMaquina int primary key auto_increment,
+    nomeMaquina varchar(45),
+    fkLanhouse int,
+    constraint fkMaquinaLanhouse foreign key (fkLanhouse) references LanHouse(idLanHouse)
+);
+
+create table TipoComponente (
+    idTipoComponente int primary key auto_increment,
+    tipoComponente varchar(45)
+);
+
+create table EspecificacoesComponente (
+    idEspecificacoesComponente int primary key auto_increment,
+    especificacao varchar(45),
+    valor varchar(45)
+);
+
+create table MetricaComponente (
+    idMetricaComponente int primary key auto_increment,
+    minMetrica float,
+    maxMetrica float,
+    unidadeMedida varchar(7)
+);
+
+create table Componente (
+    idComponente int primary key auto_increment,
+    fkMaquina int,
+    fkTipoComponente int,
+    fkMetricaComponente int,
+    fkEspecificacoesComponente int,
+    constraint fkComponenteMaquina foreign key (fkMaquina) references Maquina(idMaquina),
+    constraint fkComponenteTipoComponente foreign key (fkTipoComponente) references TipoComponente(idTipoComponente),
+    constraint fkComponenteMetricaComponente foreign key (fkMetricaComponente) references MetricaComponente(idMetricaComponente),
+    constraint fkComponenteEspecificacoesComponente foreign key (fkEspecificacoesComponente) references EspecificacoesComponente(idEspecificacoesComponente)
+);
+
+create table Log (
+    idLog int primary key auto_increment,
+    textLog varchar(45),
+    valor float,
+    dataLog datetime,
+    statusLog tinyint,
+    fkComponente int,
+    constraint fkLogComponente foreign key (fkComponente) references Componente(idComponente)
+);

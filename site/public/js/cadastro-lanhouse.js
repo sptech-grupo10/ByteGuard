@@ -9,7 +9,8 @@ const cadastrarLanhouse = () => {
             cnpjServer: iCnpj.value,
             fkEnderecoServer: sessionStorage.getItem('idEndereco'),
             fkEmpresaServer: sessionStorage.getItem('idEmpresa'),
-            fkRepresentanteServer: sessionStorage.getItem('idRepresentante')
+            fkRepresentanteServer: sessionStorage.getItem('idRepresentante'),
+            codigoAcessoServer: String(Date.now()).slice(8, 13)
         })
     }).then(res => {
         if (res.ok) {

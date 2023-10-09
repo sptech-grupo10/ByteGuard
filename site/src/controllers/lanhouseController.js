@@ -3,6 +3,7 @@ const lanhouseModel = require('../models/lanhouseModel')
 function cadastrar(req, res) {
     const unidade = req.body.unidadeServer,
         cnpj = req.body.cnpjServer,
+        codigoAcesso = req.body.codigoAcessoServer,
         fkEndereco = req.body.fkEnderecoServer,
         fkEmpresa = req.body.fkEmpresaServer,
         fkRepresentante = req.body.fkRepresentanteServer
