@@ -1,8 +1,8 @@
-DROP DATABASE ByteGuard;
+drop database ByteGuard;
 
-CREATE DATABASE ByteGuard;
+create database ByteGuard;
 
-Use ByteGuard;
+use ByteGuard;
 
 create table Endereco(
     idEndereco int primary key auto_increment,
@@ -14,10 +14,7 @@ create table Endereco(
     uf char(2)
 );
 
-SELECT
-    *
-FROM
-    Endereco;
+select * from Endereco;
 
 create table Representante(
     idRepresentante int primary key auto_increment,
@@ -28,10 +25,7 @@ create table Representante(
     status tinyint(1) default 1
 );
 
-SELECT
-    *
-FROM
-    Representante;
+select * from Representante;
 
 create table Empresa(
     idEmpresa int primary key auto_increment,
@@ -45,10 +39,7 @@ create table Empresa(
     constraint fkEmpresaRepresentante foreign key (fkRepresentante) references Representante(idRepresentante)
 );
 
-SELECT
-    *
-FROM
-    Empresa;
+select * from Empresa;
 
 create table LanHouse(
     idLanHouse int primary key auto_increment,
@@ -64,26 +55,18 @@ create table LanHouse(
     constraint fkLanhouseRepresentante foreign key (fkRepresentante) references Representante(idRepresentante)
 );
 
-SELECT
-    *
-FROM
-    LanHouse;
+select * from LanHouse;
 
 create table TipoUsuario (
     idTipoUsuario int primary key auto_increment,
     descTipoUsuario varchar(45)
 );
 
-insert into
-    tipoUsuario
-values
-    (null, 'Empresa'),
-    (null, 'Lanhouse');
+insert into  tipoUsuario
+    values (null, 'Empresa'),
+            (null, 'Lanhouse');
 
-SELECT
-    *
-FROM
-    TipoUsuario;
+select * from TipoUsuario;
 
 create table Usuario(
     idUsuario int primary key auto_increment,
@@ -99,10 +82,7 @@ create table Usuario(
     constraint fkTipoUsuarioUsuario foreign key (fkTipoUsuario) references TipoUsuario(idTipoUsuario)
 );
 
-select
-    *
-from
-    Usuario;
+select * from Usuario;
 
 create table Maquina (
     idMaquina int primary key auto_increment,
