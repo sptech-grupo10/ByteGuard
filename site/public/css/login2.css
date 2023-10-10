@@ -148,7 +148,7 @@ nav ul {
 }
 
 .tittle {
-    flex-direction: row-reverse;
+    flex-direction: row;
     color: #000;
     font-size: 1.2rem;
     font-weight: 700;
@@ -160,7 +160,7 @@ nav ul {
 }
 
 .texts span {
-    flex-direction: row-reverse;
+    flex-direction: row;
     color: #000;
     text-align: right;
     font-size: 1.2rem;
@@ -181,7 +181,7 @@ nav ul {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    flex-direction: row-reverse;
+    flex-direction: row;
     gap: 10%;
 }
 
@@ -191,7 +191,6 @@ input {
     outline: none;
     border-bottom: 1px solid black;
     transition: all 100ms;
-
 }
 
 .signBox span {
@@ -239,6 +238,7 @@ input {
     width: 100%;
     height: max-content;
     justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 .top {
