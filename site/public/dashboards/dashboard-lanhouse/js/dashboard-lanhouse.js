@@ -19,3 +19,12 @@ const printLanhouse = lanhouse => {
         usernameClass.innerText = lanhouse
     })
 }
+
+function exibirAlertas() {
+    var displayDivAlertas = document.getElementById("alertas");
+    if (displayDivAlertas.style.display != "flex") {
+        displayDivAlertas.style.display = "flex";
+    } else {
+        displayDivAlertas.style.display = "none";
+    }
+}

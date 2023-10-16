@@ -1,75 +1,250 @@
-body {
-    position: relative;
-    overflow: hidden;
+* {
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif !important;
 }
 
-.toast {
+.nav-horizontal {
     position: absolute;
-    right: -20%;
-    top: 1rem;
-    width: 14rem;
-    height: 3.5rem;
-    border-radius: 4px;
-    background-color: green;
-    transition: all 300ms;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #CCC;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
 }
 
-.container {
-    width: 100vw;
-    height: 100vh;
+.nav-horizontal img {
+    height: 30px;
 }
 
-.container-lista-lanhouses {
+.nav-horizontal #logo-byte {
+    position: relative;
+    left: 15px;
+    height: 40px;
+}
+
+.nav-horizontal .user-info {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    right: 15px;
+}
+
+.nav-horizontal .user-info .user-name-cargo {
     display: flex;
     flex-direction: column;
+    align-items: end;
+}
+
+.nav-horizontal .user-info .user-name-cargo .user-icon {
+    display: flex;
     align-items: center;
 }
 
-.status-indicador {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+.nav-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 643px;
+    width: 70px;
+    z-index: 8;
+    padding-top: 80px;
+    border-right: 0.5px solid #CCC;
+    background: #FFF;
+    color: #fff;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
+
 }
 
-.status-ativo {
-    background-color: #06BA63;
+.nav-left a {
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 200px;
+    padding: 10px;
 }
 
-.status-bloqueado {
-    background-color:#D1462F;
+
+.nav-left .icons {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 2px;
+    left: 10px;
 }
 
-#modal-cadastro-lanhouse {
+.nav-left span {
+    position: relative;
+    left: 30px;
+    color: #000;
+    bottom: 6px;
+}
+
+.nav-left:hover {
+    width: 240px;
+    transition: all 0.5s ease;
+}
+
+.nav-left li:hover {
+    background: #F0F0F0;
+}
+
+.nav-left .sair {
     position: relative;
 }
 
-.lista-lanhouses {
-    width: 95%;
-}
-
-.lista-lanhouses td {
-    border: 1px solid black;
-    text-align: -webkit-center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: all 300ms;
-}
-
-.lista-lanhouses tr:nth-child(2n) {
-    background-color: #ccc;
-}
-
-.containter-modal-endereco-lanhouse{
-    display: flex;
-    flex-direction: column;
-}
-
-.representante-open-modal, .endereco-open-modal, .ativar-desativar-lanhouse, .login-direto, .criar-usuario {
-    text-decoration: underline;
+.nav-left .sair {
+    text-decoration: none;
+    position: absolute;
+    bottom: 15px;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 240px;
+    padding: 10px;
     cursor: pointer;
 }
 
-.destacar {
-    background-color: #B3E9C7;
-    transition: all 300ms;
+.container-dash {
+    background: #F0F0F0;
+    width: 1446px;
+    height: 672px;
+    position: absolute;
+    top: 51px;
+    left: 71px;
+    /* display: flex; */
+}
+
+
+.cabecalho {
+    height: 10%;
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 15px;
+    left: 55px;
+}
+
+.container-dash h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.cabecalho #box-alertas {
+    background: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cabecalho #box-alertas #total-alertas {
+    position: relative;
+    border-radius: 50%;
+    background: #E43;
+    color: #fff;
+    width: 20px;
+    height: 18px;
+    top: -9px;
+    right: 10px;
+    padding: 3px;
+}
+
+.conteudo-dash {
+    width: 92%;
+    height: 78%;
+    display: flex;
+    align-self: center;
+    position: relative;
+    left: 55px;
+    top: 27px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.tabela-lan-house {
+    width: 602px;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cor-sinal {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.ideal {
+    background-color: #14CA3C;;
+}
+
+.critico {
+    background-color: #EF2C2C;
+}
+
+.atencao {
+    background-color: #ffb800;
+}
+
+.title-lan-house {
+    display: flex;
+    gap: 10px;
+}
+
+.infos-lan-house {
+    display: flex;
+}
+
+.box-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 50%;
+    align-items: start;
+}
+
+.box-info h3 {
+    font-weight: 600;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.buttons a {
+    text-decoration: none;
+    background-color: #337bff;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 16px;
+    color: #FFF;
+    transition: 0.3s ease;
+}
+
+.buttons a:hover {
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+    transition: 0.3s ease;
 }

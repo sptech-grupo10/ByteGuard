@@ -1,0 +1,217 @@
+<DOCTYPE html>
+    <html lang="PT-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/dashboard-lanhouse.js" defer></script>
+        <title>Analytics | CPU</title>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="../../css/reset.css">
+        <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    </head>
+
+    <body>
+
+        <header class="nav-horizontal">
+            <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+            <div class="user-info">
+                <div class="user-name-cargo">
+                    <span id="username">Gustavo Medeiros</span>
+                    <span id="user-cargo">admin</span>
+                </div>
+
+                <div class="user-icon">
+                    <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
+                </div>
+            </div>
+        </header>
+
+        <header>
+            <ul class="nav-left">
+                <li>
+                    <a href="index.html">
+                        <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cpu.html">
+                        <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
+                        <span>CPU</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="memoria.html">
+                        <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
+                        <span>Memória RAM</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="disco.html">
+                        <img class="icons" src="../../assets/imgs/ssd-icon-black.svg" alt="">
+                        <span>Disco</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="rede.html">
+                        <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
+                        <span>Rede</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img class="icons" src="../../assets/imgs/janelas-icon-black.svg" alt="">
+                        <span>Janelas</span>
+                    </a>
+                </li>
+                <li class="sair" onclick="limparSessao()">
+                    <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+                    <span>Sair</span>
+                </li>
+            </ul>
+        </header>
+
+        <div class="container-dash">
+            <div class="cabecalho">
+                <h1 id="title-dash">Detalhes da CPU</h1>
+                <div id="box-alertas" onclick="exibirAlertas()">
+                    <img src="../../assets/imgs/sino-icon-black.png" alt="">
+                    <div id="total-alertas">12</div>
+                </div>
+            </div>
+
+            <div id="alertas">
+                <div class="notificacao critico">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">Rede</h3>
+                    <span class="icon-alerta" id="cor-alerta-critico">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Crítico</span>
+                  <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
+                </div>
+                
+                <div class="notificacao atencao">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">CPU</h3>
+                    <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Atenção</span>
+                  <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+                </div>
+                
+                <div class="notificacao atencao">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">CPU</h3>
+                    <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Atenção</span>
+                  <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+                </div>
+                
+                <div class="notificacao atencao">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">CPU</h3>
+                    <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Atenção</span>
+                  <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+                </div>
+                
+                <div class="notificacao atencao">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">CPU</h3>
+                    <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Atenção</span>
+                  <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+                </div>
+                
+                <div class="notificacao atencao">
+                  <div class="alerta-icon-componente">
+                    <h3 id="title-componente">CPU</h3>
+                    <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+                  </div>
+          
+                  <span id="classificacao-alerta">Atenção</span>
+                  <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+                </div>
+              </div>
+
+            <!-- O que for alterar nas telas é apenas daqui para baixo -->
+            <div class="conteudo-dash" id="conteudo-cpu">
+
+                <div class="cpu-graficos">
+                    <div class="cpu-chart" id="cpu-grafico-temperatura">
+                        <h1>Temperatura</h1>
+                        <div class="info-graficos"></div>
+                    </div>
+
+                    <div class="cpu-chart" id="cpu-grafico-velocidade">
+                        <h1>Clock Velocidade</h1>
+                        <div class="info-graficos"></div>
+                    </div>
+                </div>
+
+                <div class="cpu-kpi-detalhes">
+                    <div class="cpu-kpi" id="cpu-kpi">
+                        <span>A temperatura de CPU da máquina 10 está acima das demais máquinas. Total de alertas emitidos: 5.</span>
+                        
+                        <div class="grafico-kpi"></div>
+                    </div>
+
+                    <div class="cpu-detalhes">
+                        <h1>Detalhes técnicos - CPU</h1>
+
+                        <div class="cpu-detalhes-container">
+
+                            <div class="cpu-detalhes-box">
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Modelo</span>
+                                    <span class="cpu-value-detalhe" id="cpu-modelo-value">Core i5 8265U</span>
+                                </div>
+
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Processadores lógicos</span>
+                                    <span class="cpu-value-detalhe" id="cpu-processador-logico-value">8</span>
+                                </div>
+
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Núcleos</span>
+                                    <span class="cpu-value-detalhe" id="cpu-nucleos-value">4</span>
+                                </div>
+                            </div>
+
+                            <div class="cpu-detalhes-box">
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Tipo de soquete</span>
+                                    <span class="cpu-value-detalhe" id="cpu-tipo-soquete-value">Socket 1356 FCBGA</span>
+                                </div>
+                                
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Frequência atual</span>
+                                    <span class="cpu-value-detalhe" id="cpu-freq-atual-value">3791MHz</span>
+                                </div>
+
+                                <div class="cpu-detalhes-info">
+                                    <span class="cpu-title-detalhe">Frequência de estoque</span>
+                                    <span class="cpu-value-detalhe" id="cpu-freq-estoque-value">1600MHz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Fim da alteração da tela -->
+
+        </div>
+    </body>
+
+    </html>

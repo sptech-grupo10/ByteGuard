@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/dashboard-lanhouse.js" defer></script>
-    <title>Analytics | Overview</title>
+    <title>Analytics | Disco</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="js/dashboard-lanhouse.js"></script>
 </head>
 
 <body>
-   
+    
     <header class="nav-horizontal">
         <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
         <div class="user-info">
@@ -76,7 +75,7 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Overview</h1>
+        <h1 id="title-dash">Detalhes do Disco</h1>
         <div id="box-alertas" onclick="exibirAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
           <div id="total-alertas">12</div>
@@ -146,37 +145,73 @@
       </div>
 
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
-      <div class="conteudo-dash" id="conteudo-overview">
-  
-        <div class="grafico-overview-1" id="overview-grafico-cpu">
-          <h1>CPU</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-rede">
-          <h1>Rede</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+      <div class="conteudo-dash" id="conteudo-disco">
+
+        <div class="disco-graficos">
+            <div class="disco-chart" id="disco-grafico-temperatura">
+                <h1>Temperatura</h1>
+                <div class="info-graficos"></div>
+            </div>
+
+            <div class="disco-chart" id="disco-grafico-velocidade">
+                <h1>Taxa de transferência de Dados</h1>
+                <div class="info-graficos"></div>
+            </div>
         </div>
 
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+        <div class="disco-kpi-detalhes">
+            <div class="disco-kpi" id="disco-kpi">
+                <span>O armazenamento do disco nos últimos 30 minutos foi de 600MB. Seguindo essa média, em 2 dias a máquina terá o espaço de disco totalmente ocupado. Total de alertas emitidos: 3.</span>
+                
+                <div class="grafico-kpi"></div>
+            </div>
+
+            <div class="disco-detalhes">
+                <h1>Detalhes técnicos - Disco</h1>
+
+                <div class="disco-detalhes-container">
+
+                    <div class="disco-detalhes-box">
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-modelo-value">yyyyyyyyy</span>
+                        </div>
+
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-processador-logico-value">yyyyyyyyy</span>
+                        </div>
+
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-nucleos-value">yyyyyyyyy</span>
+                        </div>
+                    </div>
+
+                    <div class="disco-detalhes-box">
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-tipo-soquete-value">yyyyyyyyy</span>
+                        </div>
+                        
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-freq-atual-value">yyyyyyyyy</span>
+                        </div>
+
+                        <div class="disco-detalhes-info">
+                            <span class="disco-title-detalhe">XXXXXXXX</span>
+                            <span class="disco-value-detalhe" id="disco-freq-estoque-value">yyyyyyyyy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Memória</h1>
-          <div class="info-graficos"></div>
-        </div>
-      </div>
+
+    </div>
       <!-- Fim da alteração da tela -->
 
     </div>
-
 </body>
 
 </html>

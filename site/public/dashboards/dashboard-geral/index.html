@@ -1,12 +1,283 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard geral</title>
-</head>
-<body>
-    <a href="./lista-lanhouses.html">Lista de lanhouses</a>
-    <a href="./lista-usuarios.html">Lista de usuarios</a>
-</body>
-</html>
+<DOCTYPE html>
+    <html lang="PT-BR">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/dashboard-lanhouse.js" defer></script>
+        <title>Dashboard | Home</title>
+        <link rel="stylesheet" href="css/lista-lanhouses.css">
+        <link rel="stylesheet" href="../../css/reset.css">
+        <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    </head>
+    
+    <body>
+       
+        <header class="nav-horizontal">
+            <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+            <div class="user-info">
+                <div class="user-name-cargo">
+                    <span id="username">Gustavo Medeiros</span>
+                    <span id="user-cargo">admin</span>
+                </div>
+    
+                <div class="user-icon">
+                    <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo">
+                </div>
+            </div>
+        </header>
+    
+        <header >
+            <ul class="nav-left">
+                <li>
+                  <a href="#">
+                    <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+                    <span>Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
+                    <span>Lista de Lan Houses</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
+                    <span>Editar representantes</span>
+                  </a>
+                </li>
+                
+                
+                <li class="sair" onclick="limparSessao()">
+                  <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+                  <span>Sair</span>
+                </li>
+              </ul>
+        </header>
+    
+        <div class="container-dash">
+          <div class="cabecalho">
+            <h1 id="title-dash">Unidades</h1>
+            <!-- <div id="box-alertas" onclick="exibirAlertas()">
+              <img src="../../assets/imgs/sino-icon-black.png" alt="">
+              <div id="total-alertas">12</div>
+            </div> -->
+          </div>
+    
+          <!-- <div id="alertas">
+            <div class="notificacao critico">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">Rede</h3>
+                <span class="icon-alerta" id="cor-alerta-critico">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Crítico</span>
+              <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
+            </div>
+            
+            <div class="notificacao atencao">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">CPU</h3>
+                <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Atenção</span>
+              <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+            </div>
+            
+            <div class="notificacao atencao">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">CPU</h3>
+                <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Atenção</span>
+              <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+            </div>
+            
+            <div class="notificacao atencao">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">CPU</h3>
+                <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Atenção</span>
+              <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+            </div>
+            
+            <div class="notificacao atencao">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">CPU</h3>
+                <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Atenção</span>
+              <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+            </div>
+            
+            <div class="notificacao atencao">
+              <div class="alerta-icon-componente">
+                <h3 id="title-componente">CPU</h3>
+                <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+              </div>
+      
+              <span id="classificacao-alerta">Atenção</span>
+              <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+            </div>
+          </div> -->
+    
+          <!-- O que for alterar nas telas é apenas daqui para baixo -->
+          <div class="conteudo-dash" id="lista-lan-houses">
+      
+            <div class="tabela-lan-house" id="tabela-lan-house">
+                <div class="title-lan-house">
+                    <h1 id="unidade">Unidade Paulista</h1>
+                    <div class="cor-sinal ideal"></div>
+                </div>
+
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Representante</h3>
+                        <span id="representante">Melissa Rodrigues Cavalcante</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>Telefone</h3>
+                        <span id="telefone">(11)94885-6296</span>
+                    </div>
+                </div>
+                
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Endereço</h3>
+                        <span id="endereco">Av. Paulista, 2000</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>CNPJ</h3>
+                        <span id="cnpj">49.150.759/0001-40</span>
+                    </div>
+                </div>
+
+              <div class="buttons">
+                <a href="">Acessar</a>
+                <a href="">Desativar</a>
+                <a href="">Cadastrar novo usuário</a>
+              </div>
+            </div>
+            
+            <div class="tabela-lan-house" id="tabela-lan-house">
+                <div class="title-lan-house">
+                    <h1 id="unidade">Unidade São Caetano</h1>
+                    <div class="cor-sinal critico"></div>
+                </div>
+
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Representante</h3>
+                        <span id="representante">Gustavo Medeiros Silva</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>Telefone</h3>
+                        <span id="telefone">(11)94885-6296</span>
+                    </div>
+                </div>
+                
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Endereço</h3>
+                        <span id="endereco">Av. Presidente Kennedy, 800</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>CNPJ</h3>
+                        <span id="cnpj">49.150.759/0001-40</span>
+                    </div>
+                </div>
+
+              <div class="buttons">
+                <a href="">Acessar</a>
+                <a href="">Desativar</a>
+                <a href="">Cadastrar novo usuário</a>
+              </div>
+            </div>
+            
+            <div class="tabela-lan-house" id="tabela-lan-house">
+                <div class="title-lan-house">
+                    <h1 id="unidade">Unidade Ipiranga</h1>
+                    <div class="cor-sinal ideal"></div>
+                </div>
+
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Representante</h3>
+                        <span id="representante">Luka Caetano</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>Telefone</h3>
+                        <span id="telefone">(11)94885-6296</span>
+                    </div>
+                </div>
+                
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Endereço</h3>
+                        <span id="endereco">Av. Nazaré, 2300</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>CNPJ</h3>
+                        <span id="cnpj">49.150.759/0001-40</span>
+                    </div>
+                </div>
+
+              <div class="buttons">
+                <a href="">Acessar</a>
+                <a href="">Desativar</a>
+                <a href="">Cadastrar novo usuário</a>
+              </div>
+            </div>
+            
+            <div class="tabela-lan-house" id="tabela-lan-house">
+                <div class="title-lan-house">
+                    <h1 id="unidade">Unidade Itaquera</h1>
+                    <div class="cor-sinal atencao"></div>
+                </div>
+
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Representante</h3>
+                        <span id="representante">Kauan Matheus Oliveira</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>Telefone</h3>
+                        <span id="telefone">(11)94885-6296</span>
+                    </div>
+                </div>
+                
+                <div class="infos-lan-house">
+                    <div class="box-info">
+                        <h3>Endereço</h3>
+                        <span id="endereco">Av. Jacupêssego, 1500</span>
+                    </div>
+                    <div class="box-info">
+                        <h3>CNPJ</h3>
+                        <span id="cnpj">49.150.759/0001-40</span>
+                    </div>
+                </div>
+
+              <div class="buttons">
+                <a href="">Acessar</a>
+                <a href="">Desativar</a>
+                <a href="">Cadastrar novo usuário</a>
+              </div>
+            </div>
+            
+            
+            
+          </div>
+          <!-- Fim da alteração da tela -->
+    
+        </div>
+    
+    </body>
+    
+    </html>

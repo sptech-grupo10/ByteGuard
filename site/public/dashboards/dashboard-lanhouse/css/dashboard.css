@@ -1,0 +1,595 @@
+* {
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif !important;
+}
+
+.nav-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 0.5px solid #CCC;
+    background: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav-horizontal img {
+    height: 30px;
+}
+
+.nav-horizontal #logo-byte {
+    position: relative;
+    left: 15px;
+    height: 40px;
+}
+
+.nav-horizontal .user-info {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    right: 15px;
+}
+
+.nav-horizontal .user-info .user-name-cargo {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.nav-horizontal .user-info .user-name-cargo .user-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 643px;
+    width: 70px;
+    z-index: 8;
+    padding-top: 80px;
+    border-right: 0.5px solid #CCC;
+    background: #FFF;
+    color: #fff;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
+
+}
+
+.nav-left a {
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 200px;
+    padding: 10px;
+}
+
+
+.nav-left .icons {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 2px;
+    left: 10px;
+}
+
+.nav-left span {
+    position: relative;
+    left: 30px;
+    color: #000;
+    bottom: 6px;
+}
+
+.nav-left:hover {
+    width: 200px;
+    transition: all 0.5s ease;
+}
+
+.nav-left li:hover {
+    background: #F0F0F0;
+}
+
+.nav-left .sair {
+    position: relative;
+}
+
+.nav-left .sair {
+    text-decoration: none;
+    position: absolute;
+    bottom: 15px;
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 16px;
+    display: table;
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.container-dash {
+    background: #F0F0F0;
+    width: 1446px;
+    height: 672px;
+    position: absolute;
+    top: 51px;
+    left: 71px;
+    /* display: flex; */
+}
+
+
+.cabecalho {
+    height: 10%;
+    width: 92%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 15px;
+    left: 55px;
+}
+
+.container-dash h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.cabecalho #box-alertas {
+    background: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cabecalho #box-alertas #total-alertas {
+    position: relative;
+    border-radius: 50%;
+    background: #E43;
+    color: #fff;
+    width: 20px;
+    height: 18px;
+    top: -9px;
+    right: 10px;
+    padding: 3px;
+}
+
+.conteudo-dash {
+    width: 92%;
+    height: 78%;
+    display: flex;
+    align-self: center;
+    position: relative;
+    left: 55px;
+    top: 27px;
+}
+
+#alertas {
+    height: 495px;
+    width: 220px;
+    overflow-y: scroll;
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 95px;
+    right: 60px;
+    z-index: 5;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+}
+
+#alertas .notificacao {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    height: 90px;
+    flex-shrink: 0;
+}
+
+.critico {
+    background: #ffcccc;
+}
+
+.atencao {
+    background: #fff388;
+}
+
+#title-componente {
+    font-weight: 600;
+}
+
+#alertas .notificacao .icon-alerta {
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+    height: 12px;
+    width: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#alertas .notificacao .alerta-icon-componente {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#cor-alerta-atencao {
+    background-color: #ffb800;
+}
+
+#cor-alerta-critico {
+    background-color: #ff0000;
+}
+
+/* OVERVIEW ------------------------------------------------------------- */
+#conteudo-overview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.grafico-overview-1 {
+    width: 376px;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.grafico-overview-2 {
+    width: 602px;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+
+/* CPU ------------------------------------------------------------- */
+#conteudo-cpu {
+    display: flex;
+}
+
+.cpu-graficos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.cpu-graficos .cpu-chart {
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.cpu-kpi-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+.cpu-kpi-detalhes .cpu-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.cpu-kpi-detalhes .cpu-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.cpu-kpi-detalhes .cpu-detalhes .cpu-detalhes-container {
+    display: flex;
+}
+
+.cpu-kpi-detalhes .cpu-detalhes .cpu-detalhes-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 50%;
+    height: 120px;
+}
+
+.cpu-detalhes .cpu-detalhes-info {
+    display: flex;
+    gap: 10px;
+    width: 300px;
+    align-items: start;
+}
+
+.cpu-detalhes .cpu-detalhes-info .cpu-title-detalhe {
+    font-weight: 600;
+}
+
+
+/* MEMÓRIA RAM ------------------------------------------------------------- */
+#conteudo-memoria {
+    display: flex;
+}
+
+.memoria-graficos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.memoria-graficos .memoria-chart {
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.memoria-kpi-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+.memoria-kpi-detalhes .memoria-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.memoria-kpi-detalhes .memoria-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.memoria-kpi-detalhes .memoria-detalhes .memoria-detalhes-container {
+    display: flex;
+}
+
+.memoria-kpi-detalhes .memoria-detalhes .memoria-detalhes-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 50%;
+    height: 80px;
+}
+
+.memoria-detalhes .memoria-detalhes-info {
+    display: flex;
+    gap: 10px;
+    width: 300px;
+    align-items: start;
+}
+
+.memoria-detalhes .memoria-detalhes-info .memoria-title-detalhe {
+    font-weight: 600;
+}
+
+
+/* DISCO ------------------------------------------------------------- */
+#conteudo-disco {
+    display: flex;
+}
+
+.disco-graficos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.disco-graficos .disco-chart {
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.disco-kpi-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+.disco-kpi-detalhes .disco-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.disco-kpi-detalhes .disco-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.disco-kpi-detalhes .disco-detalhes .disco-detalhes-container {
+    display: flex;
+}
+
+.disco-kpi-detalhes .disco-detalhes .disco-detalhes-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 50%;
+    height: 120px;
+}
+
+.disco-detalhes .disco-detalhes-info {
+    display: flex;
+    gap: 10px;
+    width: 300px;
+    align-items: start;
+}
+
+.disco-detalhes .disco-detalhes-info .disco-title-detalhe {
+    font-weight: 600;
+}
+
+
+/* REDE ------------------------------------------------------------- */
+#conteudo-rede {
+    display: flex;
+}
+
+.rede-graficos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.rede-graficos .rede-chart {
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.rede-kpi-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+.rede-kpi-detalhes .rede-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.rede-kpi-detalhes .rede-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.rede-kpi-detalhes .rede-detalhes .rede-detalhes-container {
+    display: flex;
+}
+
+.rede-kpi-detalhes .rede-detalhes .rede-detalhes-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 50%;
+    height: 80px;
+}
+
+.rede-detalhes .rede-detalhes-info {
+    display: flex;
+    gap: 10px;
+    width: 300px;
+    align-items: start;
+}
+
+.rede-detalhes .rede-detalhes-info .rede-title-detalhe {
+    font-weight: 600;
+}
+
+
+/* JANELAS ------------------------------------------------------------- */

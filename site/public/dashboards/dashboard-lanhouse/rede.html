@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/dashboard-lanhouse.js" defer></script>
-    <title>Analytics | Overview</title>
+    <title>Analytics | Rede</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="js/dashboard-lanhouse.js"></script>
 </head>
 
 <body>
-   
+    
     <header class="nav-horizontal">
         <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
         <div class="user-info">
@@ -76,7 +75,7 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Overview</h1>
+        <h1 id="title-dash">Detalhes de Rede</h1>
         <div id="box-alertas" onclick="exibirAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
           <div id="total-alertas">12</div>
@@ -146,37 +145,63 @@
       </div>
 
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
-      <div class="conteudo-dash" id="conteudo-overview">
-  
-        <div class="grafico-overview-1" id="overview-grafico-cpu">
-          <h1>CPU</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-rede">
-          <h1>Rede</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+      <div class="conteudo-dash" id="conteudo-rede">
+
+        <div class="rede-graficos">
+            <div class="rede-chart" id="rede-grafico-temperatura">
+                <h1>Latência</h1>
+                <div class="info-graficos"></div>
+            </div>
+
+            <div class="rede-chart" id="rede-grafico-velocidade">
+                <h1>Velocidade</h1>
+                <div class="info-graficos"></div>
+            </div>
         </div>
 
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+        <div class="rede-kpi-detalhes">
+            <div class="rede-kpi" id="rede-kpi">
+                <span>A máquina 10 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas emitidos: 3.</span>
+                
+                <div class="grafico-kpi"></div>
+            </div>
+
+            <div class="rede-detalhes">
+                <h1>Detalhes técnicos - Rede</h1>
+
+                <div class="rede-detalhes-container">
+
+                    <div class="rede-detalhes-box">
+                        <div class="rede-detalhes-info">
+                            <span class="rede-title-detalhe">Capacidade</span>
+                            <span class="rede-value-detalhe" id="rede-capacidade-value">1 GB</span>
+                        </div>
+
+                        <div class="rede-detalhes-info">
+                            <span class="rede-title-detalhe">Máximo detectado</span>
+                            <span class="rede-value-detalhe" id="rede-maximo-value">114.79</span>
+                        </div>
+                    </div>
+
+                    <div class="rede-detalhes-box">
+                        <div class="rede-detalhes-info">
+                            <span class="rede-title-detalhe">Tempo total de oscilação</span>
+                            <span class="rede-value-detalhe" id="rede-tempo-oscilacao-value">1.4s</span>
+                        </div>
+                        
+                        <div class="rede-detalhes-info">
+                          <span class="rede-title-detalhe">Mínimo detectado</span>
+                          <span class="rede-value-detalhe" id="rede-minimo-value">57.22</span>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Memória</h1>
-          <div class="info-graficos"></div>
-        </div>
-      </div>
+
+    </div>
       <!-- Fim da alteração da tela -->
 
     </div>
-
 </body>
 
 </html>
