@@ -96,6 +96,8 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
+insert into TipoComponente values(null,'RAM'),(null,'Processador'),(null,'Disco');
+
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
     especificacao varchar(45),
@@ -108,6 +110,8 @@ create table MetricaComponente (
     maxMetrica float,
     unidadeMedida varchar(7)
 );
+
+insert into MetricaComponente values(null,3,16,'%'),(null,null,90,'%'),(null,null,80,'%');
 
 create table Componente (
     idComponente int primary key auto_increment,
