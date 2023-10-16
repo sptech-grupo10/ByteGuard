@@ -10,35 +10,116 @@
     <script src="./js/cadastro-endereco.js" defer></script>
     <script src="./js/cadastro-representante.js" defer></script>
     <script src="./js/cadastro-empresa.js" defer></script>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/cadastro-empresa.css" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
+    <link rel="shortcut icon" href="./assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
 </head>
 
 <body>
-    Cadastro de representante da empresa
-    <div class="cadastro-representante">
-        nome inteiro<input id="iNome" value="Kauan Matheus Barros de Oliveira">
-        telefone<input id="iTelefone" value="(11) 91043-4007" maxlength="15">
-        cpf<input value="532.192.310-80" id="iCpf" maxlength="14">
-        email<input id="iEmail" value="kauan@gmail.com">
+    <header>
+        <nav>
+            <div class="options mobile">
+                <img class="options-icon" src="./assets/imgs/options-icon.svg">
+            </div>
+            <a href="index.html"><img src="./assets/imgs/bitGuardLogoWhite.png" class="logo" /></a>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#services">Serviços</a></li>
+                <li><a href="index.html#porque">Por que usar ByteGuard?</a></li>
+                <li><a href="index.html#footer">Contato</a></li>
+                <!-- <li><a href="">Preços</a></li> -->
+            </ul>
+            <a href="#" class="accountItem"><img src="./assets/imgs/accountItem.png" /></a>
+        </nav>
+    </header>
+    <div class="topBox flex borda">
+        <div class="flex column cadastro-empresa margem">
+            <span class="title large">Cadastro de empresa</span>
+            <div class="inputsBox flex column">
+                <div class="flex dentro">
+                    <div class="flex column">
+                        <span>Cnpj</span>
+                        <input class="inputStyle" id="iCnpj" maxlength="18" value="73.212.152/0001-21">
+                    </div>
+                    <div class="flex column">
+                        <span>Nome fantasia</span>
+                        <input class="inputStyle" id="iNomeFantasia" value="Empresa serinha">
+                    </div>
+                </div>
+                <div class="flex column">
+                    <span>Razão social</span>
+                    <input class="inputStyle" id="iRazaoSocial" value="Empresa séria">
+                </div>
+            </div>
+        </div>
+        <div class="cadastro-endereco margem ">
+            <span class="title large">Endereço da empresa</span>
+            <div class="flex column dentro">
+                <div class="topEndereco flex">
+                    <div class="flex column">
+                        <span>CEP</span>
+                        <div class="flex">
+                            <input class="inputStyle" id="iCep" value="01414-001" maxlength="9">
+                            <button id="btBuscarCep" class="btBuscarCep">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="flex column">
+                        <span>Cidade</span>
+                        <input class="inputStyle" id="iCidade" disabled>
+                    </div>
+                    <div class="flex column">
+                        <span>UF</span>
+                        <input class="inputStyle" id="iUf" maxlength="2" disabled>
+                    </div>
+                </div>
+                <div class="topEndereco flex">
+                    <div class="flex column">
+                        <span>Bairro</span>
+                        <input class="inputStyle" id="iBairro" disabled>
+                    </div>
+                    <div class="flex column">
+                        <span>Logradouro</span>
+                        <input class="inputStyle" id="iLogradouro" disabled>
+                    </div>
+                    <div class="flex column">
+                        <span>Número</span>
+                        <input class="inputStyle" id="iNumero" value="30">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    Cadastro de endereço da empresa
-    <div class="cadastro-endereco">
-        cep<input id="iCep" value="01414-001" maxlength="9">
-        <button id="btBuscarCep">Buscar</button>
-        cidade<input id="iCidade" disabled>
-        uf<input id="iUf" maxlength="2" disabled>
-        bairro<input id="iBairro" disabled>
-        logradouro<input id="iLogradouro" disabled>
-        numero<input id="iNumero" value="30">
+    <div class="flex cadastro-representante borda margem">
+        <div class="flex tamanho">
+            <span class="title flex">Cadastre um Representante para sua empresa!</span>
+        </div>
+        <div class="boxRepresentante flex">
+            <div class="flex column dentro">
+                <div class="flex column">
+                    <span>Nome completo</span>
+                    <input class="inputStyle" id="iNome" value="Kauan Matheus Barros de Oliveira">
+                </div>
+
+                <div class="flex column">
+                    <span>Telefone</span>
+                    <input class="inputStyle" id="iTelefone" value="(11) 91043-4007" maxlength="15">
+                </div>
+            </div>
+            <dix class="flex column dentro">
+                <div class="flex column">
+                    <span>CPF</span>
+                    <input class="inputStyle" value="532.192.310-80" id="iCpf" maxlength="14">
+                </div>
+
+                <div class="flex column">
+                    <span>Email</span>
+                    <input class="inputStyle" id="iEmail" value="kauan@gmail.com">
+                </div>
+            </dix>
+        </div>
+        <button id="btCadastrar">Cadastrar</button>
     </div>
-    <br>
-    Cadastro de empresa
-    <div class="cadastro-empresa">
-        Cnpj<input id="iCnpj" maxlength="18" value="73.212.152/0001-21">
-        Nome fantasia<input id="iNomeFantasia" value="Empresa serinha">
-        Razão social<input id="iRazaoSocial" value="Empresa séria">
-    </div>
-    <button id="btCadastrar">Cadastrar</button>
     <div id="error-cookie"></div>
 </body>
 
