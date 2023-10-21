@@ -1,7 +1,7 @@
 <DOCTYPE html>
-<html lang="PT-BR">
+  <html lang="PT-BR">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/dashboard-lanhouse.js" defer></script>
@@ -11,80 +11,115 @@
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
     <script src="js/dashboard-lanhouse.js"></script>
-</head>
 
-<body>
-   
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body onload="plotarAlertas(), exibirPopUpAlertas()">
+
     <header class="nav-horizontal">
-        <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
-        <div class="user-info">
-            <div class="user-name-cargo">
-                <span id="username">Gustavo Medeiros</span>
-                <span id="user-cargo">admin</span>
-            </div>
-
-            <div class="user-icon">
-                <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
-            </div>
+      <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+      <div class="user-info">
+        <div class="user-name-cargo">
+          <span id="username">Gustavo Medeiros</span>
+          <span id="user-cargo">admin</span>
         </div>
+
+        <div class="user-icon">
+          <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
+        </div>
+      </div>
     </header>
 
-    <header >
-        <ul class="nav-left">
-            <li>
-              <a href="index.html">
-                <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="cpu.html">
-                <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
-                <span>CPU</span>
-              </a>
-            </li>
-            <li>
-              <a href="memoria.html">
-                <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
-                <span>Memória RAM</span>
-              </a>
-            </li>
-            <li>
-              <a href="disco.html">
-                <img class="icons" src="../../assets/imgs/ssd-icon-black.svg" alt="">
-                <span>Disco</span>
-              </a>
-            </li>
-            <li>
-              <a href="rede.html">
-                <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
-                <span>Rede</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img class="icons" src="../../assets/imgs/janelas-icon-black.svg" alt="">
-                <span>Janelas</span>
-              </a>
-            </li>
-            <li class="sair" onclick="limparSessao()">
-              <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-              <span>Sair</span>
-            </li>
-          </ul>
+    <header>
+      <ul class="nav-left">
+        <li>
+          <a href="index.html">
+            <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="cpu.html">
+            <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
+            <span>CPU</span>
+          </a>
+        </li>
+        <li>
+          <a href="memoria.html">
+            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
+            <span>Memória RAM</span>
+          </a>
+        </li>
+        <li>
+          <a href="disco.html">
+            <img class="icons" src="../../assets/imgs/ssd-icon-black.svg" alt="">
+            <span>Disco</span>
+          </a>
+        </li>
+        <li>
+          <a href="rede.html">
+            <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
+            <span>Rede</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="icons" src="../../assets/imgs/placa-de-video-icon-black.png" alt="">
+            <span>Placa de Vídeo</span>
+          </a>
+        </li>
+        <li class="sair" onclick="limparSessao()">
+          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+          <span>Sair</span>
+        </li>
+      </ul>
     </header>
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Overview</h1>
-        <div id="box-alertas" onclick="exibirAlertas()">
+        <h1 id="title-dash">Overview - <span id="maquina-atual">Máquina 01</span></h1>
+
+        <div class="combo-box-maquinas">
+          <!-- <label for="lista-maquinas">Máquina</label> -->
+          <select name="maquinas" id="lista-maquinas">
+              <option value="1">Máquina 01</option>
+              <option value="2">Máquina 02</option>
+              <option value="3">Máquina 03</option>
+              <option value="4">Máquina 04</option>
+              <option value="5">Máquina 05</option>
+              <option value="6">Máquina 06</option>
+              <option value="7">Máquina 07</option>
+              <option value="8">Máquina 08</option>
+              <option value="9">Máquina 09</option>
+              <option value="10">Máquina 10</option>
+          </select>
+        </div>
+
+        <div class="box-legend">
+          <div class="item-legend">
+              <div class="cor-legend circle-ideal"></div>
+              <span>Ideal</span>
+          </div>
+          <div class="item-legend">
+              <div class="cor-legend circle-atencao"></div>
+              <span>Atenção</span>
+          </div>
+          <div class="item-legend">
+              <div class="cor-legend circle-critico"></div>
+              <span>Crítico</span>
+          </div>
+      </div>
+
+        <div id="box-alertas" onclick="exibirDivAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
-          <div id="total-alertas">12</div>
+          <div id="total-alertas"></div>
         </div>
       </div>
 
       <div id="alertas">
-        <div class="notificacao critico">
+        <!-- <div class="notificacao critico">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">Rede</h3>
             <span class="icon-alerta" id="cor-alerta-critico">!</span>
@@ -142,41 +177,233 @@
   
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
+        </div> -->
       </div>
 
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
       <div class="conteudo-dash" id="conteudo-overview">
-  
-        <div class="grafico-overview-1" id="overview-grafico-cpu">
-          <h1>CPU</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-rede">
-          <h1>Rede</h1>
-          <div class="info-graficos"></div>
-        </div>
-        
-        <div class="grafico-overview-1" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+
+        <div class="grafico-overview-1" onclick="acessarCPU()">
+          <div class="title-canva">
+            <h1>CPU</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-cpu"></canvas>
+          </div>
         </div>
 
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Armazenamento</h1>
-          <div class="info-graficos"></div>
+        <div class="grafico-overview-1" onclick="acessarRede()">
+          <div class="title-canva">
+            <h1>Rede</h1>
+            <div class="status-componente" id="critico"></div>
+          </div>
+          <div class="info-graficos">
+            <div class="box-rede">
+              <div class="upload-download">
+                <div class="dados-rede">
+                  <span id="overview-dado-upload">234</span>
+                  <span class="metrica-rede">KB/s</span>
+                </div>
+                <div class="dados-rede">
+                  <span id="overview-dado-download">27</span>
+                  <span class="metrica-rede">KB/s</span>
+                </div>
+              </div>
+              
+              <div class="icon-arrows">
+                <img src="../../assets/imgs/arrow-upload.svg" alt="">
+                <img src="../../assets/imgs/arrow-download.svg" alt="">
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="grafico-overview-2" id="overview-grafico-memoria">
-          <h1>Memória</h1>
-          <div class="info-graficos"></div>
+
+        <div class="grafico-overview-1" onclick="acessarDisco()">
+          <div class="title-canva">
+            <h1>Disco</h1>
+            <div class="status-componente" id="atencao"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-disco"></canvas>
+          </div>
+        </div>
+
+        <div class="grafico-overview-2" onclick="acessarPlacaDeVideo()">
+          <div class="title-canva">
+            <h1>Placa de Vídeo</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-placa-de-video"></canvas>
+          </div>
+        </div>
+
+        <div class="grafico-overview-2" onclick="acessarMemoria()">
+          <div class="title-canva">
+            <h1>Memória</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-memoria"></canvas>
+          </div>
         </div>
       </div>
       <!-- Fim da alteração da tela -->
 
     </div>
 
-</body>
+  </body>
 
-</html>
+  </html>
+
+  <script>
+    function acessarCPU() {
+      window.location = "cpu.html"
+    }
+
+    function acessarRede() {
+      window.location = "rede.html"
+    }
+
+    function acessarDisco() {
+      window.location = "disco.html"
+    }
+
+    function acessarPlacaDeVideo() {
+      window.location = "#"
+    }
+
+    function acessarMemoria() {
+      window.location = "memoria.html"
+    }
+
+
+    // Criando estrutura para plotar gráfico - labels
+    let labelsCPU = ["Utilizado (%)", "Não utilizado (%)"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosCPU = {
+      labels: labelsCPU,
+      datasets: [
+        {
+          label: "",
+          data: [61, 39],
+          backgroundColor: ["#337bff", "#D9D9D9"]
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configCPU = {
+      type: "doughnut",
+      data: dadosCPU,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartCPU = new Chart(
+      document.getElementById("overview-grafico-cpu"),
+      configCPU
+    );
+
+    // Criando estrutura para plotar gráfico - labels
+    let labelsDisco = ["Utilizado (%)", "Não utilizado (%)"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosDisco = {
+      labels: labelsDisco,
+      datasets: [
+        {
+          label: "",
+          data: [27, 63],
+          backgroundColor: ["#337bff", "#D9D9D9"]
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configDisco = {
+      type: "doughnut",
+      data: dadosDisco,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartDisco = new Chart(
+      document.getElementById("overview-grafico-disco"),
+      configDisco
+    );
+
+
+    // Criando estrutura para plotar gráfico - labels
+    let labelsPlacaDeVideo = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosPlacaDeVideo = {
+      labels: labelsPlacaDeVideo,
+      datasets: [
+        {
+          label: "",
+          data: [30, 34, 33, 35, 36, 34, 32, 32, 33, 35, 36, 34, 35],
+          fill: true,
+          borderColor: "#337bff",
+          tension: 0.1,
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configPlacaDeVideo = {
+      type: "line",
+      data: dadosPlacaDeVideo,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartPlacaDeVideo = new Chart(
+      document.getElementById("overview-grafico-placa-de-video"),
+      configPlacaDeVideo
+    );
+
+    // Criando estrutura para plotar gráfico - labels
+    let labelsMemoria = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosMemoria = {
+      labels: labelsMemoria,
+      datasets: [
+        {
+          label: "",
+          data: [10, 12, 13, 11, 15, 14, 13, 16, 19, 15, 14, 16, 17],
+          fill: true,
+          borderColor: "#337bff",
+          tension: 0.1,
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configMemoria = {
+      type: "line",
+      data: dadosMemoria,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartMemoria = new Chart(
+      document.getElementById("overview-grafico-memoria"),
+      configMemoria
+    );
+
+  </script>

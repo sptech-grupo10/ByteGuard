@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -62,8 +65,8 @@
             </li>
             <li>
               <a href="#">
-                <img class="icons" src="../../assets/imgs/janelas-icon-black.svg" alt="">
-                <span>Janelas</span>
+                <img class="icons" src="../../assets/imgs/placa-de-video-icon-black.png" alt="">
+                <span>Placa de Vídeo</span>
               </a>
             </li>
             <li class="sair" onclick="limparSessao()">
@@ -75,10 +78,10 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Detalhes de Rede</h1>
-        <div id="box-alertas" onclick="exibirAlertas()">
+        <h1 id="title-dash">Detalhes de Rede - <span id="maquina-atual">Máquina 01</span></h1>
+        <div id="box-alertas" onclick="exibirDivAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
-          <div id="total-alertas">12</div>
+          <div id="total-alertas">6</div>
         </div>
       </div>
 

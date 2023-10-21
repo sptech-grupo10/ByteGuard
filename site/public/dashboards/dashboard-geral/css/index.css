@@ -2,6 +2,10 @@
     font-family: "Neue Haas Grotesk Display Pro", sans-serif !important;
 }
 
+body {
+    background: #F0F0F0;
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -136,6 +140,28 @@
     left: 55px;
 }
 
+.cabecalho .box-legend {
+    background: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+}
+
+.cabecalho .box-legend .item-legend {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-legend {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
 .container-dash h1 {
     font-size: 22px;
     font-weight: 600;
@@ -150,18 +176,6 @@
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 5px;
     cursor: pointer;
-}
-
-.cabecalho #box-alertas #total-alertas {
-    position: relative;
-    border-radius: 50%;
-    background: #E43;
-    color: #fff;
-    width: 20px;
-    height: 18px;
-    top: -9px;
-    right: 10px;
-    padding: 3px;
 }
 
 .conteudo-dash {
@@ -204,6 +218,10 @@
 
 .atencao {
     background-color: #ffb800;
+}
+
+.inativo {
+    background-color: #727272;
 }
 
 .title-lan-house {
