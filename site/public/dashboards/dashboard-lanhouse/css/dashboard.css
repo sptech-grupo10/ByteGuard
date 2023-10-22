@@ -2,6 +2,10 @@
     font-family: "Neue Haas Grotesk Display Pro", sans-serif !important;
 }
 
+body {
+    background: #F0F0F0;
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -141,6 +145,69 @@
     font-weight: 600;
 }
 
+.cabecalho .combo-box-maquinas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #fff;
+    border-radius: 10px;
+    height: 80%;
+    width: 15%;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+}
+
+.cabecalho .combo-box-maquinas #lista-maquinas {
+    border: none;
+    width: 80%;
+    height: 70%;
+    display: flex;
+    align-self: center;
+    font-size: 18px;
+    text-align: center;
+}
+
+.cabecalho .combo-box-maquinas option {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.box-legend {
+    background: #fff;
+    border-radius: 10px;
+    height: 80%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+}
+
+.box-legend .item-legend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cor-legend {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.circle-ideal {
+    background-color: #14CA3C;;
+}
+
+.circle-critico {
+    background-color: #EF2C2C;
+}
+
+.circle-atencao {
+    background-color: #ffb800;
+}
+
 .cabecalho #box-alertas {
     background: #fff;
     border-radius: 10px;
@@ -154,14 +221,14 @@
 
 .cabecalho #box-alertas #total-alertas {
     position: relative;
-    border-radius: 50%;
+    border-radius: 20%;
     background: #E43;
     color: #fff;
-    width: 20px;
+    max-width: 20px;
     height: 18px;
-    top: -9px;
+    top: -12px;
     right: 10px;
-    padding: 3px;
+    padding: 3px 7px;
 }
 
 .conteudo-dash {
@@ -190,6 +257,17 @@
     background: #fff;
     border-radius: 15px;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+}
+
+#alertas::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+    border: none;    
+}
+
+#alertas::-webkit-scrollbar-thumb {
+    background-color: #aaa9a9;
+    border-radius: 10px;
 }
 
 #alertas .notificacao {
@@ -256,6 +334,13 @@
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grafico-overview-1:hover {
+    cursor: pointer;
 }
 
 .grafico-overview-2 {
@@ -265,8 +350,99 @@
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.grafico-overview-2:hover {
+    cursor: pointer;
+}
+
+.info-graficos {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#overview-grafico-memoria {
+    height: 100%;
+    width: 100%;
+}
+
+.title-canva {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-componente {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#ideal {
+    background-color: #14CA3C;;
+}
+
+#critico {
+    background-color: #EF2C2C;
+}
+
+#atencao {
+    background-color: #ffb800;
+}
+
+.box-rede {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upload-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.upload-download .dados-rede {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap: 10px;
+}
+
+#overview-dado-upload {
+    font-size: 40px;
+    display: flex;
+    text-align: end;
+}
+
+#overview-dado-download {
+    font-size: 40px;
+    display: flex;
+    text-align: end;
+}
+
+.metrica-rede {
+    font-size: 25px;
+}
+.icon-arrows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.icon-arrows img {
+    height: 50px;
+}
 
 /* CPU ------------------------------------------------------------- */
 #conteudo-cpu {
@@ -289,6 +465,9 @@
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cpu-kpi-detalhes {
@@ -370,6 +549,9 @@
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .memoria-kpi-detalhes {
@@ -451,6 +633,9 @@
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .disco-kpi-detalhes {
@@ -496,7 +681,7 @@
     align-items: start;
     justify-content: space-between;
     width: 50%;
-    height: 120px;
+    height: 80px;
 }
 
 .disco-detalhes .disco-detalhes-info {
@@ -545,7 +730,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 90%;
     height: 220px;
     border-radius: 10px;
@@ -590,6 +775,7 @@
 .rede-detalhes .rede-detalhes-info .rede-title-detalhe {
     font-weight: 600;
 }
+
 
 
 /* JANELAS ------------------------------------------------------------- */

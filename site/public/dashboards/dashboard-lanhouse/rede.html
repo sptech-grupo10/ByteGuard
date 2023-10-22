@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -62,8 +65,8 @@
             </li>
             <li>
               <a href="#">
-                <img class="icons" src="../../assets/imgs/janelas-icon-black.svg" alt="">
-                <span>Janelas</span>
+                <img class="icons" src="../../assets/imgs/placa-de-video-icon-black.png" alt="">
+                <span>Placa de Vídeo</span>
               </a>
             </li>
             <li class="sair" onclick="limparSessao()">
@@ -75,10 +78,10 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Detalhes de Rede</h1>
-        <div id="box-alertas" onclick="exibirAlertas()">
+        <h1 id="title-dash">Detalhes de Rede - <span id="maquina-atual">Máquina 01</span></h1>
+        <div id="box-alertas" onclick="exibirDivAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
-          <div id="total-alertas">12</div>
+          <div id="total-alertas">6</div>
         </div>
       </div>
 
@@ -150,20 +153,26 @@
         <div class="rede-graficos">
             <div class="rede-chart" id="rede-grafico-temperatura">
                 <h1>Latência</h1>
-                <div class="info-graficos"></div>
+                <div class="info-graficos">
+                  <canvas id="rede-grafico-uso-linha"></canvas>
+                </div>
             </div>
 
-            <div class="rede-chart" id="rede-grafico-velocidade">
+            <div class="rede-chart" id="rede-grafico-velocidade-agora">
                 <h1>Velocidade</h1>
-                <div class="info-graficos"></div>
+                <div class="info-graficos">
+                  <canvas id="rederede-grafico-velocidade" width="500px" height="250px"></canvas>
+                </div>
             </div>
         </div>
 
         <div class="rede-kpi-detalhes">
             <div class="rede-kpi" id="rede-kpi">
-                <span>A máquina 10 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas emitidos: 3.</span>
+                <span>A máquina 5 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas emitidos: 3.</span>
                 
-                <div class="grafico-kpi"></div>
+                <div class="grafico-kpi">
+                  <canvas id="rederede-grafico-kpis"></canvas>
+                </div>
             </div>
 
             <div class="rede-detalhes">
@@ -205,3 +214,108 @@
 </body>
 
 </html>
+
+<script>
+   // Gráfico Rede Uso - Line
+    let labelsRedeUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosRedeUsoLinha = {
+      labels: labelsRedeUsoLinha,
+      datasets: [
+        {
+          label: "",
+          data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
+          backgroundColor: ["#337bff", "#D9D9D9"]
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configRedeUsoLinha = {
+      type: "line",
+      data: dadosRedeUsoLinha,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartRedeUsoLinha = new Chart(
+      document.getElementById("rede-grafico-uso-linha"),
+      configRedeUsoLinha
+    );
+
+    //--------------------------------------------------------------------------------
+    // Gráfico Rede Uso - Line
+    let labelsVelocidadeRedeLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosVelocidadeRedeLinha = {
+      labels: labelsVelocidadeRedeLinha,
+      datasets: [
+        {
+          label: "",
+          data: [47, 53, 54, 55, 65, 77, 38, 45, 90],
+          backgroundColor: ["#337bff", "#D9D9D9"]
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configVelocidadeRedeLinha = {
+      type: "line",
+      data: dadosVelocidadeRedeLinha,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartVelocidadeRedeLinha = new Chart(
+      document.getElementById("rederede-grafico-velocidade"),
+      configVelocidadeRedeLinha
+    );
+     //--------------------------------------------------------------------------------
+    // Gráfico KPI - Barra
+    let labelsBarraKpi = ["Máquina 1", "Máquina 2", "Máquina 3", "Máquina 4", "Máquina 5"];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dadosBarraKpi = {
+      labels: labelsBarraKpi,
+      datasets: [
+        {
+          label: "",
+          data: [0, 0, 0, 0, 3],
+          backgroundColor: ["#337bff", "#D9D9D9"]
+        },
+      ]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const configBarraKpi = {
+      type: "bar",
+      data: dadosBarraKpi,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          }
+        }
+      }
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChartBarraKpi = new Chart(
+      document.getElementById("rederede-grafico-kpis"),
+      configBarraKpi
+    );
+</script>

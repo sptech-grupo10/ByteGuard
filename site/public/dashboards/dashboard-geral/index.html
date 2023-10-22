@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/dashboard-lanhouse.js" defer></script>
         <title>Dashboard | Home</title>
-        <link rel="stylesheet" href="css/lista-lanhouses.css">
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="../../css/reset.css">
         <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+        <script src="./js/lista-lanhouses.js" defer></script>
         <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
     </head>
     
@@ -31,21 +32,21 @@
         <header >
             <ul class="nav-left">
                 <li>
-                  <a href="#">
+                  <a href="index.html">
                     <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
                     <span>Home</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
+                    <img class="icons" src="../../assets/imgs/lista-icon.png" alt="">
                     <span>Lista de Lan Houses</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
-                    <span>Editar representantes</span>
+                  <a href="lista-usuarios.html">
+                    <img class="icons" src="../../assets/imgs/representantes-icon.png" alt="">
+                    <span>Lista de usuários</span>
                   </a>
                 </li>
                 
@@ -60,10 +61,24 @@
         <div class="container-dash">
           <div class="cabecalho">
             <h1 id="title-dash">Unidades</h1>
-            <!-- <div id="box-alertas" onclick="exibirAlertas()">
-              <img src="../../assets/imgs/sino-icon-black.png" alt="">
-              <div id="total-alertas">12</div>
-            </div> -->
+            <div class="box-legend">
+              <div class="item-legend">
+                <div class="cor-legend ideal"></div>
+                <span>Ideal</span>
+              </div>
+              <div class="item-legend">
+                <div class="cor-legend atencao"></div>
+                <span>Atenção</span>
+              </div>
+              <div class="item-legend">
+                <div class="cor-legend critico"></div>
+                <span>Crítico</span>
+              </div>
+              <div class="item-legend">
+                <div class="cor-legend inativo"></div>
+                <span>Inativo</span>
+              </div>
+            </div>
           </div>
     
           <!-- <div id="alertas">
@@ -160,7 +175,7 @@
                 </div>
 
               <div class="buttons">
-                <a href="">Acessar</a>
+                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
                 <a href="">Desativar</a>
                 <a href="">Cadastrar novo usuário</a>
               </div>
@@ -195,7 +210,7 @@
                 </div>
 
               <div class="buttons">
-                <a href="">Acessar</a>
+                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
                 <a href="">Desativar</a>
                 <a href="">Cadastrar novo usuário</a>
               </div>
@@ -230,7 +245,7 @@
                 </div>
 
               <div class="buttons">
-                <a href="">Acessar</a>
+                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
                 <a href="">Desativar</a>
                 <a href="">Cadastrar novo usuário</a>
               </div>
@@ -265,7 +280,7 @@
                 </div>
 
               <div class="buttons">
-                <a href="">Acessar</a>
+                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
                 <a href="">Desativar</a>
                 <a href="">Cadastrar novo usuário</a>
               </div>
