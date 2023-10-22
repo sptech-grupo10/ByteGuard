@@ -1,9 +1,10 @@
 const database = require('../database/config')
 
-function cadastrar(unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa, fkRepresentante) {
+function cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante) {
+    let codigoAcesso = unidade + String(Date.now()).slice(4, 8)
     try {
         return database.exec(
-            `INSERT INTO LanHouse VALUES (null, '${unidade}', '${cnpj}', default, ${codigoAcesso}, ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`
+            `INSERT INTO LanHouse VALUES (null, '${unidade}', '${cnpj}', default, '${codigoAcesso}', ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`
         )
     } catch (e) {
         console.log(e)
