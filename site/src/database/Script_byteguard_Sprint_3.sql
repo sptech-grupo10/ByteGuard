@@ -14,22 +14,28 @@ create table Endereco(
     uf char(2)
 );
 
+insert into Endereco values 
+(null,'123456789','59123-000','132','God valle','Sky pie','12'),
+(null,'987654321','77777-123','123','São Miguel','São paulo','11');
 select * from Endereco;
 
 create table Representante(
     idRepresentante int primary key auto_increment,
     nome varchar(45),
-    telefone char(15),
+    telefone varchar(15),
     email varchar(45),
     cpf char(14),
     status tinyint(1) default 1
 );
 
+insert into Representante values
+(null,'Jorge','11 1234-5678','jorjin@maingragas',55566677788,1),
+(null,'Jorgina','11 1234-5678','jorjinis@mainbriar',56675586778,1); 
 select * from Representante;
 
 create table Empresa(
     idEmpresa int primary key auto_increment,
-    cnpj char(18),
+    cnpj char(14),
     nomeFantasia varchar(45),
     razaoSocial varchar(45),
     status tinyint(1) default 1,
@@ -39,12 +45,14 @@ create table Empresa(
     constraint fkEmpresaRepresentante foreign key (fkRepresentante) references Representante(idRepresentante)
 );
 
+insert into Empresa values
+(null,12345678901234,'The Roks','D Xeback',1,1,1);
 select * from Empresa;
 
 create table LanHouse(
     idLanHouse int primary key auto_increment,
     unidade varchar(45),
-    cnpj char(18),
+    cnpj char(14),
     statusLanhouse tinyint(1) default 1,
     codigoAcesso varchar(40),
     fkEndereco int,
@@ -54,7 +62,9 @@ create table LanHouse(
     constraint fkLanhouseEndereco foreign key (fkEndereco) references Endereco(idEndereco),
     constraint fkLanhouseRepresentante foreign key (fkRepresentante) references Representante(idRepresentante)
 );
-
+insert into LanHouse values
+(null,'BigMon',12345678901234,1,1564,1,1,1),
+(null,'Kaido',16328903471254,1,1984,1,1,1);
 select * from LanHouse;
 
 create table TipoUsuario (
@@ -82,6 +92,8 @@ create table Usuario(
     constraint fkTipoUsuarioUsuario foreign key (fkTipoUsuario) references TipoUsuario(idTipoUsuario)
 );
 
+insert into Usuario values
+(null,'Figarland','figarland@gmail.com','f1234',1,1,1,2);
 select * from Usuario;
 
 create table Maquina (
