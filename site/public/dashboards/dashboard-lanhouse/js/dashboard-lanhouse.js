@@ -54,7 +54,7 @@ function exibirPopUpAlertas() {
 
     if (qtdAlertasExibidos.length > 0) {
         divPopUpNotificacao.style.display = "flex";
-        divPopUpNotificacao.innerHTML = qtdAlertasExibidos.length;
+        // divPopUpNotificacao.innerHTML = qtdAlertasExibidos.length;
     } else {
         divPopUpNotificacao.style.display = "none";
     }

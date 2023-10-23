@@ -51,8 +51,15 @@ function validarCampos() {
             } else {
                 console.log('Erro no login')
             }
+            console.log(res);
         }).catch(e => {
             console.log(`Erro: ${e}`)
         })
     }
+}
+
+function limparSessao() {
+    console.log("acessou o limparSessao()");
+    sessionStorage.clear();
+    window.location = "../../login.html"
 }

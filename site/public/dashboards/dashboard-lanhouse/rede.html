@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    <script src="../../js/login.js"></script>
 
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -226,7 +227,9 @@
         {
           label: "",
           data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
-          backgroundColor: ["#337bff", "#D9D9D9"]
+          fill: true,
+          borderColor: "#337bff",
+
         },
       ]
     };
@@ -261,7 +264,8 @@
         {
           label: "",
           data: [47, 53, 54, 55, 65, 77, 38, 45, 90],
-          backgroundColor: ["#337bff", "#D9D9D9"]
+          fill: true,
+          borderColor: "#337bff",
         },
       ]
     };
@@ -286,7 +290,7 @@
     );
      //--------------------------------------------------------------------------------
     // Gráfico KPI - Barra
-    let labelsBarraKpi = ["Máquina 1", "Máquina 2", "Máquina 3", "Máquina 4", "Máquina 5"];
+    let labelsBarraKpi = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
 
     // Criando estrutura para plotar gráfico - dados
     let dadosBarraKpi = {
@@ -294,8 +298,8 @@
       datasets: [
         {
           label: "",
-          data: [0, 0, 0, 0, 3],
-          backgroundColor: ["#337bff", "#D9D9D9"]
+          data: [157, 160, 150, 0, 170, 165, 0, 180, 0],
+          backgroundColor: ["#337bff"]
         },
       ]
     };
