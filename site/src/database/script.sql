@@ -73,7 +73,7 @@ create table Usuario(
     nome varchar(45),
     email varchar(45),
     senha varchar(20),
-    status tinyint(1) default 1,
+    statusUsuario tinyint(1) default 1,
     fkEmpresa int,
     fkLanhouse int,
     fkTipoUsuario int,
@@ -100,7 +100,7 @@ insert into TipoComponente values(null,'RAM'),(null,'Processador'),(null,'Disco'
 
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
-    especificacao varchar(45),
+    especificacao varchar(255),
     valor varchar(45)
 );
 
@@ -134,3 +134,10 @@ create table Log (
     fkComponente int,
     constraint fkLogComponente foreign key (fkComponente) references Componente(idComponente)
 );
+
+insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa, fkRepresentante) values ('LanHousers', '49.150.759/0001-40', 'LanHousers0152', 2, 1, 2);
+
+insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('KauanOliveira', 'KauanOliveira0@', 1, 2);
+
+select * from usuario;
+select * from Log;
