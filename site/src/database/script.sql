@@ -14,11 +14,6 @@ create table Endereco(
     uf char(2)
 );
 
-insert into Endereco values 
-(null,'123456789','59123-000','132','God valle','Sky pie','12'),
-(null,'987654321','77777-123','123','São Miguel','São paulo','11');
-select * from Endereco;
-
 create table Representante(
     idRepresentante int primary key auto_increment,
     nome varchar(45),
@@ -130,6 +125,8 @@ create table Log (
     constraint fkLogComponente foreign key (fkComponente) references Componente(idComponente)
 );
 
-insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa, fkRepresentante) values ('LanHousers', '49.150.759/0001-40', 'LanHousers0152', 2, 1, 2);
-
-insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('Usuario', 'Usuario0@', 1, 2);
+desc Empresa;
+insert into Endereco(cidade) values('São Paulo');
+insert into Empresa(nomeFantasia, razaoSocial, fkEndereco) values('Empresa', 'Empresa', 1);
+insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa) values ('LanHousers', '49.150.759/0001-40', 'LanHousers0152', 1, 1);
+insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('Usuario', 'Usuario0@', 1, 1);
