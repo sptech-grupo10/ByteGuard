@@ -6,7 +6,7 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100%;
-    gap: 2.5rem;
+    gap: 1.5rem;
     font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
@@ -59,9 +59,9 @@ input{
 }
 
 .borda {
-    border-radius: 2rem;
-    border: 1.7px solid #337BFF;
-    padding: 1rem;
+    border-radius: 15px;
+    border: 3px solid #337BFF;
+    padding: 2rem 0;
 }
 
 .title {
@@ -108,18 +108,16 @@ input{
 .btBuscarCep {
     color: white;
     background-color: #337BFF;
-    width: 80px;
-    height: 25px;
-    border-radius: 0.5rem;
+    padding: 3px 10px;
+    border-radius: 10px;
     border: none;
     font-size: 15px;
     font-weight: 700;
-    /* filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50)); */
-    cursor: pointer
+    cursor: pointer;
 }
 
 .final{
     width: 160px !important; 
     height: 50px !important;
-    font-size: 30px !important;
+    font-size: 24px !important;
 }

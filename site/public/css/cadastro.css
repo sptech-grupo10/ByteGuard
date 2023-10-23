@@ -118,6 +118,7 @@ main {
     font-size: 3rem;
     font-weight: 700;
     font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    margin-top: 20px;
 }
 
 .cadastro-desc {
@@ -222,13 +223,11 @@ main {
 #btCadastrar {
     color: white;
     background-color: #337BFF;
-    width: 169px;
-    height: 47px;
-    border-radius: 1rem;
+    padding: 5px 15px;
+    border-radius: 10px;
     border: none;
     font-size: 20px;
     font-weight: 700;
-    filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50));
     cursor: pointer;
 }
 
@@ -250,4 +249,7 @@ main {
 
 .main-img>img{
     width: 40rem;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }

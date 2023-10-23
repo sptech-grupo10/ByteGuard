@@ -71,6 +71,7 @@
 .flexc {
     display: flex;
     flex-direction: column;
+    align-items: start;
 }
 
 .flex {
@@ -120,12 +121,25 @@ a {
     text-decoration: none;
 }
 
-nav a {
+nav {
+    display: flex !important;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+nav a{
     height: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+  }
 
 .logo {
     height: 70%;
