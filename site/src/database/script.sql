@@ -25,7 +25,7 @@ create table Representante(
 
 create table Empresa(
     idEmpresa int primary key auto_increment,
-    cnpj char(18),
+    cnpj char(14),
     nomeFantasia varchar(45),
     razaoSocial varchar(45),
     status tinyint(1) default 1,
@@ -38,7 +38,7 @@ create table Empresa(
 create table LanHouse(
     idLanHouse int primary key auto_increment,
     unidade varchar(45),
-    cnpj char(18),
+    cnpj char(14),
     statusLanhouse tinyint(1) default 1,
     codigoAcesso varchar(40),
     fkEndereco int,
@@ -86,7 +86,12 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
-insert into TipoComponente values(null,'RAM'),(null,'Processador'),(null,'Disco');
+/* AO CADASTRAR O COMPONENTE COLOCAR O TIPO DO COMPONENTE COMO: 
+RAM = 1
+PROCESSADOR =2
+DISCO = 3*/
+
+ insert into TipoComponente values(null,'RAM'),(null,'Processador'),(null,'Disco');
 
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
@@ -96,8 +101,8 @@ create table EspecificacoesComponente (
 
 create table MetricaComponente (
     idMetricaComponente int primary key auto_increment,
-    minMetrica float,
-    maxMetrica float,
+    minMetrica int,
+    maxMetrica int,
     unidadeMedida varchar(7)
 );
 
@@ -118,7 +123,8 @@ create table Componente (
 create table Log (
     idLog int primary key auto_increment,
     textLog varchar(45),
-    valor float,
+    valor int,
+    valorTotal int,
     dataLog datetime,
     statusLog tinyint,
     fkComponente int,
