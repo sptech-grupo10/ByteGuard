@@ -6,7 +6,7 @@ const cadastrarLanhouse = () => {
         },
         body: JSON.stringify({
             unidadeServer: iUnidade.value,
-            cnpjServer: iCnpj.value,
+            cnpjServer: iCnpj.value.replace(/[^\d]+/g, ''),
             fkEnderecoServer: sessionStorage.getItem('idEndereco'),
             fkEmpresaServer: sessionStorage.getItem('idEmpresa'),
             fkRepresentanteServer: sessionStorage.getItem('idRepresentante'),

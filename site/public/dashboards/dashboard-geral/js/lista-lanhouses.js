@@ -1,26 +1,53 @@
-const listaLanhouses = document.querySelector('.lista-lanhouses')
+const listaLanhouses = document.querySelector('#lista-lan-houses')
 
 fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: 'no-store' }).then(res => {
     if (res.ok) {
         res.json().then(json => {
             json.forEach(lanhouse => {
-                listaLanhouses.innerHTML += `<tr class="lanhouse-row lanhouse-${lanhouse.idLanHouse}">
-                    <td>${lanhouse.idLanHouse}</td>
-                    <td>${lanhouse.unidade}</td>
-                    <td>${lanhouse.cnpj}</td>
-                    <td idRepresentante = ${lanhouse.idRepresentante} class="representante-open-modal">${lanhouse.nome}</td>
-                    <td idEndereco = ${lanhouse.idEndereco} class="endereco-open-modal">${lanhouse.logradouro}, ${lanhouse.numero}</td>
-                    <td><div class='status-indicador ${lanhouse.statusLanhouse == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
-                    <td><span idLanhouse='${lanhouse.idLanHouse}' class='login-direto'>Fazer login</span></td>
-                    <td><span statusLanhouse=${lanhouse.statusLanhouse} idLanhouse='${lanhouse.idLanHouse}' class='ativar-desativar-lanhouse'>${lanhouse.statusLanhouse == 1 ? 'Desativar' : 'Ativar'}</span></td>
-                    <td><span idLanhouse=${lanhouse.idLanHouse} class="criar-usuario">Criar usuário</span></td>
-                </tr>`
+                listaLanhouses.innerHTML += `
+                        <div class="tabela-lan-house" id="tabela-lan-house">
+                            <div class="title-lan-house">
+                                <h1 id="unidade">${lanhouse.unidade}</h1>
+                                <div class="cor-sinal ${lanhouse.statusLanhouse == 1 ? 'ideal' : 'critico'}"></div>
+                            </div>
+
+                            <div class="infos-lan-house">
+                                <div class="box-info">
+                                    <h3>Representante</h3>
+                                    <span class='representante-open-modal' idRepresentante=${lanhouse.idRepresentante} id="representante">${lanhouse.nome}</span>
+                                </div>
+                                <div class="box-info">
+                                    <h3>Telefone</h3>
+                                    <span id="telefone">${lanhouse.telefone}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="infos-lan-house">
+                                <div class="box-info">
+                                    <h3>Endereço</h3>
+                                    <span idEndereco='${lanhouse.idEndereco}' class='endereco-open-modal' id="endereco">${lanhouse.logradouro}, ${lanhouse.numero}</span>
+                                </div>
+                                <div class="box-info">
+                                    <h3>CNPJ</h3>
+                                    <span id="cnpj">${lanhouse.cnpj}</span>
+                                </div>
+                            </div>
+
+                        <div class="buttons">
+                            <span href="../dashboard-geral/lista-computadores.html">Acessar</span>
+                            <span idLanhouse='${lanhouse.idLanHouse}' statuslanhouse='${lanhouse.statusLanhouse}' class='ativar-desativar-lanhouse'>${lanhouse.statusLanhouse == 1 ? 'Desativar' : 'Ativar'}</span>
+                            <span class='criar-usuario'>Cadastrar novo usuário</span>
+                        </div>
+                    </div>
+                `
             })
         })
     } else {
         console.log('erro na listagem')
     }
 })
+
+document.querySelector('#username').innerText = sessionStorage.getItem('nomeUsuario')
 
 setTimeout(() => {
     document.querySelectorAll('.ativar-desativar-lanhouse').forEach(lanhouse => {
@@ -31,7 +58,7 @@ setTimeout(() => {
 
     sessionStorage.getItem('destacar-lanhouse')
         ? destacarLanhouse(sessionStorage.getItem('destacar-lanhouse'))
-        : console.log('sem destaque')
+        : ''
 
     function destacarLanhouse(idLanhouse) {
         document.querySelector(`.lanhouse-row.lanhouse-${idLanhouse}`).classList.add('destacar')
