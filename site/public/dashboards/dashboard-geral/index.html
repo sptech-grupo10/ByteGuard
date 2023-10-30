@@ -1,89 +1,91 @@
 <DOCTYPE html>
-    <html lang="PT-BR">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/dashboard-lanhouse.js" defer></script>
-        <title>Dashboard | Home</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="../../css/reset.css">
-        <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
-        <script src="./js/lista-lanhouses.js" defer></script>
-        <script src="../../js/login.js"></script>
-        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    </head>
-    
-    <body>
-       
-        <header class="nav-horizontal">
-            <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
-            <div class="user-info">
-                <div class="user-name-cargo">
-                    <span id="username">Gustavo Medeiros</span>
-                    <span id="user-cargo">admin</span>
-                </div>
-    
-                <div class="user-icon">
-                    <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo">
-                </div>
-            </div>
-        </header>
-    
-        <header >
-            <ul class="nav-left">
-                <li>
-                  <a href="index.html">
-                    <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-                    <span>Home</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <img class="icons" src="../../assets/imgs/lista-icon.png" alt="">
-                    <span>Lista de Lan Houses</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="lista-usuarios.html">
-                    <img class="icons" src="../../assets/imgs/representantes-icon.png" alt="">
-                    <span>Lista de usuários</span>
-                  </a>
-                </li>
-                
-                
-                <li class="sair" onclick="limparSessao()">
-                  <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-                  <span>Sair</span>
-                </li>
-              </ul>
-        </header>
-    
-        <div class="container-dash">
-          <div class="cabecalho">
-            <h1 id="title-dash">Unidades</h1>
-            <div class="box-legend">
-              <div class="item-legend">
-                <div class="cor-legend ideal"></div>
-                <span>Ideal</span>
-              </div>
-              <div class="item-legend">
-                <div class="cor-legend atencao"></div>
-                <span>Atenção</span>
-              </div>
-              <div class="item-legend">
-                <div class="cor-legend critico"></div>
-                <span>Crítico</span>
-              </div>
-              <div class="item-legend">
-                <div class="cor-legend inativo"></div>
-                <span>Inativo</span>
-              </div>
-            </div>
+  <html lang="PT-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Home</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+    <script src="./js/lista-lanhouses.js" defer></script>
+    <script src="../../js/login.js"></script>
+    <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  </head>
+
+  <body>
+
+    <header class="nav-horizontal">
+      <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+      <div class="user-info">
+        <div class="user-name-cargo">
+          <span id="username"></span>
+          <span id="user-cargo">admin</span>
+        </div>
+
+        <div class="user-icon">
+          <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo">
+        </div>
+      </div>
+    </header>
+
+    <header>
+      <ul class="nav-left">
+        <li>
+          <a href="index.html">
+            <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="icons" src="../../assets/imgs/lista-icon.png" alt="">
+            <span>Lista de Lan Houses</span>
+          </a>
+        </li>
+        <li>
+          <a href="lista-usuarios.html">
+            <img class="icons" src="../../assets/imgs/representantes-icon.png" alt="">
+            <span>Lista de usuários</span>
+          </a>
+        </li>
+
+
+        <li class="sair" id="logout">
+          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+          <span>Sair</span>
+        </li>
+      </ul>
+    </header>
+
+    <div class="container-dash">
+      <div class="cabecalho">
+        <h1 id="title-dash">Unidades</h1>
+        <div class="box-legend">
+          <div class="item-legend">
+            <div class="cor-legend ideal"></div>
+            <span>Ideal</span>
           </div>
-    
-          <!-- <div id="alertas">
+          <div class="item-legend">
+            <div class="cor-legend atencao"></div>
+            <span>Atenção</span>
+          </div>
+          <div class="item-legend">
+            <div class="cor-legend critico"></div>
+            <span>Crítico</span>
+          </div>
+          <div class="item-legend">
+            <div class="cor-legend inativo"></div>
+            <span>Inativo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div id="alertas">
             <div class="notificacao critico">
               <div class="alerta-icon-componente">
                 <h3 id="title-componente">Rede</h3>
@@ -144,157 +146,80 @@
               <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
             </div>
           </div> -->
-    
-          <!-- O que for alterar nas telas é apenas daqui para baixo -->
-          <div class="conteudo-dash" id="lista-lan-houses">
-      
-            <div class="tabela-lan-house" id="tabela-lan-house">
-                <div class="title-lan-house">
-                    <h1 id="unidade">Unidade Paulista</h1>
-                    <div class="cor-sinal ideal"></div>
-                </div>
 
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Representante</h3>
-                        <span id="representante">Melissa Rodrigues Cavalcante</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>Telefone</h3>
-                        <span id="telefone">(11)94885-6296</span>
-                    </div>
-                </div>
-                
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Endereço</h3>
-                        <span id="endereco">Av. Paulista, 2000</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>CNPJ</h3>
-                        <span id="cnpj">49.150.759/0001-40</span>
-                    </div>
-                </div>
+      <!-- O que for alterar nas telas é apenas daqui para baixo -->
+      <div class="conteudo-dash" id="lista-lan-houses">
+      </div>
+      <!-- Fim da alteração da tela -->
 
-              <div class="buttons">
-                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
-                <a href="">Desativar</a>
-                <a href="">Cadastrar novo usuário</a>
-              </div>
-            </div>
-            
-            <div class="tabela-lan-house" id="tabela-lan-house">
-                <div class="title-lan-house">
-                    <h1 id="unidade">Unidade São Caetano</h1>
-                    <div class="cor-sinal critico"></div>
-                </div>
+    </div>
 
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Representante</h3>
-                        <span id="representante">Gustavo Medeiros Silva</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>Telefone</h3>
-                        <span id="telefone">(11)94885-6296</span>
-                    </div>
-                </div>
-                
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Endereço</h3>
-                        <span id="endereco">Av. Presidente Kennedy, 800</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>CNPJ</h3>
-                        <span id="cnpj">49.150.759/0001-40</span>
-                    </div>
-                </div>
 
-              <div class="buttons">
-                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
-                <a href="">Desativar</a>
-                <a href="">Cadastrar novo usuário</a>
-              </div>
-            </div>
-            
-            <div class="tabela-lan-house" id="tabela-lan-house">
-                <div class="title-lan-house">
-                    <h1 id="unidade">Unidade Ipiranga</h1>
-                    <div class="cor-sinal ideal"></div>
-                </div>
+    <div class="modal" id="modal-endereco-lanhouse">
+      <div class="containter-modal-endereco-lanhouse">
+        <div>Id do endereço: <span id="idEnderecoModal"></span></div>
+        <div>Cep: <span id="cepModal"></span></div>
+        <div>UF: <span id="ufModal"></span></div>
+        <div>Cidade: <span id="cidadeModal"></span></div>
+        <div>Bairro: <span id="bairroModal"></span></div>
+        <div>Logradouro: <span id="logradouroModal"></span></div>
+        <div>Número: <span id="numeroModal"></span></div>
+      </div>
+    </div>
 
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Representante</h3>
-                        <span id="representante">Luka Caetano</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>Telefone</h3>
-                        <span id="telefone">(11)94885-6296</span>
-                    </div>
-                </div>
-                
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Endereço</h3>
-                        <span id="endereco">Av. Nazaré, 2300</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>CNPJ</h3>
-                        <span id="cnpj">49.150.759/0001-40</span>
-                    </div>
-                </div>
+    <div class="modal" id="modal-cadastrar-usuario-lanhouse">
+      <div class="containter-modal-cadastrar-usuario-lanhouse">
+        Cadastro de usuário
+        <div>Nome: <input id="iUsername"></div>
+        <div>E-mail: <input id="iEmail"></div>
+        <div>Senha: <input type="password" id="iSenha"></div>
+        <div>Confirme a senha: <input type="password" id="iConfirmSenha"></div>
+        <button id="btCadastrarUsuario">Cadastrar usuário</button>
+        <div><span id="error-cookie"></span></div>
+      </div>
+    </div>
 
-              <div class="buttons">
-                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
-                <a href="">Desativar</a>
-                <a href="">Cadastrar novo usuário</a>
-              </div>
-            </div>
-            
-            <div class="tabela-lan-house" id="tabela-lan-house">
-                <div class="title-lan-house">
-                    <h1 id="unidade">Unidade Itaquera</h1>
-                    <div class="cor-sinal atencao"></div>
-                </div>
+    <div class="modal" id="modal-representante-lanhouse">
+      <div class="containter-modal-representante-lanhouse">
+        <span>Representante</span>
+        <div>Id do representante: <span id="idRepresentanteModal"></span></div>
+        <div>Nome: <span id="nomeModal"></span></div>
+        <div>Telefone: <span id="telefoneModal"></span></div>
+        <div>E-mail: <span id="emailModal"></span></div>
+        <div>CPF: <span id="cpfModal"></span></div>
+      </div>
+    </div>
 
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Representante</h3>
-                        <span id="representante">Kauan Matheus Oliveira</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>Telefone</h3>
-                        <span id="telefone">(11)94885-6296</span>
-                    </div>
-                </div>
-                
-                <div class="infos-lan-house">
-                    <div class="box-info">
-                        <h3>Endereço</h3>
-                        <span id="endereco">Av. Jacupêssego, 1500</span>
-                    </div>
-                    <div class="box-info">
-                        <h3>CNPJ</h3>
-                        <span id="cnpj">49.150.759/0001-40</span>
-                    </div>
-                </div>
+    <div class="modal" id="modal-cadastro-lanhouse">
+      <h2>Cadastro de lanhouse</h2>
+      Cadastro de endereço
+      <div class="cadastro-endereco">
+        cep<input id="iCep" value="08461-640" maxlength="9">
+        <button id="btBuscarCep">Buscar</button>
+        cidade<input id="iCidade" disabled>
+        uf<input id="iUf" maxlength="2" disabled>
+        bairro<input id="iBairro" disabled>
+        logradouro<input id="iLogradouro" disabled>
+        numero<input id="iNumero" value="30">
+      </div>
+      <br>
+      Cadastro de primeira lanhouse
+      <div class="cadastro-lanhouse">
+        Nome da unidade<input id="iUnidade" value="Paulista">
+        Cnpj<input id="iCnpj" value="49.150.759/0001-40">
+      </div>
+      <br>
+      Cadastro de representante
+      <div class="cadastro-representante">
+        nome inteiro<input id="iNome" value="Melissa Rodrigues Cavalcante">
+        telefone<input id="iTelefone" value="(11) 91043-4007" maxlength="15">
+        cpf<input value="681.637.370-77" id="iCpf" maxlength="14">
+        email<input id="iEmail" value="melissa@gmail.com">
+      </div>
+      <div id="error-cookie"></div>
 
-              <div class="buttons">
-                <a href="../dashboard-geral/lista-computadores.html">Acessar</a>
-                <a href="">Desativar</a>
-                <a href="">Cadastrar novo usuário</a>
-              </div>
-            </div>
-            
-            
-            
-          </div>
-          <!-- Fim da alteração da tela -->
-    
-        </div>
-    
-    </body>
-    
-    </html>
+      <button id="btCadastrarLanhouse">Cadastrar</button>
+    </div>
+  </body>
+
+  </html>

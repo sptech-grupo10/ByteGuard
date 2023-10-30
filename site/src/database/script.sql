@@ -86,13 +86,6 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
-/* AO CADASTRAR O COMPONENTE COLOCAR O TIPO DO COMPONENTE COMO: 
-RAM = 1
-PROCESSADOR =2
-DISCO = 3*/
-
- insert into TipoComponente values(null,'RAM'),(null,'Processador'),(null,'Disco');
-
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
     especificacao varchar(100),
@@ -105,8 +98,6 @@ create table MetricaComponente (
     maxMetrica int,
     unidadeMedida varchar(7)
 );
-
-insert into MetricaComponente values(null,3,16,'%'),(null,null,90,'%'),(null,null,80,'%');
 
 create table Componente (
     idComponente int primary key auto_increment,
@@ -133,5 +124,5 @@ create table Log (
 desc Empresa;
 insert into Endereco(cidade) values('São Paulo');
 insert into Empresa(nomeFantasia, razaoSocial, fkEndereco) values('Empresa', 'Empresa', 1);
-insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa) values ('LanHousers', '49.150.759/0001-40', 'LanHousers0152', 1, 1);
+insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa) values ('LanHousers', '49150759000140', 'LanHousers0152', 1, 1);
 insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('Usuario', 'Usuario0@', 1, 1);

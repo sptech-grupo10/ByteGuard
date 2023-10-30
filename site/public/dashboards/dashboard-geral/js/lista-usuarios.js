@@ -1,20 +1,34 @@
-const listaUsuarios = document.querySelector('.lista-usuarios')
+const listaUsuarios = document.querySelector('#lista-usuarios')
 
 fetch(`${window.location.origin}/usuarios/listarUsuariosPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: "no-cache" }).then(res => {
     res.json().then(json => {
         json.forEach(usuario => {
-            listaUsuarios.innerHTML += `<tr>
-                <td>${usuario.idUsuario}</td>
-                <td>${usuario.nome}</td>
-                <td>${usuario.email}</td>
-                <td>${usuario.senha}</td>
-                <td><div class='status-indicador ${usuario.statusUsuario == 1 ? 'status-ativo' : 'status-bloqueado'}'></div></td>
-                <td><span class="visualizar-lanhouse" idLanhouse="${usuario.idLanHouse}">${usuario.idLanHouse} - ${usuario.unidade}</span></td>
-                <td><span statusUsuario="${usuario.statusUsuario}" idUsuario="${usuario.idUsuario}" class="ativar-desativar-usuario">${usuario.statusUsuario == 1 ? 'Desativar' : 'Ativar'}</span></td>
-            </tr>`
+            console.log(usuario);
+            listaUsuarios.innerHTML += `
+                <div class="box-user">
+                    <div class="infos-user">
+                        <div class="icon-user">
+                            <img src="../../assets/imgs/user-icon-black.png" alt="">
+                            <h1 id="nome-user-1">${usuario.nome}</h1>
+                        </div>
+
+                        <div class="user-email-telefone">
+                            <span id="email-user-1">${usuario.email}</span>
+                            <div class="division"></div>
+                            <span id="lan-house-user-1">${usuario.unidade}</span>
+                        </div>
+                    </div>
+                    <div class="buttons-user">
+                        <button id="editar">Editar</button>
+                        <button idUsuario=${usuario.idUsuario} statusUsuario='${usuario.statusUsuario}' class='ativar-desativar-usuario'> ${usuario.statusUsuario == 1 ? 'Desativar' : 'Ativar'}</button>
+                    </div>
+                </div>
+            `
         })
     })
 })
+
+document.querySelector('#username').innerText = sessionStorage.getItem('nomeUsuario')
 
 setTimeout(() => {
     document.querySelectorAll('.ativar-desativar-usuario').forEach(ativarDesativar => {

@@ -13,7 +13,7 @@ const cadastrarEmpresa = async () => {
             'Content-type': 'application/json'
         },
         body: JSON.stringify({
-            cnpjServer: iCnpj.value,
+            cnpjServer: iCnpj.value.replace(/[^\d]+/g, ''),
             nomeFantasiaServer: iNomeFantasia.value,
             razaoSocialServer: iRazaoSocial.value,
             fkEnderecoServer: sessionStorage.getItem('idEndereco'),
