@@ -88,8 +88,7 @@ create table TipoComponente (
 
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
-    especificacao varchar(100),
-    valorTotal int /*valor maximo do componente*/
+    especificacao varchar(100)
 );
 
 create table MetricaComponente (
@@ -101,6 +100,7 @@ create table MetricaComponente (
 
 create table Componente (
     idComponente int primary key auto_increment,
+    valorTotal int,
     fkMaquina int,
     fkTipoComponente int,
     fkMetricaComponente int,
