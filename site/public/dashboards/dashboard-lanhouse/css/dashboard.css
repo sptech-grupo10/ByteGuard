@@ -779,6 +779,14 @@ body {
     font-weight: 600;
 }
 
+#codigo-lanhouse{
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
 
 
 /* JANELAS ------------------------------------------------------------- */

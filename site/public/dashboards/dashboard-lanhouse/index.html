@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="js/dashboard-lanhouse.js"></script>
+    <script src="js/dashboard-lanhouse.js" defer></script>
     <script src="../../js/login.js"></script>
 
     <!-- CHART.JS -->
@@ -18,7 +18,6 @@
   </head>
 
   <body onload="plotarAlertas(), exibirPopUpAlertas()">
-
     <header class="nav-horizontal">
       <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
       <div class="user-info">
@@ -34,6 +33,7 @@
     </header>
 
     <header>
+      <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
       <ul class="nav-left">
         <li>
           <a href="index.html">
