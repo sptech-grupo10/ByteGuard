@@ -1,10 +1,9 @@
-fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('maquina-atual')}`).then(res => res.json().then(especs => {
+fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(especs => {
     especs.forEach((espec, i) => {
         document.querySelector(`#cpu-title-espec-${i}`).innerText = espec.especificacao
         document.querySelector(`#cpu-value-espec-${i}`).innerText = espec.valorEspecificacao
     })
 }))
-
 
 // Gráfico CPU Utilização
 // Gráfico CPU Utilização - Donut

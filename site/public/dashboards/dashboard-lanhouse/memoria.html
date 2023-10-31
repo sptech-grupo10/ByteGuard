@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/dashboard-lanhouse.js" defer></script>
     <title>Analytics | Memoria</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
     <script src="../../js/login.js"></script>
+    <script src="./js/memoria.js" defer></script>
 
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -170,7 +170,8 @@
 
         <div class="memoria-kpi-detalhes">
           <div class="memoria-kpi" id="memoria-kpi">
-            <span>A memória temporária está com armazenamento similar ao das outras máquinas. Total de alertas emitidos: 0.</span>
+            <span>A memória temporária está com armazenamento similar ao das outras máquinas. Total de alertas emitidos:
+              0.</span>
 
             <div class="grafico-kpi">
               <canvas id="memoria-grafico-kpi"></canvas>
@@ -181,193 +182,19 @@
             <h1>Detalhes técnicos - Memória</h1>
 
             <div class="memoria-detalhes-container">
-
               <div class="memoria-detalhes-box">
                 <div class="memoria-detalhes-info">
-                  <span class="memoria-title-detalhe">Memória RAM</span>
-                  <span class="memoria-value-detalhe" id="memoria-ram-value">16 GB</span>
-                </div>
-
-                <div class="memoria-detalhes-info">
-                  <span class="memoria-title-detalhe">Memória ROM</span>
-                  <span class="memoria-value-detalhe" id="memoria-rom-value">8 GB</span>
-                </div>
-              </div>
-
-              <div class="memoria-detalhes-box">
-                <div class="memoria-detalhes-info">
-                  <span class="memoria-title-detalhe">Memória temporária</span>
-                  <span class="memoria-value-detalhe" id="memoria-temporaria-value">2 GB</span>
-                </div>
-
-                <div class="memoria-detalhes-info">
-                  <span class="memoria-title-detalhe">Memória disponível</span>
-                  <span class="memoria-value-detalhe" id="memoria-temporaria-value">120 GB</span>
+                  <span class="memoria-title-detalhe" id="ram-title-espec-0"></span>
+                  <span class="memoria-value-detalhe" id="ram-value-espec-0"></span>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
+        <!-- Fim da alteração da tela -->
 
       </div>
-      <!-- Fim da alteração da tela -->
-
-    </div>
   </body>
 
   </html>
-
-  <script>
-    // Gráfico Memória Uso
-    // Gráfico Memória Uso - Donut
-    let labelsMemoriaUsoDonut = ["Utilizado (%)", "Não utilizado (%)"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosMemoriaUsoDonut = {
-      labels: labelsMemoriaUsoDonut,
-      datasets: [
-        {
-          label: "",
-          data: [47, 53],
-          backgroundColor: ["#337bff", "#D9D9D9"]
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configMemoriaUsoDonut = {
-      type: "doughnut",
-      data: dadosMemoriaUsoDonut,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartMemoriaUsoDonut = new Chart(
-      document.getElementById("memoria-grafico-uso-donut"),
-      configMemoriaUsoDonut
-    );
-
-
-    // Gráfico Memoria Utilização - Linha
-    let labelsMemoriaUsoLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosMemoriaUsoLine = {
-      labels: labelsMemoriaUsoLine,
-      datasets: [
-        {
-          label: "Uso da memória",
-          data: [5.6, 5.6, 5.7, 5.6, 5.4, 5.5, 5.6, 5.6, 5.8, 5.6, 5.6, 5.7, 5.6],
-          fill: true,
-          borderColor: "#337bff",
-          tension: 0.1,
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configMemoriaUsoLine = {
-      type: "line",
-      data: dadosMemoriaUsoLine,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartMemoriaUsoLine = new Chart(
-      document.getElementById("memoria-grafico-uso-line"),
-      configMemoriaUsoLine
-    );
-
-    // Gráfico Memória Temporária - Linha
-    let labelsMemoriaTemporariaLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosMemoriaTemporariaLine = {
-      labels: labelsMemoriaTemporariaLine,
-      datasets: [
-        {
-          label: "Temporaria da memória",
-          data: [5.6, 5.6, 5.7, 5.6, 5.4, 5.5, 5.6, 5.6, 5.8, 5.6, 5.6, 5.7, 5.6],
-          fill: true,
-          borderColor: "#337bff",
-          backgroundColor: "#337bff",
-          tension: 0.1,
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configMemoriaTemporariaLine = {
-      type: "bar",
-      data: dadosMemoriaTemporariaLine,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartMemoriaTemporariaLine = new Chart(
-      document.getElementById("memoria-grafico-temporaria"),
-      configMemoriaTemporariaLine
-    );
-
-    // Gráfico Memória KPI - Linha
-    let labelsMemoriaKpiLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosMemoriaKpiLine = {
-      labels: labelsMemoriaKpiLine,
-      datasets: [
-        {
-          label: "Outras máquinas",
-          data: [5.6, 5.6, 5.7, 5.6, 5.4, 5.5, 5.6, 5.6, 5.8, 5.6, 5.6, 5.7, 5.6],
-          fill: true,
-          borderColor: "#337bff",
-          tension: 0.1,
-        },
-        {
-          label: "Máquina 01",
-          data: [5.8, 5.6, 5.5, 5.6, 5.41, 5.57, 5.6, 5.68, 5.7, 5.7, 5.61, 5.6, 5.7],
-          fill: true,
-          borderColor: "#EF2C2C",
-          tension: 0.1,
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configMemoriaKpiLine = {
-      type: "line",
-      data: dadosMemoriaKpiLine,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartMemoriaKpiLine = new Chart(
-      document.getElementById("memoria-grafico-kpi"),
-      configMemoriaKpiLine
-    );
-
-  </script>
