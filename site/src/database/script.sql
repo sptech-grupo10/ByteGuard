@@ -58,8 +58,6 @@ insert into  tipoUsuario
     values (null, 'Empresa'),
             (null, 'Lanhouse');
 
-select * from TipoUsuario;
-
 create table Usuario(
     idUsuario int primary key auto_increment,
     nome varchar(45),
@@ -88,11 +86,6 @@ create table TipoComponente (
 
 insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco');
 
-create table EspecificacoesComponente (
-    idEspecificacoesComponente int primary key auto_increment,
-    especificacao varchar(100)
-);
-
 create table MetricaComponente (
     idMetricaComponente int primary key auto_increment,
     minMetrica int,
@@ -106,11 +99,17 @@ create table Componente (
     fkMaquina int,
     fkTipoComponente int,
     fkMetricaComponente int,
-    fkEspecificacoesComponente int,
     constraint fkComponenteMaquina foreign key (fkMaquina) references Maquina(idMaquina),
     constraint fkComponenteTipoComponente foreign key (fkTipoComponente) references TipoComponente(idTipoComponente),
-    constraint fkComponenteMetricaComponente foreign key (fkMetricaComponente) references MetricaComponente(idMetricaComponente),
-    constraint fkComponenteEspecificacoesComponente foreign key (fkEspecificacoesComponente) references EspecificacoesComponente(idEspecificacoesComponente)
+    constraint fkComponenteMetricaComponente foreign key (fkMetricaComponente) references MetricaComponente(idMetricaComponente)
+);
+
+create table EspecificacaoComponente (
+    idEspecificacaoComponente int primary key auto_increment,
+    especificacao varchar(100),
+    valorEspecificacao varchar(100),
+    fkComponente int,
+    constraint fkEspecificacaoComponenteComp foreign key (fkComponente) references Componente(idComponente)
 );
 
 create table Log (
