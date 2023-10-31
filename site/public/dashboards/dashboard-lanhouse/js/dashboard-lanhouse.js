@@ -20,7 +20,9 @@ document.querySelectorAll('.print-username').forEach(usernameClass => {
 })
 
 fetch(`${window.location.origin}/maquinas/buscarMaquinasPorLanHouse/${sessionStorage.getItem('idLanhouse')}`).then(res => res.json().then(maquinas => {
-    maquinas.forEach(maquina=>{
+    document.querySelector('.maquina-atual').innerText = maquinas[0].nomeMaquina
+    sessionStorage.setItem('maquina-atual', maquinas[0].idMaquina)
+    maquinas.forEach(maquina => {
         document.querySelector('#lista-maquinas').innerHTML += `<option value="${maquina.idMaquina}">${maquina.nomeMaquina}</option>`
     })
 }))
