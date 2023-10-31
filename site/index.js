@@ -16,6 +16,7 @@ app.use('/empresas', require('./src/routes/empresaRoute'))
 app.use('/representantes', require('./src/routes/representanteRoute'))
 app.use('/lanhouses', require('./src/routes/lanhouseRoute'))
 app.use('/componentes', require('./src/routes/componenteRoute'))
+app.use('/especificacoes', require('./src/routes/especificacaoRoute'))
 app.use('/maquinas', require('./src/routes/maquinaRoute'))
 app.use('/logs', require('./src/routes/logRoute'))
 

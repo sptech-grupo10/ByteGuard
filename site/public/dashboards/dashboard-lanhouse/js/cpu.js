@@ -1,6 +1,8 @@
-fetch(`${window.location.origin}/componentes/buscarEspecificacaoComponente/${sessionStorage.getItem('maquina-atual')}`).then(res => res.json().then(espec => {
-    document.querySelector('#cpu-modelo-value').innerText = espec.especificacao.split('@')[0].split('CPU')[0]
-    document.querySelector('#cpu-freq-base-value').innerText = espec.especificacao.split('@')[1]
+fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('maquina-atual')}`).then(res => res.json().then(especs => {
+    especs.forEach((espec, i) => {
+        document.querySelector(`#cpu-title-espec-${i}`).innerText = espec.especificacao
+        document.querySelector(`#cpu-value-espec-${i}`).innerText = espec.valorEspecificacao
+    })
 }))
 
 
