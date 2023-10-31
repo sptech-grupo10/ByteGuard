@@ -86,6 +86,8 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
+insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco');
+
 create table EspecificacoesComponente (
     idEspecificacoesComponente int primary key auto_increment,
     especificacao varchar(100)
