@@ -16,6 +16,7 @@ app.use('/empresas', require('./src/routes/empresaRoute'))
 app.use('/representantes', require('./src/routes/representanteRoute'))
 app.use('/lanhouses', require('./src/routes/lanhouseRoute'))
 app.use('/componentes', require('./src/routes/componenteRoute'))
+app.use('/maquinas', require('./src/routes/maquinaRoute'))
 
 app.listen('3000', () => {
     console.log('Servidor rodando')
