@@ -5,6 +5,32 @@ fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${
     })
 }))
 
+function buscarLogs() {
+    fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
+        plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
+    }))
+}
+
+buscarLogs()
+
+setInterval(() => {
+    buscarLogs()
+}, 2500);
+
+function plotarGraficos(label, valor) {
+    plotarUtilizacaoLine(label, valor)
+}
+
+function plotarUtilizacaoLine(label, valor) {
+    myChartCPUUsoLine.data.labels.shift()
+    myChartCPUUsoLine.data.datasets[0].data.shift()
+
+    myChartCPUUsoLine.data.labels.push(label)
+    myChartCPUUsoLine.data.datasets[0].data.push(valor)
+
+    myChartCPUUsoLine.update()
+}
+
 // Gráfico CPU Utilização
 // Gráfico CPU Utilização - Donut
 let labelsCPUUsoDonut = ["Utilizado (%)", "Não utilizado (%)"];
@@ -40,40 +66,37 @@ let myChartCPUUsoDonut = new Chart(
     configCPUUsoDonut
 );
 
-// Gráfico CPU Utilização - Linha
-let labelsCPUUsoLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCPUUsoLine = {
-    labels: labelsCPUUsoLine,
-    datasets: [
-        {
-            label: "",
-            data: [3, 2, 2, 4, 2, 3, 2, 1, 3, 2, 3, 5, 3],
-            fill: true,
-            borderColor: "#337bff",
-            tension: 0.1,
+// Adicionando gráfico criado em div na tela
+var myChartCPUUsoLine = new Chart(
+    document.getElementById("cpu-grafico-utilizacao-line"),
+    {
+        type: "line",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", "", ""],
+            datasets: [
+                {
+                    label: "Utilizacao",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    fill: true,
+                    borderColor: "#337bff",
+                    tension: 0.1
+                },
+            ]
         },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCPUUsoLine = {
-    type: "line",
-    data: dadosCPUUsoLine,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartCPUUsoLine = new Chart(
-    document.getElementById("cpu-grafico-utilizacao-line"),
-    configCPUUsoLine
 );
 
 
