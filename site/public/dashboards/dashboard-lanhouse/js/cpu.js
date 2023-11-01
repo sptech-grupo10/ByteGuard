@@ -1,3 +1,11 @@
+let metricaCPU
+
+fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(metricas => {
+    metricaCPU = metricas;
+})).then(() => {
+    buscarLogs()
+})
+
 fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(especs => {
     especs.forEach((espec, i) => {
         document.querySelector(`#cpu-title-espec-${i}`).innerText = espec.especificacao
@@ -11,14 +19,21 @@ function buscarLogs() {
     }))
 }
 
-buscarLogs()
-
-setInterval(() => {
-    buscarLogs()
-}, 2500);
-
 function plotarGraficos(label, valor) {
+    // Para demonstração de CPU sobrecarregada, acrescentar 10 ao valor passado como parametro (valor + 10)
     plotarUtilizacaoLine(label, valor)
+    plotarUtilizacaoDonut(valor)
+
+    setTimeout(() => {
+        buscarLogs()
+    }, 2500);
+}
+
+function plotarUtilizacaoDonut(valor) {
+    myChartCPUUsoDonut.data.datasets[0].data[0] = valor
+    myChartCPUUsoDonut.data.datasets[0].data[1] = 100 - valor
+    
+    myChartCPUUsoDonut.update()
 }
 
 function plotarUtilizacaoLine(label, valor) {
@@ -26,44 +41,38 @@ function plotarUtilizacaoLine(label, valor) {
     myChartCPUUsoLine.data.datasets[0].data.shift()
 
     myChartCPUUsoLine.data.labels.push(label)
+
+    valor > Number(metricaCPU.maxMetrica) || valor < Number(metricaCPU.minMetrica)
+        ? myChartCPUUsoLine.data.datasets[0].borderColor = 'red'
+        : myChartCPUUsoLine.data.datasets[0].borderColor = 'blue'
+
     myChartCPUUsoLine.data.datasets[0].data.push(valor)
 
     myChartCPUUsoLine.update()
 }
 
-// Gráfico CPU Utilização
-// Gráfico CPU Utilização - Donut
-let labelsCPUUsoDonut = ["Utilizado (%)", "Não utilizado (%)"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCPUUsoDonut = {
-    labels: labelsCPUUsoDonut,
-    datasets: [
-        {
-            label: "",
-            data: [61, 39],
-            backgroundColor: ["#337bff", "#D9D9D9"]
+let myChartCPUUsoDonut = new Chart(
+    document.getElementById("cpu-grafico-utilizacao-donut"),
+    {
+        type: "doughnut",
+        data: {
+            labels: ["Utilizado (%)", "Não utilizado (%)"],
+            datasets: [
+                {
+                    label: "",
+                    data: [100, 0],
+                    backgroundColor: ["#337bff", "#D9D9D9"]
+                },
+            ],
         },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCPUUsoDonut = {
-    type: "doughnut",
-    data: dadosCPUUsoDonut,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartCPUUsoDonut = new Chart(
-    document.getElementById("cpu-grafico-utilizacao-donut"),
-    configCPUUsoDonut
 );
 
 // Adicionando gráfico criado em div na tela
@@ -75,7 +84,7 @@ var myChartCPUUsoLine = new Chart(
             labels: ["", "", "", "", "", "", "", "", "", ""],
             datasets: [
                 {
-                    label: "Utilizacao",
+                    label: "Utilizacao (%)",
                     data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     fill: true,
                     borderColor: "#337bff",
