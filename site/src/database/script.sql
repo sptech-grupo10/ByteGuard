@@ -95,7 +95,7 @@ create table MetricaComponente (
 
 create table Componente (
     idComponente int primary key auto_increment,
-    valorTotal int,
+    valorTotal double,
     fkMaquina int,
     fkTipoComponente int,
     fkMetricaComponente int,
@@ -115,7 +115,7 @@ create table EspecificacaoComponente (
 create table Log (
     idLog int primary key auto_increment,
     textLog varchar(45),
-    valor int,
+    valor double,
     dataLog datetime,
     statusLog tinyint,
     fkComponente int,
