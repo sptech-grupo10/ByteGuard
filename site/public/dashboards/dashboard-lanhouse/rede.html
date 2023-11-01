@@ -1,80 +1,79 @@
 <DOCTYPE html>
-<html lang="PT-BR">
+  <html lang="PT-BR">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/dashboard-lanhouse.js" defer></script>
     <title>Analytics | Rede</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="../../css/reset.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="../../js/login.js"></script>
+    <script src="./js/rede.js" defer></script>
 
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  </head>
 
-<body>
-    
+  <body>
+
     <header class="nav-horizontal">
-        <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
-        <div class="user-info">
-            <div class="user-name-cargo">
-                <span id="username">Gustavo Medeiros</span>
-                <span id="user-cargo">admin</span>
-            </div>
-
-            <div class="user-icon">
-                <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
-            </div>
+      <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+      <div class="user-info">
+        <div class="user-name-cargo">
+          <span id="username">Gustavo Medeiros</span>
+          <span id="user-cargo">admin</span>
         </div>
+
+        <div class="user-icon">
+          <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
+        </div>
+      </div>
     </header>
 
-    <header >
-        <ul class="nav-left">
-            <li>
-              <a href="index.html">
-                <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="cpu.html">
-                <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
-                <span>CPU</span>
-              </a>
-            </li>
-            <li>
-              <a href="memoria.html">
-                <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
-                <span>Memória RAM</span>
-              </a>
-            </li>
-            <li>
-              <a href="disco.html">
-                <img class="icons" src="../../assets/imgs/ssd-icon-black.svg" alt="">
-                <span>Disco</span>
-              </a>
-            </li>
-            <li>
-              <a href="rede.html">
-                <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
-                <span>Rede</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img class="icons" src="../../assets/imgs/placa-de-video-icon-black.png" alt="">
-                <span>Placa de Vídeo</span>
-              </a>
-            </li>
-            <li class="sair" onclick="limparSessao()">
-              <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-              <span>Sair</span>
-            </li>
-          </ul>
+    <header>
+      <ul class="nav-left">
+        <li>
+          <a href="index.html">
+            <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="cpu.html">
+            <img class="icons" src="../../assets/imgs/cpu-icon-black.svg" alt="">
+            <span>CPU</span>
+          </a>
+        </li>
+        <li>
+          <a href="memoria.html">
+            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.svg" alt="">
+            <span>Memória RAM</span>
+          </a>
+        </li>
+        <li>
+          <a href="disco.html">
+            <img class="icons" src="../../assets/imgs/ssd-icon-black.svg" alt="">
+            <span>Disco</span>
+          </a>
+        </li>
+        <li>
+          <a href="rede.html">
+            <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
+            <span>Rede</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="icons" src="../../assets/imgs/placa-de-video-icon-black.png" alt="">
+            <span>Placa de Vídeo</span>
+          </a>
+        </li>
+        <li class="sair" onclick="limparSessao()">
+          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+          <span>Sair</span>
+        </li>
+      </ul>
     </header>
 
     <div class="container-dash">
@@ -92,57 +91,57 @@
             <h3 id="title-componente">Rede</h3>
             <span class="icon-alerta" id="cor-alerta-critico">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Crítico</span>
           <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
@@ -152,174 +151,67 @@
       <div class="conteudo-dash" id="conteudo-rede">
 
         <div class="rede-graficos">
-            <div class="rede-chart" id="rede-grafico-temperatura">
-                <h1>Latência</h1>
-                <div class="info-graficos">
-                  <canvas id="rede-grafico-uso-linha"></canvas>
-                </div>
+          <div class="rede-chart" id="rede-grafico-temperatura">
+            <h1>Latência</h1>
+            <div class="info-graficos">
+              <canvas id="rede-grafico-uso-linha"></canvas>
             </div>
+          </div>
 
-            <div class="rede-chart" id="rede-grafico-velocidade-agora">
-                <h1>Velocidade</h1>
-                <div class="info-graficos">
-                  <canvas id="rederede-grafico-velocidade" width="500px" height="250px"></canvas>
-                </div>
+          <div class="rede-chart" id="rede-grafico-velocidade-agora">
+            <h1>Velocidade</h1>
+            <div class="info-graficos">
+              <canvas id="rederede-grafico-velocidade" width="500px" height="250px"></canvas>
             </div>
+          </div>
         </div>
 
         <div class="rede-kpi-detalhes">
-            <div class="rede-kpi" id="rede-kpi">
-                <span>A máquina 5 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas emitidos: 3.</span>
-                
-                <div class="grafico-kpi">
-                  <canvas id="rederede-grafico-kpis"></canvas>
-                </div>
+          <div class="rede-kpi" id="rede-kpi">
+            <span>A máquina 5 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas
+              emitidos: 3.</span>
+
+            <div class="grafico-kpi">
+              <canvas id="rederede-grafico-kpis"></canvas>
             </div>
+          </div>
 
-            <div class="rede-detalhes">
-                <h1>Detalhes técnicos - Rede</h1>
+          <div class="rede-detalhes">
+            <h1>Detalhes técnicos - Rede</h1>
 
-                <div class="rede-detalhes-container">
+            <div class="rede-detalhes-container">
 
-                    <div class="rede-detalhes-box">
-                        <div class="rede-detalhes-info">
-                            <span class="rede-title-detalhe">Capacidade</span>
-                            <span class="rede-value-detalhe" id="rede-capacidade-value">1 GB</span>
-                        </div>
-
-                        <div class="rede-detalhes-info">
-                            <span class="rede-title-detalhe">Máximo detectado</span>
-                            <span class="rede-value-detalhe" id="rede-maximo-value">114.79</span>
-                        </div>
-                    </div>
-
-                    <div class="rede-detalhes-box">
-                        <div class="rede-detalhes-info">
-                            <span class="rede-title-detalhe">Tempo total de oscilação</span>
-                            <span class="rede-value-detalhe" id="rede-tempo-oscilacao-value">1.4s</span>
-                        </div>
-                        
-                        <div class="rede-detalhes-info">
-                          <span class="rede-title-detalhe">Mínimo detectado</span>
-                          <span class="rede-value-detalhe" id="rede-minimo-value">57.22</span>
-                      </div>
-                    </div>
+              <div class="rede-detalhes-box">
+                <div class="rede-detalhes-info">
+                  <span class="rede-title-detalhe" id="rede-title-espec-0"></span>
+                  <span class="rede-value-detalhe" id="rede-value-espec-0"></span>
                 </div>
+
+                <div class="rede-detalhes-info">
+                  <span class="rede-title-detalhe" id="rede-title-espec-1"></span>
+                  <span class="rede-value-detalhe" id="rede-value-espec-1"></span>
+                </div>
+              </div>
+
+              <div class="rede-detalhes-box">
+                <div class="rede-detalhes-info">
+                  <span class="rede-title-detalhe" id="rede-title-espec-2"></span>
+                  <span class="rede-value-detalhe" id="rede-value-espec-2"></span>
+                </div>
+
+                <div class="rede-detalhes-info">
+                  <span class="rede-title-detalhe" id="rede-title-espec-3"></span>
+                  <span class="rede-value-detalhe" id="rede-value-espec-3"></span>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
-    </div>
+      </div>
       <!-- Fim da alteração da tela -->
 
     </div>
-</body>
+  </body>
 
-</html>
-
-<script>
-   // Gráfico Rede Uso - Line
-    let labelsRedeUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosRedeUsoLinha = {
-      labels: labelsRedeUsoLinha,
-      datasets: [
-        {
-          label: "",
-          data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
-          fill: true,
-          borderColor: "#337bff",
-
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configRedeUsoLinha = {
-      type: "line",
-      data: dadosRedeUsoLinha,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartRedeUsoLinha = new Chart(
-      document.getElementById("rede-grafico-uso-linha"),
-      configRedeUsoLinha
-    );
-
-    //--------------------------------------------------------------------------------
-    // Gráfico Rede Uso - Line
-    let labelsVelocidadeRedeLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosVelocidadeRedeLinha = {
-      labels: labelsVelocidadeRedeLinha,
-      datasets: [
-        {
-          label: "",
-          data: [47, 53, 54, 55, 65, 77, 38, 45, 90],
-          fill: true,
-          borderColor: "#337bff",
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configVelocidadeRedeLinha = {
-      type: "line",
-      data: dadosVelocidadeRedeLinha,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartVelocidadeRedeLinha = new Chart(
-      document.getElementById("rederede-grafico-velocidade"),
-      configVelocidadeRedeLinha
-    );
-     //--------------------------------------------------------------------------------
-    // Gráfico KPI - Barra
-    let labelsBarraKpi = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dadosBarraKpi = {
-      labels: labelsBarraKpi,
-      datasets: [
-        {
-          label: "",
-          data: [157, 160, 150, 0, 170, 165, 0, 180, 0],
-          backgroundColor: ["#337bff"]
-        },
-      ]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const configBarraKpi = {
-      type: "bar",
-      data: dadosBarraKpi,
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          }
-        }
-      }
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChartBarraKpi = new Chart(
-      document.getElementById("rederede-grafico-kpis"),
-      configBarraKpi
-    );
-</script>
+  </html>

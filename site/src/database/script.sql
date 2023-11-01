@@ -84,7 +84,7 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
-insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco');
+insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco'), ('Rede');
 
 create table MetricaComponente (
     idMetricaComponente int primary key auto_increment,
@@ -127,4 +127,3 @@ insert into Endereco(cidade) values('São Paulo');
 insert into Empresa(nomeFantasia, razaoSocial, fkEndereco) values('Empresa', 'Empresa', 1);
 insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa) values ('LanHousers', '49150759000140', 'LanHousers0152', 1, 1);
 insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('Usuario', 'Usuario0@', 1, 1);
-
