@@ -172,14 +172,19 @@ body {
 }
 
 .conteudo-dash::-webkit-scrollbar {
-    width: 10px;
+    width: 20px;
     background-color: transparent;
     border: none;    
 }
 
 .conteudo-dash::-webkit-scrollbar-thumb {
-    background-color: #aaa9a9;
+    background-color: #bebebe;
     border-radius: 10px;
+    border: 6px solid #F0F0F0;
+}
+
+.conteudo-dash::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa9a9;
 }
 
 .box-user {

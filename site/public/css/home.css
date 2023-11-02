@@ -59,10 +59,50 @@ nav ul {
 
 .accountItem {
   height: 40%;
+  cursor: pointer;
 }
 
 .accountItem img {
   height: 100%;
+}
+
+#opcoes-login-cadastro {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  width: 230px;
+  height: 120px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 15px;
+  z-index: 1;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+}
+
+#opcoes-login-cadastro a {
+  text-decoration: none;
+}
+
+#opcoes-login-cadastro .opcao {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#opcoes-login-cadastro .opcao span {
+  font-size: 22px;
+}
+
+#opcoes-login-cadastro .opcao img {
+  height: 27px;
 }
 
 main {
@@ -417,7 +457,7 @@ footer button {
   cursor: pointer;
 }
 
-.all-rights{
+.all-rights {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -427,11 +467,11 @@ footer button {
   padding: 10px;
 }
 
-.rights-logo-name{
+.rights-logo-name {
   width: 8rem;
 }
 
-.all-rights span{
+.all-rights span {
   color: #4f4a45;
 }
 
@@ -469,7 +509,7 @@ footer button {
   nav ul {
     display: none;
   }
-  
+
   main {
     margin-top: 6rem;
     position: relative;
@@ -513,7 +553,7 @@ footer button {
     height: 100vh;
     margin-top: 0;
   }
-  
+
   .welcome-img {
     position: relative;
     width: 24rem;
@@ -524,7 +564,7 @@ footer button {
   .welcome-text .header-text {
     font-size: 1.7rem;
     font-weight: 600;
-}
+  }
 
   .welcome-body .body-text {
     font-size: 1.3rem;
@@ -549,7 +589,7 @@ footer button {
     color: white;
     scroll-snap-type: x mandatory;
   }
-  
+
   /* .desc-container .services {
     position: relative;
     display: flex;
@@ -557,7 +597,7 @@ footer button {
     width: 300%;
   } */
 
-  
+
 
   .desc-title {
     margin-left: unset;
@@ -592,7 +632,7 @@ footer button {
     height: 70rem;
     margin-top: 39rem
   }
-  
+
   .desc-container .services .item {
     display: flex;
     flex-direction: column;
@@ -605,7 +645,7 @@ footer button {
     height: 16rem;
     box-shadow: none;
   }
-  
+
   .desc-container .services .style-image {
     display: flex;
     align-items: center;
@@ -619,17 +659,17 @@ footer button {
     top: -65px;
     box-shadow: none;
   }
-  
+
   .desc-container .services img {
     height: 5rem;
   }
-  
+
   .desc-container .services .title-item {
     display: flex;
     position: relative;
     bottom: 45px;
   }
-  
+
   .desc-container .services .desc-item {
     font-size: 1.5rem;
     font-weight: 500;
@@ -666,7 +706,7 @@ footer button {
     margin-top: 1rem;
     width: 300%;
   }
-  
+
   .desc-integridade-main-mobile,
   .desc-Inovação-main-mobile,
   .desc-Equidade-main-mobile {
@@ -676,7 +716,7 @@ footer button {
     align-items: center;
     scroll-snap-align: start;
   }
-  
+
   .desc-integridade-main-mobile .title,
   .desc-Inovação-main-mobile .title,
   .desc-Equidade-main-mobile .title {
@@ -686,8 +726,8 @@ footer button {
     justify-content: center;
     padding-bottom: 6px;
   }
-  
-  .textinho{
+
+  .textinho {
     margin-top: 10%;
     font-size: 1.3rem;
     padding: 0 40px;
@@ -713,8 +753,8 @@ footer button {
     flex-direction: column-reverse;
     width: 100vw !important;
     /* margin-top: 3rem; */
-}
-  
+  }
+
   footer .left-side {
     padding: 30px 0 0 0;
     height: 40%;
@@ -727,18 +767,18 @@ footer button {
     gap: 15px;
     margin-left: 0;
   }
-  
+
   footer .contato {
     display: flex;
     flex-direction: column;
     gap: .3rem;
   }
-  
+
   .contato-texto {
     width: 20rem;
     text-align: center;
-}
-  
+  }
+
   footer .right-side {
     width: 100%;
     height: 60%;
@@ -746,7 +786,7 @@ footer button {
     flex-direction: column;
     align-items: center;
   }
-  
+
   footer .right-side>span {
     font-size: 1.6rem;
     font-weight: 600;
@@ -754,7 +794,7 @@ footer button {
     text-align: center;
     width: 100%;
   }
-  
+
   footer .input-row {
     width: 100%;
     margin-top: 2rem;
@@ -768,14 +808,14 @@ footer button {
   .links img {
     height: 40px;
   }
-  
+
   #iAssunto {
     margin-top: 2rem;
     width: 70%;
     align-self: center;
   }
 
-  
+
   footer input {
     border-radius: 7px;
     background: linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), linear-gradient(0deg, #353535 0%, #353535 100%), #353535;
@@ -785,7 +825,7 @@ footer button {
     width: 70%;
     padding: 0.3rem 0.9rem;
   }
-  
+
   footer button {
     width: 137px;
     height: 40px;
@@ -798,8 +838,8 @@ footer button {
     align-self: center;
     padding: 5px;
   }
-  
-  .all-rights{
+
+  .all-rights {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -810,12 +850,12 @@ footer button {
     padding: 15px;
     gap: 10px;
   }
-  
-  .rights-logo-name{
+
+  .rights-logo-name {
     width: 7rem;
   }
-  
-  .all-rights span{
+
+  .all-rights span {
     color: #4f4a45;
   }
 

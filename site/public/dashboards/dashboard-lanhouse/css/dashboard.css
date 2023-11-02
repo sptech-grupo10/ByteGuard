@@ -62,8 +62,7 @@ body {
     color: #fff;
     overflow: hidden;
     transition: width 0.2s linear;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.09);
-
+    box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.09);
 }
 
 .nav-left a {
@@ -76,6 +75,9 @@ body {
     padding: 10px;
 }
 
+.nav-left #tela-atual {
+    background-color:  #d4d4d4;
+}
 
 .nav-left .icons {
     position: relative;
@@ -260,14 +262,19 @@ body {
 }
 
 #alertas::-webkit-scrollbar {
-    width: 10px;
+    width: 18px;
     background-color: transparent;
     border: none;    
 }
 
 #alertas::-webkit-scrollbar-thumb {
-    background-color: #aaa9a9;
+    background-color: #bebebe;
     border-radius: 10px;
+    border: 5px solid #fff;
+}
+
+#alertas::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa9a9;
 }
 
 #alertas .notificacao {

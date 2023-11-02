@@ -7,6 +7,7 @@
     <title>Dashboard | Home</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="css/modais.css">
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <script src="./js/lista-lanhouses.js" defer></script>
     <script src="../../js/login.js"></script>
@@ -156,7 +157,8 @@
 
 
     <div class="modal" id="modal-endereco-lanhouse">
-      <div class="containter-modal-endereco-lanhouse">
+      <div class="container-modal-endereco-lanhouse">
+        <h2 class="title">Endereço</h2>
         <div>Id do endereço: <span id="idEnderecoModal"></span></div>
         <div>Cep: <span id="cepModal"></span></div>
         <div>UF: <span id="ufModal"></span></div>
@@ -166,22 +168,22 @@
         <div>Número: <span id="numeroModal"></span></div>
       </div>
     </div>
-
+    
     <div class="modal" id="modal-cadastrar-usuario-lanhouse">
-      <div class="containter-modal-cadastrar-usuario-lanhouse">
-        Cadastro de usuário
-        <div>Nome: <input id="iUsername"></div>
-        <div>E-mail: <input id="iEmail"></div>
-        <div>Senha: <input type="password" id="iSenha"></div>
-        <div>Confirme a senha: <input type="password" id="iConfirmSenha"></div>
+      <div class="container-modal-cadastrar-usuario-lanhouse">
+        <h1>Cadastro de usuário</h1>
+        <div class="label-input">Nome <input id="iUsername" placeholder="ByteGuard"></div>
+        <div class="label-input">E-mail <input id="iEmail" placeholder="byteguard@email.com"></div>
+        <div class="label-input">Senha <input type="password" placeholder="**********" id="iSenha"></div>
+        <div class="label-input">Confirme a senha <input type="password" placeholder="**********" id="iConfirmSenha"></div>
         <button id="btCadastrarUsuario">Cadastrar usuário</button>
         <div><span id="error-cookie"></span></div>
       </div>
     </div>
 
     <div class="modal" id="modal-representante-lanhouse">
-      <div class="containter-modal-representante-lanhouse">
-        <span>Representante</span>
+      <div class="container-modal-representante-lanhouse">
+        <h2 class="title">Representante</h2>
         <div>Id do representante: <span id="idRepresentanteModal"></span></div>
         <div>Nome: <span id="nomeModal"></span></div>
         <div>Telefone: <span id="telefoneModal"></span></div>
