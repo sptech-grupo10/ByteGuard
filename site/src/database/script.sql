@@ -58,8 +58,6 @@ insert into  tipoUsuario
     values (null, 'Empresa'),
             (null, 'Lanhouse');
 
-select * from TipoUsuario;
-
 create table Usuario(
     idUsuario int primary key auto_increment,
     nome varchar(45),
@@ -86,11 +84,7 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
-create table EspecificacoesComponente (
-    idEspecificacoesComponente int primary key auto_increment,
-    especificacao varchar(255),
-    valor varchar(45)
-);
+insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco'), ('Rede');
 
 create table MetricaComponente (
     idMetricaComponente int primary key auto_increment,
@@ -101,21 +95,27 @@ create table MetricaComponente (
 
 create table Componente (
     idComponente int primary key auto_increment,
+    valorTotal double,
     fkMaquina int,
     fkTipoComponente int,
     fkMetricaComponente int,
-    fkEspecificacoesComponente int,
     constraint fkComponenteMaquina foreign key (fkMaquina) references Maquina(idMaquina),
     constraint fkComponenteTipoComponente foreign key (fkTipoComponente) references TipoComponente(idTipoComponente),
-    constraint fkComponenteMetricaComponente foreign key (fkMetricaComponente) references MetricaComponente(idMetricaComponente),
-    constraint fkComponenteEspecificacoesComponente foreign key (fkEspecificacoesComponente) references EspecificacoesComponente(idEspecificacoesComponente)
+    constraint fkComponenteMetricaComponente foreign key (fkMetricaComponente) references MetricaComponente(idMetricaComponente)
+);
+
+create table EspecificacaoComponente (
+    idEspecificacaoComponente int primary key auto_increment,
+    especificacao varchar(100),
+    valorEspecificacao varchar(100),
+    fkComponente int,
+    constraint fkEspecificacaoComponenteComp foreign key (fkComponente) references Componente(idComponente)
 );
 
 create table Log (
     idLog int primary key auto_increment,
     textLog varchar(45),
-    valor int,
-    valorTotal int,
+    valor double,
     dataLog datetime,
     statusLog tinyint,
     fkComponente int,

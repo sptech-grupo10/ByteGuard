@@ -22,7 +22,7 @@
       <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
       <div class="user-info">
         <div class="user-name-cargo">
-          <span id="username">Gustavo Medeiros</span>
+          <span id="username" class="print-username"></span>
           <span id="user-cargo">admin</span>
         </div>
 
@@ -80,38 +80,29 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Overview - <span id="maquina-atual">Máquina 01</span></h1>
+        <h1 id="title-dash">Overview - <span class="maquina-atual"></span></h1>
 
         <div class="combo-box-maquinas">
           <!-- <label for="lista-maquinas">Máquina</label> -->
           <select name="maquinas" id="lista-maquinas">
-              <option value="1">Máquina 01</option>
-              <option value="2">Máquina 02</option>
-              <option value="3">Máquina 03</option>
-              <option value="4">Máquina 04</option>
-              <option value="5">Máquina 05</option>
-              <option value="6">Máquina 06</option>
-              <option value="7">Máquina 07</option>
-              <option value="8">Máquina 08</option>
-              <option value="9">Máquina 09</option>
-              <option value="10">Máquina 10</option>
+
           </select>
         </div>
 
         <div class="box-legend">
           <div class="item-legend">
-              <div class="cor-legend circle-ideal"></div>
-              <span>Ideal</span>
+            <div class="cor-legend circle-ideal"></div>
+            <span>Ideal</span>
           </div>
           <div class="item-legend">
-              <div class="cor-legend circle-atencao"></div>
-              <span>Atenção</span>
+            <div class="cor-legend circle-atencao"></div>
+            <span>Atenção</span>
           </div>
           <div class="item-legend">
-              <div class="cor-legend circle-critico"></div>
-              <span>Crítico</span>
+            <div class="cor-legend circle-critico"></div>
+            <span>Crítico</span>
           </div>
-      </div>
+        </div>
 
         <div id="box-alertas" onclick="exibirDivAlertas()">
           <img src="../../assets/imgs/sino-icon-black.png" alt="">
@@ -125,57 +116,57 @@
             <h3 id="title-componente">Rede</h3>
             <span class="icon-alerta" id="cor-alerta-critico">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Crítico</span>
           <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
-        
+
         <div class="notificacao atencao">
           <div class="alerta-icon-componente">
             <h3 id="title-componente">CPU</h3>
             <span class="icon-alerta" id="cor-alerta-atencao">!</span>
           </div>
-  
+
           <span id="classificacao-alerta">Atenção</span>
           <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
         </div>
@@ -211,7 +202,7 @@
                   <span class="metrica-rede">KB/s</span>
                 </div>
               </div>
-              
+
               <div class="icon-arrows">
                 <img src="../../assets/imgs/arrow-upload.svg" alt="">
                 <img src="../../assets/imgs/arrow-download.svg" alt="">
@@ -286,13 +277,11 @@
     // Criando estrutura para plotar gráfico - dados
     let dadosCPU = {
       labels: labelsCPU,
-      datasets: [
-        {
-          label: "",
-          data: [61, 39],
-          backgroundColor: ["#337bff", "#D9D9D9"]
-        },
-      ]
+      datasets: [{
+        label: "",
+        data: [61, 39],
+        backgroundColor: ["#337bff", "#D9D9D9"]
+      }, ]
     };
 
     // Criando estrutura para plotar gráfico - config
@@ -313,13 +302,11 @@
     // Criando estrutura para plotar gráfico - dados
     let dadosDisco = {
       labels: labelsDisco,
-      datasets: [
-        {
-          label: "",
-          data: [27, 63],
-          backgroundColor: ["#337bff", "#D9D9D9"]
-        },
-      ]
+      datasets: [{
+        label: "",
+        data: [27, 63],
+        backgroundColor: ["#337bff", "#D9D9D9"]
+      }, ]
     };
 
     // Criando estrutura para plotar gráfico - config
@@ -336,20 +323,20 @@
 
 
     // Criando estrutura para plotar gráfico - labels
-    let labelsPlacaDeVideo = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
+    let labelsPlacaDeVideo = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23",
+      "14:25", "14:27", "14:29"
+    ];
 
     // Criando estrutura para plotar gráfico - dados
     let dadosPlacaDeVideo = {
       labels: labelsPlacaDeVideo,
-      datasets: [
-        {
-          label: "",
-          data: [30, 34, 33, 35, 36, 34, 32, 32, 33, 35, 36, 34, 35],
-          fill: true,
-          borderColor: "#337bff",
-          tension: 0.1,
-        },
-      ]
+      datasets: [{
+        label: "",
+        data: [30, 34, 33, 35, 36, 34, 32, 32, 33, 35, 36, 34, 35],
+        fill: true,
+        borderColor: "#337bff",
+        tension: 0.1,
+      }, ]
     };
 
     // Criando estrutura para plotar gráfico - config
@@ -372,20 +359,20 @@
     );
 
     // Criando estrutura para plotar gráfico - labels
-    let labelsMemoria = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
+    let labelsMemoria = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23",
+      "14:25", "14:27", "14:29"
+    ];
 
     // Criando estrutura para plotar gráfico - dados
     let dadosMemoria = {
       labels: labelsMemoria,
-      datasets: [
-        {
-          label: "",
-          data: [10, 12, 13, 11, 15, 14, 13, 16, 19, 15, 14, 16, 17],
-          fill: true,
-          borderColor: "#337bff",
-          tension: 0.1,
-        },
-      ]
+      datasets: [{
+        label: "",
+        data: [10, 12, 13, 11, 15, 14, 13, 16, 19, 15, 14, 16, 17],
+        fill: true,
+        borderColor: "#337bff",
+        tension: 0.1,
+      }, ]
     };
 
     // Criando estrutura para plotar gráfico - config
@@ -406,5 +393,4 @@
       document.getElementById("overview-grafico-memoria"),
       configMemoria
     );
-
   </script>

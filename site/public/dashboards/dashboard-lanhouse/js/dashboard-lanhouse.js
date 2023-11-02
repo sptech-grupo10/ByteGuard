@@ -1,3 +1,9 @@
+const printLanhouse = lanhouse => {
+    document.querySelectorAll('.print-lanhouse').forEach(usernameClass => {
+        usernameClass.innerText = lanhouse
+    })
+}
+
 fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
     if (res.ok) {
         res.json().then(lanhouse => {
@@ -9,17 +15,24 @@ fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.
     }
 })
 
-
-
 document.querySelectorAll('.print-username').forEach(usernameClass => {
     usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
 })
 
-const printLanhouse = lanhouse => {
-    document.querySelectorAll('.print-lanhouse').forEach(usernameClass => {
-        usernameClass.innerText = lanhouse
+fetch(`${window.location.origin}/maquinas/buscarMaquinasPorLanHouse/${sessionStorage.getItem('idLanhouse')}`).then(res => res.json().then(maquinas => {
+    document.querySelector('.maquina-atual').innerText = maquinas[0].nomeMaquina
+    sessionStorage.setItem('maquina-atual', maquinas[0].nomeMaquina)
+
+    fetch(`${window.location.origin}/componentes/buscarComponentesPorMaquina/${maquinas[0].idMaquina}`).then(res => res.json().then(componentes => {
+        componentes.forEach(componente => {
+            sessionStorage.setItem(componente.tipoComponente, componente.idComponente)
+        })
+    }))
+
+    maquinas.forEach(maquina => {
+        document.querySelector('#lista-maquinas').innerHTML += `<option value="${maquina.idMaquina}">${maquina.nomeMaquina}</option>`
     })
-}
+}))
 
 function exibirDivAlertas() {
     var displayDivAlertas = document.getElementById("alertas");
@@ -46,8 +59,6 @@ function plotarAlertas() {
                 `;
     document.getElementById("alertas").innerHTML += notificacao;
     qtdAlertasExibidos.push(notificacao);
-    console.log(qtdAlertasExibidos);
-    console.log(qtdAlertasExibidos.length);
 }
 
 function exibirPopUpAlertas() {

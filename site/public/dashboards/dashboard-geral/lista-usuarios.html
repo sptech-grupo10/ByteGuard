@@ -1,17 +1,17 @@
 <DOCTYPE html>
     <html lang="PT-BR">
 
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/dashboard-lanhouse.js" defer></script>
         <title>Dashboard | Usuarios</title>
         <link rel="stylesheet" href="css/lista-usuarios.css">
         <link rel="stylesheet" href="../../css/reset.css">
         <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
-        <script src="./js/lista-lanhouses.js" defer></script>
         <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-        <script src="../../js/login.js"></script>
+        <script src="./js/lista-usuarios.js" defer></script>
+        <script src="../../js/login.js" defer></script>
 
         <!-- CDN !-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
@@ -19,12 +19,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     </head>
 
+
     <body>
         <header class="nav-horizontal">
             <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
             <div class="user-info">
                 <div class="user-name-cargo">
-                    <span id="username">Gustavo Medeiros</span>
+                    <span id="username"></span>
                     <span id="user-cargo">admin</span>
                 </div>
 
@@ -53,12 +54,16 @@
                         <img class="icons" src="../../assets/imgs/representantes-icon.png" alt="">
                         <span>Lista de usuários</span>
                     </a>
+                    <a href="lista-usuarios.html">
+                        <img class="icons" src="../../assets/imgs/representantes-icon.png" alt="">
+                        <span>Lista de usuários</span>
+                    </a>
                 </li>
 
 
                 <li class="sair" onclick="limparSessao()">
                     <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-                    <span>Sair</span>
+                    <span id="logout">Sair</span>
                 </li>
             </ul>
         </header>
@@ -73,177 +78,8 @@
 
             <!-- O que for alterar nas telas é apenas daqui para baixo -->
             <div class="conteudo-dash" id="lista-usuarios">
-
                 <!-- Fazer dinâmico (add por JS, passando os parâmetros) -->
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-1">Gustavo Medeiros</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-1">gustavo@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-1">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-1">Unidade São Caetano</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-2">Kauan Matheus</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-2">kauan@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-2">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-2">Unidade Paulista</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-3">Luka Caetano</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-3">luka@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-3">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-3">Unidade Ipiranga</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-4">Matheus Ismael</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-4">matheus@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-4">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-4">Unidade Itaquera</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-5">Luiz Miguel</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-5">luizmiguel@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-5">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-5">Unidade Paulista</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-6">Fernando Brandão</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-6">fernando@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-6">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-6">Unidade Ipiranga</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-7">Fernanda Caramico</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-7">fernanda@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-7">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-7">Unidade Paulista</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-                <div class="box-user">
-                    <div class="infos-user">
-                        <div class="icon-user">
-                            <img src="../../assets/imgs/user-icon-black.png" alt="">
-                            <h1 id="nome-user-8">Kaiky Cruz</h1>
-                        </div>
-
-                        <div class="user-email-telefone">
-                            <span id="email-user-8">fernando@email.com</span>
-                            <div class="division"></div>
-                            <span id="telefone-user-8">(11) 94885-6296</span>
-                            <div class="division"></div>
-                            <span id="lan-house-user-8">Unidade Ipiranga</span>
-                        </div>
-                    </div>
-                    <div class="buttons-user">
-                        <button id="editar">Editar</button>
-                        <button id="deletar">Remover</button>
-                    </div>
-                </div>
-
-
+                
             </div>
             <!-- Fim da alteração da tela -->
 
