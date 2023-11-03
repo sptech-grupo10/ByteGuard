@@ -245,6 +245,10 @@ body {
     font-weight: 600;
 }
 
+.box-info img {
+    height: 10px;
+}
+
 .buttons {
     display: flex;
     justify-content: center;

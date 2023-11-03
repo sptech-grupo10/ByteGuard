@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro LanHouse</title>
+    <script src="./js/index.js" defer></script>
     <script src="./js/masks/endereco-mask.js" defer></script>
     <script src="./js/masks/representante-mask.js" defer></script>
     <script src="./js/cadastro-endereco.js" defer></script>
@@ -30,9 +31,23 @@
                 <li><a href="index.html#footer">Contato</a></li>
                 <!-- <li><a href="">Preços</a></li> -->
             </ul>
-            <a href="#" class="accountItem"><img src="./assets/imgs/accountItem.png" /></a>
+            <div onclick="exibirOpcoesLoginCadastro()" class="accountItem"><img src="./assets/imgs/accountItem.png" />
+            </div>
         </nav>
     </header>
+
+    <div id="opcoes-login-cadastro">
+        <a href="login.html" class="opcao">
+            <img src="assets/imgs/login-icon-white.png" alt="">
+            <span>Login</span>
+        </a>
+
+        <a href="cadastro-empresa.html" class="opcao">
+            <img src="assets/imgs/add-empresa-icon-white.png" alt="">
+            <span>Cadastrar Empresa</span>
+        </a>
+    </div>
+
     <div class="cima flex borda">
         <div class="flexC CE">
             <span class="title large">Cadastro de endereço</span>

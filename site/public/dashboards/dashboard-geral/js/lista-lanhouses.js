@@ -8,7 +8,7 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
                         <div class="tabela-lan-house" id="tabela-lan-house">
                             <div class="title-lan-house">
                                 <h1 id="unidade">${lanhouse.unidade}</h1>
-                                <div class="cor-sinal ${lanhouse.statusLanhouse == 1 ? 'ideal' : 'critico'}"></div>
+                                <div class="cor-sinal ${lanhouse.statusLanhouse == 1 ? 'ideal' : 'inativo'}"></div>
                             </div>
 
                             <div class="infos-lan-house">

@@ -5,6 +5,15 @@ window.addEventListener('DOMContentLoaded', ()=>{
     mudarSpanDescText()
 })
 
+function exibirOpcoesLoginCadastro() {
+    var divOpcoes = document.getElementById("opcoes-login-cadastro");
+    if (divOpcoes.style.display != "flex") {
+        divOpcoes.style.display = "flex";
+    } else {
+        divOpcoes.style.display = "none";
+    }
+}
+
 function mudarSpanDescText() {
     let descTitleActive = document.querySelector('.desc-title.active')
     if (descTitleActive.classList.contains('title-integridade')) {

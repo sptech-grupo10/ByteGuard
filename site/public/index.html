@@ -15,14 +15,6 @@
 </head>
 
 <body>
-  <!-- <div class="vertical-nav mobile" style="left: -100%;">
-    <ul>
-      <li><a href=".desc-container">Por que usar ByteGuard?</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="">Preços</a></li>
-      <li><a href="">Preços</a></li>
-    </ul>
-  </div> -->
   <header>
     <nav>
       <div class="options mobile">
@@ -35,9 +27,22 @@
         <li><a href="#porque">Por que usar ByteGuard?</a></li>
         <li><a href="#footer">Contato</a></li>
       </ul>
-      <a href="./cadastro-empresa.html" class="accountItem"><img src="./assets/imgs/accountItem.png" /></a>
+      <div onclick="exibirOpcoesLoginCadastro()" class="accountItem"><img src="./assets/imgs/accountItem.png" /></div>
     </nav>
   </header>
+
+  <div id="opcoes-login-cadastro">
+    <a href="login.html" class="opcao">
+      <img src="assets/imgs/login-icon-white.png" alt="">
+      <span>Login</span>
+    </a>
+    
+    <a href="cadastro-empresa.html" class="opcao">
+      <img src="assets/imgs/add-empresa-icon-white.png" alt="">
+      <span>Cadastrar Empresa</span>
+    </a>
+  </div>
+
   <main>
     <div class="welcome" id="home">
       <!-- <img src="./assets/imgs/logo-blue-blur.png" class="logo-blue-blur"/> -->

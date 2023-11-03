@@ -1,3 +1,42 @@
+#opcoes-login-cadastro {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 230px;
+    height: 120px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+    z-index: 1;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+}
+
+#opcoes-login-cadastro a {
+    text-decoration: none;
+}
+
+#opcoes-login-cadastro .opcao {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#opcoes-login-cadastro .opcao span {
+    font-size: 22px;
+}
+
+#opcoes-login-cadastro .opcao img {
+    height: 27px;
+}
+
 body {
     padding: 4rem 0 0 0;
     display: flex;
@@ -28,7 +67,7 @@ span {
     flex-direction: column;
 }
 
-.topFlex {}
+/* .topFlex {} */
 
 .topBox {
     height: 15rem;
@@ -126,7 +165,7 @@ span {
     text-align: center;
 }
 
-.large{
+.large {
     font-size: 2rem !important;
     font-weight: 900;
 }
