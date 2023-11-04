@@ -20,7 +20,7 @@ fetch(`${window.location.origin}/usuarios/listarUsuariosPorEmpresa/${sessionStor
                     </div>
                     <div class="buttons-user">
                         <button id="editar">Editar</button>
-                        <button idUsuario=${usuario.idUsuario} statusUsuario='${usuario.statusUsuario}' class='ativar-desativar-usuario'> ${usuario.statusUsuario == 1 ? 'Desativar' : 'Ativar'}</button>
+                        <button idUsuario=${usuario.idUsuario} statusUsuario='${usuario.statusUsuario}' style='color: #fff;background-color: ${usuario.statusUsuario == 1 ? 'red' : 'green'}' class='ativar-desativar-usuario'> ${usuario.statusUsuario == 1 ? 'Desativar' : 'Ativar'}</button>
                     </div>
                 </div>
             `

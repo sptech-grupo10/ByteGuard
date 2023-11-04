@@ -83,7 +83,7 @@ html {
 }
 
 * {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
 body,
@@ -180,6 +180,7 @@ nav ul {
     padding: 10px 15px;
     z-index: 1;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
 #opcoes-login-cadastro a {
@@ -195,14 +196,14 @@ nav ul {
 }
 
 #opcoes-login-cadastro .opcao span {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 #opcoes-login-cadastro .opcao img {
     height: 27px;
 }
 
-.tittle {
+.title {
     flex-direction: row;
     color: #000;
     font-size: 1.2rem;
@@ -307,4 +308,168 @@ input {
 
 #cookie {
     color: red;
+}
+
+
+@media only screen and (max-width: 600px) {
+    @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
+
+    * {
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .accountItem {
+        position: absolute;
+        right: 1rem;
+    }
+
+    .options {
+        position: absolute;
+        left: 1rem;
+        width: 30px;
+    }
+
+    .options-icon {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .screen {
+        display: flex;
+        overflow-y: scroll;
+    }
+
+    .mainImage {
+        display: none;
+    }
+
+    .flexc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .title {
+        color: #000;
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-size: 35px;
+    }
+
+    .texts {
+        gap: 10px;
+        width: 75%;
+    }
+
+    .texts span {
+        color: #000;
+        text-align: center;
+        font-size: 21px;
+    }
+
+    .inputsBox {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 15px;
+        font-weight: 700;
+        width: 65%;
+    }
+
+    .input {
+        gap: 7px;
+    }
+
+    .input span {
+        display: flex;
+        width: 100%;
+        text-align: start;
+    }
+
+    input {
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #000;
+        font-size: 18px;
+    }
+
+    .signBox span {
+        font-size: 18px;
+        width: 100%;
+        font-weight: 700;
+    }
+
+    .signBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-right: 0;
+        font-size: 27px;
+        font-weight: 700;
+    }
+
+    .cadastro {
+        font-size: 18px;
+        width: 100%;
+        font-weight: 700;
+        display: flex;
+        text-align: center;
+        text-decoration: none;
+        color: #337BFF;
+    }
+
+    .loginButon {
+        width: 100%;
+        background: #337bff;
+        color: white;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        font-size: 18px;
+        filter: none;
+        font-weight: 500;
+    }
+
+    .loginContent {
+        margin-top: 4rem;
+        gap: 1.5rem;
+    }
+
+    .buttonBox {
+        width: 67%;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .top {
+        gap: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .base {
+        gap: 10px;
+    }
+
+    #cookie {
+        color: red;
+    }
+
 }

@@ -14,7 +14,7 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
                             <div class="infos-lan-house">
                                 <div class="box-info">
                                     <h3>Representante</h3>
-                                    <span class='representante-open-modal' idRepresentante=${lanhouse.idRepresentante} id="representante">${lanhouse.nome}</span>
+                                    <span id="representante">${lanhouse.nome} <img idRepresentante=${lanhouse.idRepresentante} class='representante-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
                                 </div>
                                 <div class="box-info">
                                     <h3>Telefone</h3>
@@ -25,7 +25,8 @@ fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionSt
                             <div class="infos-lan-house">
                                 <div class="box-info">
                                     <h3>Endereço</h3>
-                                    <span idEndereco='${lanhouse.idEndereco}' class='endereco-open-modal' id="endereco">${lanhouse.logradouro}, ${lanhouse.numero}</span>
+                                    <span  id="endereco">${lanhouse.logradouro}, ${lanhouse.numero} <img idEndereco='${lanhouse.idEndereco}' class='endereco-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
+
                                 </div>
                                 <div class="box-info">
                                     <h3>CNPJ</h3>
