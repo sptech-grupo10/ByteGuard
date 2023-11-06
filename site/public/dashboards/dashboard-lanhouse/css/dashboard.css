@@ -75,8 +75,8 @@ body {
     padding: 10px;
 }
 
-.nav-left #tela-atual {
-    background-color:  #d4d4d4;
+.nav-left #tela-atual span {
+    color: #337bff;
 }
 
 .nav-left .icons {

@@ -53,7 +53,7 @@ html {
 }
 
 * {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
 body {
@@ -74,8 +74,8 @@ nav {
     height: 5rem;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
     font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    width: 100%;
 }
 
 a {
@@ -128,6 +128,7 @@ nav ul {
     padding: 10px 15px;
     z-index: 1;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
 #opcoes-login-cadastro a {
@@ -143,7 +144,7 @@ nav ul {
 }
 
 #opcoes-login-cadastro .opcao span {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 #opcoes-login-cadastro .opcao img {
@@ -158,12 +159,12 @@ main {
 .cadastro-titulo {
     font-size: 3rem;
     font-weight: 700;
-    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
     margin-top: 20px;
 }
 
 .cadastro-desc {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    width: 700px;
 }
 
 .cadastro {
@@ -184,7 +185,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 40%;
-    gap: 3rem;
+    gap: 2rem;
     margin-top: 3rem;
     margin-left: 6rem;
 }
@@ -194,8 +195,8 @@ main {
     flex-direction: column;
     margin-left: 6rem;
     margin-top: 1.3rem;
-    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
     gap: .3rem;
+    font-size: 17px;
 }
 
 .validadores-senha>span:nth-child(1) {
@@ -243,7 +244,6 @@ main {
 .input-span {
     font-size: 1.2rem;
     font-weight: 700;
-    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 }
 
 .input-container input {
@@ -278,8 +278,15 @@ main {
 
 .login-btcadastro {
     display: flex;
+    width: 100%;
     align-items: center;
-    gap: 30%;
+    gap: 20px;
+    justify-content: center;
+}
+
+.opcao-login {
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .main-img {
@@ -293,4 +300,201 @@ main {
     position: absolute;
     bottom: 0px;
     right: 0px;
+}
+
+.validadores-senha-mobile {
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
+
+    * {
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .accountItem {
+        position: absolute;
+        right: 1rem;
+    }
+
+    .options {
+        position: absolute;
+        left: 1rem;
+        width: 30px;
+    }
+
+    .options-icon {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    main {
+        margin-top: 6rem;
+        width: 100%;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .cadastro-titulo {
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    .cadastro-desc {
+        font-size: 21px;
+        width: 100%;
+        display: flex;
+        text-align: center;
+    }
+
+    .cadastro {
+        width: 85%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .forms {
+        display: flex;
+        width: 75%;
+        flex-direction: column;
+    }
+
+    .form-cadastro {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        gap: 2rem;
+        
+    }
+
+    .validadores-senha {
+        display: none;
+    }
+
+    .validadores-senha-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .validadores-senha-mobile>span:nth-child(1) {
+        margin-bottom: .6rem;
+    }
+
+    .validadores-senha-mobile .validado {
+        background-image: url(../assets/imgs/check-icon.svg) !important;
+    }
+
+    .validadores-senha-mobile .validador {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 30px;
+        gap: 5px;
+    }
+
+    .validadores-senha-mobile .validador .cookie {
+        width: 100%;
+    }
+
+    .validadores-senha-mobile .validadores-icon {
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/imgs/alert-icon.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: .3rem;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        width: 100%;
+    }
+
+    .error-cookie {
+        position: absolute;
+        top: 3.6rem;
+        color: red;
+        width: 200%;
+    }
+
+    .input-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .input-span {
+        font-size: 1.2rem;
+        font-weight: 700;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    }
+
+    .input-container input {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid black;
+    }
+
+    #btCadastrar {
+        width: 100%;
+        color: white;
+        background-color: #337BFF;
+        padding: 5px 15px;
+        border-radius: 8px;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .opcao-login {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .opcao-login>a {
+        color: #337BFF;
+    }
+
+    .login-btcadastro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 7rem;
+    }
+
+    .main-img {
+        display: none;
+    }
+
 }

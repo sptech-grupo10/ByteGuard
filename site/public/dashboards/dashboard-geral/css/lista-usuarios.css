@@ -101,6 +101,10 @@ body {
     background: #F0F0F0;
 }
 
+.nav-left #tela-atual span {
+    color: #337bff;
+}
+
 .nav-left .sair {
     position: relative;
 }
