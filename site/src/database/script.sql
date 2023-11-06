@@ -84,7 +84,7 @@ create table TipoComponente (
     tipoComponente varchar(45)
 );
 
-insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco'), ('Rede');
+insert into TipoComponente(tipoComponente) values ('RAM'), ('Processador'), ('Disco'), ('Rede'), ('GPU');
 
 create table MetricaComponente (
     idMetricaComponente int primary key auto_increment,
