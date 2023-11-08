@@ -6,4 +6,8 @@ router.get('/buscarLogComponente/:fkComponente', (req, res) => {
     logController.buscarLogPorComponente(req, res)
 })
 
+router.get('/buscarLogRede/:idRede', (req, res) => {
+    logController.buscarLogRede(req, res)
+})
+
 module.exports = router

@@ -124,13 +124,22 @@ fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStor
 })
 
 function buscarLogs() {
-    fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
+    fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
         plotarGraficoCPU(log.valor)
     }))
-    
-    fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(log => {
+
+    fetch(`/logs/buscarLogRede/${sessionStorage.getItem('Rede')}`).then(res => res.json().then(log => {
+        plotarKPIRede(log.download.valor, log.upload.valor)
+    }))
+
+    fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(log => {
         plotarGraficoRAM(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
     }))
+}
+
+function plotarKPIRede(valorDownload, valorUpload) {
+    document.querySelector('#overview-dado-download').value = valorDownload
+    document.querySelector('#overview-dado-upload').value = valorUpload
 }
 
 function plotarGraficoCPU(valor) {

@@ -1,0 +1,243 @@
+<DOCTYPE html>
+  <html lang="PT-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/dashboard-lanhouse.js" defer></script>
+    <title>Analytics | Overview</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="../../css/reset.css">
+    <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+    <script src="js/dashboard-lanhouse.js" defer></script>
+    <script src="../../js/login.js"></script>
+
+    <!-- CDNS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js">
+    </script>
+  </head>
+
+  <body onload="plotarAlertas(), exibirPopUpAlertas()">
+    <header class="nav-horizontal">
+      <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+      <div class="user-info">
+        <div class="user-name-cargo">
+          <span id="username" class="print-username"></span>
+          <span id="user-cargo">admin</span>
+        </div>
+
+        <div class="user-icon">
+          <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
+        </div>
+      </div>
+    </header>
+
+    <header>
+      <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
+      <ul class="nav-left">
+        <li id="tela-atual">
+          <a href="index.html">
+            <img class="icons" src="../../assets/imgs/home-icon-blue.png" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="cpu.html">
+            <img class="icons" src="../../assets/imgs/cpu-icon-black.png" alt="">
+            <span>CPU</span>
+          </a>
+        </li>
+        <li>
+          <a href="memoria.html">
+            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
+            <span>Memória RAM</span>
+          </a>
+        </li>
+        <li>
+          <a href="disco.html">
+            <img class="icons" src="../../assets/imgs/disco-icon-black.png" alt="">
+            <span>Disco</span>
+          </a>
+        </li>
+        <li>
+          <a href="rede.html">
+            <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
+            <span>Rede</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
+            <span>Placa de Vídeo</span>
+          </a>
+        </li>
+        <li class="sair" onclick="limparSessao()">
+          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+          <span>Sair</span>
+        </li>
+      </ul>
+    </header>
+
+    <div class="container-dash">
+      <div class="cabecalho">
+        <h1 id="title-dash">Overview - <span class="maquina-atual"></span></h1>
+        <div class="box-legend">
+          <div class="item-legend">
+            <div class="cor-legend circle-ideal"></div>
+            <span>Ideal</span>
+          </div>
+          <div class="item-legend">
+            <div class="cor-legend circle-atencao"></div>
+            <span>Atenção</span>
+          </div>
+          <div class="item-legend">
+            <div class="cor-legend circle-critico"></div>
+            <span>Crítico</span>
+          </div>
+        </div>
+
+        <div id="box-alertas" onclick="exibirDivAlertas()">
+          <img src="../../assets/imgs/sino-icon-black.png" alt="">
+          <div id="total-alertas">6</div>
+        </div>
+      </div>
+
+      <div id="alertas">
+        <div class="notificacao critico">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">Rede</h3>
+            <span class="icon-alerta" id="cor-alerta-critico">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Crítico</span>
+          <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
+        </div>
+
+        <div class="notificacao atencao">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">CPU</h3>
+            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Atenção</span>
+          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+        </div>
+
+        <div class="notificacao atencao">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">CPU</h3>
+            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Atenção</span>
+          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+        </div>
+
+        <div class="notificacao atencao">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">CPU</h3>
+            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Atenção</span>
+          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+        </div>
+
+        <div class="notificacao atencao">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">CPU</h3>
+            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Atenção</span>
+          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+        </div>
+
+        <div class="notificacao atencao">
+          <div class="alerta-icon-componente">
+            <h3 id="title-componente">CPU</h3>
+            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
+          </div>
+
+          <span id="classificacao-alerta">Atenção</span>
+          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
+        </div>
+      </div>
+
+      <!-- O que for alterar nas telas é apenas daqui para baixo -->
+      <div class="conteudo-dash" id="conteudo-overview">
+
+        <div class="grafico-overview-1" onclick="acessarCPU()">
+          <div class="title-canva">
+            <h1>CPU</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-cpu"></canvas>
+          </div>
+        </div>
+
+        <div class="grafico-overview-1" onclick="acessarRede()">
+          <div class="title-canva">
+            <h1>Rede</h1>
+            <div class="status-componente" id="critico"></div>
+          </div>
+          <div class="info-graficos">
+            <div class="box-rede">
+              <div class="upload-download">
+                <div class="dados-rede">
+                  <sl-format-bytes id="overview-dado-upload"></sl-format-bytes>
+                </div>
+                <div class="dados-rede">
+                  <sl-format-bytes id="overview-dado-download"></sl-format-bytes>
+                </div>
+              </div>
+
+              <div class="icon-arrows">
+                <img src="../../assets/imgs/arrow-upload.svg" alt="">
+                <img src="../../assets/imgs/arrow-download.svg" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grafico-overview-1" onclick="acessarDisco()">
+          <div class="title-canva">
+            <h1>Disco</h1>
+            <div class="status-componente" id="atencao"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-disco"></canvas>
+          </div>
+        </div>
+
+        <div class="grafico-overview-2" onclick="acessarPlacaDeVideo()">
+          <div class="title-canva">
+            <h1>Placa de Vídeo</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-placa-de-video"></canvas>
+          </div>
+        </div>
+
+        <div class="grafico-overview-2" onclick="acessarMemoria()">
+          <div class="title-canva">
+            <h1>Memória</h1>
+            <div class="status-componente" id="ideal"></div>
+          </div>
+          <div class="info-graficos">
+            <canvas id="overview-grafico-memoria"></canvas>
+          </div>
+        </div>
+      </div>
+      <!-- Fim da alteração da tela -->
+
+    </div>
+
+  </body>
+
+  </html>
