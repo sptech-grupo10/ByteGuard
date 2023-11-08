@@ -1,6 +1,10 @@
+process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+// process.env.AMBIENTE_PROCESSO = "producao";
+
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
+let porta = AMBIENTE_PROCESSO == "desenvolvimento"? 3000:80;
 
 const app = express()
 
@@ -21,6 +25,6 @@ app.use('/especificacoes', require('./src/routes/especificacaoRoute'))
 app.use('/maquinas', require('./src/routes/maquinaRoute'))
 app.use('/logs', require('./src/routes/logRoute'))
 
-app.listen('3000', () => {
+app.listen(porta, () => {
     console.log('Servidor rodando')
 })
