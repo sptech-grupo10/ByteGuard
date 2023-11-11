@@ -1,3 +1,74 @@
+* {
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+header {
+    width: 100vw;
+    background-color: #151515;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex !important;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    display: flex !important;
+    height: 5rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options-icon {
+    display: none;
+}
+
+.logo {
+    height: 70%;
+}
+
+nav ul {
+    display: flex;
+    color: white;
+    font-size: 24px;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.accountItem {
+    height: 40%;
+    cursor: pointer;
+}
+
+.accountItem img {
+    height: 100%;
+}
+
 #opcoes-login-cadastro {
     display: none;
     position: absolute;
@@ -6,6 +77,7 @@
     width: 230px;
     height: 120px;
     background-color: #000;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
     color: #fff;
     border: none;
     border-radius: 15px;
@@ -30,7 +102,7 @@
 }
 
 #opcoes-login-cadastro .opcao span {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 #opcoes-login-cadastro .opcao img {
@@ -38,126 +110,118 @@
 }
 
 body {
-    padding: 4rem 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100%;
-    gap: 2.5rem;
+    overflow: hidden;
 }
 
-span {
+main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+main .img-main {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 85%;
+}
+
+main .left-img {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-70%);
+    }
+}
+
+.diplay-none {
+    display: none;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.form-hide {
+    animation: hide 600ms;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+    animation: hide 600ms 0 100ms 0 none backwards;
+}
+
+.form-show {
+    animation: show 600ms;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+}
+
+main .right-forms-empresa {
+    /* overflow: hidden; */
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 7rem;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 7rem; */
+    /* animation: show 600ms;
+    animation-delay: 300ms;
+    animation-fill-mode: backwards; */
+}
+
+/* .empresa {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 7rem;
+} */
+
+main .right-forms-representante {
+    width: 50%;
+    height: 80%;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 7rem;
+    /* animation: show 600ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards; */
+}
+
+.right-forms-empresa #title {
     color: #000;
-    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    /* text-transform: uppercase; */
-}
-
-.flex {
-    display: flex;
-    gap: 5px;
-}
-
-.column {
-    flex-direction: column;
-}
-
-/* .topFlex {} */
-
-.topBox {
-    height: 15rem;
-    width: 77rem;
-    justify-content: center;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.borda {
-    border-radius: 15px;
-    border: 3px solid #337BFF;
-}
-
-.inputStyle {
-    font-size: 1rem;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid black;
-    transition: all 100ms;
-}
-
-.margem {
-    padding: 1rem;
-}
-
-.inputsBox {
-    gap: 1rem !important;
-}
-
-.dentro {
-    gap: 1rem;
-}
-
-.topEndereco {
-    gap: 1rem;
-}
-
-.btBuscarCep {
-    color: white;
-    background-color: #337BFF;
-    width: 80px;
-    height: 25px;
-    border-radius: 0.5rem;
-    border: none;
-    font-size: 15px;
-    font-weight: 700;
-    /* filter: drop-shadow(0px 4px 16px rgba(51, 123, 255, 0.50)); */
-    cursor: pointer
-}
-
-.boxRepresentante {
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.tamanho {
-    width: 27rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.cadastro-representante {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 16rem;
-    width: 40rem;
-}
-
-.cadastro-empresa {
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.cadastro-endereco {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.title {
-    font-size: large;
-    color: #000;
-    /* font-family: 'Nunito';font-size: 22px; */
-    font-size: 1.3rem;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -165,7 +229,359 @@ span {
     text-align: center;
 }
 
-.large {
-    font-size: 2rem !important;
+.right-forms-representante #title {
+    width: 50%;
+    color: #000;
+    font-size: 2.5rem;
+    font-style: normal;
     font-weight: 900;
+    line-height: normal;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    text-align: center;
+}
+
+#subtitle {
+    width: 60%;
+    color: #000;
+    font-size: 1.4rem;
+    font-style: normal;
+    line-height: normal;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    text-align: center;
+}
+
+.right-forms-empresa .form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 400px;
+    align-items: center;
+}
+
+.right-forms-representante .form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 250px;
+    align-items: center;
+}
+
+.form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 17px;
+    width: 35%;
+    height: 50px;
+}
+
+.field-razao-social {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 17px;
+    width: 80%;
+    height: 50px;
+}
+
+.form label {
+    font-weight: 700;
+}
+
+.form input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 17px;
+}
+
+.cep {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cep input {
+    width: 60%;
+}
+
+#iUf,
+#iCidade,
+#iBairro,
+#iLogradouro {
+    cursor: not-allowed;
+}
+
+.form input:focus {
+    border-bottom: 3px solid black;
+}
+
+.btBuscarCep {
+    color: white;
+    background-color: #337BFF;
+    padding: 3px 7px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.button-avancar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.right-forms-empresa img,
+.right-forms-representante img {
+    height: 50px;
+    cursor: pointer;
+}
+
+#btCadastrar {
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: #337BFF;
+    padding: 3px 7px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.error {
+    color: red;
+}
+
+@media only screen and (max-width: 600px) {
+    .accountItem {
+        position: absolute;
+        right: 1rem;
+    }
+
+    .options {
+        position: absolute;
+        left: 1rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .options-icon {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    main {
+        width: 100%;
+        height: 100vh;
+    }
+
+    main .img-main {
+        display: none;
+    }
+
+    main .left-img {
+        display: none;
+    }
+
+    main .right-forms-empresa {
+        /* overflow: hidden; */
+        width: 100%;
+        height: 830px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 8rem;
+        gap: 20px;
+        /* display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 7rem; */
+        /* animation: show 600ms;
+        animation-delay: 300ms;
+        animation-fill-mode: backwards; */
+    }
+
+    /* .empresa {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 7rem;
+    } */
+
+    main .right-forms-representante {
+        width: 100%;
+        height: 80%;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 9rem;
+        gap: 20px;
+        /* animation: show 600ms;
+        animation-delay: 100ms;
+        animation-fill-mode: backwards; */
+    }
+
+    .right-forms-empresa #title {
+        color: #000;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+        text-align: center;
+    }
+
+    .right-forms-representante #title {
+        width: 65%;
+        color: #000;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+        text-align: center;
+    }
+
+    #subtitle {
+        width: 65%;
+        color: #000;
+        font-size: 1.1rem;
+        font-style: normal;
+        line-height: normal;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+        text-align: center;
+    }
+
+    .right-forms-empresa .form {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 75%;
+        height: auto;
+        align-items: center;
+    }
+
+    .right-forms-representante .form {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 75%;
+        height: auto;
+        align-items: center;
+    }
+
+    .form .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        font-size: 17px;
+        width: 85%;
+        height: 80px;
+    }
+
+    .field-razao-social {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        font-size: 17px;
+        width: 85%;
+        height: 80px;
+
+    }
+
+    .form label {
+        font-weight: 700;
+    }
+
+    .form input {
+        outline: none;
+        border: none;
+        border-bottom: 2px solid black;
+        font-size: 17px;
+    }
+
+    .cep {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cep input {
+        width: 65%;
+    }
+
+    #iUf,
+    #iCidade,
+    #iBairro,
+    #iLogradouro {
+        cursor: not-allowed;
+    }
+
+    .form input:focus {
+        border-bottom: 3px solid black;
+    }
+
+    .btBuscarCep {
+        color: white;
+        background-color: #337BFF;
+        padding: 3px 7px;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer
+    }
+
+    /* .button-avancar {
+        display: flex;
+        justify-content: space-evenly;
+    } */
+
+    .right-forms-empresa img,
+    .right-forms-representante img {
+        height: 45px;
+        cursor: pointer;
+    }
+
+    #btCadastrar {
+        width: 100px;
+        height: 40px;
+        color: white;
+        background-color: #337BFF;
+        padding: 3px 7px;
+        border-radius: 5px;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 10px 0;
+    }
+
+    .error {
+        color: red;
+    }
 }

@@ -108,3 +108,102 @@ iCnpj.addEventListener('input', () => {
     iCnpj.value = iCnpj.value.replace(/\.(\d{3})(\d)/, ".$1/$2")
     iCnpj.value = iCnpj.value.replace(/(\d{4})(\d)/, "$1-$2")
 })
+
+function passarForms() {
+    const empresa = document.getElementById("forms-empresa");
+    const representante = document.getElementById("forms-representante");
+
+    const spanErroCnpj = document.getElementById("error-cnpj")
+    var respostaCnpj = document.getElementById("iCnpj").value
+
+    const spanErroNomeFantasia = document.getElementById("error-nome-fantasia")
+    var respostaNomeFantasia = document.getElementById("iNomeFantasia").value
+
+    const spanErroRazaoSocial = document.getElementById("error-razao-social")
+    var respostaRazaoSocial = document.getElementById("iRazaoSocial").value
+
+    const spanErroCep = document.getElementById("error-cep")
+    var respostaCep = document.getElementById("iCep").value
+
+    const spanErroNumero = document.getElementById("error-numero")
+    var respostaNumero = document.getElementById("iNumero").value
+
+    var respostaUf = document.getElementById("iUf").value
+
+    const spanErroUf = document.getElementById("error-uf")
+    const spanErroCidade = document.getElementById("error-cidade")
+    const spanErroBairro = document.getElementById("error-bairro")
+    const spanErroLogradouro = document.getElementById("error-logradouro")
+
+    spanErroCnpj.innerHTML = ""
+    spanErroNomeFantasia.innerHTML = ""
+    spanErroRazaoSocial.innerHTML = ""
+    spanErroCep.innerHTML = ""
+    spanErroNumero.innerHTML = ""
+    spanErroUf.innerHTML = ""
+    spanErroCidade.innerHTML = ""
+    spanErroBairro.innerHTML = ""
+    spanErroLogradouro.innerHTML = ""
+
+
+    var mensagemErro;
+
+    validarCNPJ(respostaCnpj);
+
+    if (validarCNPJ(respostaCnpj) == false) {
+        spanErroCnpj.innerHTML = "CNPJ inválido"
+    }
+
+    if (respostaCnpj == "" &&
+        respostaNomeFantasia == "" &&
+        respostaRazaoSocial == "" &&
+        respostaCep == "" &&
+        respostaNumero == "") {
+        spanErroCnpj.innerHTML = "CNPJ inválido"
+        spanErroNomeFantasia.innerHTML = "Campo obrigatório"
+        spanErroRazaoSocial.innerHTML = "Campo obrigatório"
+        spanErroCep.innerHTML = "Campo obrigatório"
+        spanErroNumero.innerHTML = "Campo obrigatório"
+        spanErroUf.innerHTML = "Campo obrigatório"
+        spanErroCidade.innerHTML = "Campo obrigatório"
+        spanErroBairro.innerHTML = "Campo obrigatório"
+        spanErroLogradouro.innerHTML = "Campo obrigatório"
+    }
+
+    if (respostaNomeFantasia == "") {
+        mensagemErro = "Campo obrigatório"
+        spanErroNomeFantasia.innerHTML = mensagemErro
+    }
+
+    if (respostaRazaoSocial == "") {
+        mensagemErro = "Campo obrigatório"
+        spanErroRazaoSocial.innerHTML = mensagemErro
+    }
+
+    if (respostaCep == "") {
+        mensagemErro = "Campo obrigatório"
+        spanErroCep.innerHTML = mensagemErro
+    }
+
+    if (respostaNumero == "") {
+        mensagemErro = "Campo obrigatório"
+        spanErroNumero.innerHTML = mensagemErro
+    }
+
+    if (respostaCep != "" && respostaUf == "") {
+        mensagemErro = "Busque o CEP"
+        spanErroCep.innerHTML = mensagemErro
+    }
+
+    if (validarCNPJ(respostaCnpj) == true &&
+        respostaNomeFantasia != "" &&
+        respostaRazaoSocial != "" &&
+        respostaUf != "" &&
+        respostaNumero != "") {
+        empresa.style.display = "none";
+        console.log("removeu display");
+
+        representante.style.display = "flex";
+        console.log("adicionou display");
+    }
+}

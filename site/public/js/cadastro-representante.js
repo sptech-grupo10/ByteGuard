@@ -31,26 +31,78 @@ const cadastrarRepresentante = async (callback) => {
 }
 
 function validarRepresentante(nome, telefone, email, cpf) {
-    if (!nome || !telefone || !email || !cpf) {
+    const spanErroNome = document.getElementById("error-nome")
+    const spanErroTelefone = document.getElementById("error-telefone")
+    const spanErroCpf = document.getElementById("error-cpf")
+    const spanErroEmail = document.getElementById("error-email")
+
+    spanErroNome.innerHTML = ""
+    spanErroTelefone.innerHTML = ""
+    spanErroCpf.innerHTML = ""
+    spanErroEmail.innerHTML = ""
+
+    var mensagemErro = "Campo obrigatório"
+
+    if (!nome && !telefone && !email && !cpf) {
+        spanErroNome.innerHTML = mensagemErro
+        spanErroTelefone.innerHTML = mensagemErro
+        spanErroCpf.innerHTML = mensagemErro
+        spanErroEmail.innerHTML = mensagemErro
         return 'Preencha todos os campos'
+    }
+
+    if (nome == "") {
+        spanErroNome.innerHTML = mensagemErro
+        return "Preencha este campo"
+    }
+
+    if (telefone == "") {
+        spanErroTelefone.innerHTML = mensagemErro
+        return "Preencha este campo"
+    }
+
+    if (email == "") {
+        spanErroEmail.innerHTML = mensagemErro
+        return "Preencha este campo"
+    }
+
+    if (cpf == "") {
+        spanErroCpf.innerHTML = mensagemErro
+        return "Preencha este campo"
     }
 
     if (!(email.toLowerCase().match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     ))) {
+        spanErroEmail.innerHTML = mensagemErro
         return 'Insira um email válido'
     }
 
-    if (!validarCPF(cpf)) return 'Insira um CPF válido'
+    if (!validarCPF(cpf)) {
+        spanErroCpf.innerHTML = "CPF inválido"
+        return 'Insira um CPF válido'
+    }
 
-    if (validarTelefone(telefone) != 'Válido') return validarTelefone(telefone)
+    if (validarTelefone(telefone) != 'Válido') {
+        spanErroTelefone.innerHTML = "Telefone inválido"
+        return validarTelefone(telefone)
+    }
 
     return 'Válido'
 }
 
 function validarCPF(cpf) {
+    const spanErroCpf = document.getElementById("error-cpf")
+    var mensagemErro = "CPF inválido"
+
+    spanErroCpf.innerHTML = ""
+
     cpf = cpf.replace(/[^\d]+/g, '');
-    if (cpf == '') return false
+    if (cpf == '') {
+        spanErroCpf.innerHTML = mensagemErro
+        return false
+    }
+
     if (cpf.length != 11 ||
         cpf == "00000000000" ||
         cpf == "11111111111" ||
@@ -61,8 +113,11 @@ function validarCPF(cpf) {
         cpf == "66666666666" ||
         cpf == "77777777777" ||
         cpf == "88888888888" ||
-        cpf == "99999999999")
+        cpf == "99999999999") {
+        spanErroCpf.innerHTML = mensagemErro
         return false
+    }
+
     add = 0;
     for (i = 0; i < 9; i++)
         add += parseInt(cpf.charAt(i)) * (10 - i);
@@ -74,11 +129,19 @@ function validarCPF(cpf) {
         add += parseInt(cpf.charAt(i)) * (11 - i);
     rev = 11 - (add % 11)
     if (rev == 10 || rev == 11) rev = 0;
-    if (rev != parseInt(cpf.charAt(10))) return false
+    if (rev != parseInt(cpf.charAt(10))) {
+        spanErroCpf.innerHTML = mensagemErro
+        return false
+    }
     return true
 }
 
 function validarTelefone(telefone) {
+    const spanErroTelefone = document.getElementById("error-telefone")
+    var mensagemErro = "Telefone inválido"
+
+    spanErroTelefone.innerHTML = ""
+
     const dddsValidos = [
         11, 12, 13, 14, 15, 16, 17, 18, 19,
         21, 22, 24, 27, 28, 31, 32, 33, 34,
@@ -92,11 +155,20 @@ function validarTelefone(telefone) {
 
     telefone = telefone.replace(/\D/g, '')
 
-    if (telefone.length < 11) return 'Insira um telefone válido'
+    if (telefone.length < 11) {
+        spanErroTelefone.innerHTML = mensagemErro
+        return 'Insira um telefone válido'
+    }
 
-    if (parseInt(telefone.substring(2, 3)) != 9) return 'Insira um telefone válido'
+    if (parseInt(telefone.substring(2, 3)) != 9) {
+        spanErroTelefone.innerHTML = mensagemErro
+        return 'Insira um telefone válido'
+    }
 
-    if (dddsValidos.indexOf(parseInt(telefone.substring(0, 2))) == -1) return 'Insira um ddd válido'
+    if (dddsValidos.indexOf(parseInt(telefone.substring(0, 2))) == -1) {
+        spanErroTelefone.innerHTML = mensagemErro
+        return 'Insira um ddd válido'
+    }
 
     return 'Válido'
 }
