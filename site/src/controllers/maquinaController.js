@@ -7,6 +7,17 @@ function buscarMaquinasDaLanHouse(req, res) {
         })
 }
 
+async function buscarMaquinasComponentesForaIdeal(req,res) {
+    try{
+        results = await maquinaModel.buscarMaquinasComponentesForaIdeal(req.params.fkLanhouse)
+        res.send(results)
+    }catch(e) {
+        res.status(500).end()
+    }
+    
+}
+
 module.exports ={
-    buscarMaquinasDaLanHouse
+    buscarMaquinasDaLanHouse,
+    buscarMaquinasComponentesForaIdeal
 }

@@ -8,6 +8,16 @@ function buscarMaquinasDaLanHouse(fkEmpresa){
     }
 }
 
+function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
+    try{
+        return database.exec(`SELECT count(distinct(fkComponente)) as contagem, maquina.nomeMaquina FROM log JOIN componente ON fkComponente = idComponente 
+        JOIN maquina on idMaquina = fkMaquina WHERE statusLog != 1 AND fkLanhouse = ${fkLanhouse} GROUP BY nomeMaquina ORDER BY contagem;`)
+    }catch(e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
-    buscarMaquinasDaLanHouse
+    buscarMaquinasDaLanHouse,
+    buscarMaquinasComponentesForaIdeal
 }
