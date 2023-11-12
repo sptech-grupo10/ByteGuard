@@ -19,58 +19,17 @@ document.querySelectorAll('.print-username').forEach(usernameClass => {
     usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
 })
 
-fetch(`${window.location.origin}/maquinas/buscarMaquinasPorLanHouse/${sessionStorage.getItem('idLanhouse')}`).then(res => res.json().then(maquinas => {
-    document.querySelector('.maquina-atual').innerText = maquinas[0].nomeMaquina
-    sessionStorage.setItem('maquina-atual', maquinas[0].nomeMaquina)
-
-    fetch(`${window.location.origin}/componentes/buscarComponentesPorMaquina/${maquinas[0].idMaquina}`).then(res => res.json().then(componentes => {
-        componentes.forEach(componente => {
-            sessionStorage.setItem(componente.tipoComponente, componente.idComponente)
-        })
-    }))
-
-    maquinas.forEach(maquina => {
-        document.querySelector('#lista-maquinas').innerHTML += `<option value="${maquina.idMaquina}">${maquina.nomeMaquina}</option>`
+async function buscarComponentes() {
+    const resComponentes = await fetch(`${window.location.origin}/componentes/buscarComponentesPorMaquina/${sessionStorage.getItem('idMaquina')}`)
+    const componentes = await resComponentes.json()
+    componentes.forEach(componente => {
+        sessionStorage.setItem(componente.tipoComponente, componente.idComponente)
     })
-}))
 
-function exibirDivAlertas() {
-    var displayDivAlertas = document.getElementById("alertas");
-    if (displayDivAlertas.style.display != "flex") {
-        displayDivAlertas.style.display = "flex";
-    } else {
-        displayDivAlertas.style.display = "none";
-    }
+    buscarMetricasComponente()
 }
 
-
-var qtdAlertasExibidos = [];
-
-function plotarAlertas() {
-    var notificacao = `<div class="notificacao critico">`;
-    notificacao += `<div class="alerta-icon-componente">
-                    <h3 id="title-componente">Rede</h3>
-                    <span class="icon-alerta" id="cor-alerta-critico">!</span>
-                </div>
-
-                <span id="classificacao-alerta">Crítico</span>
-                <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
-                </div>
-                `;
-    document.getElementById("alertas").innerHTML += notificacao;
-    qtdAlertasExibidos.push(notificacao);
-}
-
-function exibirPopUpAlertas() {
-    var divPopUpNotificacao = document.getElementById("total-alertas");
-
-    if (qtdAlertasExibidos.length > 0) {
-        divPopUpNotificacao.style.display = "flex";
-        // divPopUpNotificacao.innerHTML = qtdAlertasExibidos.length;
-    } else {
-        divPopUpNotificacao.style.display = "none";
-    }
-}
+buscarComponentes()
 
 function acessarCPU() {
     window.location = "cpu.html"
@@ -113,15 +72,17 @@ const configCPU = {
 };
 
 let metricaCPU, metricaMemoria
-fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(metricas => {
-    metricaCPU = metricas;
-}))
+async function buscarMetricasComponente() {
+    const resMetricaCPU = await fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`)
+    const metricasCPU = await resMetricaCPU.json()
+    metricaCPU = metricasCPU;
 
-fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(metricas => {
-    metricaMemoria = metricas;
-})).then(() => {
+    const resMetricaMemoria = await fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('RAM')}`)
+    const metricasMemoria = await resMetricaMemoria.json()
+    metricaMemoria = metricasMemoria;
+
     buscarLogs()
-})
+}
 
 function buscarLogs() {
     fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {

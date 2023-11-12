@@ -1,9 +1,20 @@
 listarMaquinas()
+setInterval(async () => {
+    await listarMaquinas()
+    document.querySelectorAll('#visualizar-maquina').forEach(visualizar => {
+        visualizar.addEventListener('click', e => {
+            sessionStorage.setItem('idMaquina', e.target.getAttribute('idMaquina'))
+            window.location.href += 'dashboard-componentes.html'
+        })
+    })
+}, 2000);
+
 
 async function listarMaquinas() {
     res = await fetch(`/maquinas/buscarMaquinasComponentesForaIdeal/${sessionStorage.getItem('idLanhouse')}`)
     maquina = await res.json()
 
+    document.querySelector('.status-maquinas').innerHTML = ''
     maquina.forEach(maquina => {
         let status = maquina.componentessobrecarrecados < 1 ? 'ideal' : 'atencao'
         document.querySelector('.status-maquinas').innerHTML += `
@@ -16,7 +27,7 @@ async function listarMaquinas() {
             </div>
 
             <div class="botao-acessar">
-                <button onclick="acessarDashboardMaquina()">Visualizar</button>
+                <button idMaquina='${maquina.idMaquina}' id="visualizar-maquina">Visualizar</button>
             </div>
         </div>
         `
