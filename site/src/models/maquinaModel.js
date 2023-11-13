@@ -1,13 +1,29 @@
 const database = require('../database/config');
 
-function buscarMaquinasDaLanHouse(fkEmpresa){
-    try{
+function buscarMaquinasDaLanHouse(fkEmpresa) {
+    try {
         return database.exec(`select * from maquina where fkLanhouse = ${fkEmpresa}`)
-    } catch(e){
+    } catch (e) {
         console.log(e);
     }
 }
 
+function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
+    try {
+        return database.exec(`select m.nomeMaquina, m.idMaquina, m.nomeMaquina, count(c.idComponente) as 'componentessobrecarrecados' from log l
+        join componente c on l.fkComponente = c.idComponente
+        join maquina m on c.fkMaquina = m.idMaquina
+        where dataLog = (select dataLog from log order by dataLog desc limit 1)
+        and fkLanhouse = ${fkLanhouse}
+        and l.statusLog != 1
+        group by nomeMaquina, idMaquina, nomeMaquina
+        order by 'componentessobrecarrecados' desc`)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 module.exports = {
-    buscarMaquinasDaLanHouse
+    buscarMaquinasDaLanHouse,
+    buscarMaquinasComponentesForaIdeal
 }
