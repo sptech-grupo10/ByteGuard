@@ -4,6 +4,7 @@ setInterval(async () => {
     document.querySelectorAll('#visualizar-maquina').forEach(visualizar => {
         visualizar.addEventListener('click', e => {
             sessionStorage.setItem('idMaquina', e.target.getAttribute('idMaquina'))
+            sessionStorage.setItem('nomeMaquina', e.target.getAttribute('nomeMaquina'))
             window.location.href += 'dashboard-componentes.html'
         })
     })
@@ -27,7 +28,7 @@ async function listarMaquinas() {
             </div>
 
             <div class="botao-acessar">
-                <button idMaquina='${maquina.idMaquina}' id="visualizar-maquina">Visualizar</button>
+                <button nomeMaquina = '${maquina.nomeMaquina}' idMaquina='${maquina.idMaquina}' id="visualizar-maquina">Visualizar</button>
             </div>
         </div>
         `
