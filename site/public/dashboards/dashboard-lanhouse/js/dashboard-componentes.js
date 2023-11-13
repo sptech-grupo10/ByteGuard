@@ -86,7 +86,7 @@ async function buscarMetricasComponente() {
 
 function buscarLogs() {
     fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
-        plotarGraficoCPU(log.valor)
+        plotarUtilizacaoLine(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
     }))
 
     fetch(`/logs/buscarLogRede/${sessionStorage.getItem('Rede')}`).then(res => res.json().then(log => {
@@ -103,15 +103,19 @@ function plotarKPIRede(valorDownload, valorUpload) {
     document.querySelector('#overview-dado-upload').value = valorUpload
 }
 
-function plotarGraficoCPU(valor) {
-    plotarUtilizacaoCPUDonut(valor)
-}
+function plotarUtilizacaoLine(label, valor) {
+    myChartCPUUsoLine.data.labels.shift()
+    myChartCPUUsoLine.data.datasets[0].data.shift()
 
-function plotarUtilizacaoCPUDonut(valor) {
-    myChartCPU.data.datasets[0].data[0] = valor
-    myChartCPU.data.datasets[0].data[1] = 100 - valor
+    myChartCPUUsoLine.data.labels.push(label)
 
-    myChartCPU.update()
+    valor > Number(metricaCPU.maxMetrica) || valor < Number(metricaCPU.minMetrica)
+        ? myChartCPUUsoLine.data.datasets[0].borderColor = 'red'
+        : myChartCPUUsoLine.data.datasets[0].borderColor = 'blue'
+
+    myChartCPUUsoLine.data.datasets[0].data.push(valor)
+
+    myChartCPUUsoLine.update()
 }
 
 function plotarGraficoRAM(label, valor) {
@@ -137,21 +141,29 @@ function plotarUtilizacaoRAMLine(label, valor) {
     myChartMemoria.update()
 }
 
-let myChartCPU = new Chart(
-    document.getElementById("overview-grafico-cpu"),
+var myChartCPUUsoLine = new Chart(
+    document.getElementById("cpu-grafico-utilizacao-line"),
     {
-        type: "doughnut",
+        type: "line",
         data: {
-            labels: ["Utilizado (%)", "Não utilizado (%)"],
+            labels: ["", "", "", "", "", "", "", "", "", ""],
             datasets: [
                 {
-                    label: "",
-                    data: [100, 0],
-                    backgroundColor: ["#337bff", "#D9D9D9"]
+                    label: "Utilizacao (%)",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    fill: true,
+                    borderColor: "#337bff",
+                    tension: 0.1
                 },
-            ],
+            ]
         },
         options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            },
             plugins: {
                 legend: {
                     display: false,
@@ -159,7 +171,8 @@ let myChartCPU = new Chart(
             }
         }
     }
-)
+);
+
 
 // Criando estrutura para plotar gráfico - labels
 let labelsDisco = ["Utilizado (%)", "Não utilizado (%)"];
