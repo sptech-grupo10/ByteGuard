@@ -10,12 +10,11 @@ function buscarMaquinasDaLanHouse(fkEmpresa) {
 
 function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
     try {
-        return database.exec(`select m.nomeMaquina, m.idMaquina, m.nomeMaquina, count(c.idComponente) as 'componentessobrecarrecados' from log l
+        return database.exec(`select m.nomeMaquina, m.idMaquina, COUNT(if(l.statusLog != 1, 1, null)) as 'componentessobrecarrecados' from log l
         join componente c on l.fkComponente = c.idComponente
         join maquina m on c.fkMaquina = m.idMaquina
         where dataLog = (select dataLog from log order by dataLog desc limit 1)
         and fkLanhouse = ${fkLanhouse}
-        and l.statusLog != 1
         group by nomeMaquina, idMaquina, nomeMaquina
         order by 'componentessobrecarrecados' desc`)
     } catch (e) {
