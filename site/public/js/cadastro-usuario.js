@@ -25,9 +25,11 @@ function cadastrar(nome, email, senha) {
     if (res.ok) {
       res.json().then(json => {
         sessionStorage.setItem('idUsuarioEmpresa', json.insertId)
+        let divSuccess = document.getElementById("success")
+        divSuccess.style.display = "flex"
         setTimeout(() => {
           window.location.href = sessionStorage.getItem('tipoUsuario') == 1 ? `${window.location.origin}/cadastro-lanhouse.html` : `${window.location.origin}/login.html`
-        }, 600)
+        }, 1500)
       })
     } else {
       console.log('Erro no cadastro')

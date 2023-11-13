@@ -13,6 +13,31 @@ fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${
     })
 }))
 
+const printLanhouse = lanhouse => {
+    document.querySelectorAll('.print-lanhouse').forEach(usernameClass => {
+        usernameClass.innerText = lanhouse
+    })
+}
+
+fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
+    if (res.ok) {
+        res.json().then(lanhouse => {
+            printLanhouse(lanhouse[0].unidade)
+            document.querySelector('#insert-codigo-lanhouse').innerText = lanhouse[0].codigoAcesso
+        })
+    } else {
+        console.log('Erro na busca da lanhouse')
+    }
+})
+
+document.querySelectorAll('.print-username').forEach(usernameClass => {
+    usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
+})
+
+document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
+})
+
 function buscarLogs() {
     fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
         plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)

@@ -1,5 +1,9 @@
 const listaLanhouses = document.querySelector('#lista-lan-houses')
 
+document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
+})
+
 fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: 'no-store' }).then(res => {
     if (res.ok) {
         res.json().then(json => {
