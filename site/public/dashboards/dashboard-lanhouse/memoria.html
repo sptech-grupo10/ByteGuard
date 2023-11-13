@@ -20,10 +20,13 @@
 
     <header class="nav-horizontal">
       <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+
+      <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
+
       <div class="user-info">
         <div class="user-name-cargo">
-          <span id="username">Gustavo Medeiros</span>
-          <span id="user-cargo">admin</span>
+          <span id="username" class="print-username"></span>
+          <span class="user-cargo"></span>
         </div>
 
         <div class="user-icon">
@@ -86,72 +89,6 @@
     <div class="container-dash">
       <div class="cabecalho">
         <h1 id="title-dash">Detalhes da Memória - <span id="maquina-atual">Máquina 01</span></h1>
-        <div id="box-alertas" onclick="exibirDivAlertas()">
-          <img src="../../assets/imgs/sino-icon-black.png" alt="">
-          <div id="total-alertas">6</div>
-        </div>
-      </div>
-
-      <div id="alertas">
-        <div class="notificacao critico">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">Rede</h3>
-            <span class="icon-alerta" id="cor-alerta-critico">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Crítico</span>
-          <span id="mensagem-alerta">A máquina 10 teve 1 oscilação de internet e ficou 0.2s offline.</span>
-        </div>
-
-        <div class="notificacao atencao">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">CPU</h3>
-            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Atenção</span>
-          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
-
-        <div class="notificacao atencao">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">CPU</h3>
-            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Atenção</span>
-          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
-
-        <div class="notificacao atencao">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">CPU</h3>
-            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Atenção</span>
-          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
-
-        <div class="notificacao atencao">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">CPU</h3>
-            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Atenção</span>
-          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
-
-        <div class="notificacao atencao">
-          <div class="alerta-icon-componente">
-            <h3 id="title-componente">CPU</h3>
-            <span class="icon-alerta" id="cor-alerta-atencao">!</span>
-          </div>
-
-          <span id="classificacao-alerta">Atenção</span>
-          <span id="mensagem-alerta">A máquina 10 apresentou temperatura alta: 40.2°C.</span>
-        </div>
       </div>
 
       <!-- O que for alterar nas telas é apenas daqui para baixo -->

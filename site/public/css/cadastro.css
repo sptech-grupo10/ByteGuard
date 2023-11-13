@@ -306,6 +306,61 @@ main {
     display: none;
 }
 
+.success {
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 15px;
+    bottom: 105px;
+    background-color: #269c26;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    animation: show-right 200ms;
+    animation-fill-mode: forwards;
+}
+
+.success img {
+    height: 30px;
+}
+
+.success span {
+    width: 100%;
+}
+
+/* ANIMAÇÕES ------------------------------------------------ */
+@keyframes show-right {
+    from {
+        transform: translateX(60%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes show-down {
+    from {
+        transform: translateY(60%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
 
 @media only screen and (max-width: 600px) {
     @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
@@ -355,6 +410,7 @@ main {
     .cadastro-titulo {
         font-size: 35px;
         font-weight: 700;
+        text-align: center;
     }
 
     .cadastro-desc {
@@ -495,6 +551,61 @@ main {
 
     .main-img {
         display: none;
+    }
+
+    .success {
+        width: auto;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        right: 15%;
+        bottom: 15px;
+        background-color: #269c26;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+        animation: show-down 200ms;
+        animation-fill-mode: forwards;
+    }
+    
+    .success img {
+        height: 30px;
+    }
+    
+    .success span {
+        width: 100%;
+    }
+    
+    /* ANIMAÇÕES ------------------------------------------------ */
+    @keyframes show-right {
+        from {
+            transform: translateX(60%);
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes show-down {
+        from {
+            transform: translateY(40%);
+            opacity: 0;
+        }
+    
+        to {
+            transform: translateY(0%);
+            opacity: 1;
+        }
     }
 
 }

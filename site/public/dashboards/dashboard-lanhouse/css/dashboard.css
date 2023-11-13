@@ -130,7 +130,6 @@ body {
     /* display: flex; */
 }
 
-
 .cabecalho {
     height: 10%;
     width: 92%;
@@ -210,29 +209,6 @@ body {
     background-color: #ffb800;
 }
 
-.cabecalho #box-alertas {
-    background: #fff;
-    border-radius: 10px;
-    height: 50px;
-    width: 50px;
-    display: flex;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 5px;
-    cursor: pointer;
-}
-
-.cabecalho #box-alertas #total-alertas {
-    position: relative;
-    border-radius: 20%;
-    background: #E43;
-    color: #fff;
-    max-width: 20px;
-    height: 18px;
-    top: -12px;
-    right: 10px;
-    padding: 3px 7px;
-}
-
 .conteudo-dash {
     width: 92%;
     height: 78%;
@@ -241,82 +217,6 @@ body {
     position: relative;
     left: 55px;
     top: 27px;
-}
-
-#alertas {
-    height: 495px;
-    width: 220px;
-    overflow-y: scroll;
-    padding: 15px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    position: absolute;
-    top: 95px;
-    right: 60px;
-    z-index: 5;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
-}
-
-#alertas::-webkit-scrollbar {
-    width: 18px;
-    background-color: transparent;
-    border: none;    
-}
-
-#alertas::-webkit-scrollbar-thumb {
-    background-color: #bebebe;
-    border-radius: 10px;
-    border: 5px solid #fff;
-}
-
-#alertas::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa9a9;
-}
-
-#alertas .notificacao {
-    border-radius: 10px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    height: 90px;
-    flex-shrink: 0;
-}
-
-.critico {
-    background: #ffcccc;
-}
-
-.atencao {
-    background: #fff388;
-}
-
-#title-componente {
-    font-weight: 600;
-}
-
-#alertas .notificacao .icon-alerta {
-    border-radius: 50%;
-    padding: 2px;
-    font-size: 10px;
-    font-weight: 600;
-    color: #fff;
-    height: 12px;
-    width: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#alertas .notificacao .alerta-icon-componente {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 #cor-alerta-atencao {

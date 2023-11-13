@@ -4,7 +4,8 @@ process.env.AMBIENTE_PROCESSO = "desenvolvimento";
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-let porta = AMBIENTE_PROCESSO == "desenvolvimento"? 3000:80;
+// let porta = AMBIENTE_PROCESSO == "desenvolvimento" ? 3000 : 80;
+let porta = 3000;
 
 const app = express()
 

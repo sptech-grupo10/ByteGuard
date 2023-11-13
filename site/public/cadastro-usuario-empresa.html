@@ -36,7 +36,7 @@
       <img src="assets/imgs/login-icon-white.png" alt="">
       <span>Login</span>
     </a>
-    
+
     <a href="cadastro-empresa.html" class="opcao">
       <img src="assets/imgs/add-empresa-icon-white.png" alt="">
       <span>Cadastrar Empresa</span>
@@ -83,13 +83,37 @@
         <div class="input-row">
           <div class="input-container">
             <span class="input-span">Nome</span>
-            <input placeholder="Digite seu nome" id="iusername" value="Kauan"/>
+            <input placeholder="Digite seu nome" id="iusername" value="Kauan" />
             <span class="error-cookie nome"></span>
           </div>
           <div class="input-container">
             <span class="error-cookie email"></span>
             <span class="input-span">Email</span>
             <input placeholder="Digite seu email" value="kauan@gmail.com" id="iemail" />
+          </div>
+        </div>
+
+        <div class="validadores-senha-mobile">
+          <span>A senha deve: </span>
+          <div class="validador">
+            <div class="validadores-icon c8char"></div>
+            <span class="cookie c8char">Conter 8 ou mais caracteres</span>
+          </div>
+          <div class="validador">
+            <div class="validadores-icon maiuscula"></div>
+            <span class="cookie maiuscula">Conter uma ou mais letras maiúsculas</span>
+          </div>
+          <div class="validador">
+            <div class="validadores-icon nums"></div>
+            <span class="cookie nums">Conter um ou mais números</span>
+          </div>
+          <div class="validador">
+            <div class="validadores-icon espec"></div>
+            <span class="cookie espec">Conter um ou mais caracteres especiais (!, @, #, $...)</span>
+          </div>
+          <div class="validador">
+            <div class="validadores-icon identicas"></div>
+            <span class="senhasIdenticas">As senhas devem ser idênticas</span>
           </div>
         </div>
 
@@ -107,14 +131,19 @@
           </div>
         </div>
         <div class="login-btcadastro">
-          <button id="btCadastrar">CADASTRAR</button>
+          <button id="btCadastrar">Cadastrar</button>
           <div class="opcao-login">Já possui uma conta? <a href="./login.html">Login</a></div>
         </div>
       </div>
     </div>
 
+    <div class="success" id="success">
+      <img src="assets/imgs/sucesso.png" alt="">
+      <span id="success-desc">Cadastro realizado com sucesso!</span>
+    </div>
 
   </main>
+
 </body>
 
 </html>

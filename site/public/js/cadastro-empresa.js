@@ -7,6 +7,8 @@ const cadastrarEmpresa = async () => {
         return
     }
 
+    let divSuccess = document.getElementById("success")
+
     fetch(`${window.location.origin}/empresas/cadastrar`, {
         method: 'POST',
         headers: {
@@ -22,9 +24,12 @@ const cadastrarEmpresa = async () => {
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
+                divSuccess.style.display = "flex"
                 sessionStorage.setItem('idEmpresa', json.insertId)
                 sessionStorage.setItem('tipoUsuario', 1)
-                window.location.href = `${window.location.origin}/cadastro-usuario-empresa.html`
+                setTimeout(() => {
+                    window.location.href = `${window.location.origin}/cadastro-usuario-empresa.html`
+                }, 1500)
             })
         } else {
             console.log('Erro no cadastro de empresa')

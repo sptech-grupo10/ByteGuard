@@ -48,7 +48,98 @@
         </a>
     </div>
 
-    <div class="cima flex borda">
+    <main>
+        <div class="left-img">
+            <img class="img-main" src="assets/imgs/img-cadastro-empresa.png" alt="">
+        </div>
+
+        <section class="right-forms-lan-house" id="forms-lan-house">
+            <h1 id="title">Cadastro de Lan House</h1>
+
+            <h2 id="subtitle">Preencha os campos e registre a 1ª Lan House da sua Empresa!</h2>
+
+            <div class="form">
+                <div class="field" id="field-cnpj">
+                    <label for="iCnpj">CNPJ</label>
+                    <input id="iCnpj" maxlength="18">
+                    <span class="error" id="error-cnpj"></span>
+                </div>
+                <div class="field" id="field-nome-unidade">
+                    <label for="iUnidade">Nome da Unidade</label>
+                    <input id="iUnidade">
+                    <span class="error" id="error-nome-unidade"></span>
+                </div>
+                <div class="field" id="field-cep">
+                    <label for="iCep">CEP</label>
+                    <div class="cep">
+                        <input id="iCep" maxlength="9">
+                        <button id="btBuscarCep" class="btBuscarCep">Buscar</button>
+                    </div>
+                    <span class="error" id="error-cep"></span>
+                </div>
+                <div class="field">
+                    <label for="iUf">UF</label>
+                    <input id="iUf" disabled>
+                    <span class="error" id="error-uf"></span>
+                </div>
+                <div class="field">
+                    <label for="iCidade">Cidade</label>
+                    <input id="iCidade" disabled>
+                    <span class="error" id="error-cidade"></span>
+                </div>
+                <div class="field">
+                    <label for="iBairro">Bairro</label>
+                    <input id="iBairro" disabled>
+                    <span class="error" id="error-bairro"></span>
+                </div>
+                <div class="field">
+                    <label for="iLogradouro">Logradouro</label>
+                    <input id="iLogradouro" disabled>
+                    <span class="error" id="error-logradouro"></span>
+                </div>
+                <div class="field" id="field-numero">
+                    <label for="iNumero">Número</label>
+                    <input id="iNumero">
+                    <span class="error" id="error-numero"></span>
+                </div>
+            </div>
+
+            <img onclick="passarForms()" src="assets/imgs/img-arrow.png" alt="">
+        </section>
+
+        <section class="right-forms-representante" id="forms-representante">
+            <h1 id="title">Representante da Lan House</h1>
+
+            <h2 id="subtitle">Cadastre o Representante desta Lan House</h2>
+
+            <div class="form">
+                <div class="field">
+                    <label for="iNome">Nome Completo</label>
+                    <input id="iNome">
+                    <span class="error" id="error-nome"></span>
+                </div>
+                <div class="field">
+                    <label for="iTelefone">Telefone</label>
+                    <input id="iTelefone" maxlength="15">
+                    <span class="error" id="error-telefone"></span>
+                </div>
+                <div class="field">
+                    <label for="iCpf">CPF</label>
+                    <input id="iCpf" maxlength="14">
+                    <span class="error" id="error-cpf"></span>
+                </div>
+                <div class="field">
+                    <label for="iUf">Email</label>
+                    <input id="iEmail">
+                    <span class="error" id="error-email"></span>
+                </div>
+            </div>
+
+            <button id="btCadastrarLanhouse" onclick="cadastrarLanhouse()">Cadastrar</button>
+        </section>
+    </main>
+
+    <!-- <div class="cima flex borda">
         <div class="flexC CE">
             <span class="title large">Cadastro de endereço</span>
             <div class="cadastro-endereco flex">
@@ -120,11 +211,15 @@
                 <input id="iEmail" value="melissa@gmail.com">
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="error-cookie"></div>
 
-    <button class="btBuscarCep final" id="btCadastrarLanhouse" onclick="cadastrarLanhouse()">Cadastrar</button>
+    <!-- <button class="btBuscarCep final" id="btCadastrarLanhouse" onclick="cadastrarLanhouse()">Cadastrar</button> -->
+    <div class="success-lan-house" id="success">
+        <img src="assets/imgs/sucesso.png" alt="">
+        <span id="success-desc">Lan House e representante cadastrados com sucesso!</span>
+    </div>
 </body>
 
 </html>

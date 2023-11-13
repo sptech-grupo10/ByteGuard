@@ -1,5 +1,9 @@
 const listaUsuarios = document.querySelector('#lista-usuarios')
 
+document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
+})
+
 fetch(`${window.location.origin}/usuarios/listarUsuariosPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: "no-cache" }).then(res => {
     res.json().then(json => {
         json.forEach(usuario => {

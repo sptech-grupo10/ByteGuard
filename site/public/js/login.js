@@ -17,15 +17,20 @@ const loginDireto = e => {
 const fazerLogin = (login) => {
     sessionStorage.setItem('idUsuario', login.idUsuario)
     sessionStorage.setItem('nomeUsuario', login.nome)
+    sessionStorage.setItem('tipoUsuario', login.fkTipoUsuario)
+    
     login.fkTipoUsuario == 1
         ? sessionStorage.setItem('idEmpresa', login.fkEmpresa)
         : sessionStorage.setItem('idLanhouse', login.fkLanhouse)
 
+    let divSuccess = document.getElementById("success")
+    divSuccess.style.display = "flex"
+
     setTimeout(() => {
         window.location.href = login.fkTipoUsuario == 1
             ? `${window.location.origin}/dashboards/dashboard-geral`
-            : `${window.location.origin}/dashboards/dashboard-lanhouse`
-    }, 500);
+            : `${window.location.origin}/dashboards/dashboard-lanhouse/overview-maquinas.html`
+    }, 1500);
 }
 
 function validarCampos() {

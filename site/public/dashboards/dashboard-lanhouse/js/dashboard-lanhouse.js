@@ -19,6 +19,10 @@ document.querySelectorAll('.print-username').forEach(usernameClass => {
     usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
 })
 
+document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
+})
+
 fetch(`${window.location.origin}/maquinas/buscarMaquinasPorLanHouse/${sessionStorage.getItem('idLanhouse')}`).then(res => res.json().then(maquinas => {
     document.querySelector('.maquina-atual').innerText = maquinas[0].nomeMaquina
     sessionStorage.setItem('maquina-atual', maquinas[0].nomeMaquina)
