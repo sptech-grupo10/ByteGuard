@@ -127,3 +127,5 @@ insert into Endereco(cidade) values('São Paulo');
 insert into Empresa(nomeFantasia, razaoSocial, fkEndereco) values('Empresa', 'Empresa', 1);
 insert into LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa) values ('LanHousers', '49150759000140', 'LanHousers0152', 1, 1);
 insert into Usuario (nome, senha, fkEmpresa, fkLanhouse) VALUES ('Usuario', 'Usuario0@', 1, 1);
+
+select * from usuario;

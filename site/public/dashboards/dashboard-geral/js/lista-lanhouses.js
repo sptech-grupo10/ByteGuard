@@ -4,53 +4,56 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
-fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: 'no-store' }).then(res => {
-    if (res.ok) {
-        res.json().then(json => {
-            json.forEach(lanhouse => {
-                listaLanhouses.innerHTML += `
-                        <div class="tabela-lan-house" id="tabela-lan-house">
-                            <div class="title-lan-house">
-                                <h1 id="unidade">${lanhouse.unidade}</h1>
-                                <div class="cor-sinal ${lanhouse.statusLanhouse == 1 ? 'ideal' : 'inativo'}"></div>
-                            </div>
+async function listarLanhouses() {
+    try {
+        const listaRes = await fetch(`${window.location.origin}/lanhouses/listarLanhousesPorEmpresa/${sessionStorage.getItem('idEmpresa')}`, { cache: 'no-store' })
+        const lista = await listaRes.json()
 
-                            <div class="infos-lan-house">
-                                <div class="box-info">
-                                    <h3>Representante</h3>
-                                    <span id="representante">${lanhouse.nome} <img idRepresentante=${lanhouse.idRepresentante} class='representante-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
+        lista.forEach(lanhouse => {
+            listaLanhouses.innerHTML += `
+                            <div class="tabela-lan-house mobile" id="tabela-lan-house">
+                                <div class="title-lan-house">
+                                    <h1 id="unidade">${lanhouse.unidade}</h1>
+                                    <div class="cor-sinal ${lanhouse.statusLanhouse == 1 ? 'ideal' : 'inativo'}"></div>
                                 </div>
-                                <div class="box-info">
-                                    <h3>Telefone</h3>
-                                    <span id="telefone">${lanhouse.telefone}</span>
+    
+                                <div class="infos-lan-house">
+                                    <div class="box-info">
+                                        <h3>Representante</h3>
+                                        <span id="representante">${lanhouse.nome} <img idRepresentante=${lanhouse.idRepresentante} class='representante-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
+                                    </div>
+                                    <div class="box-info">
+                                        <h3>Telefone</h3>
+                                        <span id="telefone">${lanhouse.telefone}</span>
+                                    </div>
                                 </div>
+                                
+                                <div class="infos-lan-house">
+                                    <div class="box-info">
+                                        <h3>Endereço</h3>
+                                        <span  id="endereco">${lanhouse.logradouro}, ${lanhouse.numero} <img idEndereco='${lanhouse.idEndereco}' class='endereco-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
+    
+                                    </div>
+                                    <div class="box-info">
+                                        <h3>CNPJ</h3>
+                                        <span id="cnpj">${lanhouse.cnpj}</span>
+                                    </div>
+                                </div>
+    
+                            <div class="buttons">
+                                <span  class='login-direto' idLanhouse='${lanhouse.idLanHouse}'>Acessar</span>
+                                <span idLanhouse='${lanhouse.idLanHouse}' statuslanhouse='${lanhouse.statusLanhouse}' class='ativar-desativar-lanhouse'>${lanhouse.statusLanhouse == 1 ? 'Desativar' : 'Ativar'}</span>
+                                <span class='criar-usuario'>Cadastrar novo usuário</span>
                             </div>
-                            
-                            <div class="infos-lan-house">
-                                <div class="box-info">
-                                    <h3>Endereço</h3>
-                                    <span  id="endereco">${lanhouse.logradouro}, ${lanhouse.numero} <img idEndereco='${lanhouse.idEndereco}' class='endereco-open-modal' src="../../assets/imgs/info-icon-black.png" alt=""></span>
-
-                                </div>
-                                <div class="box-info">
-                                    <h3>CNPJ</h3>
-                                    <span id="cnpj">${lanhouse.cnpj}</span>
-                                </div>
-                            </div>
-
-                        <div class="buttons">
-                            <span href="../dashboard-geral/lista-computadores.html">Acessar</span>
-                            <span idLanhouse='${lanhouse.idLanHouse}' statuslanhouse='${lanhouse.statusLanhouse}' class='ativar-desativar-lanhouse'>${lanhouse.statusLanhouse == 1 ? 'Desativar' : 'Ativar'}</span>
-                            <span class='criar-usuario'>Cadastrar novo usuário</span>
                         </div>
-                    </div>
-                `
-            })
+                    `
         })
-    } else {
-        console.log('erro na listagem')
+    } catch (e) {
+        console.log(e)
     }
-})
+}
+
+listarLanhouses()
 
 document.querySelector('#username').innerText = sessionStorage.getItem('nomeUsuario')
 
@@ -88,7 +91,7 @@ setTimeout(() => {
     })
 }, 500);
 
-const cadastrarUsuarioLanhouse = e => {
+const cadastrarUsuarioLanhouse = async e => {
     let modal = document.querySelector('#modal-cadastrar-usuario-lanhouse')
     let cookie = modal.querySelector('#error-cookie')
     cookie.innerText = ''
@@ -107,20 +110,25 @@ const cadastrarUsuarioLanhouse = e => {
     } else if (validarSenha(senha) != 'Válida') {
         cookie.innerText = validarSenha(senha)
     } else {
-        fetch(`${window.location.origin}/usuarios/cadastrar`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                nomeServer: username,
-                emailServer: email,
-                senhaServer: senha,
-                tipoUsuarioServer: 2,
-                fkEmpresaServer: null,
-                fkLanHouseServer: idLanhouse
+        try {
+            await fetch(`${window.location.origin}/usuarios/cadastrar`, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nomeServer: username,
+                    emailServer: email,
+                    senhaServer: senha,
+                    tipoUsuarioServer: 2,
+                    fkEmpresaServer: null,
+                    fkLanHouseServer: idLanhouse
+                })
             })
-        })
+            window.location.reload()
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 
