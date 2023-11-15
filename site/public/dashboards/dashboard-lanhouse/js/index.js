@@ -17,7 +17,15 @@ async function listarMaquinas() {
 
     document.querySelector('.status-maquinas').innerHTML = ''
     maquina.forEach(maquina => {
-        let status = maquina.componentessobrecarrecados < 1 ? 'ideal' : 'atencao'
+        let status
+        if (maquina.componentessobrecarrecados > 1) {
+            status = 'critico'
+        } else if (maquina.componentessobrecarrecados == 1) {
+            status = 'atencao'
+        } else {
+            status = 'ideal'
+        }
+
         document.querySelector('.status-maquinas').innerHTML += `
         <div class="box-maquina">
             <div class="status-icon-nome">
@@ -32,6 +40,7 @@ async function listarMaquinas() {
             </div>
         </div>
         `
+        console.log(maquina)
     })
 }
 

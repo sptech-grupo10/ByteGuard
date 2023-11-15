@@ -1,9 +1,8 @@
 const lanhouseModel = require('../models/lanhouseModel')
 
-function cadastrar(req, res) {
+async function cadastrar(req, res) {
     const unidade = req.body.unidadeServer,
         cnpj = req.body.cnpjServer,
-        codigoAcesso = req.body.codigoAcessoServer,
         fkEndereco = req.body.fkEnderecoServer,
         fkEmpresa = req.body.fkEmpresaServer,
         fkRepresentante = req.body.fkRepresentanteServer
@@ -11,13 +10,13 @@ function cadastrar(req, res) {
     if (!unidade || !fkEndereco || !cnpj || !fkEmpresa || !fkRepresentante) {
         res.stats(400).send('Informações não chegaram ao cadastro')
     } else {
-        lanhouseModel.cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante)
-            .then(result => {
-                res.json(result)
-            }).catch(e => {
-                console.log(`Erro ao cadastrar: ${e.sqlMessage}`)
-                res.status(500).json
-            })
+        try {
+            const result = await lanhouseModel.cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante)
+            res.json(result).end()
+        } catch (e) {
+            console.log(`Erro ao cadastrar: ${e.sqlMessage}`)
+            res.status(500).end()
+        }
     }
 }
 

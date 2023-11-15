@@ -291,15 +291,15 @@ body {
     border-radius: 50%;
 }
 
-#ideal {
+.ideal {
     background-color: #14CA3C;;
 }
 
-#critico {
+.critico {
     background-color: #EF2C2C;
 }
 
-#atencao {
+.atencao {
     background-color: #ffb800;
 }
 

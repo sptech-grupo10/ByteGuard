@@ -50,26 +50,6 @@ function acessarMemoria() {
     window.location = "memoria.html"
 }
 
-
-// Criando estrutura para plotar gráfico - labels
-let labelsCPU = ["Utilizado (%)", "Não utilizado (%)"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCPU = {
-    labels: labelsCPU,
-    datasets: [{
-        label: "",
-        data: [61, 39],
-        backgroundColor: ["#337bff", "#D9D9D9"]
-    },]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCPU = {
-    type: "doughnut",
-    data: dadosCPU,
-};
-
 let metricaCPU, metricaMemoria
 async function buscarMetricasComponente() {
     const resMetricaCPU = await fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`)
@@ -100,10 +80,50 @@ async function buscarLogs() {
     const resRam = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`)
     const logRam = await resRam.json()
 
-    plotarUtilizacaoDisco(logDisco.valor)
     plotarUtilizacaoCpu(`${new Date(logCpu.dataLog).getHours()}:${new Date(logCpu.dataLog).getMinutes()}:${new Date(logCpu.dataLog).getSeconds()}`, logCpu.valor)
+    plotarUtilizacaoDisco(logDisco.valor)
     plotarKPIRede(logRede.download.valor, logRede.upload.valor)
     plotarUtilizacaoRAMLine(`${new Date(logRam.dataLog).getHours()}:${new Date(logRam.dataLog).getMinutes()}:${new Date(logRam.dataLog).getSeconds()}`, logRam.valor)
+
+    let statusCpuIcon = document.querySelector('.status-componente[componente=CPU]')
+    let statusDiscoIcon = document.querySelector('.status-componente[componente=Disco]')
+    let statusRamIcon = document.querySelector('.status-componente[componente=RAM]')
+
+    switch (logCpu.statusLog) {
+        case 1:
+            statusCpuIcon.classList = ['status-componente ideal']
+            break
+        case 2:
+            statusCpuIcon.classList = ['status-componente atencao']
+            break
+        case 3:
+            statusCpuIcon.classList = ['status-componente critico']
+            break
+    }
+
+    switch (logDisco.statusLog) {
+        case 1:
+            statusDiscoIcon.classList = ['status-componente ideal']
+            break
+        case 2:
+            statusDiscoIcon.classList = ['status-componente atencao']
+            break
+        case 3:
+            statusDiscoIcon.classList = ['status-componente critico']
+            break
+    }
+
+    switch (logRam.statusLog) {
+        case 1:
+            statusRamIcon.classList = ['status-componente ideal']
+            break
+        case 2:
+            statusRamIcon.classList = ['status-componente atencao']
+            break
+        case 3:
+            statusRamIcon.classList = ['status-componente critico']
+            break
+    }
 }
 
 function plotarKPIRede(valorDownload, valorUpload) {

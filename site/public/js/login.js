@@ -6,7 +6,7 @@ if (!window.location.href.includes('dashboards')) {
         document.querySelectorAll('.login-direto').forEach(btLoginDireto => {
             btLoginDireto.addEventListener('click', loginDireto)
         })
-    }, 100);
+    }, 2000);
 }
 
 const loginDireto = e => {
