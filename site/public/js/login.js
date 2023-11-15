@@ -29,7 +29,7 @@ const fazerLogin = (login) => {
     setTimeout(() => {
         window.location.href = login.fkTipoUsuario == 1
             ? `${window.location.origin}/dashboards/dashboard-geral`
-            : `${window.location.origin}/dashboards/dashboard-lanhouse/overview-maquinas.html`
+            : `${window.location.origin}/dashboards/dashboard-lanhouse/index.html`
     }, 1500);
 }
 

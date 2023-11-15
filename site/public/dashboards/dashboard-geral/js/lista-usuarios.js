@@ -1,3 +1,11 @@
+document.querySelectorAll('.print-username').forEach(usernameClass => {
+    usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
+})
+
+document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
+})
+
 const listaUsuarios = document.querySelector('#lista-usuarios')
 
 document.querySelectorAll('.user-cargo').forEach(userTypeClass => {

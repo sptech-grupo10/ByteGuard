@@ -83,6 +83,8 @@ nav ul {
   padding: 10px 15px;
   z-index: 1;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+  animation: show-right 200ms;
+  animation-fill-mode: forwards;
 }
 
 #opcoes-login-cadastro a {
@@ -475,6 +477,31 @@ footer button {
   color: #4f4a45;
 }
 
+/* ANIMAÇÕES ------------------------------------------------------------  */
+@keyframes show-right {
+  from {
+    transform: translateX(60%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes show-down {
+  from {
+    transform: translateY(40%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
 
@@ -527,6 +554,8 @@ footer button {
     padding: 10px 15px;
     z-index: 1;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.30);
+    animation: show-right 200ms;
+    animation-fill-mode: forwards;
   }
 
   main {
@@ -840,5 +869,30 @@ footer button {
 
   .autoria {
     display: none;
+  }
+
+  /* ANIMAÇÕES ------------------------------------------------------------  */
+  @keyframes show-right {
+    from {
+      transform: translateX(60%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes show-down {
+    from {
+      transform: translateY(40%);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0%);
+      opacity: 1;
+    }
   }
 }

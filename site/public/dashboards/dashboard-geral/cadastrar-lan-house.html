@@ -1,0 +1,184 @@
+<DOCTYPE html>
+    <html lang="PT-BR">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastrar Lan House</title>
+        <link rel="stylesheet" href="../../css/reset.css">
+        <link rel="stylesheet" href="css/cadastro-lan-house.css">
+        <script src="../../js/index.js" defer></script>
+        <script src="../../js/masks/endereco-mask.js" defer></script>
+        <script src="../../js/masks/representante-mask.js" defer></script>
+        <script src="../../js/cadastro-endereco.js" defer></script>
+        <script src="../../js/cadastro-representante.js" defer></script>
+        <script src="../../js/cadastro-lanhouse.js" defer></script>
+        <script src="js/cadastro-lan-house.js"></script>
+        <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
+        <script src="../../js/login.js" defer></script>
+
+        <!-- CDN !-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    </head>
+
+
+    <body>
+        <header class="nav-horizontal">
+            <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+            <div class="user-info">
+                <div class="user-name-cargo">
+                    <span id="username" class="print-username"></span>
+                    <span class="user-cargo"></span>
+                </div>
+
+                <div class="user-icon">
+                    <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo">
+                </div>
+            </div>
+        </header>
+
+        <header>
+            <ul class="nav-left">
+                <li>
+                    <a href="index.html">
+                        <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li id="tela-atual">
+                    <a href="cadastrar-lan-house.html">
+                        <img class="icons" src="../../assets/imgs/new-lanhouse-icon-blue.png" alt="">
+                        <span>Cadastrar Lan House</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../dashboard-lanhouse/index.html">
+                        <img class="icons" src="../../assets/imgs/pc-icon-black.png" alt="">
+                        <span>Máquinas | Lan House</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="lista-usuarios.html">
+                        <img class="icons" src="../../assets/imgs/users-icon-black.png" alt="">
+                        <span>Lista de usuários</span>
+                    </a>
+                </li>
+
+
+                <li class="sair" onclick="limparSessao()">
+                    <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+                    <span id="logout">Sair</span>
+                </li>
+            </ul>
+        </header>
+
+        <div class="container-dash">
+            <div class="cabecalho">
+                <h1 id="title-dash">Cadastrar Lan House</h1>
+            </div>
+
+            <!-- O que for alterar nas telas é apenas daqui para baixo -->
+            <div class="conteudo-dash" id="cadastro-lan-house">
+                <div class="sections">
+                    <section class="forms lan-house">
+                        <h2 id="subtitle">Lan House</h2>
+
+                        <div class="form-fields">
+                            <div class="field" id="field-cnpj">
+                                <label for="iCnpj">CNPJ</label>
+                                <input id="iCnpj" maxlength="18">
+                                <span class="error" id="error-cnpj"></span>
+                            </div>
+                            <div class="field" id="field-nome-unidade">
+                                <label for="iUnidade">Nome da Unidade</label>
+                                <input id="iUnidade">
+                                <span class="error" id="error-nome-unidade"></span>
+                            </div>
+                            <div class="field" id="field-cep">
+                                <label for="iCep">CEP</label>
+                                <div class="cep">
+                                    <input id="iCep" maxlength="9">
+                                    <button id="btBuscarCep" class="btBuscarCep">Buscar</button>
+                                </div>
+                                <span class="error" id="error-cep"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iUf">UF</label>
+                                <input id="iUf" disabled>
+                                <span class="error" id="error-uf"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iCidade">Cidade</label>
+                                <input id="iCidade" disabled>
+                                <span class="error" id="error-cidade"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iBairro">Bairro</label>
+                                <input id="iBairro" disabled>
+                                <span class="error" id="error-bairro"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iLogradouro">Logradouro</label>
+                                <input id="iLogradouro" disabled>
+                                <span class="error" id="error-logradouro"></span>
+                            </div>
+                            <div class="field" id="field-numero">
+                                <label for="iNumero">Número</label>
+                                <input id="iNumero">
+                                <span class="error" id="error-numero"></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="division"></div>
+
+                    <section class="forms representante">
+                        <h2 id="subtitle">Representante</h2>
+
+                        <div class="form-fields">
+                            <div class="field">
+                                <label for="iNome">Nome Completo</label>
+                                <input id="iNome">
+                                <span class="error" id="error-nome"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iTelefone">Telefone</label>
+                                <input id="iTelefone" maxlength="15">
+                                <span class="error" id="error-telefone"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iCpf">CPF</label>
+                                <input id="iCpf" maxlength="14">
+                                <span class="error" id="error-cpf"></span>
+                            </div>
+                            <div class="field">
+                                <label for="iUf">Email</label>
+                                <input id="iEmail">
+                                <span class="error" id="error-email"></span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="div-button-cadastrar">
+                    <button id="btCadastrarLanhouse" onclick="cadastrarLanhouse()">Cadastrar</button>
+                </div>
+            </div>
+            <!-- Fim da alteração da tela -->
+
+        </div>
+
+        <div id="error-cookie"></div>
+
+        <div class="success-lan-house" id="success">
+            <img src="../../assets/imgs/sucesso.png" alt="">
+            <span id="success-desc">Lan House e representante cadastrados com sucesso!</span>
+        </div>
+
+    </body>
+
+    </html>

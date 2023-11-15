@@ -4,6 +4,7 @@
 
 body {
     background: #F0F0F0;
+    overflow: hidden;
 }
 
 .nav-horizontal {
@@ -132,6 +133,11 @@ body {
     /* display: flex; */
 }
 
+.container-dash h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
 .cabecalho {
     height: 10%;
     width: 92%;
@@ -143,166 +149,185 @@ body {
     left: 55px;
 }
 
-#cor-alerta-atencao {
-    background-color: #ffb800;
-}
-
-#cor-alerta-critico {
-    background-color: #ff0000;
-}
-
-.container-dash h1 {
-    font-size: 22px;
-    font-weight: 600;
-}
-
 .conteudo-dash {
     width: 92%;
     height: 78%;
     display: flex;
+    flex-direction: column;
     align-self: center;
     position: relative;
     left: 55px;
     top: 27px;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+}
+
+.sections {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sections .division {
+    border-right: 2px solid rgb(185, 185, 185);
+    height: 80%;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+}
+
+.forms #subtitle {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.form-fields {
+    width: 100%;
+    height: 260px;
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
-.header-maquinas {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 18px;
-}
-
-.alerta-kpi {
-    background: #fff;
-    border-radius: 10px;
-    height: 60px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 0 10px;
-}
-
-.combo-box-lan-houses {
+.form-fields .field {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background: #fff;
-    border-radius: 10px;
-    height: 100%;
-    width: 15%;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-}
-
-.combo-box-lan-houses #lista-lan-houses {
-    border: none;
-    width: 80%;
-    display: flex;
-    align-self: center;
-    font-size: 18px;
-    text-align: center;
-}
-
-.combo-box-lan-houses option {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-}
-
-.box-legend {
-    background: #fff;
-    border-radius: 10px;
-    height: 80%;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-}
-
-.box-legend .item-legend {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.cor-legend {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-}
-
-.circle-ideal {
-    background-color: #14CA3C;;
-}
-
-.circle-critico {
-    background-color: #EF2C2C;
-}
-
-.circle-atencao {
-    background-color: #ffb800;
-}
-
-.status-maquinas {
-    width: 49%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly
-}
-
-.status-maquinas .box-maquina {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-}
-
-.status-maquinas .box-maquina img {
-    height: 40px;
-}
-
-.status-maquinas .box-maquina .status-icon-nome{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 60%;
-    gap: 15px;
-    padding: 0 15px
-}
-
-.status-maquinas .box-maquina .botao-acessar {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 0 15px;
-}
-
-.status-maquinas .box-maquina button {
-    padding: 5px 10px;
+    gap: 7px;
     font-size: 17px;
-    border: none;
-    border-radius: 6px;
-    background: #337bff;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.2s ease;
+    width: 35%;
+    height: 50px;
 }
 
-.status-maquinas .box-maquina button:hover {
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.20);
-    transition: 0.2s ease;
+.field label {
+    font-weight: 700;
+}
+
+.field input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 17px;
+}
+
+.cep {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cep input {
+    width: 65%;
+}
+
+#iUf,
+#iCidade,
+#iBairro,
+#iLogradouro {
+    cursor: not-allowed;
+}
+
+.field input:focus {
+    border-bottom: 3px solid black;
+}
+
+.btBuscarCep {
+    color: white;
+    background-color: #337BFF;
+    padding: 3px 7px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.error {
+    color: red;
+}
+
+.div-button-cadastrar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btCadastrarLanhouse {
+    width: 110px;
+    height: 40px;
+    color: white;
+    background-color: #337BFF;
+    padding: 3px 7px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.success-lan-house {
+    width: 250px;
+    height: auto;
+    padding: 10px;
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 39%;
+    bottom: 15px;
+    background-color: #269c26;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+    animation: show-down 200ms;
+    animation-fill-mode: forwards;
+}
+
+.success-lan-house img {
+    height: 30px;
+}
+
+.success-lan-house span {
+    width: 100%;
+}
+
+/* ANIMAÇÕES ------------------------------------------------ */
+@keyframes show-right {
+    from {
+        transform: translateX(60%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes show-down {
+    from {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
