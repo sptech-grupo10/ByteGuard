@@ -360,7 +360,12 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
-    @import url("https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro");
+    @font-face {
+        font-family: 'Neue Haas Grotesk Display Pro';
+        src: url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro') format('woff2');
+        /* Adicione mais formatos de fonte se necessário (woff, ttf, etc.) */
+    }
+    
 
     * {
         font-family: "Neue Haas Grotesk Display Pro", sans-serif;
