@@ -1,23 +1,47 @@
-const mysql = require('mysql2')
-const sql = require('mssql')
+const mysql = require('mysql2');
+const sql = require('mssql');
 
-function exec(query) {
-    return new Promise((res, rej) => {
-        const conexao = mysql.createConnection({
+function exec(query, tipoBanco) {
+    const conexao = tipoBanco === 'mysql'
+        ? mysql.createConnection({
             host: 'localhost',
             database: 'ByteGuard',
             user: 'aluno',
             password: 'aluno'
         })
-        conexao.connect();
+        : new sql.ConnectionPool({
+            server: '54.159.238.176',
+            database: 'ByteGuard',
+            user: 'sa',
+            password: 'sqlwindols',
+            pool: {
+                max: 10,
+                min: 0,
+                idleTimeoutMillis: 30000
+            },
+            options: {
+                encrypt: true, // for azure
+            }
+        });
 
-        conexao.query(query, (e, resultados) => {
-            conexao.end()
-            e
-                ? rej(e)
-                : res(resultados)
-        })
-    })
+    return new Promise((resolve, reject) => {
+        conexao.connect((err) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            conexao.query(query, (err, resultados) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(resultados);
+                }
+
+                conexao.end(); // Fecha a conexão após a execução da consulta
+            });
+        });
+    });
 }
 
-module.exports = { exec }
+module.exports = { exec };
