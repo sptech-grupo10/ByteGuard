@@ -10,7 +10,7 @@ function exec(query, tipoBanco) {
             password: 'aluno'
         })
         : new sql.ConnectionPool({
-            server: "54.159.238.176",
+            server: '54.159.238.176',
             database: 'ByteGuard',
             user: 'sa',
             password: 'sqlwindols',

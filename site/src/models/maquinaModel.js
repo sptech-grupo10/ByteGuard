@@ -16,7 +16,7 @@ function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
         where dataLog = (select dataLog from log order by dataLog desc limit 1)
         and fkLanhouse = ${fkLanhouse}
         group by nomeMaquina, idMaquina, nomeMaquina
-        order by 'componentessobrecarrecados' desc`)
+        order by 'componentessobrecarrecados' desc`,`mysql`)
     } catch (e) {
         console.log(e)
     }
