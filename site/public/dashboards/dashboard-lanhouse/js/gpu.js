@@ -27,39 +27,31 @@ fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.
     }
 })
 
-// Gráfico GPU Uso - Line
-let labelsGpuUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
+fetch(``)
 
-// Criando estrutura para plotar gráfico - dados
-let dadosGpuUsoLinha = {
-    labels: labelsGpuUsoLinha,
-    datasets: [{
-        label: "",
-        data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
-        backgroundColor: "#337bff",
-        fill: true,
-        borderColor: "#337bff",
+let myChartGpuUsoLinha = new Chart(
+    document.getElementById("gpu-grafico-uso-linha"),
+    {
+        type: "bar",
+        data: {
+            labels: ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"],
+            datasets: [{
+                label: "",
+                data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
+                backgroundColor: "#337bff",
+                fill: true,
+                borderColor: "#337bff",
 
-    },]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configGpuUsoLinha = {
-    type: "bar",
-    data: dadosGpuUsoLinha,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+            },]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartGpuUsoLinha = new Chart(
-    document.getElementById("gpu-grafico-uso-linha"),
-    configGpuUsoLinha
 );
 
 //--------------------------------------------------------------------------------

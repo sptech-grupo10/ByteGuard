@@ -54,15 +54,19 @@ function acessarMemoria() {
     window.location = "memoria.html"
 }
 
-let metricaCPU, metricaMemoria
+let metricaCPU, metricaMemoria, metricaGPU
 async function buscarMetricasComponente() {
     const resMetricaCPU = await fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`)
     const metricasCPU = await resMetricaCPU.json()
-    metricaCPU = metricasCPU;
+    metricaCPU = metricasCPU
 
     const resMetricaMemoria = await fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('RAM')}`)
     const metricasMemoria = await resMetricaMemoria.json()
-    metricaMemoria = metricasMemoria;
+    metricaMemoria = metricasMemoria
+
+    const resMetricaGpu = await fetch(`/metricas/buscarMetricasComponente/${sessionStorage.getItem('GPU')}`)
+    const metricasGpu = await resMetricaGpu.json()
+    metricaGPU = metricasGpu
 
     buscarLogs()
 
@@ -84,14 +88,19 @@ async function buscarLogs() {
     const resRam = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`)
     const logRam = await resRam.json()
 
+    const resGpu = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('GPU')}`)
+    const logGpu = await resGpu.json()
+
     plotarUtilizacaoCpu(`${new Date(logCpu.dataLog).getHours()}:${new Date(logCpu.dataLog).getMinutes()}:${new Date(logCpu.dataLog).getSeconds()}`, logCpu.valor)
     plotarUtilizacaoDisco(logDisco.valor)
     plotarKPIRede(logRede.download.valor, logRede.upload.valor)
     plotarUtilizacaoRAMLine(`${new Date(logRam.dataLog).getHours()}:${new Date(logRam.dataLog).getMinutes()}:${new Date(logRam.dataLog).getSeconds()}`, logRam.valor)
+    plotarUtilizacaoGpu(`${new Date(logRam.dataLog).getHours()}:${new Date(logRam.dataLog).getMinutes()}:${new Date(logRam.dataLog).getSeconds()}`, logGpu.valor)
 
     let statusCpuIcon = document.querySelector('.status-componente[componente=CPU]')
     let statusDiscoIcon = document.querySelector('.status-componente[componente=Disco]')
     let statusRamIcon = document.querySelector('.status-componente[componente=RAM]')
+    let statusGpuIcon = document.querySelector('.status-componente[componente=GPU]')
 
     switch (logCpu.statusLog) {
         case 1:
@@ -128,6 +137,19 @@ async function buscarLogs() {
             statusRamIcon.classList = ['status-componente critico']
             break
     }
+
+    switch (logGpu.statusLog) {
+        case 1:
+            statusGpuIcon.classList = ['status-componente ideal']
+            break
+        case 2:
+            statusGpuIcon.classList = ['status-componente atencao']
+            break
+        case 3:
+            statusGpuIcon.classList = ['status-componente critico']
+            break
+    }
+
 }
 
 function plotarKPIRede(valorDownload, valorUpload) {
@@ -168,6 +190,21 @@ function plotarUtilizacaoRAMLine(label, valor) {
 function plotarUtilizacaoDisco(valor) {
     myChartDisco.data.datasets[0].data[0] = valor
     myChartDisco.update()
+}
+
+function plotarUtilizacaoGpu(label, valor) {
+    myChartPlacaDeVideo.data.labels.shift()
+    myChartPlacaDeVideo.data.datasets[0].data.shift()
+
+    myChartPlacaDeVideo.data.labels.push(label)
+
+    valor > Number(metricaMemoria.maxMetrica) || valor < Number(metricaMemoria.minMetrica)
+        ? myChartPlacaDeVideo.data.datasets[0].borderColor = 'red'
+        : myChartPlacaDeVideo.data.datasets[0].borderColor = 'blue'
+
+    myChartPlacaDeVideo.data.datasets[0].data.push(valor)
+
+    myChartPlacaDeVideo.update()
 }
 
 var myChartCPUUsoLine = new Chart(
@@ -222,17 +259,22 @@ let myChartPlacaDeVideo = new Chart(
     {
         type: "line",
         data: {
-            labels: ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23",
-                "14:25", "14:27", "14:29"],
+            labels: ["", "", "", "", "", "", "", "", "", ""],
             datasets: [{
                 label: "",
-                data: [30, 34, 33, 35, 36, 34, 32, 32, 33, 35, 36, 34, 35],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 fill: true,
                 borderColor: "#337bff",
                 tension: 0.1,
             }]
         },
         options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            },
             plugins: {
                 legend: {
                     display: false,
