@@ -270,11 +270,26 @@ body {
 
 .buttons span {
     text-decoration: none;
-    background-color: #337bff;
+    background-color: #fff;
+    border: 3px solid #337bff;
     border-radius: 7px;
     padding: 10px;
     font-size: 16px;
-    color: #FFF;
+    color: #337bff;
+    font-weight: 700;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.buttons .login-direto {
+    text-decoration: none;
+    background-color: #337bff;
+    border: 3px solid #337bff;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
     transition: 0.3s ease;
     cursor: pointer;
 }

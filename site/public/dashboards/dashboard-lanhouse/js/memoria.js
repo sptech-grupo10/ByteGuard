@@ -38,6 +38,10 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
+
 function buscarLogs() {
     fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(log => {
         plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)

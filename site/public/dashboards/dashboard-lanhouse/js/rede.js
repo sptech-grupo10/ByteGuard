@@ -30,6 +30,10 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
+
 // Gráfico Rede Uso - Line
 let labelsRedeUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
 

@@ -30,6 +30,10 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
+
 // Gráfico Disco tempo de atividade - Donut
 let labelsTempoAtividadeDonut = ["Tempo em atividade (%)", "Tempo em ociosidade (%)"];
 

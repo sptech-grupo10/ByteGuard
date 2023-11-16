@@ -686,14 +686,86 @@ body {
     font-weight: 600;
 }
 
-#codigo-lanhouse{
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    z-index: 10;
-    transform: translateX(-50%);
+
+/* GPU ------------------------------------------------------------- */
+#conteudo-gpu {
+    display: flex;
 }
 
+.gpu-graficos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
 
+.gpu-graficos .gpu-chart {
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-/* JANELAS ------------------------------------------------------------- */
+.gpu-kpi-detalhes {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+.gpu-kpi-detalhes .gpu-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.gpu-kpi-detalhes .gpu-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 220px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+}
+
+.gpu-kpi-detalhes .gpu-detalhes .gpu-detalhes-container {
+    display: flex;
+}
+
+.gpu-kpi-detalhes .gpu-detalhes .gpu-detalhes-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: 50%;
+    height: 80px;
+}
+
+.gpu-detalhes .gpu-detalhes-info {
+    display: flex;
+    gap: 10px;
+    width: 300px;
+    align-items: start;
+}
+
+.gpu-detalhes .gpu-detalhes-info .gpu-title-detalhe {
+    font-weight: 600;
+}

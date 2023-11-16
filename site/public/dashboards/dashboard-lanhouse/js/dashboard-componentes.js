@@ -18,6 +18,10 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
+
 async function buscarComponentes() {
     const resComponentes = await fetch(`${window.location.origin}/componentes/buscarComponentesPorMaquina/${sessionStorage.getItem('idMaquina')}`)
     const componentes = await resComponentes.json()
