@@ -95,7 +95,7 @@ async function buscarLogs() {
     plotarUtilizacaoDisco(logDisco.valor)
     plotarKPIRede(logRede.download.valor, logRede.upload.valor)
     plotarUtilizacaoRAMLine(`${new Date(logRam.dataLog).getHours()}:${new Date(logRam.dataLog).getMinutes()}:${new Date(logRam.dataLog).getSeconds()}`, logRam.valor)
-    plotarUtilizacaoGpu(`${new Date(logRam.dataLog).getHours()}:${new Date(logRam.dataLog).getMinutes()}:${new Date(logRam.dataLog).getSeconds()}`, logGpu.valor)
+    plotarUtilizacaoGpu(`${new Date(logGpu.dataLog).getHours()}:${new Date(logGpu.dataLog).getMinutes()}:${new Date(logGpu.dataLog).getSeconds()}`, logGpu.valor)
 
     let statusCpuIcon = document.querySelector('.status-componente[componente=CPU]')
     let statusDiscoIcon = document.querySelector('.status-componente[componente=Disco]')
