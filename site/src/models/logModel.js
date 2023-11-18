@@ -12,8 +12,22 @@ function buscarLogDownloadRede(idRede) {
     return db.exec(`SELECT * FROM Log WHERE fkComponente = ${idRede} AND textLog LIKE 'Download%' ORDER BY dataLog DESC LIMIT 1`)
 }
 
+function buscarMinMaxLogMinsAtras(fkComponente, minsAtras) {
+    return process.env.AMBIENTE == 'desenvolvimento'
+        ? db.exec(`SELECT MIN(valor) as min, MAX(valor) as max FROM Log where fkComponente = ${fkComponente} AND dataLog >= NOW() - INTERVAL ${minsAtras} MINUTE`)
+        : db.exec(`SELECT MIN(valor) as min, MAX(valor) as max FROM Log where fkComponente = ${fkComponente} AND dataLog >= DATEADD(MINUTE, -${minsAtras}, GETDATE())`)
+}
+
+function buscarLogsComponenteHoje(fkComponente) {
+    return process.env.AMBIENTE == 'desenvolvimento'
+        ? db.exec(`SELECT * FROM Log WHERE fkComponente = ${fkComponente} AND DATE(dataLog) = CURDATE()`)
+        : db.exec(`SELECT * FROM Log WHERE fkComponente = ${fkComponente} AND CONVERT(DATE, dataLog) = CAST(GETDATE() AS DATE)`)
+}
+
 module.exports = {
     buscarLogPorComponente,
     buscarLogUploadRede,
-    buscarLogDownloadRede
+    buscarLogDownloadRede,
+    buscarMinMaxLogMinsAtras,
+    buscarLogsComponenteHoje
 }

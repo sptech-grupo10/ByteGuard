@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const sql = require('mssql');
 
 function exec(query) {
-    if (process.env.AMBIENTE === 'desenvolvimento' && query.includes('LIMIT 1')) {
+    if (process.env.AMBIENTE === 'producao' && query.includes('LIMIT 1')) {
         query.replace(/LIMIT 1/, '').replace(/SELECT/, 'SELECT TOP 1')
     }
 

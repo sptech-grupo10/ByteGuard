@@ -13,6 +13,9 @@
     <script src="./js/memoria.js" defer></script>
 
     <!-- CHART.JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css" />
+    <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
@@ -131,7 +134,9 @@
               </div>
 
               <div class="memoria-texto-kpi">
-                <span>Tendo <span id="valor-memoria-dia">500</span> MB por dia, a máquina <span id="maquina-atual">SPTECH0355</span> levará <span id="memoria-dias-limite">20</span> dias para ocupar todo o armazenamento interno.</span>
+                <span>Tendo <span id="valor-memoria-dia">500</span> MB por dia, a máquina <span
+                    id="maquina-atual">SPTECH0355</span> levará <span id="memoria-dias-limite">20</span> dias para
+                  ocupar todo o armazenamento interno.</span>
               </div>
             </div>
 
@@ -170,7 +175,7 @@
               <div class="memoria-detalhes-box">
                 <div class="memoria-detalhes-info">
                   <span class="memoria-title-detalhe" id="ram-title-espec-0"></span>
-                  <span class="memoria-value-detalhe" id="ram-value-espec-0"></span>
+                  <sl-format-bytes class="memoria-value-detalhe" id="ram-value-espec-0"></sl-format-bytes>
                 </div>
               </div>
             </div>
