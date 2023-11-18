@@ -10,4 +10,12 @@ router.get('/buscarLogRede/:idRede', (req, res) => {
     logController.buscarLogRede(req, res)
 })
 
+router.get('/buscarMinMaxLogMinsAtras/:fkComponente/:minsAtras', (req, res) => {
+    logController.buscarMinMaxLogMinsAtras(req, res)
+})
+
+router.get('/buscarLogsComponenteHoje/:fkComponente', (req, res) => {
+    logController.buscarLogsComponenteHoje(req, res)
+})
+
 module.exports = router

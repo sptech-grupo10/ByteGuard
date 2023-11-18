@@ -3,7 +3,7 @@ const database = require('../database/config')
 function cadastrar(cep, logradouro, numero, bairro, cidade, uf) {
     try {
         return database.exec(
-            `INSERT INTO Endereco VALUES (null, '${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`,`mysql`
+            `INSERT INTO Endereco VALUES (null, '${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`, `mysql`
         )
     } catch (e) {
         console.log(e)
@@ -13,7 +13,7 @@ function cadastrar(cep, logradouro, numero, bairro, cidade, uf) {
 function cadastrar_sqlserver(cep, logradouro, numero, bairro, cidade, uf) {
     try {
         return database.exec(
-            `INSERT INTO Endereco VALUES (DEFAULT, '${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`,`mssql`
+            `INSERT INTO Endereco VALUES (DEFAULT, '${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`, `mssql`
         )
     } catch (e) {
         console.log(e)
@@ -21,29 +21,16 @@ function cadastrar_sqlserver(cep, logradouro, numero, bairro, cidade, uf) {
 }
 
 function buscarEnderecoPorId(idEndereco) {
-    // try {
-    //     return database.exec(
-    //         `SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`,`mysql`
-    //     )
-    // } catch (e) {
-    //     console.log(e)
-    // }
-    buscarEnderecoPorId_sqlserver(idEndereco)
-}
-function buscarEnderecoPorId_sqlserver(idEndereco) {
     try {
-        return database.exec(
-            `SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`,`mssql`
-        )
+        return database.exec(`SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`)
     } catch (e) {
         console.log(e)
     }
+    buscarEnderecoPorId_sqlserver(idEndereco)
 }
 
 module.exports = {
     cadastrar,
     buscarEnderecoPorId,
-
-    cadastrar_sqlserver,
-    buscarEnderecoPorId_sqlserver
+    cadastrar_sqlserver
 }

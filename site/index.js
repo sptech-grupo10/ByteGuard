@@ -1,10 +1,9 @@
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-//  process.env.AMBIENTE_PROCESSO = "producao";
-
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-let porta = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3000 : 8080;
+
+require('dotenv').config()
+let porta = process.env.AMBIENTE == 'desenvolvimento' ? 3000 : 8080
 
 const app = express()
 
@@ -19,7 +18,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 
 app.use('/', require('./src/routes/index'))
 app.use('/usuarios', require('./src/routes/usuarioRoute'))

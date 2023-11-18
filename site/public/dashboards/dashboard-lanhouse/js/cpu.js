@@ -42,14 +42,32 @@ document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
 })
 
-function buscarLogs() {
-    fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(log => {
-        plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
-    }))
+async function buscarLogs() {
+    resLogsComponente = await fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('Processador')}`)
+    log = await resLogsComponente.json()
+    plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
+
+    resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('Processador')}/5`)
+    MinMaxMinAtras = await resMinMaxMinAtras.json()
+    
+    // resLogsHoje = await fetch(`/logs/buscarLogsComponenteHoje/${sessionStorage.getItem('Processador')}`)
+    // logsHoje = await resLogsHoje.json()
+    // console.log(logsHoje)
+    console.log(MinMaxMinAtras)
+
+    plotarKpis(MinMaxMinAtras.min, MinMaxMinAtras.max)
+}
+
+function plotarKpis(min5min, max5min) {
+    plotarKpiUtilizacao5MinAtras(min5min, max5min)
+}
+
+function plotarKpiUtilizacao5MinAtras(min5min, max5min) {
+    document.querySelector('#kpi-cpu-min').innerText = `${min5min}%`
+    document.querySelector('#kpi-cpu-max').innerText = `${max5min}%`
 }
 
 function plotarGraficos(label, valor) {
-    // Para demonstração de CPU sobrecarregada, acrescentar 10 ao valor passado como parametro (valor + 10)
     plotarUtilizacaoLine(label, valor)
     plotarUtilizacaoDonut(valor)
 
@@ -61,7 +79,7 @@ function plotarGraficos(label, valor) {
 function plotarUtilizacaoDonut(valor) {
     myChartCPUUsoDonut.data.datasets[0].data[0] = valor
     myChartCPUUsoDonut.data.datasets[0].data[1] = 100 - valor
-    
+
     myChartCPUUsoDonut.update()
 }
 
@@ -135,115 +153,4 @@ var myChartCPUUsoLine = new Chart(
             }
         }
     }
-);
-
-
-// Gráfico CPU velocidade - donut
-// Gráfico CPU Velocidade - Donut
-let labelsCPUVelocidadeDonut = ["Utilizado (%)", "Não utilizado (%)"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCPUVelocidadeDonut = {
-    labels: labelsCPUVelocidadeDonut,
-    datasets: [
-        {
-            label: "",
-            data: [88, 12],
-            backgroundColor: ["#337bff", "#D9D9D9"]
-        },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCPUVelocidadeDonut = {
-    type: "doughnut",
-    data: dadosCPUVelocidadeDonut,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
-            }
-        }
-    }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartCPUVelocidadeDonut = new Chart(
-    document.getElementById("cpu-grafico-velocidade-donut"),
-    configCPUVelocidadeDonut
-);
-
-// Gráfico CPU Utilização - Linha
-let labelsCPUVelocidadeLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCPUVelocidadeLine = {
-    labels: labelsCPUVelocidadeLine,
-    datasets: [
-        {
-            label: "",
-            data: [0.92, 0.78, 0.84, 0.90, 1.10, 0.88, 0.93, 0.96, 0.79, 0.80, 0.91, 1.20, 1.02],
-            fill: true,
-            borderColor: "#337bff",
-            tension: 0.1,
-        },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCPUVelocidadeLine = {
-    type: "line",
-    data: dadosCPUVelocidadeLine,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
-            }
-        }
-    }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartCPUVelocidadeLine = new Chart(
-    document.getElementById("cpu-grafico-velocidade-line"),
-    configCPUVelocidadeLine
-);
-
-
-//Gráfico KPI
-// Gráfico CPU Utilização - Linha
-let labelsCpuKpi = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosCpuKpi = {
-    labels: labelsCpuKpi,
-    datasets: [
-        {
-            label: "Outras máquinas",
-            data: [34, 32, 35, 37, 34, 33, 34, 35, 38, 33, 32, 31, 33],
-            fill: false,
-            borderColor: "#337bff",
-            tension: 0.1,
-        },
-        {
-            label: "Máquina 01",
-            data: [36, 39, 43, 40.2, 44, 43, 44, 45, 48, 49, 43, 45, 42],
-            fill: false,
-            borderColor: "#EF2C2C",
-            tension: 0.1,
-        }
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configCpuKpi = {
-    type: "line",
-    data: dadosCpuKpi,
-
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartCpuKpi = new Chart(
-    document.getElementById("cpu-grafico-kpi"),
-    configCpuKpi
 );

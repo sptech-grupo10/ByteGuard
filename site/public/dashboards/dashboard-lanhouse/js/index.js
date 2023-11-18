@@ -14,6 +14,7 @@ setInterval(async () => {
 async function listarMaquinas() {
     res = await fetch(`/maquinas/buscarMaquinasComponentesForaIdeal/${sessionStorage.getItem('idLanhouse')}`)
     maquina = await res.json()
+    console.log(maquina)
 
     document.querySelector('.status-maquinas').innerHTML = ''
     maquina.forEach(maquina => {

@@ -1,13 +1,17 @@
 const mysql = require('mysql2');
 const sql = require('mssql');
 
-function exec(query, tipoBanco) {
-    const conexao = tipoBanco === 'mysql'
+function exec(query) {
+    if (process.env.AMBIENTE === 'producao' && query.includes('LIMIT 1')) {
+        query.replace(/LIMIT 1/, '').replace(/SELECT/, 'SELECT TOP 1')
+    }
+
+    const conexao = process.env.AMBIENTE === 'desenvolvimento'
         ? mysql.createConnection({
             host: 'localhost',
             database: 'ByteGuard',
-            user: 'aluno',
-            password: 'aluno'
+            user: 'root',
+            password: 'kauan123'
         })
         : new sql.ConnectionPool({
             server: '54.159.238.176',
@@ -22,7 +26,7 @@ function exec(query, tipoBanco) {
             options: {
                 encrypt: true, // for azure
             }
-        });
+        })
 
     return new Promise((resolve, reject) => {
         conexao.connect((err) => {
@@ -39,9 +43,9 @@ function exec(query, tipoBanco) {
                 }
 
                 conexao.end(); // Fecha a conexão após a execução da consulta
-            });
-        });
-    });
+            })
+        })
+    })
 }
 
 module.exports = { exec };

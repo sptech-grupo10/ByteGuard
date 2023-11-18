@@ -23,7 +23,29 @@ async function buscarLogRede(req, res) {
     }
 }
 
+async function buscarMinMaxLogMinsAtras(req, res) {
+    try {
+        result = await logModel.buscarMinMaxLogMinsAtras(req.params.fkComponente, req.params.minsAtras)
+        res.status(200).send(result[0])
+    } catch (e) {
+        console.log(e)
+        res.status(500).end()
+    }
+}
+
+async function buscarLogsComponenteHoje(req, res) {
+    try {
+        results = await logModel.buscarLogsComponenteHoje(req.params.fkComponente)
+        res.status(200).send(results)
+    } catch (e) {
+        console.log(e)
+        res.status(500).end()
+    }
+}
+
 module.exports = {
     buscarLogPorComponente,
-    buscarLogRede
+    buscarLogRede,
+    buscarMinMaxLogMinsAtras,
+    buscarLogsComponenteHoje
 }

@@ -9,7 +9,7 @@ fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStor
 fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(especs => {
     especs.forEach((espec, i) => {
         document.querySelector(`#ram-title-espec-${i}`).innerText = espec.especificacao
-        document.querySelector(`#ram-value-espec-${i}`).innerText = espec.valorEspecificacao
+        document.querySelector(`#ram-value-espec-${i}`).value = espec.valorEspecificacao
     })
 }))
 
