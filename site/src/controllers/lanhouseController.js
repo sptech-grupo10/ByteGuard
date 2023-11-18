@@ -8,7 +8,7 @@ async function cadastrar(req, res) {
         fkRepresentante = req.body.fkRepresentanteServer
 
     if (!unidade || !fkEndereco || !cnpj || !fkEmpresa || !fkRepresentante) {
-        res.stats(400).send('Informações não chegaram ao cadastro')
+        res.status(400).send('Informações não chegaram ao cadastro')
     } else {
         try {
             const result = await lanhouseModel.cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante)

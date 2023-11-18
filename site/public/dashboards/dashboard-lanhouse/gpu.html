@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics | Memoria</title>
+    <title>Analytics | Placa de Vídeo</title>
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="../../css/reset.css">
+    <script src="../../js/login.js"></script>
     <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="../../js/login.js"></script>
-    <script src="./js/memoria.js" defer></script>
+    <script src="./js/gpu.js" defer></script>
 
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -55,9 +55,9 @@
             <span>CPU</span>
           </a>
         </li>
-        <li id="tela-atual">
+        <li>
           <a href="memoria.html">
-            <img class="icons" src="../../assets/imgs/memoria-ram-icon-blue.png" alt="">
+            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
             <span>Memória RAM</span>
           </a>
         </li>
@@ -73,9 +73,9 @@
             <span>Rede</span>
           </a>
         </li>
-        <li>
+        <li id="tela-atual">
           <a href="gpu.html">
-            <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
+            <img class="icons" src="../../assets/imgs/gpu-icon-blue.png" alt="">
             <span>Placa de Vídeo</span>
           </a>
         </li>
@@ -88,47 +88,57 @@
 
     <div class="container-dash">
       <div class="cabecalho">
-        <h1 id="title-dash">Detalhes da Memória - <span id="maquina-atual"></span></h1>
+        <h1 id="title-dash">Detalhes de Placa de Vídeo - <span id="maquina-atual"></span></h1>
       </div>
 
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
-      <div class="conteudo-dash" id="conteudo-memoria">
+      <div class="conteudo-dash" id="conteudo-gpu">
 
-        <div class="memoria-graficos">
-          <div class="memoria-chart">
-            <h1>Em uso</h1>
+        <div class="gpu-graficos">
+          <div class="gpu-chart" id="gpu-grafico-temperatura">
+            <h1>Utilização</h1>
             <div class="info-graficos">
-              <canvas id="memoria-grafico-uso-donut"></canvas>
-              <canvas id="memoria-grafico-uso-line"></canvas>
+              <canvas id="gpu-grafico-uso-linha"></canvas>
             </div>
           </div>
 
-          <div class="memoria-chart" id="memoria-grafico-velocidade">
-            <h1>Memória temporária</h1>
+          <div class="gpu-chart" id="gpu-grafico-velocidade-agora">
+            <h1>Velocidade</h1>
             <div class="info-graficos">
-              <canvas id="memoria-grafico-temporaria"></canvas>
+              <canvas id="gpu-grafico-velocidade" width="500px" height="250px"></canvas>
             </div>
           </div>
         </div>
 
-        <div class="memoria-kpi-detalhes">
-          <div class="memoria-kpi" id="memoria-kpi">
-            <span>A memória temporária está com armazenamento similar ao das outras máquinas. Total de alertas emitidos:
-              0.</span>
+        <div class="gpu-kpi-detalhes">
+          <div class="gpu-kpi" id="gpu-kpi">
+            <span>Gráfico KPI</span>
 
             <div class="grafico-kpi">
-              <canvas id="memoria-grafico-kpi"></canvas>
+              <canvas id="gpu-grafico-kpis"></canvas>
             </div>
           </div>
 
-          <div class="memoria-detalhes">
-            <h1>Detalhes técnicos - Memória</h1>
+          <div class="gpu-detalhes">
+            <h1>Detalhes técnicos - Placa de Vídeo</h1>
 
-            <div class="memoria-detalhes-container">
-              <div class="memoria-detalhes-box">
-                <div class="memoria-detalhes-info">
-                  <span class="memoria-title-detalhe" id="ram-title-espec-0"></span>
-                  <span class="memoria-value-detalhe" id="ram-value-espec-0"></span>
+            <div class="gpu-detalhes-container">
+              <div class="gpu-detalhes-box">
+                <div class="gpu-detalhes-info">
+                  <span class="gpu-title-detalhe" id="gpu-title-espec-0"></span>
+                  <span class="gpu-value-detalhe" id="gpu-value-espec-0"></span>
+                </div>
+              </div>
+              <div class="gpu-detalhes-box">
+                <div class="gpu-detalhes-info">
+                  <span class="gpu-title-detalhe" id="gpu-title-espec-1"></span>
+                  <span class="gpu-value-detalhe" id="gpu-value-espec-1"></span>
+                </div>
+              </div>
+              <div class="gpu-detalhes-box">
+                <div class="gpu-detalhes-info">
+                  <span class="gpu-title-detalhe" id="gpu-title-espec-2"></span>
+                  <span class="gpu-value-detalhe" id="gpu-value-espec-2"></span>
                 </div>
               </div>
             </div>

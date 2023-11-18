@@ -30,74 +30,110 @@ document.querySelectorAll('.user-cargo').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('tipoUsuario') == 1 ? "admin" : "user"
 })
 
-// Gráfico Disco tempo de atividade - Donut
-let labelsTempoAtividadeDonut = ["Tempo em atividade (%)", "Tempo em ociosidade (%)"];
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
 
-// Criando estrutura para plotar gráfico - dados
-let dadosTempoAtividadeDonut = {
-    labels: labelsTempoAtividadeDonut,
-    datasets: [
-        {
-            label: "",
-            data: [8, 92],
-            backgroundColor: ["#337bff", "#D9D9D9"]
+let metricaDisco
+async function buscarMetricasDisco() {
+    const resMetricasDisco = await fetch(`/metricas/buscarMetricasComponente/${sessionStorage.getItem('Disco')}`)
+    const metricasDisco = await resMetricasDisco.json()
+    metricaDisco = metricasDisco
+}
+
+buscarMetricasDisco()
+buscarLogs()
+
+async function buscarLogs() {
+    const resLogDisco = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('Disco')}`)
+    const logDisco = await resLogDisco.json()
+    plotarGraficos(`${new Date(logDisco.dataLog).getHours()}:${new Date(logDisco.dataLog).getMinutes()}:${new Date(logDisco.dataLog).getSeconds()}`, logDisco.valor)
+}
+
+function plotarGraficos(label, valor) {
+    plotarUtilizacaoDonut(valor)
+    plotarUtilizacaoLine(label, valor)
+    setTimeout(() => {
+        buscarLogs()
+    }, 2500);
+}
+
+function plotarUtilizacaoLine(label, valor) {
+    myChartUtilizacaoLine.data.labels.shift()
+    myChartUtilizacaoLine.data.datasets[0].data.shift()
+
+    myChartUtilizacaoLine.data.labels.push(label)
+
+    valor > Number(metricaDisco.maxMetrica) || valor < Number(metricaDisco.minMetrica)
+        ? myChartUtilizacaoLine.data.datasets[0].borderColor = 'red'
+        : myChartUtilizacaoLine.data.datasets[0].borderColor = 'blue'
+
+    myChartUtilizacaoLine.data.datasets[0].data.push(valor)
+
+    myChartUtilizacaoLine.update()
+}
+
+function plotarUtilizacaoDonut(valor) {
+    myChartUtilizacaoDonut.data.datasets[0].data[0] = valor
+    myChartUtilizacaoDonut.data.datasets[0].data[1] = 100 - valor
+
+    myChartUtilizacaoDonut.update()
+}
+
+let myChartUtilizacaoDonut = new Chart(
+    document.getElementById("disco-grafico-utilizacao-donut"),
+    {
+        type: "doughnut",
+        data: {
+            labels: ["Tempo em atividade (%)", "Tempo em ociosidade (%)"],
+            datasets: [
+                {
+                    label: "",
+                    data: [0, 100],
+                    backgroundColor: ["#337bff", "#D9D9D9"]
+                },
+            ]
         },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configTempoAtividadeDonut = {
-    type: "doughnut",
-    data: dadosTempoAtividadeDonut,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
+)
 
-// Adicionando gráfico criado em div na tela
-let myChartTempoAtividadeDonut = new Chart(
-    document.getElementById("disco-grafico-tempo-atividade-donut"),
-    configTempoAtividadeDonut
-);
-
-// Gráfico Disco tempo de atividade - Linha
-let labelsTempoAtividadeLine = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosTempoAtividadeLine = {
-    labels: labelsTempoAtividadeLine,
-    datasets: [
-        {
-            label: "",
-            data: [0.92, 0.78, 0.84, 0.90, 1.10, 0.88, 0.93, 0.96, 0.79, 0.80, 0.91, 1.20, 1.02],
-            fill: true,
-            borderColor: "#337bff",
-            tension: 0.1,
+let myChartUtilizacaoLine = new Chart(
+    document.getElementById("disco-grafico-utilizacao-line"),
+    {
+        type: "line",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            datasets: [
+                {
+                    label: "",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    fill: true,
+                    borderColor: "#337bff",
+                    tension: 0.1,
+                },
+            ]
         },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configTempoAtividadeLine = {
-    type: "line",
-    data: dadosTempoAtividadeLine,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
             }
         }
     }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartTempoAtividadeLine = new Chart(
-    document.getElementById("disco-grafico-tempo-atividade-line"),
-    configTempoAtividadeLine
 );
 
 // Gráfico Disco tempo de atividade - Linha

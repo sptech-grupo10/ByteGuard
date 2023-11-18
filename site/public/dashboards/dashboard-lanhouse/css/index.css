@@ -278,17 +278,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 60%;
+    width: 85%;
     gap: 15px;
     padding: 0 15px
 }
 
 .status-maquinas .box-maquina .botao-acessar {
-    width: 40%;
+    width: 15%;
     display: flex;
     align-items: center;
     justify-content: end;
     padding: 0 15px;
+}
+
+.status-maquinas h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.status-maquinas span {
+    width: 200px;
+    display: flex;
+    text-align: center;
 }
 
 .status-maquinas .box-maquina button {
