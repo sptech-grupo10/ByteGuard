@@ -40,6 +40,7 @@ async function buscarLogs() {
     log = await resLogRede.json()
 
     plotarGraficos(log.download, log.upload)
+    plotarKpis(log.download.valor, log.upload.valor)
 }
 
 function plotarGraficos(download, upload) {
@@ -69,6 +70,11 @@ function plotarRedeDownloadLine(log) {
     chartRedeDownload.data.datasets[0].data.push(log.valor / 1e+9)
 
     chartRedeDownload.update()
+}
+
+function plotarKpis(valorDownload, valorUpload) {
+    document.querySelector('#kpi-rede-up').value = valorUpload
+    document.querySelector('#kpi-rede-down').value = valorDownload
 }
 
 let chartRedeUpload = new Chart(
@@ -126,36 +132,3 @@ let chartRedeDownload = new Chart(
         }
     }
 )
-
-//--------------------------------------------------------------------------------
-// Gráfico KPI - Barra
-let labelsBarraKpi = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosBarraKpi = {
-    labels: labelsBarraKpi,
-    datasets: [{
-        label: "",
-        data: [157, 160, 150, 0, 170, 165, 0, 180, 0],
-        backgroundColor: ["#337bff"]
-    },]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configBarraKpi = {
-    type: "bar",
-    data: dadosBarraKpi,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
-            }
-        }
-    }
-};
-
-// Adicionando gráfico criado em div na tela
-let myChartBarraKpi = new Chart(
-    document.getElementById("rederede-grafico-kpis"),
-    configBarraKpi
-);

@@ -879,6 +879,15 @@ body {
     padding: 15px 0px;
 }
 
+#kpi-rede-up, #kpi-rede-down{
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .kpi-rede-up-down {
     height: 75%;
     width: 100%;
@@ -919,15 +928,6 @@ body {
 .rede-box-kpi .rede-up-down h3 {
     font-size: 21px;
     font-weight: 700;
-}
-
-.rede-box-kpi .rede-up-down span {
-    font-size: 40px;
-    font-weight: 700;
-    color: #337bff;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
 }
 
 .rede-situacao-total {

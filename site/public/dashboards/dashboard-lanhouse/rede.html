@@ -13,6 +13,9 @@
     <script src="./js/rede.js" defer></script>
 
     <!-- CHART.JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css" />
+    <script type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
@@ -118,11 +121,11 @@
               <div class="kpi-rede-up-down">
                 <div class="rede-up-down">
                   <h3>Upload</h3>
-                  <span id="kpi-rede-up">354 <span>MB</span></span>
+                  <sl-format-bytes id="kpi-rede-up"></sl-format-bytes>
                 </div>
                 <div class="rede-up-down">
                   <h3>Download</h3>
-                  <span id="kpi-rede-down">170 <span>GB</span></span>
+                  <sl-format-bytes id="kpi-rede-down"></sl-format-bytes>
                 </div>
               </div>
             </div>
