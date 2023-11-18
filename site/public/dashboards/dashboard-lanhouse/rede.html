@@ -20,9 +20,9 @@
 
     <header class="nav-horizontal">
       <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
-      
+
       <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
-      
+
       <div class="user-info">
         <div class="user-name-cargo">
           <span id="username" class="print-username"></span>
@@ -35,55 +35,55 @@
       </div>
     </header>
 
-    <header >
-        <ul class="nav-left">
-            <li>
-              <a href="index.html">
-                <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-                <span>Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="dashboard-componentes.html">
-                <img class="icons" src="../../assets/imgs/overview-icon-black.png" alt="">
-                <span>Overview</span>
-              </a>
-            </li>
-            <li>
-              <a href="cpu.html">
-                <img class="icons" src="../../assets/imgs/cpu-icon-black.png" alt="">
-                <span>CPU</span>
-              </a>
-            </li>
-            <li>
-              <a href="memoria.html">
-                <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
-                <span>Memória RAM</span>
-              </a>
-            </li>
-            <li>
-              <a href="disco.html">
-                <img class="icons" src="../../assets/imgs/disco-icon-black.png" alt="">
-                <span>Disco</span>
-              </a>
-            </li>
-            <li id="tela-atual">
-              <a href="rede.html">
-                <img class="icons" src="../../assets/imgs/rede-icon-blue.png" alt="">
-                <span>Rede</span>
-              </a>
-            </li>
-            <li>
-              <a href="gpu.html">
-                <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
-                <span>Placa de Vídeo</span>
-              </a>
-            </li>
-            <li class="sair" onclick="limparSessao()">
-              <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-              <span>Sair</span>
-            </li>
-          </ul>
+    <header>
+      <ul class="nav-left">
+        <li>
+          <a href="index.html">
+            <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="dashboard-componentes.html">
+            <img class="icons" src="../../assets/imgs/overview-icon-black.png" alt="">
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="cpu.html">
+            <img class="icons" src="../../assets/imgs/cpu-icon-black.png" alt="">
+            <span>CPU</span>
+          </a>
+        </li>
+        <li>
+          <a href="memoria.html">
+            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
+            <span>Memória RAM</span>
+          </a>
+        </li>
+        <li>
+          <a href="disco.html">
+            <img class="icons" src="../../assets/imgs/disco-icon-black.png" alt="">
+            <span>Disco</span>
+          </a>
+        </li>
+        <li id="tela-atual">
+          <a href="rede.html">
+            <img class="icons" src="../../assets/imgs/rede-icon-blue.png" alt="">
+            <span>Rede</span>
+          </a>
+        </li>
+        <li>
+          <a href="gpu.html">
+            <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
+            <span>Placa de Vídeo</span>
+          </a>
+        </li>
+        <li class="sair" onclick="limparSessao()">
+          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
+          <span>Sair</span>
+        </li>
+      </ul>
     </header>
 
     <div class="container-dash">
@@ -96,14 +96,14 @@
 
         <div class="rede-graficos">
           <div class="rede-chart" id="rede-grafico-temperatura">
-            <h1>Latência</h1>
+            <h1>Upload</h1>
             <div class="info-graficos">
               <canvas id="rede-grafico-uso-linha"></canvas>
             </div>
           </div>
 
           <div class="rede-chart" id="rede-grafico-velocidade-agora">
-            <h1>Velocidade</h1>
+            <h1>Download</h1>
             <div class="info-graficos">
               <canvas id="rederede-grafico-velocidade" width="500px" height="250px"></canvas>
             </div>
@@ -112,11 +112,46 @@
 
         <div class="rede-kpi-detalhes">
           <div class="rede-kpi" id="rede-kpi">
-            <span>A máquina 5 teve 3 oscilações de internet, totalizando 1.4 segundos offline. Total de alertas
-              emitidos: 3.</span>
+            <div class="rede-box-kpi">
+              <h1>Taxas de Rede</h1>
 
-            <div class="grafico-kpi">
-              <canvas id="rederede-grafico-kpis"></canvas>
+              <div class="kpi-rede-up-down">
+                <div class="rede-up-down">
+                  <h3>Upload</h3>
+                  <span id="kpi-rede-up">354 <span>MB</span></span>
+                </div>
+                <div class="rede-up-down">
+                  <h3>Download</h3>
+                  <span id="kpi-rede-down">170 <span>GB</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rede-box-kpi">
+              <h1>Situação Rede - Dia 12/11/2023</h1>
+
+              <div class="rede-situacao-total">
+                <div class="row-situacao">
+                  <div class="circle ideal"></div>
+                  <span>Ideal:</span>
+                  <span id="rede-situacao-ideal">85%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle atencao"></div>
+                  <span>Atenção:</span>
+                  <span id="rede-situacao-atencao">10%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle critico"></div>
+                  <span>Crítico:</span>
+                  <span id="rede-situacao-critico">5%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle inativo"></div>
+                  <span>Inativo:</span>
+                  <span id="cpu-situacao-critico">0%</span>
+                </div>
+              </div>
             </div>
           </div>
 

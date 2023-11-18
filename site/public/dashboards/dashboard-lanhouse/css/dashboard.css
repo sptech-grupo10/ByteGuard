@@ -872,15 +872,87 @@ body {
 
 .rede-kpi-detalhes .rede-kpi {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    height: 220px;
+    padding: 15px 0px;
+}
+
+.kpi-rede-up-down {
+    height: 75%;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 90%;
-    height: 220px;
+}
+
+.rede-kpi .rede-box-kpi {
+    height: 100%;
+    width: 40%;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rede-kpi .rede-box-kpi h1 {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.rede-box-kpi .rede-up-down {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rede-box-kpi .rede-up-down h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.rede-box-kpi .rede-up-down span {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.rede-situacao-total {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rede-situacao-total .row-situacao {
+    height: 35px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.rede-situacao-total .row-situacao .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .rede-kpi-detalhes .rede-detalhes {
