@@ -5,7 +5,7 @@ setInterval(async () => {
         visualizar.addEventListener('click', e => {
             sessionStorage.setItem('idMaquina', e.target.getAttribute('idMaquina'))
             sessionStorage.setItem('nomeMaquina', e.target.getAttribute('nomeMaquina'))
-            window.location.href += 'dashboard-componentes.html'
+            window.location.href = 'dashboard-componentes.html'
         })
     })
 }, 2000);

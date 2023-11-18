@@ -113,11 +113,53 @@
 
         <div class="memoria-kpi-detalhes">
           <div class="memoria-kpi" id="memoria-kpi">
-            <span>A memória temporária está com armazenamento similar ao das outras máquinas. Total de alertas emitidos:
-              0.</span>
+            <div class="memoria-box-kpi">
+              <div class="memoria-box-hoje">
 
-            <div class="grafico-kpi">
-              <canvas id="memoria-grafico-kpi"></canvas>
+                <h1>Memória - Hoje</h1>
+
+                <div class="kpi-memoria-min-max">
+                  <div class="memoria-min-max">
+                    <h3>Armazenamento</h3>
+                    <span id="kpi-memoria-min">500 MB</span>
+                  </div>
+                  <!-- <div class="memoria-min-max">
+                    <h3>Memória total</h3>
+                    <span id="kpi-memoria-max">0.9%</span>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="memoria-texto-kpi">
+                <span>Tendo <span id="valor-memoria-dia">500</span> MB por dia, a máquina <span id="maquina-atual">SPTECH0355</span> levará <span id="memoria-dias-limite">20</span> dias para ocupar todo o armazenamento interno.</span>
+              </div>
+            </div>
+
+            <div class="memoria-box-kpi">
+              <h1>Situação Memória - Dia 12/11/2023</h1>
+
+              <div class="memoria-situacao-total">
+                <div class="row-situacao">
+                  <div class="circle ideal"></div>
+                  <span>Ideal:</span>
+                  <span id="memoria-situacao-ideal">85%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle atencao"></div>
+                  <span>Atenção:</span>
+                  <span id="memoria-situacao-atencao">10%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle critico"></div>
+                  <span>Crítico:</span>
+                  <span id="memoria-situacao-critico">5%</span>
+                </div>
+                <div class="row-situacao">
+                  <div class="circle inativo"></div>
+                  <span>Inativo:</span>
+                  <span id="cpu-situacao-critico">0%</span>
+                </div>
+              </div>
             </div>
           </div>
 

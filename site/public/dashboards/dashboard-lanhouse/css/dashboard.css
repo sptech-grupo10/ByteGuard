@@ -6,6 +6,16 @@ body {
     background: #F0F0F0;
 }
 
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -65,6 +75,11 @@ body {
     box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.09);
 }
 
+/* .nav-left li {
+    animation: show 1000ms;
+} */
+
+
 .nav-left a {
     text-decoration: none;
     position: relative;
@@ -92,6 +107,7 @@ body {
     left: 30px;
     color: #000;
     bottom: 6px;
+    font-weight: 700;
 }
 
 .nav-left:hover {
@@ -198,7 +214,8 @@ body {
 }
 
 .circle-ideal {
-    background-color: #14CA3C;;
+    background-color: #14CA3C;
+    ;
 }
 
 .circle-critico {
@@ -292,7 +309,8 @@ body {
 }
 
 .ideal {
-    background-color: #14CA3C;;
+    background-color: #14CA3C;
+    ;
 }
 
 .critico {
@@ -301,6 +319,10 @@ body {
 
 .atencao {
     background-color: #ffb800;
+}
+
+.inativo {
+    background-color: #757575;
 }
 
 .box-rede {
@@ -341,6 +363,7 @@ body {
 .metrica-rede {
     font-size: 25px;
 }
+
 .icon-arrows {
     display: flex;
     flex-direction: column;
@@ -384,17 +407,87 @@ body {
     justify-content: space-between;
     align-items: end;
 }
+
 .cpu-kpi-detalhes .cpu-kpi {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    width: 98%;
     height: 220px;
+    padding: 15px 0px;
+}
+
+.kpi-cpu-min-max {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cpu-kpi .cpu-box-kpi {
+    height: 100%;
+    width: 40%;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cpu-kpi .cpu-box-kpi h1 {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.cpu-box-kpi .cpu-min-max {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cpu-box-kpi .cpu-min-max h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.cpu-box-kpi .cpu-min-max span {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+}
+
+.cpu-situacao-total {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cpu-situacao-total .row-situacao {
+    height: 35px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.cpu-situacao-total .row-situacao .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .cpu-kpi-detalhes .cpu-detalhes {
@@ -435,7 +528,7 @@ body {
 }
 
 
-/* MEMÓRIA RAM ------------------------------------------------------------- */
+/* MEMÓRIA ------------------------------------------------------------- */
 #conteudo-memoria {
     display: flex;
 }
@@ -468,17 +561,87 @@ body {
     justify-content: space-between;
     align-items: end;
 }
+
 .memoria-kpi-detalhes .memoria-kpi {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    width: 98%;
     height: 220px;
+    padding: 15px 0px;
+}
+
+.kpi-memoria-min-max {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.memoria-kpi .memoria-box-kpi {
+    height: 100%;
+    width: 40%;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.memoria-kpi .memoria-box-kpi h1 {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.memoria-box-kpi .memoria-min-max {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.memoria-box-kpi .memoria-min-max h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.memoria-box-kpi .memoria-min-max span {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+}
+
+.memoria-situacao-total {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.memoria-situacao-total .row-situacao {
+    height: 35px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.memoria-situacao-total .row-situacao .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .memoria-kpi-detalhes .memoria-detalhes {
@@ -552,17 +715,87 @@ body {
     justify-content: space-between;
     align-items: end;
 }
+
 .disco-kpi-detalhes .disco-kpi {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    width: 98%;
     height: 220px;
+    padding: 15px 0px;
+}
+
+.kpi-disco-min-max {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.disco-kpi .disco-box-kpi {
+    height: 100%;
+    width: 40%;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.disco-kpi .disco-box-kpi h1 {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.disco-box-kpi .disco-min-max {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.disco-box-kpi .disco-min-max h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.disco-box-kpi .disco-min-max span {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+}
+
+.disco-situacao-total {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.disco-situacao-total .row-situacao {
+    height: 35px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.disco-situacao-total .row-situacao .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .disco-kpi-detalhes .disco-detalhes {
@@ -636,6 +869,7 @@ body {
     justify-content: space-between;
     align-items: end;
 }
+
 .rede-kpi-detalhes .rede-kpi {
     display: flex;
     flex-direction: column;
@@ -720,6 +954,7 @@ body {
     justify-content: space-between;
     align-items: end;
 }
+
 .gpu-kpi-detalhes .gpu-kpi {
     display: flex;
     flex-direction: column;

@@ -35,7 +35,7 @@ let dadosGpuUsoLinha = {
     labels: labelsGpuUsoLinha,
     datasets: [{
         label: "",
-        data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
+        data: [2, 3, 1, 4, 4, 3, 2, 0, 4, 3],
         backgroundColor: "#337bff",
         fill: true,
         borderColor: "#337bff",
