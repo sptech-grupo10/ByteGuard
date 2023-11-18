@@ -49,11 +49,6 @@ async function buscarLogs() {
 
     resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('Processador')}/5`)
     MinMaxMinAtras = await resMinMaxMinAtras.json()
-    
-    // resLogsHoje = await fetch(`/logs/buscarLogsComponenteHoje/${sessionStorage.getItem('Processador')}`)
-    // logsHoje = await resLogsHoje.json()
-    // console.log(logsHoje)
-    console.log(MinMaxMinAtras)
 
     plotarKpis(MinMaxMinAtras.min, MinMaxMinAtras.max)
 }

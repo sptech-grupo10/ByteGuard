@@ -3,6 +3,7 @@ fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${
         document.querySelector(`#rede-title-espec-${i}`).innerText = espec.especificacao
         document.querySelector(`#rede-value-espec-${i}`).innerText = espec.valorEspecificacao
     })
+    buscarLogs()
 }))
 
 const printLanhouse = lanhouse => {
@@ -34,73 +35,98 @@ document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
 })
 
-// Gráfico Rede Uso - Line
-let labelsRedeUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
+async function buscarLogs() {
+    resLogRede = await fetch(`/logs/buscarLogRede/${sessionStorage.getItem('Rede')}`)
+    log = await resLogRede.json()
 
-// Criando estrutura para plotar gráfico - dados
-let dadosRedeUsoLinha = {
-    labels: labelsRedeUsoLinha,
-    datasets: [{
-        label: "",
-        data: [47, 53, 66, 78, 99, 99, 99, 88, 76, 65],
-        fill: true,
-        borderColor: "#337bff",
+    plotarGraficos(log.download, log.upload)
+}
 
-    },]
-};
+function plotarGraficos(download, upload) {
+    plotarRedeDownloadLine(download)
+    plotarRedeUploadLine(upload)
 
-// Criando estrutura para plotar gráfico - config
-const configRedeUsoLinha = {
-    type: "line",
-    data: dadosRedeUsoLinha,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+    setTimeout(() => {
+        buscarLogs()
+    }, 2000);
+}
+
+function plotarRedeUploadLine(log) {
+    chartRedeUpload.data.labels.shift()
+    chartRedeUpload.data.datasets[0].data.shift()
+
+    chartRedeUpload.data.labels.push(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`)
+    chartRedeUpload.data.datasets[0].data.push(log.valor / 1e+6)
+
+    chartRedeUpload.update()
+}
+
+function plotarRedeDownloadLine(log) {
+    chartRedeDownload.data.labels.shift()
+    chartRedeDownload.data.datasets[0].data.shift()
+
+    chartRedeDownload.data.labels.push(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`)
+    chartRedeDownload.data.datasets[0].data.push(log.valor / 1e+9)
+
+    chartRedeDownload.update()
+}
+
+let chartRedeUpload = new Chart(
+    document.getElementById("rede-grafico-upload"),
+    {
+        type: "line",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", "", ""],
+            datasets: [{
+                label: "",
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                fill: true,
+                borderColor: "#337bff"
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            scales: {
+                y: {
+                    min: 0
+                }
             }
         }
     }
-};
+)
 
-// Adicionando gráfico criado em div na tela
-let myChartRedeUsoLinha = new Chart(
-    document.getElementById("rede-grafico-uso-linha"),
-    configRedeUsoLinha
-);
-
-//--------------------------------------------------------------------------------
-// Gráfico Rede Uso - Line
-let labelsVelocidadeRedeLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosVelocidadeRedeLinha = {
-    labels: labelsVelocidadeRedeLinha,
-    datasets: [{
-        label: "",
-        data: [47, 53, 54, 55, 65, 77, 38, 45, 90],
-        fill: true,
-        borderColor: "#337bff",
-    },]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configVelocidadeRedeLinha = {
-    type: "line",
-    data: dadosVelocidadeRedeLinha,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+let chartRedeDownload = new Chart(
+    document.getElementById("rede-grafico-download"),
+    {
+        type: "line",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", ""],
+            datasets: [{
+                label: "",
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                fill: true,
+                borderColor: "#337bff",
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            scales: {
+                y: {
+                    min: 0
+                }
             }
         }
     }
-};
+)
 
-// Adicionando gráfico criado em div na tela
-let myChartVelocidadeRedeLinha = new Chart(
-    document.getElementById("rederede-grafico-velocidade"),
-    configVelocidadeRedeLinha
-);
 //--------------------------------------------------------------------------------
 // Gráfico KPI - Barra
 let labelsBarraKpi = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
