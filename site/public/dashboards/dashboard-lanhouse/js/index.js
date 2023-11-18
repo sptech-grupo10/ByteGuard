@@ -5,7 +5,7 @@ setInterval(async () => {
         visualizar.addEventListener('click', e => {
             sessionStorage.setItem('idMaquina', e.target.getAttribute('idMaquina'))
             sessionStorage.setItem('nomeMaquina', e.target.getAttribute('nomeMaquina'))
-            window.location.href = 'dashboard-componentes.html'
+            window.location.href = `${window.location.origin}/dashboards/dashboard-lanhouse/dashboard-componentes.html`
         })
     })
 }, 2000);
@@ -40,7 +40,6 @@ async function listarMaquinas() {
             </div>
         </div>
         `
-        console.log(maquina)
     })
 }
 

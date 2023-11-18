@@ -8,12 +8,32 @@ function cadastrar(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco)
     } catch (e) {
         console.log(e)
     }
+    cadastrar_sqlserver(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco);
+}
+function cadastrar_sqlserver(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco) {
+    try {
+        return database.exec(
+            `INSERT INTO Empresa VALUES (DEFAULT, '${cnpj}', '${nomeFantasia}', '${razaoSocial}', DEFAULT, ${fkRepresentante}, ${fkEndereco})`, `mssql`
+        )
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 function buscarEmpresaPorId(idEmpresa) {
+    // try {
+    //     return database.exec(
+    //         `SELECT * FROM Empresa WHERE idEmpresa = ${idEmpresa}`,`mysql`
+    //     )
+    // } catch (e) {
+    //     console.log(e)
+    // }
+    buscarEmpresaPorId_sqlserver(idEmpresa);
+}
+function buscarEmpresaPorId_sqlserver(idEmpresa) {
     try {
         return database.exec(
-            `SELECT * FROM Empresa WHERE idEmpresa = ${idEmpresa}`,`mysql`
+            `SELECT * FROM Empresa WHERE idEmpresa = ${idEmpresa}`,`mssql`
         )
     } catch (e) {
         console.log(e)
@@ -22,5 +42,8 @@ function buscarEmpresaPorId(idEmpresa) {
 
 module.exports = {
     cadastrar,
-    buscarEmpresaPorId
+    buscarEmpresaPorId,
+
+    cadastrar_sqlserver,
+    buscarEmpresaPorId_sqlserver,
 }

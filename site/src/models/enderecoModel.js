@@ -8,12 +8,32 @@ function cadastrar(cep, logradouro, numero, bairro, cidade, uf) {
     } catch (e) {
         console.log(e)
     }
+    cadastrar_sqlserver(cep, logradouro, numero, bairro, cidade, uf);
+}
+function cadastrar_sqlserver(cep, logradouro, numero, bairro, cidade, uf) {
+    try {
+        return database.exec(
+            `INSERT INTO Endereco VALUES (DEFAULT, '${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`,`mssql`
+        )
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 function buscarEnderecoPorId(idEndereco) {
+    // try {
+    //     return database.exec(
+    //         `SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`,`mysql`
+    //     )
+    // } catch (e) {
+    //     console.log(e)
+    // }
+    buscarEnderecoPorId_sqlserver(idEndereco)
+}
+function buscarEnderecoPorId_sqlserver(idEndereco) {
     try {
         return database.exec(
-            `SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`,`mysql`
+            `SELECT * FROM Endereco WHERE idEndereco = ${idEndereco}`,`mssql`
         )
     } catch (e) {
         console.log(e)
@@ -22,5 +42,8 @@ function buscarEnderecoPorId(idEndereco) {
 
 module.exports = {
     cadastrar,
-    buscarEnderecoPorId
+    buscarEnderecoPorId,
+
+    cadastrar_sqlserver,
+    buscarEnderecoPorId_sqlserver
 }

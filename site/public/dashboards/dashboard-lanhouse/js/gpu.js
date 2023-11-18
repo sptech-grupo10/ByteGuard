@@ -27,40 +27,86 @@ fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.
     }
 })
 
-// Gráfico GPU Uso - Line
-let labelsGpuUsoLinha = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18", "14:19"];
+let metricaGpu
+async function buscarMetricasGpu() {
+    const resMetricasGpu = await fetch(`/metricas/buscarMetricasComponente/${sessionStorage.getItem('GPU')}`)
+    const metricasGpu = await resMetricasGpu.json()
+    metricaGpu = metricasGpu
+}
 
-// Criando estrutura para plotar gráfico - dados
-let dadosGpuUsoLinha = {
-    labels: labelsGpuUsoLinha,
-    datasets: [{
-        label: "",
-        data: [2, 3, 1, 4, 4, 3, 2, 0, 4, 3],
-        backgroundColor: "#337bff",
-        fill: true,
-        borderColor: "#337bff",
+buscarMetricasGpu()
+buscarLogs()
 
-    },]
-};
+async function buscarLogs() {
+    const logGpuRes = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('GPU')}`)
+    const logGpu = await logGpuRes.json()
+    plotarGraficos(`${new Date(logGpu.dataLog).getHours()}:${new Date(logGpu.dataLog).getMinutes()}:${new Date(logGpu.dataLog).getSeconds()}`, logGpu.valor)
+}
 
-// Criando estrutura para plotar gráfico - config
-const configGpuUsoLinha = {
-    type: "bar",
-    data: dadosGpuUsoLinha,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+function plotarGraficos(label, valor) {
+    plotarUtilizacaoGPULine(label, valor)
+    setTimeout(() => {
+        buscarLogs()
+    }, 2000)
+}
+
+function plotarUtilizacaoGPULine(label, valor) {
+    myChartUsoGpu.data.labels.shift()
+    myChartUsoGpu.data.datasets[0].data.shift()
+
+    myChartUsoGpu.data.labels.push(label)
+
+    valor > Number(metricaGpu.maxMetrica) || valor < Number(metricaGpu.minMetrica)
+        ? myChartUsoGpu.data.datasets[0].borderColor = 'red'
+        : myChartUsoGpu.data.datasets[0].borderColor = 'blue'
+
+    myChartUsoGpu.data.datasets[0].data.push(valor)
+
+    myChartUsoGpu.update()
+}
+
+let myChartUsoGpu = new Chart(
+    document.getElementById("gpu-grafico-uso-linha"),
+    {
+        type: "line",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", "", ""],
+            datasets: [{
+                label: "",
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                fill: true,
+                borderColor: "#337bff",
+                tension: 0.1,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
+)
 
-// Adicionando gráfico criado em div na tela
-let myChartGpuUsoLinha = new Chart(
-    document.getElementById("gpu-grafico-uso-linha"),
-    configGpuUsoLinha
-);
+async function buscarEspecificacaoComponente() {
+    const resEspecs = await fetch(`/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('GPU')}`)
+    const especs = await resEspecs.json()
+
+    especs.forEach((espec, i) => {
+        document.querySelector(`#gpu-title-espec-${i}`).innerText = espec.especificacao
+        document.querySelector(`#gpu-value-espec-${i}`).innerText = espec.valorEspecificacao
+    })
+}
+
+buscarEspecificacaoComponente()
+
 
 //--------------------------------------------------------------------------------
 // Gráfico GPU Uso - Line
