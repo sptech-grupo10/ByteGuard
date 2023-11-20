@@ -45,7 +45,7 @@ function login(req, res) {
 function ativarUsuario(req, res) {
     usuarioModel.ativarUsuario(req.params.idUsuario)
         .then(result => {
-            res.status(200).json(result)
+            res.status(200).json(result.recordset)
         }).catch(e => {
             console.log(`Erro na ativação: ${e}`)
             res.status(500).json
@@ -55,7 +55,7 @@ function ativarUsuario(req, res) {
 function desativarUsuario(req, res) {
     usuarioModel.desativarUsuario(req.params.idUsuario)
         .then(result => {
-            res.status(200).json(result)
+            res.status(200).json(result.recordset)
         }).catch(e => {
             console.log(`Erro na desativação: ${e}`)
             res.status(500).json
