@@ -6,7 +6,7 @@ function listarUsuariosPorEmpresa(idEmpresa) {
 
 function cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario) {
     try {
-        return database.exec(`INSERT INTO Usuario VALUES (null, '${nome}', '${email}', '${senha}', default, ${fkEmpresa}, ${fkLanHouse}, ${tipoUsuario})`)
+        return database.exec(`INSERT INTO Usuario (nome, email, senha, fkEmpresa, fkLanhouse, fkTipoUsuario) VALUES ('${nome}', '${email}', '${senha}', ${fkEmpresa}, ${fkLanHouse}, ${tipoUsuario})`)
     } catch (e) {
         console.log(e)
     }

@@ -2,11 +2,10 @@ const database = require('../database/config')
 
 function cadastrar(nome, telefone, email, cpf) {
     try {
-        return database.exec(`INSERT INTO Representante VALUES (null, '${nome}', '${telefone}', '${email}', '${cpf}', default)`)
+        return database.exec(`INSERT INTO Representante (nome, telefone, email, cpf) VALUES ('${nome}', '${telefone}', '${email}', '${cpf}')`)
     } catch (e) {
         console.log(e)
     }
-    cadastrar_sqlserver(nome, telefone, email, cpf);
 }
 
 function buscarRepresentantePorId(idRepresentante) {
