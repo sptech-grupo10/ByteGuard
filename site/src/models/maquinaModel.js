@@ -10,7 +10,7 @@ function buscarMaquinasDaLanHouse(fkEmpresa) {
 
 function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
     try {
-        return process.env.AMBIENTE = 'desenvolvimento'
+        return process.env.AMBIENTE == 'desenvolvimento'
             ? database.exec(`select m.nomeMaquina, m.idMaquina, COUNT(if(l.statusLog != 1, 1, null)) as 'componentessobrecarrecados' from log l
         join componente c on l.fkComponente = c.idComponente
         join maquina m on c.fkMaquina = m.idMaquina

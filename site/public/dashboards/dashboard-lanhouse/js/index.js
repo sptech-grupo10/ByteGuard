@@ -13,10 +13,10 @@ setInterval(async () => {
 
 async function listarMaquinas() {
     res = await fetch(`/maquinas/buscarMaquinasComponentesForaIdeal/${sessionStorage.getItem('idLanhouse')}`)
-    maquina = await res.json()
+    maquinas = await res.json()
 
     document.querySelector('.status-maquinas').innerHTML = ''
-    maquina.forEach(maquina => {
+    maquinas.forEach(maquina => {
         let status
         if (maquina.componentessobrecarrecados > 1) {
             status = 'critico'
