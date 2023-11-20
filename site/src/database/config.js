@@ -3,9 +3,9 @@ const sql = require('mssql');
 
 function exec(query) {
     if (process.env.AMBIENTE === 'producao' && query.includes('LIMIT 1')) {
-        query.replace(/LIMIT 1/, '').replace(/SELECT/, 'SELECT TOP 1')
+        query = query.replace('LIMIT 1', '').replace('SELECT', 'SELECT TOP 1')
     }
-
+    
     const conexao = process.env.AMBIENTE === 'desenvolvimento'
         ? mysql.createConnection({
             host: 'localhost',
