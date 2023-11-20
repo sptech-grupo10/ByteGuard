@@ -34,7 +34,7 @@ function login(req, res) {
     usuarioModel.login(req.params.email, req.params.senha)
         .then(result => {
             Object.keys(result).length > 0
-                ? res.status(200).json(result)
+                ? res.status(200).json(result.recordset[0])
                 : res.status(204).send('Nenhum cadastro encontrado')
         }).catch(e => {
             console.log(`Erro no login: ${e}`)
