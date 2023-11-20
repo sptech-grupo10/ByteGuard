@@ -10,8 +10,8 @@ function exec(query) {
         ? mysql.createConnection({
             host: 'localhost',
             database: 'ByteGuard',
-            user: 'aluno',
-            password: 'aluno'
+            user: 'root',
+            password: 'kauan123'
         })
         : new sql.ConnectionPool({
             server: '54.159.238.176',
@@ -24,7 +24,7 @@ function exec(query) {
                 idleTimeoutMillis: 30000
             },
             options: {
-                encrypt: true, // for azure
+                encrypt: false, // for azure
             }
         })
 
@@ -41,8 +41,8 @@ function exec(query) {
                 } else {
                     resolve(resultados);
                 }
-
-                conexao.end(); // Fecha a conexão após a execução da consulta
+                
+                process.env.AMBIENTE === 'desenvolvimento' ? conexao.end() : conexao.close()
             })
         })
     })

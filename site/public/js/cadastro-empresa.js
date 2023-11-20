@@ -9,7 +9,7 @@ const cadastrarEmpresa = async () => {
 
     let divSuccess = document.getElementById("success")
 
-    fetch(`${window.location.origin}/empresas/cadastrar`, {
+    fetch(`/empresas/cadastrar`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -28,7 +28,7 @@ const cadastrarEmpresa = async () => {
                 sessionStorage.setItem('idEmpresa', json.insertId)
                 sessionStorage.setItem('tipoUsuario', 1)
                 setTimeout(() => {
-                    window.location.href = `${window.location.origin}/cadastro-usuario-empresa.html`
+                    window.location.href = `/cadastro-usuario-empresa.html`
                 }, 1500)
             })
         } else {
