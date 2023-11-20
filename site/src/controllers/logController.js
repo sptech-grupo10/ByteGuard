@@ -4,7 +4,7 @@ async function buscarLogPorComponente(req, res) {
     try {
         result = await logModel.buscarLogPorComponente(req.params.fkComponente)
 
-        res.send(result[0])
+        res.send(result[0].recordset)
     } catch (e) {
         console.log(e)
         res.status(500).end()
@@ -16,7 +16,7 @@ async function buscarLogRede(req, res) {
         resultDownoad = await logModel.buscarLogDownloadRede(req.params.idRede)
         resultUpload = await logModel.buscarLogUploadRede(req.params.idRede)
 
-        res.send({ download: resultDownoad[0], upload: resultUpload[0] })
+        res.send({ download: resultDownoad.recordset[0], upload: resultUpload.recordset[0] })
     } catch (e) {
         console.log(e)
         res.status(500).end()
@@ -26,7 +26,7 @@ async function buscarLogRede(req, res) {
 async function buscarMinMaxLogMinsAtras(req, res) {
     try {
         result = await logModel.buscarMinMaxLogMinsAtras(req.params.fkComponente, req.params.minsAtras)
-        res.status(200).send(result[0])
+        res.status(200).send(result[0].recordset[0])
     } catch (e) {
         console.log(e)
         res.status(500).end()
@@ -35,8 +35,8 @@ async function buscarMinMaxLogMinsAtras(req, res) {
 
 async function buscarLogsComponenteHoje(req, res) {
     try {
-        results = await logModel.buscarLogsComponenteHoje(req.params.fkComponente)
-        res.status(200).send(results)
+        result = await logModel.buscarLogsComponenteHoje(req.params.fkComponente)
+        res.status(200).send(result.recordset[0])
     } catch (e) {
         console.log(e)
         res.status(500).end()

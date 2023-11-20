@@ -10,7 +10,7 @@ function buscarMaquinasDaLanHouse(req, res) {
 async function buscarMaquinasComponentesForaIdeal(req,res) {
     try{
         results = await maquinaModel.buscarMaquinasComponentesForaIdeal(req.params.fkLanhouse)
-        res.send(results)
+        res.send(results.recordset)
     }catch(e) {
         res.status(500).end()
     }

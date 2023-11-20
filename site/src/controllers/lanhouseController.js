@@ -23,25 +23,25 @@ async function cadastrar(req, res) {
 function buscarLanHousePorId(req, res) {
     lanhouseModel.buscarLanHousePorId(req.params.idLanHouse)
         .then(result => {
-            res.json(result)
+            res.json(result.recordset[0])
         })
 }
 
 function listarLanhousesPorEmpresa(req, res) {
     lanhouseModel.listarLanhousesPorEmpresa(req.params.idEmpresa).then(result => {
-        res.json(result)
+        res.json(result.recordset[0])
     })
 }
 
 function desativarLanhouse(req, res) {
     lanhouseModel.desativarLanhouse(req.params.idLanHouse).then(result => {
-        res.json(result)
+        res.json(result.recordset[0])
     })
 }
 
 function ativarLanhouse(req, res) {
     lanhouseModel.ativarLanhouse(req.params.idLanHouse).then(result => {
-        res.json(result)
+        res.json(result.recordset[0])
     })
 }
 

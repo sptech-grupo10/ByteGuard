@@ -24,7 +24,7 @@ function cadastrar(req, res) {
 function buscarEnderecoPorId(req, res) {
     enderecoModel.buscarEnderecoPorId(req.params.idEndereco)
         .then(result => {
-            res.json(result)
+            res.json(result.recordset[0])
         })
 }
 

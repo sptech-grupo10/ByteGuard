@@ -23,7 +23,7 @@ function cadastrar(req, res) {
 function buscarEmpresaPorId(req, res) {
     empresaModel.buscarEmpresaPorId(req.params.idEmpresa)
         .then(result => {
-            res.json(result)
+            res.json(result.recordset[0])
         })
 }
 

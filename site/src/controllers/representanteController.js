@@ -22,7 +22,7 @@ function cadastrar(req, res) {
 function buscarRepresentantePorId(req, res) {
     representanteModel.buscarRepresentantePorId(req.params.idRepresentante)
         .then(result => {
-            res.json(result)
+            res.json(result.recordset)
         })
 }
 
