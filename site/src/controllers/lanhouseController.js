@@ -14,7 +14,7 @@ async function cadastrar(req, res) {
             const result = await lanhouseModel.cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante)
             res.json(result).end()
         } catch (e) {
-            console.log(`Erro ao cadastrar: ${e.sqlMessage}`)
+            console.log(`Erro ao cadastrar: ${e}`)
             res.status(500).end()
         }
     }

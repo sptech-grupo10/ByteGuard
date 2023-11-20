@@ -24,7 +24,7 @@ function cadastrar(req, res) {
             .then(result => {
                 res.json(result)
             }).catch(e => {
-                console.log(`Erro ao cadastrar: ${e.sqlMessage}`)
+                console.log(`Erro ao cadastrar: ${e}`)
                 res.status(500).json
             })
     }
@@ -37,7 +37,7 @@ function login(req, res) {
                 ? res.status(200).json(result)
                 : res.status(204).send('Nenhum cadastro encontrado')
         }).catch(e => {
-            console.log(`Erro no login: ${e.sqlMessage}`)
+            console.log(`Erro no login: ${e}`)
             res.status(500).json
         })
 }
@@ -47,7 +47,7 @@ function ativarUsuario(req, res) {
         .then(result => {
             res.status(200).json(result)
         }).catch(e => {
-            console.log(`Erro na ativação: ${e.sqlMessage}`)
+            console.log(`Erro na ativação: ${e}`)
             res.status(500).json
         })
 
@@ -57,7 +57,7 @@ function desativarUsuario(req, res) {
         .then(result => {
             res.status(200).json(result)
         }).catch(e => {
-            console.log(`Erro na desativação: ${e.sqlMessage}`)
+            console.log(`Erro na desativação: ${e}`)
             res.status(500).json
         })
 }

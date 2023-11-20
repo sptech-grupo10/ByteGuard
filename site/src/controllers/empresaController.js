@@ -14,7 +14,7 @@ function cadastrar(req, res) {
             .then(result => {
                 res.json(result)
             }).catch(e => {
-                console.log(`Erro ao cadastrar: ${e.sqlMessage}`)
+                console.log(`Erro ao cadastrar: ${e}`)
                 res.status(500).json
             })
     }
