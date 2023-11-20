@@ -4,7 +4,7 @@ function cadastrar(cep, logradouro, numero, bairro, cidade, uf) {
     try {
         return database.exec(`INSERT INTO Endereco (cep, logradouro, numero, bairro, cidade, uf) VALUES ('${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`)
     } catch (e) {
-        console.log(e)
+        console.log(`Erro ao cadastrar endereco: ${e}`)
     }
 }
 

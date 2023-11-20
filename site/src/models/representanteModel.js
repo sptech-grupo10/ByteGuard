@@ -4,7 +4,7 @@ function cadastrar(nome, telefone, email, cpf) {
     try {
         return database.exec(`INSERT INTO Representante (nome, telefone, email, cpf) VALUES ('${nome}', '${telefone}', '${email}', '${cpf}')`)
     } catch (e) {
-        console.log(e)
+        console.log(`Erro ao cadastrar representante: ${e}`)
     }
 }
 
