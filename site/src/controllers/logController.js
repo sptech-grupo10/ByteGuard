@@ -4,7 +4,7 @@ async function buscarLogPorComponente(req, res) {
     try {
         result = await logModel.buscarLogPorComponente(req.params.fkComponente)
 
-        res.send(result[0].recordset)
+        res.send(result.recordset)
     } catch (e) {
         console.log(e)
         res.status(500).end()
