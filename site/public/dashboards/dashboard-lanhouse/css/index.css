@@ -6,6 +6,18 @@ body {
     background: #F0F0F0;
 }
 
+@keyframes show {
+    from {
+        /* opacity: 0; */
+        transform: scale(0.3);
+    }
+
+    to {
+        /* opacity: 1; */
+        transform: scale(1);
+    }
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -83,6 +95,10 @@ body {
     height: 30px;
     top: 2px;
     left: 10px;
+}
+
+.nav-left li img {
+    animation: show 200ms;
 }
 
 .nav-left span {
@@ -187,6 +203,7 @@ body {
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 0 10px;
+    animation: show 300ms;
 }
 
 .combo-box-lan-houses {
@@ -225,6 +242,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    animation: show 200ms;
 }
 
 .box-legend .item-legend {
@@ -268,6 +286,7 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    animation: show 400ms;
 }
 
 .status-maquinas .box-maquina img {

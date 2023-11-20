@@ -44,6 +44,7 @@
     font-size: 17px;
     width: 45%;
     margin-left: 20px;
+    font-weight: 600;
 }
 
 .modal button {
@@ -54,6 +55,7 @@
     font-size: 16px;
     border-radius: 7px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 #modal-cadastrar-usuario-lanhouse {

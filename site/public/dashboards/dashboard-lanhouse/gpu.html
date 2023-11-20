@@ -94,15 +94,15 @@
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
       <div class="conteudo-dash" id="conteudo-gpu">
 
-        <div class="gpu-graficos">
-          <div class="gpu-chart" id="gpu-grafico-temperatura">
+        <div class="gpu-graficos" id="gpu-grafico-1">
+          <div class="gpu-chart" id="gpu-grafico-1">
             <h1>Utilização</h1>
             <div class="info-graficos">
               <canvas id="gpu-grafico-uso-linha"></canvas>
             </div>
           </div>
 
-          <div class="gpu-chart" id="gpu-grafico-velocidade-agora">
+          <div class="gpu-chart" id="gpu-grafico-2">
             <h1>Velocidade</h1>
             <div class="info-graficos">
               <canvas id="gpu-grafico-velocidade" width="500px" height="250px"></canvas>
@@ -112,11 +112,47 @@
 
         <div class="gpu-kpi-detalhes">
           <div class="gpu-kpi" id="gpu-kpi">
-            <span>Gráfico KPI</span>
+            <div class="gpu-box-kpi" id="gpu-box-kpi-1">
+              <h1>Utilização - Hoje</h1>
 
-            <div class="grafico-kpi">
-              <canvas id="gpu-grafico-kpis"></canvas>
-            </div>
+              <div class="kpi-gpu-min-max">
+                  <div class="gpu-min-max">
+                      <h3>Mínimo</h3>
+                      <span id="kpi-gpu-min">0%</span>
+                  </div>
+                  <div class="gpu-min-max">
+                      <h3>Máximo</h3>
+                      <span id="kpi-gpu-max">0%</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="gpu-box-kpi" id="gpu-box-kpi-2">
+              <h1>Situação da Placa de Vídeo - Hoje</h1>
+
+              <div class="gpu-situacao-total">
+                  <div class="row-situacao">
+                      <div class="circle ideal"></div>
+                      <span>Ideal:</span>
+                      <span id="gpu-situacao-ideal">85%</span>
+                  </div>
+                  <div class="row-situacao">
+                      <div class="circle atencao"></div>
+                      <span>Atenção:</span>
+                      <span id="gpu-situacao-atencao">10%</span>
+                  </div>
+                  <div class="row-situacao">
+                      <div class="circle critico"></div>
+                      <span>Crítico:</span>
+                      <span id="gpu-situacao-critico">5%</span>
+                  </div>
+                  <div class="row-situacao">
+                      <div class="circle inativo"></div>
+                      <span>Inativo:</span>
+                      <span id="gpu-situacao-critico">0%</span>
+                  </div>
+              </div>
+          </div>
           </div>
 
           <div class="gpu-detalhes">

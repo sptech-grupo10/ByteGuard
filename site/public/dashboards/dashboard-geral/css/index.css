@@ -6,6 +6,18 @@ body {
     background: #F0F0F0;
 }
 
+@keyframes show {
+    from {
+        /* opacity: 0; */
+        transform: scale(0.3);
+    }
+
+    to {
+        /* opacity: 1; */
+        transform: scale(1);
+    }
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -76,6 +88,9 @@ body {
     padding: 10px;
 }
 
+.nav-left li img {
+    animation: show 200ms;
+}
 
 .nav-left .icons {
     position: relative;
@@ -153,6 +168,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    animation: show 200ms;
 }
 
 .cabecalho .box-legend .item-legend {
@@ -204,6 +220,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: show 200ms;
 }
 
 .cor-sinal {

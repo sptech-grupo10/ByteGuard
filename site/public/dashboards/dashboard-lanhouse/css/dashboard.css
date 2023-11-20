@@ -4,15 +4,18 @@
 
 body {
     background: #F0F0F0;
+    overflow: hidden;
 }
 
 @keyframes show {
     from {
-        opacity: 0;
+        /* opacity: 0; */
+        transform: scale(0.3);
     }
 
     to {
-        opacity: 1;
+        /* opacity: 1; */
+        transform: scale(1);
     }
 }
 
@@ -75,9 +78,9 @@ body {
     box-shadow: 4px 0px 10px 0px rgba(0, 0, 0, 0.09);
 }
 
-/* .nav-left li {
-    animation: show 1000ms;
-} */
+.nav-left li img {
+    animation: show 200ms;
+}
 
 
 .nav-left a {
@@ -251,6 +254,22 @@ body {
     gap: 25px;
 }
 
+/* #conteudo-overview:nth-child(1) {
+    animation: show 200ms;
+}
+#conteudo-overview:nth-child(2) {
+    animation: show 300ms;
+}
+#conteudo-overview:nth-child(3) {
+    animation: show 400ms;
+}
+#conteudo-overview:nth-child(4) {
+    animation: show 500ms;
+}
+#conteudo-overview:nth-child(5) {
+    animation: show 600ms;
+} */
+
 .grafico-overview-1 {
     width: 376px;
     height: 220px;
@@ -261,6 +280,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: show 300ms;
 }
 
 .grafico-overview-1:hover {
@@ -277,6 +297,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: show 500ms;
 }
 
 .grafico-overview-2:hover {
@@ -377,6 +398,27 @@ body {
 /* CPU ------------------------------------------------------------- */
 #conteudo-cpu {
     display: flex;
+}
+
+/* ANIMAÇÕES */
+#cpu-grafico-uso {
+    animation: show 200ms;
+}
+
+#cpu-box-kpi-1 {
+    animation: show 400ms;
+}
+
+#cpu-box-kpi-2 {
+    animation: show 600ms;
+}
+
+#cpu-grafico-velocidade {
+    animation: show 300ms;
+}
+
+.cpu-detalhes {
+    animation: show 700ms;
 }
 
 .cpu-graficos {
@@ -533,6 +575,27 @@ body {
     display: flex;
 }
 
+/* ANIMAÇÕES */
+#memoria-grafico-1 {
+    animation: show 200ms;
+}
+
+#memoria-box-kpi-1 {
+    animation: show 400ms;
+}
+
+#memoria-box-kpi-2 {
+    animation: show 600ms;
+}
+
+#memoria-grafico-2 {
+    animation: show 300ms;
+}
+
+.memoria-detalhes {
+    animation: show 700ms;
+}
+
 .memoria-graficos {
     display: flex;
     flex-direction: column;
@@ -617,6 +680,9 @@ body {
     font-size: 40px;
     font-weight: 700;
     color: #337bff;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }
 
 .memoria-situacao-total {
@@ -841,6 +907,27 @@ body {
     display: flex;
 }
 
+/* ANIMAÇÕES */
+#rede-grafico-1 {
+    animation: show 200ms;
+}
+
+#rede-box-kpi-1 {
+    animation: show 400ms;
+}
+
+#rede-box-kpi-2 {
+    animation: show 600ms;
+}
+
+#rede-grafico-2 {
+    animation: show 300ms;
+}
+
+.rede-detalhes {
+    animation: show 700ms;
+}
+
 .rede-graficos {
     display: flex;
     flex-direction: column;
@@ -883,9 +970,8 @@ body {
     font-size: 40px;
     font-weight: 700;
     color: #337bff;
-    align-items: center;
     display: flex;
-    flex-direction: column;
+    text-align: center;
 }
 
 .kpi-rede-up-down {
@@ -998,6 +1084,27 @@ body {
     display: flex;
 }
 
+/* ANIMAÇÕES */
+#gpu-grafico-1 {
+    animation: show 200ms;
+}
+
+#gpu-box-kpi-1 {
+    animation: show 400ms;
+}
+
+#gpu-box-kpi-2 {
+    animation: show 600ms;
+}
+
+#gpu-grafico-2 {
+    animation: show 300ms;
+}
+
+.gpu-detalhes {
+    animation: show 700ms;
+}
+
 .gpu-graficos {
     display: flex;
     flex-direction: column;
@@ -1029,15 +1136,84 @@ body {
 
 .gpu-kpi-detalhes .gpu-kpi {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    height: 220px;
+    padding: 15px 0px;
+}
+
+.kpi-gpu-min-max {
+    height: 75%;
+    width: 100%;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 90%;
-    height: 220px;
+}
+
+.gpu-kpi .gpu-box-kpi {
+    height: 100%;
+    width: 40%;
     border-radius: 10px;
     background: #FFF;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gpu-kpi .gpu-box-kpi h1 {
+    display: flex;
+    text-align: center;
+    line-height: 30px;
+}
+
+.gpu-box-kpi .gpu-min-max {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gpu-box-kpi .gpu-min-max h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.gpu-box-kpi .gpu-min-max span {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+}
+
+.gpu-situacao-total {
+    height: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gpu-situacao-total .row-situacao {
+    height: 35px;
+    width: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.gpu-situacao-total .row-situacao .circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 .gpu-kpi-detalhes .gpu-detalhes {

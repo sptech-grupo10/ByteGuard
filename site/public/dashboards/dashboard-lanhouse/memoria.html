@@ -97,16 +97,15 @@
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
       <div class="conteudo-dash" id="conteudo-memoria">
 
-        <div class="memoria-graficos">
+        <div class="memoria-graficos" id="memoria-grafico-1">
           <div class="memoria-chart">
             <h1>Em uso</h1>
             <div class="info-graficos">
-              <canvas id="memoria-grafico-uso-donut"></canvas>
               <canvas id="memoria-grafico-uso-line"></canvas>
             </div>
           </div>
 
-          <div class="memoria-chart" id="memoria-grafico-velocidade">
+          <div class="memoria-chart" id="memoria-grafico-2">
             <h1>Memória temporária</h1>
             <div class="info-graficos">
               <canvas id="memoria-grafico-temporaria"></canvas>
@@ -116,32 +115,24 @@
 
         <div class="memoria-kpi-detalhes">
           <div class="memoria-kpi" id="memoria-kpi">
-            <div class="memoria-box-kpi">
-              <div class="memoria-box-hoje">
+            <div class="memoria-box-kpi" id="memoria-box-kpi-1">
 
-                <h1>Memória - Hoje</h1>
+                <h1>Memória RAM - Hoje</h1>
 
                 <div class="kpi-memoria-min-max">
                   <div class="memoria-min-max">
-                    <h3>Armazenamento</h3>
-                    <span id="kpi-memoria-min">500 MB</span>
+                    <h3>Mínimo</h3>
+                    <span id="kpi-memoria-min">500 <span>MB</span></span>
                   </div>
-                  <!-- <div class="memoria-min-max">
-                    <h3>Memória total</h3>
-                    <span id="kpi-memoria-max">0.9%</span>
-                  </div> -->
+                  <div class="memoria-min-max">
+                    <h3>Máximo</h3>
+                    <span id="kpi-memoria-max">300 <span>MB</span></span>
+                  </div>
                 </div>
-              </div>
-
-              <div class="memoria-texto-kpi">
-                <span>Tendo <span id="valor-memoria-dia">500</span> MB por dia, a máquina <span
-                    id="maquina-atual">SPTECH0355</span> levará <span id="memoria-dias-limite">20</span> dias para
-                  ocupar todo o armazenamento interno.</span>
-              </div>
             </div>
 
-            <div class="memoria-box-kpi">
-              <h1>Situação Memória - Dia 12/11/2023</h1>
+            <div class="memoria-box-kpi" id="memoria-box-kpi-2">
+              <h1>Situação Memória - Hoje</h1>
 
               <div class="memoria-situacao-total">
                 <div class="row-situacao">

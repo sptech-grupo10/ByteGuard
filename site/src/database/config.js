@@ -10,8 +10,8 @@ function exec(query) {
         ? mysql.createConnection({
             host: 'localhost',
             database: 'ByteGuard',
-            user: 'root',
-            password: 'kauan123'
+            user: 'aluno',
+            password: 'aluno'
         })
         : new sql.ConnectionPool({
             server: '54.159.238.176',

@@ -6,6 +6,18 @@ body {
     background: #F0F0F0;
 }
 
+@keyframes show {
+    from {
+        /* opacity: 0; */
+        transform: scale(0.3);
+    }
+
+    to {
+        /* opacity: 1; */
+        transform: scale(1);
+    }
+}
+
 .nav-horizontal {
     position: absolute;
     width: 100%;
@@ -144,7 +156,7 @@ body {
     left: 55px;
 }
 
-.cabecalho #criar-usuario {
+/* .cabecalho #criar-usuario {
     background: #337bff;
     cursor: pointer;
     color: #fff;
@@ -155,7 +167,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-}
+} */
 
 .container-dash h1 {
     font-size: 22px;
@@ -178,7 +190,7 @@ body {
 .conteudo-dash::-webkit-scrollbar {
     width: 20px;
     background-color: transparent;
-    border: none;    
+    border: none;
 }
 
 .conteudo-dash::-webkit-scrollbar-thumb {
@@ -200,6 +212,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0 15px;
+    animation: show 300ms;
 }
 
 .box-user img {
@@ -224,7 +237,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 500px;
+    width: 430px;
 }
 
 .box-user .infos-user .user-email-telefone span {
