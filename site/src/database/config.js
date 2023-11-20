@@ -41,7 +41,7 @@ function exec(query) {
                 } else {
                     resolve(resultados);
                 }
-                
+
                 process.env.AMBIENTE === 'desenvolvimento' ? conexao.end() : conexao.close()
             })
         })

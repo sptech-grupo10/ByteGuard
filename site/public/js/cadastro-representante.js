@@ -19,6 +19,7 @@ const cadastrarRepresentante = async (callback) => {
     }).then(res => {
         if (res.ok) {
             res.json().then(json => {
+                console.log(json)
                 sessionStorage.setItem('idRepresentante', json.insertId)
                 callback()
             })
