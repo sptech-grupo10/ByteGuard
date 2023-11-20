@@ -33,7 +33,7 @@ function cadastrar(req, res) {
 function login(req, res) {
     usuarioModel.login(req.params.email, req.params.senha)
         .then(result => {
-            result.length > 0
+            Object.keys(result).length > 0
                 ? res.status(200).json(result)
                 : res.status(204).send('Nenhum cadastro encontrado')
         }).catch(e => {
