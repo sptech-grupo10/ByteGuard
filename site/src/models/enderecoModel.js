@@ -2,7 +2,8 @@ const database = require('../database/config')
 
 function cadastrar(cep, logradouro, numero, bairro, cidade, uf) {
     try {
-        return database.exec(`INSERT INTO Endereco (cep, logradouro, numero, bairro, cidade, uf) VALUES ('${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`)
+        database.exec(`INSERT INTO Endereco (cep, logradouro, numero, bairro, cidade, uf) VALUES ('${cep}', '${logradouro}', '${numero}', '${bairro}', '${cidade}', '${uf}')`)
+        return database.exec(`SELECT IDENT_CURRENT('Endereco') as insertId`)
     } catch (e) {
         console.log(`Erro ao cadastrar endereco: ${e}`)
     }

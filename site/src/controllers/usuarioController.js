@@ -22,7 +22,7 @@ function cadastrar(req, res) {
     } else {
         usuarioModel.cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario)
             .then(result => {
-                res.json(result)
+                res.json(result.recordset[0])
             }).catch(e => {
                 console.log(`Erro ao cadastrar: ${e}`)
                 res.status(500).json

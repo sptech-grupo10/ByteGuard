@@ -13,7 +13,7 @@ function cadastrar(req, res) {
     } else {
         enderecoModel.cadastrar(cep, logradouro, numero, bairro, cidade, uf)
             .then(result => {
-                res.json(result)
+                res.json(result.recordset[0])
             }).catch(e => {
                 console.log(`Erro ao cadastrar: ${e}`)
                 res.status(500).json

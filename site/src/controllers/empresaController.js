@@ -12,7 +12,7 @@ function cadastrar(req, res) {
     } else {
         empresaModel.cadastrar(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco)
             .then(result => {
-                res.json(result)
+                res.json(result.recordset[0])
             }).catch(e => {
                 console.log(`Erro ao cadastrar empresa: ${e}`)
                 res.status(500).json

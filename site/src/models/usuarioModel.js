@@ -6,11 +6,11 @@ function listarUsuariosPorEmpresa(idEmpresa) {
 
 function cadastrar(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario) {
     try {
-        return database.exec(`INSERT INTO Usuario (nome, email, senha, fkEmpresa, fkLanhouse, fkTipoUsuario) VALUES ('${nome}', '${email}', '${senha}', ${fkEmpresa}, ${fkLanHouse}, ${tipoUsuario})`)
+        database.exec(`INSERT INTO Usuario (nome, email, senha, fkEmpresa, fkLanhouse, fkTipoUsuario) VALUES ('${nome}', '${email}', '${senha}', ${fkEmpresa}, ${fkLanHouse}, ${tipoUsuario})`)
+        return database.exec(`SELECT IDENT_CURRENT('Usuario') as insertId`)
     } catch (e) {
         console.log(e)
     }
-    cadastrar_sqlserver(nome, email, senha, fkEmpresa, fkLanHouse, tipoUsuario);
 }
 
 function login(email, senha) {

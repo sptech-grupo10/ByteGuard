@@ -11,7 +11,7 @@ function cadastrar(req, res) {
     } else {
         representanteModel.cadastrar(nome, telefone, email, cpf)
             .then(result => {
-                res.json(result)
+                res.json(result.recordset[0])
             }).catch(e => {
                 console.log(`Erro ao cadastrar: ${e}`)
                 res.status(500).json

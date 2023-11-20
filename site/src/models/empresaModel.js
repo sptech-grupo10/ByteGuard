@@ -2,7 +2,8 @@ const database = require('../database/config')
 
 function cadastrar(cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco) {
     try {
-        return database.exec(`INSERT INTO Empresa (cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco) VALUES ('${cnpj}', '${nomeFantasia}', '${razaoSocial}', ${fkRepresentante}, ${fkEndereco})`)
+        database.exec(`INSERT INTO Empresa (cnpj, nomeFantasia, razaoSocial, fkRepresentante, fkEndereco) VALUES ('${cnpj}', '${nomeFantasia}', '${razaoSocial}', ${fkRepresentante}, ${fkEndereco})`)
+        return database.exec(`SELECT IDENT_CURRENT('Empresa') as insertId`)
     } catch (e) {
         console.log(e)
     }

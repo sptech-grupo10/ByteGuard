@@ -3,7 +3,8 @@ const database = require('../database/config')
 function cadastrar(unidade, cnpj, fkEndereco, fkEmpresa, fkRepresentante) {
     let codigoAcesso = unidade + String(Date.now()).slice(4, 8)
     try {
-        return database.exec(`INSERT INTO LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa, fkRepresentante) VALUES ('${unidade}', '${cnpj}', '${codigoAcesso}', ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`)
+        database.exec(`INSERT INTO LanHouse (unidade, cnpj, codigoAcesso, fkEndereco, fkEmpresa, fkRepresentante) VALUES ('${unidade}', '${cnpj}', '${codigoAcesso}', ${fkEndereco}, ${fkEmpresa}, ${fkRepresentante})`)
+        return database.exec(`SELECT IDENT_CURRENT('LanHouse') as insertId`)
     } catch (e) {
         console.log(e)
     }
