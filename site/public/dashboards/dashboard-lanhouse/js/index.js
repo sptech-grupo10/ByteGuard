@@ -16,6 +16,9 @@ async function listarMaquinas() {
     maquinas = await res.json()
 
     document.querySelector('.status-maquinas').innerHTML = ''
+    
+    if (!maquinas[0]) return
+
     maquinas.forEach(maquina => {
         let status
         if (maquina.componentessobrecarrecados > 1) {
