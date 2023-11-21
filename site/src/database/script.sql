@@ -8,7 +8,7 @@ create table Endereco(
     idEndereco int primary key auto_increment,
     cep char(9),
     logradouro varchar(50),
-    numero varchar(5),
+    numero varchar(10),
     bairro varchar(50),
     cidade varchar(50),
     uf char(2)
