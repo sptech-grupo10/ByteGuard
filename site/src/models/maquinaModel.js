@@ -18,14 +18,17 @@ function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
         and fkLanhouse = ${fkLanhouse}
         group by nomeMaquina, idMaquina, nomeMaquina
         order by 'componentessobrecarrecados' desc`)
-            : database.exec(`SELECT m.nomeMaquina, m.idMaquina, COUNT(CASE WHEN l.statusLog != 1 THEN 1 END) as 'componentessobrecarrecados'
-            FROM log l
+            : database.exec(`SELECT m.nomeMaquina, m.idMaquina, COUNT(CASE WHEN l.statusLog != 1 THEN 1 END) as 'componentessobrecarrecados' FROM log l
             JOIN componente c ON l.fkComponente = c.idComponente
             JOIN maquina m ON c.fkMaquina = m.idMaquina
-            WHERE dataLog IN(SELECT DISTINCT TOP 10 dataLog FROM log ORDER BY dataLog DESC)
-            AND fkLanhouse =  ${fkLanhouse}
-            GROUP BY m.nomeMaquina, m.idMaquina
-            ORDER BY 'componentessobrecarrecados' DESC`)
+        WHERE 
+            convert(datetime, l.dataLog) >= convert(datetime, DATEADD(SECOND, -5, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time'))
+            AND fkLanhouse =  2
+        GROUP BY
+            m.nomeMaquina, m.idMaquina
+        ORDER BY 
+            'componentessobrecarrecados' DESC;
+        `)
     } catch (e) {
         console.log(e)
     }
