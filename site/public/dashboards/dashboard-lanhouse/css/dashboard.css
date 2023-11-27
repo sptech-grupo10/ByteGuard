@@ -196,12 +196,13 @@ body {
 .box-legend {
     background: #fff;
     border-radius: 10px;
-    height: 80%;
-    width: 25%;
+    height: 50px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    animation: show 200ms;
 }
 
 .box-legend .item-legend {
@@ -227,6 +228,10 @@ body {
 
 .circle-atencao {
     background-color: #ffb800;
+}
+
+.circle-inativo {
+    background-color: #727272;
 }
 
 .conteudo-dash {
@@ -343,7 +348,7 @@ body {
 }
 
 .inativo {
-    background-color: #757575;
+    background-color: #727272;
 }
 
 .box-rede {
@@ -751,6 +756,27 @@ body {
 /* DISCO ------------------------------------------------------------- */
 #conteudo-disco {
     display: flex;
+}
+
+/* ANIMAÇÕES */
+#disco-grafico-temperatura {
+    animation: show 200ms;
+}
+
+#disco-kpi {
+    animation: show 400ms;
+}
+
+#disco-kpi-situacao {
+    animation: show 600ms;
+}
+
+#disco-grafico-velocidade {
+    animation: show 300ms;
+}
+
+.disco-detalhes {
+    animation: show 700ms;
 }
 
 .disco-graficos {

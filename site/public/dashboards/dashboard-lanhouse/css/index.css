@@ -236,8 +236,8 @@ body {
 .box-legend {
     background: #fff;
     border-radius: 10px;
-    height: 80%;
-    width: 25%;
+    height: 50px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -267,6 +267,10 @@ body {
 
 .circle-atencao {
     background-color: #ffb800;
+}
+
+.circle-inativo {
+    background-color: #727272;
 }
 
 .status-maquinas {

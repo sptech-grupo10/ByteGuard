@@ -81,7 +81,7 @@ function plotarUtilizacaoDonut(valor) {
 }
 
 let myChartUtilizacaoDonut = new Chart(
-    document.getElementById("disco-grafico-utilizacao-donut"),
+    document.getElementById("disco-grafico-tempo-atividade-line"),
     {
         type: "doughnut",
         data: {
@@ -105,7 +105,7 @@ let myChartUtilizacaoDonut = new Chart(
 )
 
 let myChartUtilizacaoLine = new Chart(
-    document.getElementById("disco-grafico-utilizacao-line"),
+    document.getElementById("disco-grafico-leitura-gravacao"),
     {
         type: "line",
         data: {

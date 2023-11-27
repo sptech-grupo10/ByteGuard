@@ -89,6 +89,9 @@ body {
     padding: 10px;
 }
 
+.nav-left li img {
+    animation: show 200ms;
+}
 
 .nav-left .icons {
     position: relative;
