@@ -17,7 +17,7 @@ CREATE TABLE Endereco (
     idEndereco INT PRIMARY KEY IDENTITY(1,1),
     cep CHAR(9),
     logradouro VARCHAR(50),
-    numero VARCHAR(5),
+    numero VARCHAR(10),
     bairro VARCHAR(50),
     cidade VARCHAR(50),
     uf CHAR(2)

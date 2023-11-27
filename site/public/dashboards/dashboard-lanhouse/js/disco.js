@@ -134,79 +134,57 @@ let myChartUtilizacaoLine = new Chart(
             }
         }
     }
-);
+)
 
-// Gráfico Disco tempo de atividade - Linha
-let labelsDiscoKpi = ["14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30"];
-
-// Gráfico Disco KPI - Linha
-// Criando estrutura para plotar gráfico - dados
-let dadosDiscoKpi = {
-    labels: labelsDiscoKpi,
-    datasets: [
-        {
-            label: "",
-            data: [80, 80.2, 80.3, 80.7, 80.9, 81.0, 81.3, 81.5, 82.0, 89.0],
-            fill: true,
-            borderColor: "#337bff",
-            backgroundColor: "#337bff",
-            tension: 0.1,
+let myChartDiscoKpi = new Chart(
+    document.getElementById("disco-grafico-kpi"),
+    {
+        type: "bar",
+        data: {
+            labels: ["", "", "", "", "", "", "", "", "", ""],
+            datasets: [
+                {
+                    label: "",
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    fill: true,
+                    borderColor: "#337bff",
+                    backgroundColor: "#337bff",
+                    tension: 0.1,
+                },
+            ]
         },
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configDiscoKpi = {
-    type: "bar",
-    data: dadosDiscoKpi,
-    options: {
-        plugins: {
-            legend: {
-                display: false,
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
             }
         }
     }
-};
+)
 
-// Adicionando gráfico criado em div na tela
-let myChartDiscoKpi = new Chart(
-    document.getElementById("disco-grafico-kpi"),
-    configDiscoKpi
-);
-
-//Gráfico Leitura e Gravação
-// Gráfico CPU Utilização - Linha
-let labelsDiscoLeituraGravacao = ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"];
-
-// Criando estrutura para plotar gráfico - dados
-let dadosDiscoLeituraGravacao = {
-    labels: labelsDiscoLeituraGravacao,
-    datasets: [
-        {
-            label: "Gravação",
-            data: [125, 85, 143, 104, 134, 76, 97, 139, 88, 121, 130, 75, 102],
-            fill: false,
-            borderColor: "#337bff",
-            tension: 0.1,
-        },
-        {
-            label: "Leitura",
-            data: [6, 14, 3, 18, 9, 5, 12, 1, 16, 7, 10, 19, 2],
-            fill: false,
-            borderColor: "#949494",
-            tension: 0.1,
-        }
-    ]
-};
-
-// Criando estrutura para plotar gráfico - config
-const configDiscoLeituraGravacao = {
-    type: "line",
-    data: dadosDiscoLeituraGravacao,
-};
-
-// Adicionando gráfico criado em div na tela
 let myChartDiscoLeituraGravacao = new Chart(
     document.getElementById("disco-grafico-leitura-gravacao"),
-    configDiscoLeituraGravacao
-);
+    {
+        type: "line",
+        data: {
+            labels: ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"],
+            datasets: [
+                {
+                    label: "Gravação",
+                    data: [125, 85, 143, 104, 134, 76, 97, 139, 88, 121, 130, 75, 102],
+                    fill: false,
+                    borderColor: "#337bff",
+                    tension: 0.1,
+                },
+                {
+                    label: "Leitura",
+                    data: [6, 14, 3, 18, 9, 5, 12, 1, 16, 7, 10, 19, 2],
+                    fill: false,
+                    borderColor: "#949494",
+                    tension: 0.1,
+                }
+            ]
+        }
+    }
+)
