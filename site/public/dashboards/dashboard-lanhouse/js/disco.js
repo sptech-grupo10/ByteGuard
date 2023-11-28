@@ -1,3 +1,13 @@
+fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
+    if (res.ok) {
+        res.json().then(lanhouse => {
+            document.querySelector('#insert-codigo-lanhouse').innerText = lanhouse.codigoAcesso
+        })
+    } else {
+        console.log('Erro na busca da lanhouse')
+    }
+})
+
 fetch(`${window.location.origin}/especificacoes/buscarEspecificacaoComponente/${sessionStorage.getItem('Disco')}`).then(res => res.json().then(especs => {
     especs.forEach((espec, i) => {
         document.querySelector(`#disco-title-espec-${i}`).innerText = espec.especificacao

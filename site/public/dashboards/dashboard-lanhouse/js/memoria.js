@@ -1,3 +1,13 @@
+fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
+    if (res.ok) {
+        res.json().then(lanhouse => {
+            document.querySelector('#insert-codigo-lanhouse').innerText = lanhouse.codigoAcesso
+        })
+    } else {
+        console.log('Erro na busca da lanhouse')
+    }
+})
+
 let metricaMemoria
 
 fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(metricas => {

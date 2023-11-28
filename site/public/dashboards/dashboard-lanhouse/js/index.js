@@ -1,3 +1,18 @@
+fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
+    if (res.ok) {
+        res.json().then(lanhouse => {
+            document.querySelector('#insert-codigo-lanhouse').innerText = lanhouse.codigoAcesso
+            document.querySelector('#lan-house-atual').innerText = lanhouse.unidade
+        })
+    } else {
+        console.log('Erro na busca da lanhouse')
+    }
+})
+
+document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
+    userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
+})
+
 listarMaquinas()
 setInterval(async () => {
     await listarMaquinas()
