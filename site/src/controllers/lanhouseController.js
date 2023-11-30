@@ -29,7 +29,7 @@ function buscarLanHousePorId(req, res) {
 
 function listarLanhousesPorEmpresa(req, res) {
     lanhouseModel.listarLanhousesPorEmpresa(req.params.idEmpresa).then(result => {
-        res.json(result.recordset[0])
+        res.json(result.recordset)
     })
 }
 
