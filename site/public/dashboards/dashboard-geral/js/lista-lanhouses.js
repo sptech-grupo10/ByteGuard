@@ -47,7 +47,7 @@ async function listarLanhouses() {
                             <div class="buttons">
                                 <span  class='login-direto' idLanhouse='${lanhouse.idLanHouse}'>Acessar</span>
                                 <span idLanhouse='${lanhouse.idLanHouse}' statuslanhouse='${lanhouse.statusLanhouse}' class='ativar-desativar-lanhouse'>${lanhouse.statusLanhouse == 1 ? 'Desativar' : 'Ativar'}</span>
-                                <span class='criar-usuario'>Cadastrar novo usuário</span>
+                                <span idLanhouse='${lanhouse.idLanHouse}' class='criar-usuario'>Cadastrar novo usuário</span>
                             </div>
                         </div>
                     `
