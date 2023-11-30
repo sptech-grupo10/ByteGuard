@@ -79,7 +79,7 @@ body {
 }
 
 .nav-left li img {
-    animation: show 200ms;
+    animation: show 400ms;
 }
 
 
@@ -202,7 +202,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    animation: show 200ms;
+    animation: show 400ms;
 }
 
 .box-legend .item-legend {
@@ -252,28 +252,58 @@ body {
     background-color: #ff0000;
 }
 
+/* ANIMAÇÕES GRÁFICOS COMPONENTES --------------------------------------- */
+#overview-cpu,
+#cpu-grafico-uso,
+#memoria-grafico-1,
+#disco-grafico-temperatura,
+#rede-grafico-1,
+#gpu-grafico-1 {
+    animation: show 500ms;
+}
+
+#overview-rede,
+#cpu-box-kpi-1,
+#memoria-box-kpi-1,
+#disco-kpi,
+#rede-box-kpi-1,
+#gpu-box-kpi-1 {
+    animation: show 700ms;
+}
+
+#overview-disco,
+#cpu-box-kpi-2,
+#memoria-box-kpi-2,
+#disco-kpi-situacao,
+#rede-box-kpi-2,
+#gpu-box-kpi-2 {
+    animation: show 800ms;
+}
+
+#overview-gpu,
+#cpu-grafico-velocidade,
+#memoria-grafico-2,
+#disco-grafico-velocidade,
+#rede-grafico-2,
+#gpu-grafico-2 {
+    animation: show 600ms;
+}
+
+#overview-memoria,
+.cpu-detalhes,
+.memoria-detalhes,
+.disco-detalhes,
+.rede-detalhes,
+.gpu-detalhes {
+    animation: show 800ms;
+}
+
 /* OVERVIEW ------------------------------------------------------------- */
 #conteudo-overview {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
 }
-
-/* #conteudo-overview:nth-child(1) {
-    animation: show 200ms;
-}
-#conteudo-overview:nth-child(2) {
-    animation: show 300ms;
-}
-#conteudo-overview:nth-child(3) {
-    animation: show 400ms;
-}
-#conteudo-overview:nth-child(4) {
-    animation: show 500ms;
-}
-#conteudo-overview:nth-child(5) {
-    animation: show 600ms;
-} */
 
 .grafico-overview-1 {
     width: 376px;
@@ -285,7 +315,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation: show 300ms;
 }
 
 .grafico-overview-1:hover {
@@ -302,7 +331,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    animation: show 500ms;
 }
 
 .grafico-overview-2:hover {
@@ -403,27 +431,6 @@ body {
 /* CPU ------------------------------------------------------------- */
 #conteudo-cpu {
     display: flex;
-}
-
-/* ANIMAÇÕES */
-#cpu-grafico-uso {
-    animation: show 200ms;
-}
-
-#cpu-box-kpi-1 {
-    animation: show 400ms;
-}
-
-#cpu-box-kpi-2 {
-    animation: show 600ms;
-}
-
-#cpu-grafico-velocidade {
-    animation: show 300ms;
-}
-
-.cpu-detalhes {
-    animation: show 700ms;
 }
 
 .cpu-graficos {
@@ -578,27 +585,6 @@ body {
 /* MEMÓRIA ------------------------------------------------------------- */
 #conteudo-memoria {
     display: flex;
-}
-
-/* ANIMAÇÕES */
-#memoria-grafico-1 {
-    animation: show 200ms;
-}
-
-#memoria-box-kpi-1 {
-    animation: show 400ms;
-}
-
-#memoria-box-kpi-2 {
-    animation: show 600ms;
-}
-
-#memoria-grafico-2 {
-    animation: show 300ms;
-}
-
-.memoria-detalhes {
-    animation: show 700ms;
 }
 
 .memoria-graficos {
@@ -758,27 +744,6 @@ body {
     display: flex;
 }
 
-/* ANIMAÇÕES */
-#disco-grafico-temperatura {
-    animation: show 200ms;
-}
-
-#disco-kpi {
-    animation: show 400ms;
-}
-
-#disco-kpi-situacao {
-    animation: show 600ms;
-}
-
-#disco-grafico-velocidade {
-    animation: show 300ms;
-}
-
-.disco-detalhes {
-    animation: show 700ms;
-}
-
 .disco-graficos {
     display: flex;
     flex-direction: column;
@@ -933,27 +898,6 @@ body {
     display: flex;
 }
 
-/* ANIMAÇÕES */
-#rede-grafico-1 {
-    animation: show 200ms;
-}
-
-#rede-box-kpi-1 {
-    animation: show 400ms;
-}
-
-#rede-box-kpi-2 {
-    animation: show 600ms;
-}
-
-#rede-grafico-2 {
-    animation: show 300ms;
-}
-
-.rede-detalhes {
-    animation: show 700ms;
-}
-
 .rede-graficos {
     display: flex;
     flex-direction: column;
@@ -992,7 +936,8 @@ body {
     padding: 15px 0px;
 }
 
-#kpi-rede-up, #kpi-rede-down{
+#kpi-rede-up,
+#kpi-rede-down {
     font-size: 40px;
     font-weight: 700;
     color: #337bff;
@@ -1108,27 +1053,6 @@ body {
 /* GPU ------------------------------------------------------------- */
 #conteudo-gpu {
     display: flex;
-}
-
-/* ANIMAÇÕES */
-#gpu-grafico-1 {
-    animation: show 200ms;
-}
-
-#gpu-box-kpi-1 {
-    animation: show 400ms;
-}
-
-#gpu-box-kpi-2 {
-    animation: show 600ms;
-}
-
-#gpu-grafico-2 {
-    animation: show 300ms;
-}
-
-.gpu-detalhes {
-    animation: show 700ms;
 }
 
 .gpu-graficos {

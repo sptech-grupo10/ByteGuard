@@ -1,3 +1,13 @@
+fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.getItem('idLanhouse')}`, { cache: "no-cache" }).then(res => {
+    if (res.ok) {
+        res.json().then(lanhouse => {
+            document.querySelector('#insert-codigo-lanhouse').innerText = lanhouse.codigoAcesso
+        })
+    } else {
+        console.log('Erro na busca da lanhouse')
+    }
+})
+
 document.querySelectorAll('.print-username').forEach(usernameClass => {
     usernameClass.innerText = sessionStorage.getItem('nomeUsuario')
 })

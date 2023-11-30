@@ -114,7 +114,7 @@
       <!-- O que for alterar nas telas é apenas daqui para baixo -->
       <div class="conteudo-dash" id="conteudo-overview">
 
-        <div class="grafico-overview-1" onclick="acessarCPU()">
+        <div class="grafico-overview-1" id="overview-cpu" onclick="acessarCPU()">
           <div class="title-canva">
             <h1>CPU</h1>
             <div componente='CPU' class="status-componente"></div>
@@ -124,7 +124,7 @@
           </div>
         </div>
 
-        <div class="grafico-overview-1" onclick="acessarRede()">
+        <div class="grafico-overview-1" id="overview-rede" onclick="acessarRede()">
           <div class="title-canva">
             <h1>Rede</h1>
             <div componente='Rede' class="status-componente"></div>
@@ -148,7 +148,7 @@
           </div>
         </div>
 
-        <div class="grafico-overview-1" onclick="acessarDisco()">
+        <div class="grafico-overview-1" id="overview-disco" onclick="acessarDisco()">
           <div class="title-canva">
             <h1>Disco</h1>
             <div componente='Disco' class="status-componente"></div>
@@ -158,7 +158,7 @@
           </div>
         </div>
 
-        <div class="grafico-overview-2" onclick="acessarPlacaDeVideo()">
+        <div class="grafico-overview-2" id="overview-gpu" onclick="acessarPlacaDeVideo()">
           <div class="title-canva">
             <h1>Placa de Vídeo</h1>
             <div class="status-componente" componente='GPU'></div>
@@ -168,7 +168,7 @@
           </div>
         </div>
 
-        <div class="grafico-overview-2" onclick="acessarMemoria()">
+        <div class="grafico-overview-2" id="overview-memoria" onclick="acessarMemoria()">
           <div class="title-canva">
             <h1>Memória</h1>
             <div componente='RAM' class="status-componente"></div>
