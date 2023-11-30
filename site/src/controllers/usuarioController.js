@@ -2,7 +2,7 @@ const usuarioModel = require('../models/usuarioModel')
 
 function listarUsuariosPorEmpresa(req, res) {
     usuarioModel.listarUsuariosPorEmpresa(req.params.idEmpresa).then(result => {
-        res.json(result)
+        res.json(result.recordset)
     }).catch(e => {
         console.log(e)
         res.status(500).json
