@@ -52,6 +52,8 @@ async function buscarLogs() {
     resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('Rede')}`)
     qtdAlertasHoje = await resQtdAlertasHoje.json()
 
+    document.querySelector('#qtd-alertas-rede').innerText = qtdAlertasHoje.alertas
+
     plotarGraficos(log.download, log.upload)
     plotarKpis(log.download.valor, log.upload.valor)
 }

@@ -63,6 +63,8 @@ async function buscarLogs() {
     resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('RAM')}`)
     qtdAlertasHoje = await resQtdAlertasHoje.json()
 
+    document.querySelector('#qtd-alertas-memoria').innerText = qtdAlertasHoje.alertas
+
     document.querySelector('#kpi-memoria-min').innerText = `${MinMaxMinAtras.min}%`
     document.querySelector('#kpi-memoria-max').innerText = `${MinMaxMinAtras.max}%`
 }
