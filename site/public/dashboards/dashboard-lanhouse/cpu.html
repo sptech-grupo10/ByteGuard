@@ -1,196 +1,247 @@
 <DOCTYPE html>
-    <html lang="PT-BR">
-
+  <html lang="PT-BR">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Analytics | CPU</title>
-        <link rel="stylesheet" href="css/dashboard.css">
-        <link rel="stylesheet" href="../../css/reset.css">
-        <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
-        <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-        <script src="./js/cpu.js" defer></script>
-        <script src="../../js/login.js"></script>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Analytics | CPU</title>
+      <link rel="stylesheet" href="css/dashboard.css" />
+      <link rel="stylesheet" href="../../css/reset.css" />
+      <script
+        src="https://kit.fontawesome.com/1dfbd4d56e.js"
+        crossorigin="anonymous"
+      ></script>
+      <link
+        rel="shortcut icon"
+        href="../../assets/imgs/bitGuardLogo.svg"
+        type="image/x-icon"
+      />
+      <script src="./js/cpu.js" defer></script>
+      <script src="../../js/login.js"></script>
 
-        <!-- CHART.JS -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <!-- CHART.JS -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
+      <header class="nav-horizontal">
+        <img
+          src="../../assets/imgs/blue-logo-name.png"
+          alt="logo-name"
+          id="logo-byte"
+        />
 
-        <header class="nav-horizontal">
-            <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+        <span id="codigo-lanhouse"
+          >Código da lanhouse: <span id="insert-codigo-lanhouse"></span
+        ></span>
 
-            <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
+        <div class="user-info">
+          <div class="user-name-cargo">
+            <span id="username" class="print-username"></span>
+            <span class="user-cargo"></span>
+          </div>
 
-            <div class="user-info">
-                <div class="user-name-cargo">
-                    <span id="username" class="print-username"></span>
-                    <span class="user-cargo"></span>
-                </div>
-
-                <div class="user-icon">
-                    <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
-                </div>
-            </div>
-        </header>
-
-        <header>
-            <ul class="nav-left">
-                <li>
-                    <a href="index.html">
-                        <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="dashboard-componentes.html">
-                        <img class="icons" src="../../assets/imgs/overview-icon-black.png" alt="">
-                        <span>Overview</span>
-                    </a>
-                </li>
-                <li id="tela-atual">
-                    <a href="cpu.html">
-                        <img class="icons" src="../../assets/imgs/cpu-icon-blue.png" alt="">
-                        <span>CPU</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="memoria.html">
-                        <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
-                        <span>Memória RAM</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="disco.html">
-                        <img class="icons" src="../../assets/imgs/disco-icon-black.png" alt="">
-                        <span>Disco</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="rede.html">
-                        <img class="icons" src="../../assets/imgs/rede-icon-black.png" alt="">
-                        <span>Rede</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="gpu.html">
-                        <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
-                        <span>Placa de Vídeo</span>
-                    </a>
-                </li>
-                <li class="sair" onclick="limparSessao()">
-                    <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-                    <span>Sair</span>
-                </li>
-            </ul>
-        </header>
-
-        <div class="container-dash">
-            <div class="cabecalho">
-                <h1 id="title-dash">Detalhes da CPU - <span id="maquina-atual"></span></h1>
-            </div>
-
-            <!-- O que for alterar nas telas é apenas daqui para baixo -->
-            <div class="conteudo-dash" id="conteudo-cpu">
-
-                <div class="cpu-graficos">
-                    <div class="cpu-chart" id="cpu-grafico-uso">
-                        <h1>Utilização</h1>
-                        <div class="info-graficos">
-                            <canvas id="cpu-grafico-utilizacao-line"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="cpu-chart" id="cpu-grafico-velocidade">
-                        <h1>Utilização - Donut</h1>
-                        <div class="info-graficos">
-                            <canvas id="cpu-grafico-utilizacao-donut"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cpu-kpi-detalhes">
-                    <div class="cpu-kpi" id="cpu-kpi">
-                        <div class="cpu-box-kpi" id="cpu-box-kpi-1">
-                            <h1>Utilização nos últimos 5 minutos</h1>
-
-                            <div class="kpi-cpu-min-max">
-                                <div class="cpu-min-max">
-                                    <h3>Mínimo</h3>
-                                    <span id="kpi-cpu-min">0%</span>
-                                </div>
-                                <div class="cpu-min-max">
-                                    <h3>Máximo</h3>
-                                    <span id="kpi-cpu-max">0%</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cpu-box-kpi" id="cpu-box-kpi-2">
-                            <h1>Situação CPU - Hoje</h1>
-
-                            <div class="cpu-situacao-total">
-                                <div class="row-situacao">
-                                    <div class="circle ideal"></div>
-                                    <span>Ideal:</span>
-                                    <span id="cpu-situacao-ideal">85%</span>
-                                </div>
-                                <div class="row-situacao">
-                                    <div class="circle atencao"></div>
-                                    <span>Atenção:</span>
-                                    <span id="cpu-situacao-atencao">10%</span>
-                                </div>
-                                <div class="row-situacao">
-                                    <div class="circle critico"></div>
-                                    <span>Crítico:</span>
-                                    <span id="cpu-situacao-critico">5%</span>
-                                </div>
-                                <div class="row-situacao">
-                                    <div class="circle inativo"></div>
-                                    <span>Inativo:</span>
-                                    <span id="cpu-situacao-critico">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cpu-detalhes">
-                        <h1>Detalhes técnicos - CPU</h1>
-
-                        <div class="cpu-detalhes-container">
-
-                            <div class="cpu-detalhes-box">
-                                <div class="cpu-detalhes-info">
-                                    <span class="cpu-title-detalhe" id="cpu-title-espec-0"></span>
-                                    <span class="cpu-value-detalhe" id="cpu-value-espec-0"></span>
-                                </div>
-
-                                <div class="cpu-detalhes-info">
-                                    <span class="cpu-title-detalhe" id="cpu-title-espec-1"></span>
-                                    <span class="cpu-value-detalhe" id="cpu-value-espec-1"></span>
-                                </div>
-
-                                <div class="cpu-detalhes-info">
-                                    <span class="cpu-title-detalhe" id="cpu-title-espec-2"></span>
-                                    <span class="cpu-value-detalhe" id="cpu-value-espec-2"></span>
-                                </div>
-                            </div>
-
-                            <div class="cpu-detalhes-box">
-                                <div class="cpu-detalhes-info">
-                                    <span class="cpu-title-detalhe" id="cpu-title-espec-3"></span>
-                                    <span class="cpu-value-detalhe" id="cpu-value-espec-3"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Fim da alteração da tela -->
-
+          <div class="user-icon">
+            <img
+              src="../../assets/imgs/user-icon-black.png"
+              alt="icon"
+              id="icon-logo"
+              style="color: #000"
+            />
+          </div>
         </div>
-    </body>
+      </header>
 
-    </html>
+      <header>
+        <ul class="nav-left">
+          <li>
+            <a href="index.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/home-icon-black.png"
+                alt=""
+              />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard-componentes.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/overview-icon-black.png"
+                alt=""
+              />
+              <span>Overview</span>
+            </a>
+          </li>
+          <li id="tela-atual">
+            <a href="cpu.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/cpu-icon-blue.png"
+                alt=""
+              />
+              <span>CPU</span>
+            </a>
+          </li>
+          <li>
+            <a href="memoria.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/memoria-ram-icon-black.png"
+                alt=""
+              />
+              <span>Memória RAM</span>
+            </a>
+          </li>
+          <li>
+            <a href="disco.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/disco-icon-black.png"
+                alt=""
+              />
+              <span>Disco</span>
+            </a>
+          </li>
+          <li>
+            <a href="rede.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/rede-icon-black.png"
+                alt=""
+              />
+              <span>Rede</span>
+            </a>
+          </li>
+          <li>
+            <a href="gpu.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/gpu-icon-black.png"
+                alt=""
+              />
+              <span>Placa de Vídeo</span>
+            </a>
+          </li>
+          <li class="sair" onclick="limparSessao()">
+            <img
+              class="icons"
+              src="../../assets/imgs/logout-icon-black.png"
+              alt=""
+            />
+            <span>Sair</span>
+          </li>
+        </ul>
+      </header>
+
+      <div class="container-dash">
+        <div class="cabecalho">
+          <h1 id="title-dash">
+            Detalhes da CPU - <span id="maquina-atual"></span>
+          </h1>
+        </div>
+
+        <!-- O que for alterar nas telas é apenas daqui para baixo -->
+        <div class="conteudo-dash" id="conteudo-cpu">
+          <div class="cpu-graficos">
+            <div class="cpu-chart" id="cpu-grafico-uso">
+              <h1>Utilização</h1>
+              <div class="info-graficos">
+                <canvas id="cpu-grafico-utilizacao-line"></canvas>
+              </div>
+            </div>
+
+            <div class="cpu-chart" id="cpu-grafico-velocidade">
+              <h1>Utilização - Donut</h1>
+              <div class="info-graficos">
+                <canvas id="cpu-grafico-utilizacao-donut"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="cpu-kpi-detalhes">
+            <div class="cpu-kpi" id="cpu-kpi">
+              <div class="cpu-box-kpi" id="cpu-box-kpi-1">
+                <h1>Utilização nos últimos 5 minutos</h1>
+
+                <div class="kpi-cpu-min-max">
+                  <div class="cpu-min-max">
+                    <h3>Mínimo</h3>
+                    <span id="kpi-cpu-min">0%</span>
+                  </div>
+                  <div class="cpu-min-max">
+                    <h3>Máximo</h3>
+                    <span id="kpi-cpu-max">0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpu-box-kpi" id="cpu-box-kpi-2">
+                <h1>Quantidade de alertas emitidos pela CPU hoje</h1>
+
+                <div class="cpu-situacao-total">
+                  <span id="qtd-alertas-cpu">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cpu-detalhes">
+              <h1>Detalhes técnicos - CPU</h1>
+
+              <div class="cpu-detalhes-container">
+                <div class="cpu-detalhes-box">
+                  <div class="cpu-detalhes-info">
+                    <span
+                      class="cpu-title-detalhe"
+                      id="cpu-title-espec-0"
+                    ></span>
+                    <span
+                      class="cpu-value-detalhe"
+                      id="cpu-value-espec-0"
+                    ></span>
+                  </div>
+
+                  <div class="cpu-detalhes-info">
+                    <span
+                      class="cpu-title-detalhe"
+                      id="cpu-title-espec-1"
+                    ></span>
+                    <span
+                      class="cpu-value-detalhe"
+                      id="cpu-value-espec-1"
+                    ></span>
+                  </div>
+
+                  <div class="cpu-detalhes-info">
+                    <span
+                      class="cpu-title-detalhe"
+                      id="cpu-title-espec-2"
+                    ></span>
+                    <span
+                      class="cpu-value-detalhe"
+                      id="cpu-value-espec-2"
+                    ></span>
+                  </div>
+                </div>
+
+                <div class="cpu-detalhes-box">
+                  <div class="cpu-detalhes-info">
+                    <span
+                      class="cpu-title-detalhe"
+                      id="cpu-title-espec-3"
+                    ></span>
+                    <span
+                      class="cpu-value-detalhe"
+                      id="cpu-value-espec-3"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fim da alteração da tela -->
+      </div>
+    </body>
+  </html></DOCTYPE
+>

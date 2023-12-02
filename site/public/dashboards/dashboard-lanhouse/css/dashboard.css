@@ -1202,3 +1202,13 @@ body {
 .gpu-detalhes .gpu-detalhes-info .gpu-title-detalhe {
     font-weight: 600;
 }
+
+#qtd-alertas-memoria,
+#qtd-alertas-gpu,
+#qtd-alertas-cpu,
+#qtd-alertas-disco,
+#qtd-alertas-rede {
+    font-size: 40px;
+    font-weight: 700;
+    color: #337bff;
+}
