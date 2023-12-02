@@ -43,9 +43,20 @@ async function buscarLogsComponenteHoje(req, res) {
     }
 }
 
+async function buscarSeUsouDisco(req,res) {
+    try {
+        result = await logModel.buscarSeUsouDisco(req.params.fkDisco)
+        res.status(200).send(result.recordset[0])
+    } catch (e) {
+        console.log(e)
+        res.status(500).end()
+    }
+}
+
 module.exports = {
     buscarLogPorComponente,
     buscarLogRede,
     buscarMinMaxLogMinsAtras,
-    buscarLogsComponenteHoje
+    buscarLogsComponenteHoje,
+    buscarSeUsouDisco
 }

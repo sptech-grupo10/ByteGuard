@@ -24,10 +24,34 @@ function buscarLogsComponenteHoje(fkComponente) {
         : db.exec(`SELECT * FROM Log WHERE fkComponente = ${fkComponente} AND CONVERT(DATE, dataLog) = CAST(GETDATE() AS DATE)`)
 }
 
+function buscarSeUsouDisco(fkDisco) {
+    return db.exec(`WITH ValoresDiarios AS (
+        SELECT 
+            datalog,
+            valor,
+            LAG(valor) OVER (ORDER BY datalog) AS valor_anterior
+        FROM 
+            log
+        WHERE 
+            CONVERT(DATE, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') and fkComponente = 23
+    )
+    SELECT 
+        datalog,
+        MAX(valor) AS valor_atual,
+        MAX(valor_anterior) AS valor_anterior
+    FROM 
+        ValoresDiarios
+    GROUP BY 
+        datalog
+    HAVING 
+        MAX(valor) <> MAX(valor_anterior)`)
+}
+
 module.exports = {
     buscarLogPorComponente,
     buscarLogUploadRede,
     buscarLogDownloadRede,
     buscarMinMaxLogMinsAtras,
-    buscarLogsComponenteHoje
+    buscarLogsComponenteHoje,
+    buscarSeUsouDisco
 }
