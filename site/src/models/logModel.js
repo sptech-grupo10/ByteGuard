@@ -49,7 +49,7 @@ function buscarSeUsouDisco(fkDisco) {
 }
 
 function buscarQtdAlertasHoje(fkComponente) {
-    return db.exec(`select count(idLog) from log where fkComponente = 25 
+    return db.exec(`select count(idLog) as alertas from log where fkComponente = ${fkComponente}
     and convert(date, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') and statusLog != 1`)
 }
 

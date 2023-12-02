@@ -63,6 +63,8 @@ async function buscarLogs() {
     resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('Processador')}`)
     qtdAlertasHoje = await resQtdAlertasHoje.json()
 
+    document.querySelector('#qtd-alertas-cpu').innerText = qtdAlertasHoje
+
     plotarKpis(MinMaxMinAtras.min, MinMaxMinAtras.max)
 }
 
