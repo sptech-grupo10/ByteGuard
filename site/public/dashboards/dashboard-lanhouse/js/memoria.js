@@ -52,10 +52,15 @@ document.querySelectorAll('#maquina-atual').forEach(userTypeClass => {
     userTypeClass.innerText = sessionStorage.getItem('nomeMaquina')
 })
 
-function buscarLogs() {
+async function buscarLogs() {
     fetch(`${window.location.origin}/logs/buscarLogComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(log => {
         plotarGraficos(`${new Date(log.dataLog).getHours()}:${new Date(log.dataLog).getMinutes()}:${new Date(log.dataLog).getSeconds()}`, log.valor)
     }))
+
+    resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('RAM')}/5`)
+    MinMaxMinAtras = await resMinMaxMinAtras.json()
+
+    console.log(MinMaxMinAtras)
 }
 
 function plotarGraficos(label, valor) {
