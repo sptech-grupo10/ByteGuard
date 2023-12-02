@@ -33,7 +33,8 @@ function buscarSeUsouDisco(fkDisco) {
         FROM 
             log
         WHERE 
-            CONVERT(DATE, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') and fkComponente = 23
+            CONVERT(DATE, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') 
+        AND fkComponente = ${fkDisco}
     )
     SELECT 
         datalog,
@@ -47,11 +48,17 @@ function buscarSeUsouDisco(fkDisco) {
         MAX(valor) <> MAX(valor_anterior)`)
 }
 
+function buscarQtdAlertasHoje(fkComponente) {
+    return db.exec(`select count(idLog) from log where fkComponente = 25 
+    and convert(date, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') and statusLog != 1`)
+}
+
 module.exports = {
     buscarLogPorComponente,
     buscarLogUploadRede,
     buscarLogDownloadRede,
     buscarMinMaxLogMinsAtras,
     buscarLogsComponenteHoje,
-    buscarSeUsouDisco
+    buscarSeUsouDisco,
+    buscarQtdAlertasHoje
 }
