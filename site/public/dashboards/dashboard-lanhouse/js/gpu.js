@@ -51,6 +51,12 @@ async function buscarLogs() {
     const logGpuRes = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('GPU')}`)
     const logGpu = await logGpuRes.json()
     plotarGraficos(`${new Date(logGpu.dataLog).getHours()}:${new Date(logGpu.dataLog).getMinutes()}:${new Date(logGpu.dataLog).getSeconds()}`, logGpu.valor)
+
+    resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('GPU')}/5`)
+    MinMaxMinAtras = await resMinMaxMinAtras.json()
+
+    document.querySelector('#kpi-gpu-min').innerText = `${MinMaxMinAtras.min}%`
+    document.querySelector('#kpi-gpu-max').innerText = `${MinMaxMinAtras.mmax}%`
 }
 
 function plotarGraficos(label, valor) {
