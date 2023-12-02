@@ -55,6 +55,9 @@ async function buscarLogs() {
     resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('GPU')}/5`)
     MinMaxMinAtras = await resMinMaxMinAtras.json()
 
+    resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('GPU')}`)
+    qtdAlertasHoje = await resQtdAlertasHoje.json()
+
     document.querySelector('#kpi-gpu-min').innerText = `${MinMaxMinAtras.min}%`
     document.querySelector('#kpi-gpu-max').innerText = `${MinMaxMinAtras.max}%`
 }
