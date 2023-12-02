@@ -15,7 +15,7 @@ function buscarLogDownloadRede(idRede) {
 function buscarMinMaxLogMinsAtras(fkComponente, minsAtras) {
     return process.env.AMBIENTE == 'desenvolvimento'
         ? db.exec(`SELECT MIN(valor) as min, MAX(valor) as max FROM Log where fkComponente = ${fkComponente} AND dataLog >= NOW() - INTERVAL ${minsAtras} MINUTE`)
-        : db.exec(`SELECT MIN(valor) as min, MAX(valor) as max FROM Log where fkComponente = 21 AND convert(datetime, dataLog) >= convert(datetime, DATEADD(MINUTE, -5, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time'))`)
+        : db.exec(`SELECT MIN(valor) as min, MAX(valor) as max FROM Log where fkComponente = ${fkComponente} AND convert(datetime, dataLog) >= convert(datetime, DATEADD(MINUTE, -${minsAtras}, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time'))`)
 }
 
 function buscarLogsComponenteHoje(fkComponente) {
