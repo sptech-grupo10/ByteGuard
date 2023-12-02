@@ -56,7 +56,7 @@ async function buscarLogs() {
     MinMaxMinAtras = await resMinMaxMinAtras.json()
 
     document.querySelector('#kpi-gpu-min').innerText = `${MinMaxMinAtras.min}%`
-    document.querySelector('#kpi-gpu-max').innerText = `${MinMaxMinAtras.mmax}%`
+    document.querySelector('#kpi-gpu-max').innerText = `${MinMaxMinAtras.max}%`
 }
 
 function plotarGraficos(label, valor) {
