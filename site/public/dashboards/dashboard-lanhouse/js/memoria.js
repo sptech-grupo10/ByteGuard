@@ -60,7 +60,8 @@ async function buscarLogs() {
     resMinMaxMinAtras = await fetch(`/logs/buscarMinMaxLogMinsAtras/${sessionStorage.getItem('RAM')}/5`)
     MinMaxMinAtras = await resMinMaxMinAtras.json()
 
-    console.log(MinMaxMinAtras)
+    document.querySelector('#kpi-memoria-min').innerText = `${MinMaxMinAtras.min}%`
+    document.querySelector('#kpi-memoria-max').innerText = `${MinMaxMinAtras.max}%`
 }
 
 function plotarGraficos(label, valor) {
