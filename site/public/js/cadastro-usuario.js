@@ -5,7 +5,7 @@ document.querySelector("#btCadastrar").addEventListener("click", () => {
   )) {
     cadastrar(document.querySelector('#iusername').value, document.querySelector('#iemail').value, document.querySelector('#isenha').value)
   }
-});
+})
 
 function cadastrar(nome, email, senha) {
   fetch(`${window.location.origin}/usuarios/cadastrar`, {

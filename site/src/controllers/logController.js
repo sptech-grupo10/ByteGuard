@@ -26,7 +26,7 @@ async function buscarLogRede(req, res) {
 async function buscarMinMaxLogMinsAtras(req, res) {
     try {
         result = await logModel.buscarMinMaxLogMinsAtras(req.params.fkComponente, req.params.minsAtras)
-        res.status(200).send(result[0].recordset[0])
+        res.status(200).send(result.recordset[0])
     } catch (e) {
         console.log(e)
         res.status(500).end()
