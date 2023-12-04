@@ -11,7 +11,7 @@ fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.
 })
 
 fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('Processador')}`).then(res => res.json().then(metricas => {
-    metricaCPU = metricas;
+    metricaCPU = metricas[0];
 })).then(() => {
     buscarLogs()
 })

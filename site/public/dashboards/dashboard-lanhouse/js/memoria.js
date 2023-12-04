@@ -11,7 +11,7 @@ fetch(`${window.location.origin}/lanhouses/buscarLanHousePorId/${sessionStorage.
 let metricaMemoria
 
 fetch(`${window.location.origin}/metricas/buscarMetricasComponente/${sessionStorage.getItem('RAM')}`).then(res => res.json().then(metricas => {
-    metricaMemoria = metricas
+    metricaMemoria = metricas[0]
 })).then(() => {
     buscarLogs()
 })

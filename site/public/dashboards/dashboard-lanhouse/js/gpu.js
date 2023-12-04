@@ -41,7 +41,7 @@ let metricaGpu
 async function buscarMetricasGpu() {
     const resMetricasGpu = await fetch(`/metricas/buscarMetricasComponente/${sessionStorage.getItem('GPU')}`)
     const metricasGpu = await resMetricasGpu.json()
-    metricaGpu = metricasGpu
+    metricaGpu = metricasGpu[0]
 }
 
 buscarMetricasGpu()

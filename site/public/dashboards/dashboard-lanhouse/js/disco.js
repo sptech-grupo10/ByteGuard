@@ -48,7 +48,7 @@ let metricaDisco
 async function buscarMetricasDisco() {
     const resMetricasDisco = await fetch(`/metricas/buscarMetricasComponente/${sessionStorage.getItem('Disco')}`)
     const metricasDisco = await resMetricasDisco.json()
-    metricaDisco = metricasDisco
+    metricaDisco = metricasDisco[0]
 }
 
 buscarMetricasDisco()
