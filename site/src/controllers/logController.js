@@ -43,17 +43,17 @@ async function buscarLogsComponenteHoje(req, res) {
     }
 }
 
-async function buscarSeUsouDisco(req,res) {
+async function buscarSeUsouDisco(req, res) {
     try {
         result = await logModel.buscarSeUsouDisco(req.params.fkDisco)
-        res.status(200).send(result.recordset[0])
+        res.status(200).send(result.recordset[0].length > 1)
     } catch (e) {
         console.log(e)
         res.status(500).end()
     }
 }
 
-async function buscarQtdAlertasHoje(req,res) {
+async function buscarQtdAlertasHoje(req, res) {
     try {
         result = await logModel.buscarQtdAlertasHoje(req.params.fkComponente)
         res.status(200).send(result.recordset[0])

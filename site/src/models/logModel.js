@@ -25,27 +25,8 @@ function buscarLogsComponenteHoje(fkComponente) {
 }
 
 function buscarSeUsouDisco(fkDisco) {
-    return db.exec(`WITH ValoresDiarios AS (
-        SELECT 
-            datalog,
-            valor,
-            LAG(valor) OVER (ORDER BY datalog) AS valor_anterior
-        FROM 
-            log
-        WHERE 
-            CONVERT(DATE, datalog) = CONVERT(DATE, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time') 
-        AND fkComponente = ${fkDisco}
-    )
-    SELECT 
-        datalog,
-        MAX(valor) AS valor_atual,
-        MAX(valor_anterior) AS valor_anterior
-    FROM 
-        ValoresDiarios
-    GROUP BY 
-        datalog
-    HAVING 
-        MAX(valor) <> MAX(valor_anterior)`)
+    return db.exec(`SELECT DISTINCT valor FROM log WHERE fkComponente = ${fkDisco}
+    AND convert(date, datalog) = convert(date, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time')`)
 }
 
 function buscarQtdAlertasHoje(fkComponente) {
