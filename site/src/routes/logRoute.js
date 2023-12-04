@@ -18,4 +18,12 @@ router.get('/buscarLogsComponenteHoje/:fkComponente', (req, res) => {
     logController.buscarLogsComponenteHoje(req, res)
 })
 
+router.get('/buscarSeUsouDiscoHoje/:fkDisco', (req, res) => {
+    logController.buscarSeUsouDisco(req, res)
+})
+
+router.get('/buscarQtdAlertasHoje/:fkComponente', (req, res) => {
+    logController.buscarQtdAlertasHoje(req, res)
+})
+
 module.exports = router

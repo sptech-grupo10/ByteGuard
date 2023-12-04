@@ -49,6 +49,11 @@ async function buscarLogs() {
     resLogRede = await fetch(`/logs/buscarLogRede/${sessionStorage.getItem('Rede')}`)
     log = await resLogRede.json()
 
+    resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('Rede')}`)
+    qtdAlertasHoje = await resQtdAlertasHoje.json()
+
+    document.querySelector('#qtd-alertas-rede').innerText = qtdAlertasHoje.alertas
+
     plotarGraficos(log.download, log.upload)
     plotarKpis(log.download.valor, log.upload.valor)
 }

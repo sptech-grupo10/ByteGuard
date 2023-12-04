@@ -57,6 +57,15 @@ buscarLogs()
 async function buscarLogs() {
     const resLogDisco = await fetch(`/logs/buscarLogComponente/${sessionStorage.getItem('Disco')}`)
     const logDisco = await resLogDisco.json()
+
+    const resUsouDisco = await fetch(`/logs/buscarSeUsouDiscoHoje/${sessionStorage.getItem('Disco')}`)
+    const usouDisco = await resUsouDisco.json()
+
+    resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('Disco')}`)
+    qtdAlertasHoje = await resQtdAlertasHoje.json()
+
+    document.querySelector('#qtd-alertas-disco').innerText = qtdAlertasHoje.alertas
+
     plotarGraficos(`${new Date(logDisco.dataLog).getHours()}:${new Date(logDisco.dataLog).getMinutes()}:${new Date(logDisco.dataLog).getSeconds()}`, logDisco.valor)
 }
 
