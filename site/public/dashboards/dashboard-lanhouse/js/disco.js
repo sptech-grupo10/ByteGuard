@@ -183,29 +183,3 @@ let myChartDiscoKpi = new Chart(
         }
     }
 )
-
-let myChartDiscoLeituraGravacao = new Chart(
-    document.getElementById("disco-grafico-leitura-gravacao"),
-    {
-        type: "line",
-        data: {
-            labels: ["14:05", "14:07", "14:09", "14:11", "14:13", "14:15", "14:17", "14:19", "14:21", "14:23", "14:25", "14:27", "14:29"],
-            datasets: [
-                {
-                    label: "Gravação",
-                    data: [125, 85, 143, 104, 134, 76, 97, 139, 88, 121, 130, 75, 102],
-                    fill: false,
-                    borderColor: "#337bff",
-                    tension: 0.1,
-                },
-                {
-                    label: "Leitura",
-                    data: [6, 14, 3, 18, 9, 5, 12, 1, 16, 7, 10, 19, 2],
-                    fill: false,
-                    borderColor: "#949494",
-                    tension: 0.1,
-                }
-            ]
-        }
-    }
-)
