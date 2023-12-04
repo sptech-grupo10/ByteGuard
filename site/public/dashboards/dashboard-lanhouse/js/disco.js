@@ -61,6 +61,8 @@ async function buscarLogs() {
     const resUsouDisco = await fetch(`/logs/buscarSeUsouDiscoHoje/${sessionStorage.getItem('Disco')}`)
     const usouDisco = await resUsouDisco.json()
 
+    document.querySelector('#kpi-disco-uso-sim-nao').innerText = usouDisco ? 'Sim' : 'Não'
+
     resQtdAlertasHoje = await fetch(`/logs/buscarQtdAlertasHoje/${sessionStorage.getItem('Disco')}`)
     qtdAlertasHoje = await resQtdAlertasHoje.json()
 
