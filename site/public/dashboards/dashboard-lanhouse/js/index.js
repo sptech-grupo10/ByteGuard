@@ -35,7 +35,7 @@ async function listarMaquinas() {
     if (!maquinas[0]) return
 
     if (maquinas[0].componentessobrecarrecados > 0) {
-        document.querySelector('#kpi-maquina-critica').innerHTML += `
+        document.querySelector('#kpi-maquina-critica').innerHTML = `
             <div class="header-maquinas">
                             <div class="alerta-kpi" id="maquinas-kpi-alerta">
                                 <span>Neste momento, a máquina <span id="maquina-kpi">${maquinas[0].nomeMaquina}</span> requer mais atenção, esta máquina é a que possui mais componentes sobrecarregados. Total de componentes: <span id="componentes-kpi">${maquinas[0].componentessobrecarrecados}</span>.</span>
