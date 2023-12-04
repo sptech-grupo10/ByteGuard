@@ -549,32 +549,37 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 98%;
     height: 220px;
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 15px 25px;
+    padding: 15px 0px;
 }
 
 .cpu-kpi-detalhes .cpu-detalhes .cpu-detalhes-container {
     display: flex;
+    width: 100%;
 }
 
 .cpu-kpi-detalhes .cpu-detalhes .cpu-detalhes-box {
     display: flex;
-    flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
     height: 120px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .cpu-detalhes .cpu-detalhes-info {
     display: flex;
     gap: 10px;
-    width: 300px;
-    align-items: start;
+    width: 40%;
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 0px 25px;
 }
 
 .cpu-detalhes .cpu-detalhes-info .cpu-title-detalhe {
@@ -803,10 +808,45 @@ body {
     justify-content: space-between;
 }
 
-.disco-kpi .disco-box-kpi h1 {
+.disco-box-kpi-2 {
+    height: 250px;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.disco-box-kpi #kpi-disco-uso-sim-nao {
+    font-size: 30px;
+    font-weight: 700;
+    color: #337bff;
+}
+
+#disco-desc-kpi {
+    display: flex;
+    text-align: center;
+    color: #727272;
+}
+
+.disco-kpi .disco-box-kpi h1,
+.disco-kpi .disco-box-kpi-2 h1
+ {
     display: flex;
     text-align: center;
     line-height: 30px;
+}
+
+.disco-box-kpi-qtd-alertas {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 25px;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .disco-box-kpi .disco-min-max {
@@ -831,7 +871,6 @@ body {
 }
 
 .disco-situacao-total {
-    height: 75%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -855,37 +894,66 @@ body {
     border-radius: 50%;
 }
 
+.box-disco-situacao-atual {
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 15px 0px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box-disco-situacao-atual span {
+    font-size: 20px;
+}
+
+.disco-situacao-atual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .disco-kpi-detalhes .disco-detalhes {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 98%;
     height: 220px;
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 15px 25px;
+    padding: 15px 0px;
 }
 
 .disco-kpi-detalhes .disco-detalhes .disco-detalhes-container {
     display: flex;
+    width: 100%;
 }
 
 .disco-kpi-detalhes .disco-detalhes .disco-detalhes-box {
     display: flex;
-    flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    width: 50%;
-    height: 80px;
+    width: 100%;
+    height: 120px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .disco-detalhes .disco-detalhes-info {
     display: flex;
     gap: 10px;
-    width: 300px;
-    align-items: start;
+    width: 40%;
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 0px 25px;
 }
 
 .disco-detalhes .disco-detalhes-info .disco-title-detalhe {
@@ -1017,32 +1085,37 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 98%;
     height: 220px;
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 15px 25px;
+    padding: 15px 0px;
 }
 
 .rede-kpi-detalhes .rede-detalhes .rede-detalhes-container {
     display: flex;
+    width: 100%;
 }
 
 .rede-kpi-detalhes .rede-detalhes .rede-detalhes-box {
     display: flex;
-    flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    width: 50%;
-    height: 80px;
+    width: 100%;
+    height: 120px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .rede-detalhes .rede-detalhes-info {
     display: flex;
     gap: 10px;
-    width: 300px;
-    align-items: start;
+    width: 40%;
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 0px 25px;
 }
 
 .rede-detalhes .rede-detalhes-info .rede-title-detalhe {
@@ -1171,32 +1244,37 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 98%;
     height: 220px;
-    border-radius: 10px;
-    background: #FFF;
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
-    padding: 15px 25px;
+    padding: 15px 0px;
 }
 
 .gpu-kpi-detalhes .gpu-detalhes .gpu-detalhes-container {
     display: flex;
+    width: 100%;
 }
 
 .gpu-kpi-detalhes .gpu-detalhes .gpu-detalhes-box {
     display: flex;
-    flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    width: 50%;
-    height: 80px;
+    width: 100%;
+    height: 120px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .gpu-detalhes .gpu-detalhes-info {
     display: flex;
     gap: 10px;
-    width: 300px;
-    align-items: start;
+    width: 40%;
+    height: 50px;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    padding: 0px 25px;
 }
 
 .gpu-detalhes .gpu-detalhes-info .gpu-title-detalhe {
