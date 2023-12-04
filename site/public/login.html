@@ -1,87 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/imgs/logo-byteguard-blue.png"
+      type="image/x-icon"
+      sizes="16x16 32x32 48x48"
+    />
+
     <script src="./js/login.js" defer></script>
     <script src="./js/index.js" defer></script>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/login.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <div class="options mobile">
-                <img class="options-icon" src="./assets/imgs/options-icon.svg">
-            </div>
-            <a href="index.html"><img src="./assets/imgs/bitGuardLogoWhite.png" class="logo" /></a>
-            <ul>
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Serviços</a></li>
-                <li><a href="index.html#porque">Por que usar ByteGuard?</a></li>
-                <li><a href="index.html#footer">Contato</a></li>
-                <!-- <li><a href="">Preços</a></li> -->
-            </ul>
-            <div onclick="exibirOpcoesLoginCadastro()" class="accountItem"><img src="./assets/imgs/accountItem.png" />
-            </div>
-        </nav>
+      <nav>
+        <div class="options mobile">
+          <img class="options-icon" src="./assets/imgs/options-icon.svg" />
+        </div>
+        <a href="index.html"
+          ><img src="./assets/imgs/bitGuardLogoWhite.png" class="logo"
+        /></a>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Serviços</a></li>
+          <li><a href="index.html#porque">Por que usar ByteGuard?</a></li>
+          <li><a href="index.html#footer">Contato</a></li>
+          <!-- <li><a href="">Preços</a></li> -->
+        </ul>
+        <div onclick="exibirOpcoesLoginCadastro()" class="accountItem">
+          <img src="./assets/imgs/accountItem.png" />
+        </div>
+      </nav>
     </header>
 
     <div id="opcoes-login-cadastro">
-        <a href="login.html" class="opcao">
-            <img src="assets/imgs/login-icon-white.png" alt="">
-            <span>Login</span>
-        </a>
+      <a href="login.html" class="opcao">
+        <img src="assets/imgs/login-icon-white.png" alt="" />
+        <span>Login</span>
+      </a>
 
-        <a href="cadastro-empresa.html" class="opcao">
-            <img src="assets/imgs/add-empresa-icon-white.png" alt="">
-            <span>Cadastrar Empresa</span>
-        </a>
+      <a href="cadastro-empresa.html" class="opcao">
+        <img src="assets/imgs/add-empresa-icon-white.png" alt="" />
+        <span>Cadastrar Empresa</span>
+      </a>
     </div>
 
     <main class="screen">
+      <img class="mainImage" src="./assets/imgs/login-img.png" alt="" />
 
-        <img class="mainImage" src="./assets/imgs/login-img.png" alt="">
-
-        <div class="loginContent flexc">
-            <div class="top flexc">
-                <span class="title flex">Login</span>
-                <div class="texts flexc">
-                    <span>Bem-vindo(a) de volta!</span>
-                    <span>Faça login para acessar sua conta</span>
-                </div>
-            </div>
-            <div class="base flexc">
-                <div class="inputsBox flex">
-                    <div class="input flexc">
-                        <span>EMAIL</span>
-                        <input type="text" id="iEmail" placeholder="Digite seu email">
-                    </div>
-                    <div class="input flexc">
-                        <span>SENHA</span>
-                        <input type="password" id="iSenha" placeholder="Digite sua senha">
-                    </div>
-                </div>
-                <span id="cookie"></span>
-                <div class="buttonBox flex">
-                    <button id="login" class="loginButon">Entrar </button>
-                    <div class="signBox flex">
-                        <span>Ainda não possui uma conta?</span>
-                        <a href="cadastro-usuario.html" class="cadastro"><span>Cadastre-se</span></a>
-                    </div>
-                </div>
-            </div>
+      <div class="loginContent flexc">
+        <div class="top flexc">
+          <span class="title flex">Login</span>
+          <div class="texts flexc">
+            <span>Bem-vindo(a) de volta!</span>
+            <span>Faça login para acessar sua conta</span>
+          </div>
         </div>
-
+        <div class="base flexc">
+          <div class="inputsBox flex">
+            <div class="input flexc">
+              <span>EMAIL</span>
+              <input type="text" id="iEmail" placeholder="Digite seu email" />
+            </div>
+            <div class="input flexc">
+              <span>SENHA</span>
+              <input
+                type="password"
+                id="iSenha"
+                placeholder="Digite sua senha"
+              />
+            </div>
+          </div>
+          <span id="cookie"></span>
+          <div class="buttonBox flex">
+            <button id="login" class="loginButon">Entrar</button>
+            <div class="signBox flex">
+              <span>Ainda não possui uma conta?</span>
+              <a href="cadastro-usuario.html" class="cadastro"
+                ><span>Cadastre-se</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <div class="success" id="success">
-        <img src="assets/imgs/sucesso.png" alt="">
-        <span id="success-desc">Login realizado com sucesso!</span>
+      <img src="assets/imgs/sucesso.png" alt="" />
+      <span id="success-desc">Login realizado com sucesso!</span>
     </div>
-</body>
-
+  </body>
 </html>

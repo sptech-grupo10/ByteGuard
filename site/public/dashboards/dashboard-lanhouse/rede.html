@@ -1,180 +1,253 @@
 <DOCTYPE html>
   <html lang="PT-BR">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Analytics | Rede</title>
+      <link rel="stylesheet" href="css/dashboard.css" />
+      <link rel="stylesheet" href="../../css/reset.css" />
+      <script src="../../js/login.js"></script>
+      <script
+        src="https://kit.fontawesome.com/1dfbd4d56e.js"
+        crossorigin="anonymous"
+      ></script>
+      <link rel="shortcut icon" href="../../assets/imgs/logo-byteguard-blue.png" type="image/x-icon" sizes="16x16 32x32 48x48"/>
+      <script src="./js/rede.js" defer></script>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics | Rede</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="../../css/reset.css">
-    <script src="../../js/login.js"></script>
-    <script src="https://kit.fontawesome.com/1dfbd4d56e.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="../../assets/imgs/bitGuardLogo.svg" type="image/x-icon" />
-    <script src="./js/rede.js" defer></script>
+      <!-- CHART.JS -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css"
+      />
+      <script
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js"
+      ></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
 
-    <!-- CHART.JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/themes/light.css" />
-    <script type="module"
-      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.11.2/cdn/shoelace-autoloader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+    <body>
+      <header class="nav-horizontal">
+        <img
+          src="../../assets/imgs/blue-logo-name.png"
+          alt="logo-name"
+          id="logo-byte"
+        />
 
-  <body>
+        <span id="codigo-lanhouse"
+          >Código da lanhouse: <span id="insert-codigo-lanhouse"></span
+        ></span>
 
-    <header class="nav-horizontal">
-      <img src="../../assets/imgs/blue-logo-name.png" alt="logo-name" id="logo-byte">
+        <div class="user-info">
+          <div class="user-name-cargo">
+            <span id="username" class="print-username"></span>
+            <span class="user-cargo"></span>
+          </div>
 
-      <span id="codigo-lanhouse">Código da lanhouse: <span id="insert-codigo-lanhouse"></span></span>
+          <div class="user-icon">
+            <img
+              src="../../assets/imgs/user-icon-black.png"
+              alt="icon"
+              id="icon-logo"
+              style="color: #000"
+            />
+          </div>
+        </div>
+      </header>
 
-      <div class="user-info">
-        <div class="user-name-cargo">
-          <span id="username" class="print-username"></span>
-          <span class="user-cargo"></span>
+      <header>
+        <ul class="nav-left">
+          <li>
+            <a href="index.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/home-icon-black.png"
+                alt=""
+              />
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="dashboard-componentes.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/overview-icon-black.png"
+                alt=""
+              />
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="cpu.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/cpu-icon-black.png"
+                alt=""
+              />
+              <span>CPU</span>
+            </a>
+          </li>
+          <li>
+            <a href="memoria.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/memoria-ram-icon-black.png"
+                alt=""
+              />
+              <span>Memória RAM</span>
+            </a>
+          </li>
+          <li>
+            <a href="disco.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/disco-icon-black.png"
+                alt=""
+              />
+              <span>Disco</span>
+            </a>
+          </li>
+          <li id="tela-atual">
+            <a href="rede.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/rede-icon-blue.png"
+                alt=""
+              />
+              <span>Rede</span>
+            </a>
+          </li>
+          <li>
+            <a href="gpu.html">
+              <img
+                class="icons"
+                src="../../assets/imgs/gpu-icon-black.png"
+                alt=""
+              />
+              <span>Placa de Vídeo</span>
+            </a>
+          </li>
+          <li class="sair" onclick="limparSessao()">
+            <img
+              class="icons"
+              src="../../assets/imgs/logout-icon-black.png"
+              alt=""
+            />
+            <span>Sair</span>
+          </li>
+        </ul>
+      </header>
+
+      <div class="container-dash">
+        <div class="cabecalho">
+          <h1 id="title-dash">
+            Detalhes de Rede - <span id="maquina-atual"></span>
+          </h1>
         </div>
 
-        <div class="user-icon">
-          <img src="../../assets/imgs/user-icon-black.png" alt="icon" id="icon-logo" style="color: #000;">
+        <!-- O que for alterar nas telas é apenas daqui para baixo -->
+        <div class="conteudo-dash" id="conteudo-rede">
+          <div class="rede-graficos">
+            <div class="rede-chart" id="rede-grafico-1">
+              <h1>Upload (MB)</h1>
+              <div class="info-graficos">
+                <canvas id="rede-grafico-upload"></canvas>
+              </div>
+            </div>
+
+            <div class="rede-chart" id="rede-grafico-2">
+              <h1>Download (GB)</h1>
+              <div class="info-graficos">
+                <canvas
+                  id="rede-grafico-download"
+                  width="500px"
+                  height="250px"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="rede-kpi-detalhes">
+            <div class="rede-kpi" id="rede-kpi">
+              <div class="rede-box-kpi" id="rede-box-kpi-1">
+                <h1>Taxas de Rede</h1>
+
+                <div class="kpi-rede-up-down">
+                  <div class="rede-up-down">
+                    <h3>Upload</h3>
+                    <sl-format-bytes id="kpi-rede-up"></sl-format-bytes>
+                  </div>
+                  <div class="rede-up-down">
+                    <h3>Download</h3>
+                    <sl-format-bytes id="kpi-rede-down"></sl-format-bytes>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rede-box-kpi" id="rede-box-kpi-2">
+                <h1>Quantidade de alertas emitidos pela Rede hoje</h1>
+
+                <div class="rede-situacao-total">
+                  <span id="qtd-alertas-rede">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rede-detalhes">
+              <h1>Detalhes técnicos - Rede</h1>
+
+              <div class="rede-detalhes-container">
+                <div class="rede-detalhes-box">
+                  <div class="rede-detalhes-info">
+                    <span
+                      class="rede-title-detalhe"
+                      id="rede-title-espec-0"
+                    ></span>
+                    <span
+                      class="rede-value-detalhe"
+                      id="rede-value-espec-0"
+                    ></span>
+                  </div>
+
+                  <div class="rede-detalhes-info">
+                    <span
+                      class="rede-title-detalhe"
+                      id="rede-title-espec-1"
+                    ></span>
+                    <span
+                      class="rede-value-detalhe"
+                      id="rede-value-espec-1"
+                    ></span>
+                  </div>
+
+                  <div class="rede-detalhes-info">
+                    <span
+                      class="rede-title-detalhe"
+                      id="rede-title-espec-2"
+                    ></span>
+                    <span
+                      class="rede-value-detalhe"
+                      id="rede-value-espec-2"
+                    ></span>
+                  </div>
+
+                  <div class="rede-detalhes-info">
+                    <span
+                      class="rede-title-detalhe"
+                      id="rede-title-espec-3"
+                    ></span>
+                    <span
+                      class="rede-value-detalhe"
+                      id="rede-value-espec-3"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- Fim da alteração da tela -->
       </div>
-    </header>
-
-    <header>
-      <ul class="nav-left">
-        <li>
-          <a href="index.html">
-            <img class="icons" src="../../assets/imgs/home-icon-black.png" alt="">
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="dashboard-componentes.html">
-            <img class="icons" src="../../assets/imgs/overview-icon-black.png" alt="">
-            <span>Overview</span>
-          </a>
-        </li>
-        <li>
-          <a href="cpu.html">
-            <img class="icons" src="../../assets/imgs/cpu-icon-black.png" alt="">
-            <span>CPU</span>
-          </a>
-        </li>
-        <li>
-          <a href="memoria.html">
-            <img class="icons" src="../../assets/imgs/memoria-ram-icon-black.png" alt="">
-            <span>Memória RAM</span>
-          </a>
-        </li>
-        <li>
-          <a href="disco.html">
-            <img class="icons" src="../../assets/imgs/disco-icon-black.png" alt="">
-            <span>Disco</span>
-          </a>
-        </li>
-        <li id="tela-atual">
-          <a href="rede.html">
-            <img class="icons" src="../../assets/imgs/rede-icon-blue.png" alt="">
-            <span>Rede</span>
-          </a>
-        </li>
-        <li>
-          <a href="gpu.html">
-            <img class="icons" src="../../assets/imgs/gpu-icon-black.png" alt="">
-            <span>Placa de Vídeo</span>
-          </a>
-        </li>
-        <li class="sair" onclick="limparSessao()">
-          <img class="icons" src="../../assets/imgs/logout-icon-black.png" alt="">
-          <span>Sair</span>
-        </li>
-      </ul>
-    </header>
-
-    <div class="container-dash">
-      <div class="cabecalho">
-        <h1 id="title-dash">Detalhes de Rede - <span id="maquina-atual"></span></h1>
-      </div>
-
-      <!-- O que for alterar nas telas é apenas daqui para baixo -->
-      <div class="conteudo-dash" id="conteudo-rede">
-
-        <div class="rede-graficos">
-          <div class="rede-chart" id="rede-grafico-1">
-            <h1>Upload (MB)</h1>
-            <div class="info-graficos">
-              <canvas id="rede-grafico-upload"></canvas>
-            </div>
-          </div>
-
-          <div class="rede-chart" id="rede-grafico-2">
-            <h1>Download (GB)</h1>
-            <div class="info-graficos">
-              <canvas id="rede-grafico-download" width="500px" height="250px"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <div class="rede-kpi-detalhes">
-          <div class="rede-kpi" id="rede-kpi">
-            <div class="rede-box-kpi" id="rede-box-kpi-1">
-              <h1>Taxas de Rede</h1>
-
-              <div class="kpi-rede-up-down">
-                <div class="rede-up-down">
-                  <h3>Upload</h3>
-                  <sl-format-bytes id="kpi-rede-up"></sl-format-bytes>
-                </div>
-                <div class="rede-up-down">
-                  <h3>Download</h3>
-                  <sl-format-bytes id="kpi-rede-down"></sl-format-bytes>
-                </div>
-              </div>
-            </div>
-
-            <div class="rede-box-kpi" id="rede-box-kpi-2">
-              <h1>Quantidade de alertas emitidos pela Rede hoje</h1>
-
-              <div class="rede-situacao-total">
-                <span id="qtd-alertas-rede">0</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="rede-detalhes">
-            <h1>Detalhes técnicos - Rede</h1>
-
-            <div class="rede-detalhes-container">
-
-              <div class="rede-detalhes-box">
-                <div class="rede-detalhes-info">
-                  <span class="rede-title-detalhe" id="rede-title-espec-0"></span>
-                  <span class="rede-value-detalhe" id="rede-value-espec-0"></span>
-                </div>
-
-                <div class="rede-detalhes-info">
-                  <span class="rede-title-detalhe" id="rede-title-espec-1"></span>
-                  <span class="rede-value-detalhe" id="rede-value-espec-1"></span>
-                </div>
-              </div>
-
-              <div class="rede-detalhes-box">
-                <div class="rede-detalhes-info">
-                  <span class="rede-title-detalhe" id="rede-title-espec-2"></span>
-                  <span class="rede-value-detalhe" id="rede-value-espec-2"></span>
-                </div>
-
-                <div class="rede-detalhes-info">
-                  <span class="rede-title-detalhe" id="rede-title-espec-3"></span>
-                  <span class="rede-value-detalhe" id="rede-value-espec-3"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- Fim da alteração da tela -->
-
-    </div>
-  </body>
-
-  </html>
+    </body>
+  </html></DOCTYPE
+>

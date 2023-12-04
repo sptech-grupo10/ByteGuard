@@ -85,6 +85,35 @@ function plotarUtilizacaoGPULine(label, valor) {
 
     myChartUsoGpu.update()
 }
+function plotarUtilizacaoGPULine(label, valor) {
+    myChartUsoGpu.data.labels.shift()
+    myChartUsoGpu.data.datasets[0].data.shift()
+
+    myChartUsoGpu.data.labels.push(label)
+
+    valor > Number(metricaGpu.maxMetrica) || valor < Number(metricaGpu.minMetrica)
+        ? myChartUsoGpu.data.datasets[0].borderColor = 'red'
+        : myChartUsoGpu.data.datasets[0].borderColor = 'blue'
+
+    myChartUsoGpu.data.datasets[0].data.push(valor)
+
+    myChartUsoGpu.update()
+}
+
+function plotarUtilizacaoGPUDonut(label, valor) {
+    myChartUsoGpuDonut.data.labels.shift()
+    myChartUsoGpuDonut.data.datasets[0].data.shift()
+
+    myChartUsoGpuDonut.data.labels.push(label)
+
+    valor > Number(metricaGpu.maxMetrica) || valor < Number(metricaGpu.minMetrica)
+        ? myChartUsoGpuDonut.data.datasets[0].borderColor = 'red'
+        : myChartUsoGpuDonut.data.datasets[0].borderColor = 'blue'
+
+    myChartUsoGpuDonut.data.datasets[0].data.push(valor)
+
+    myChartUsoGpuDonut.update()
+}
 
 let myChartUsoGpu = new Chart(
     document.getElementById("gpu-grafico-uso-linha"),
@@ -107,6 +136,30 @@ let myChartUsoGpu = new Chart(
                     max: 100
                 }
             },
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+        }
+    }
+)
+
+let myChartUsoGpuDonut = new Chart(
+    document.getElementById("gpu-grafico-uso-donut"),
+    {
+        type: "doughnut",
+        data: {
+            labels: ["Total de utilização (%)", "Total sem uso (%)"],
+            datasets: [
+                {
+                    label: "",
+                    data: [80, 20],
+                    backgroundColor: ["#337bff", "#D9D9D9"]
+                },
+            ]
+        },
+        options: {
             plugins: {
                 legend: {
                     display: false,
@@ -157,8 +210,42 @@ const configVelocidadeGpuLinha = {
     }
 };
 
+//--------------------------------------------------------------------------------
+// Gráfico GPU Uso - Line
+let labelsVelocidadeGpuDonut = ["14:10", "14:11", "14:12", "14:13", "14:14", "14:15", "14:16", "14:17", "14:18"];
+
+// Criando estrutura para plotar gráfico - dados
+let dadosVelocidadeGpuDonut = {
+    labels: labelsVelocidadeGpuDonut,
+    datasets: [{
+        label: "",
+        data: [47, 53, 54, 55, 65, 77, 38, 45, 90],
+        fill: true,
+        borderColor: "#337bff",
+    },]
+};
+
+// Criando estrutura para plotar gráfico - config
+const configVelocidadeGpuDonut = {
+    type: "line",
+    data: dadosVelocidadeGpuDonut,
+    options: {
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }
+    }
+};
+
 // Adicionando gráfico criado em div na tela
 let myChartVelocidadeGpuLinha = new Chart(
     document.getElementById("gpu-grafico-velocidade"),
+    configVelocidadeGpuLinha
+);
+
+// Adicionando gráfico criado em div na tela
+let myChartVelocidadeGpuDonut = new Chart(
+    document.getElementById("gpu-grafico-uso-donut"),
     configVelocidadeGpuLinha
 );
