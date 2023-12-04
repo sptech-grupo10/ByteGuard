@@ -23,11 +23,11 @@ function buscarMaquinasComponentesForaIdeal(fkLanhouse) {
             JOIN maquina m ON c.fkMaquina = m.idMaquina
         WHERE 
             convert(datetime, l.dataLog) >= convert(datetime, DATEADD(SECOND, -5, GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'E. South America Standard Time'))
-            AND fkLanhouse =  2
+            AND fkLanhouse =  ${fkLanhouse}
         GROUP BY
             m.nomeMaquina, m.idMaquina
         ORDER BY 
-            'componentessobrecarrecados' DESC;
+            'componentessobrecarrecados' DESC
         `)
     } catch (e) {
         console.log(e)
